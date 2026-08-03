@@ -1,0 +1,34 @@
+import type { RefObject } from 'react';
+import type { ShipBattlesBundle } from '@/features/game/ship/ShipViewBattlesTab';
+import type { ChatMsg, Member, ShipData, ShipTab, ShipTabItem } from '@/features/game/ship/shipTypes';
+
+export type ShipViewProps = {
+  ship: ShipData;
+  canChangeMemberRoles: boolean;
+  tab: ShipTab;
+  tabs: ShipTabItem[];
+  setTab: (tab: ShipTab) => void;
+  contributeGold: string;
+  setContributeGold: (value: string) => void;
+  contributeDiamonds: string;
+  setContributeDiamonds: (value: string) => void;
+  handleContribute: (type: 'gold' | 'diamonds') => void | Promise<void>;
+  changeRole: (idx: number, newRole: Member['role']) => void | Promise<void>;
+  removeMember: (idx: number) => void | Promise<void>;
+  onToggleRequiresInvitation: () => void | Promise<void>;
+  invitationSettingLoading: boolean;
+  upgradeShip: (key: string, cost: number) => void | Promise<void>;
+  battles: ShipBattlesBundle;
+  chatMessages: ChatMsg[];
+  chatEndRef: RefObject<HTMLDivElement | null>;
+  chatInput: string;
+  setChatInput: (value: string) => void;
+  sendChat: () => void | Promise<void>;
+  chatBootstrapping: boolean;
+  onViewProfile: (userId: string) => void;
+  onViewShip: (shipId: string) => void;
+  onDeleteShip: () => void | Promise<void>;
+  onLeaveShip: () => void | Promise<void>;
+  onInternalNotesChange: (notes: string) => void | Promise<void>;
+  onDescriptionSave: (description: string) => void | Promise<void>;
+};

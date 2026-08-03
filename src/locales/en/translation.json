@@ -1,0 +1,2707 @@
+{
+  "home": "Home",
+  "gameTitle": "Pirate Hero",
+  "auth": {
+    "seoTitle": "Sign in & sign up | Pirate Hero",
+    "seoDescription": "Sign in or create a Pirate Hero account - browser pirate RPG with battles, crew, and sea adventures.",
+    "heroTagline": "Join the crew and become the most feared pirate on the seven seas!",
+    "welcomeBack": "Welcome back!",
+    "subtitleLogin": "Sign in and return to the seas.",
+    "createAccount": "Create an account",
+    "subtitleRegister": "Start your pirate adventure.",
+    "emailPlaceholder": "captain@sevenseas.com",
+    "pirateNamePlaceholder": "Captain Blackbeard",
+    "forgotPassword": "Forgot password?",
+    "footerNoAccount": "Don't have an account?",
+    "footerHasAccount": "Already have an account?",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "tabLogin": "Login",
+    "tabRegister": "Register"
+  },
+  "about": "About",
+  "play": "Play",
+  "login": "Log in",
+  "register": "Sign up",
+  "email": "Email",
+  "password": "Password",
+  "username": "Username",
+  "repeatPassword": "Repeat Password",
+  "loginPrompt": "Already have an account? Log in",
+  "loginSuccess": "You have successfully logged in.",
+  "loginSuccessTitle": "Login Successful",
+  "loginErrorTitle": "Login Error",
+  "invalidCredentials": "Invalid email or password.",
+  "accountNotActivated": "Your account is not activated. Please check your email for the activation link.",
+  "loginFailed": "Login failed. Please check your credentials.",
+  "loginError": "An error occurred during login. Please try again later.",
+  "apiRequestFailed": "Something went wrong. Please try again.",
+  "networkUnavailable": "No internet connection or the server is unreachable. Try again.",
+  "offlineBanner": "You appear to be offline. Data may be outdated until you reconnect.",
+  "language": "Language",
+  "server": "Game server",
+  "skipToContent": "Skip to main content",
+  "mainNavigation": "Main navigation",
+  "openMenu": "Open menu",
+  "closeMenu": "Close menu",
+  "modalAdditionalContent": "Additional dialog content follows.",
+  "registerPrompt": "Don't have an account? Register",
+  "termsOfService": "Terms of Service",
+  "privacyPolicy": "Privacy Policy",
+  "and": "and",
+  "acceptTerms": "I accept the",
+  "footer": {
+    "copyright": "All rights reserved.",
+    "version": "Version {{version}}",
+    "contact": "Contact",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
+  },
+  "usernameRequired": "Username is required.",
+  "usernameLength": "Username must be between {{min}} and {{max}} characters.",
+  "usernameInvalid": "Username can only contain letters, numbers, and . _ - characters.",
+  "emailRequired": "Email is required.",
+  "emailInvalid": "Please enter a valid email address.",
+  "passwordRequired": "Password is required.",
+  "passwordLength": "Password must be at least {{min}} characters long.",
+  "passwordRepeatRequired": "Please confirm your password.",
+  "passwordsMustMatch": "Passwords must match.",
+  "rulesAcceptedRequired": "You must accept the terms and privacy policy.",
+  "emailIsAlreadyTaken": "The email address is already taken.",
+  "usernameIsAlreadyTaken": "The username is already taken.",
+  "registrationFailed": "Registration failed. Please try again.",
+  "registrationError": "An error occurred. Please try again later.",
+  "registrationModalTitle": "Registration Status",
+  "close": "Close",
+  "accountActivated": "You have successfully activated your account. You can now log in.",
+  "activationFailed": "Invalid token or the token has already been used.",
+  "activationError": "An error occurred during account activation. Please try again later.",
+  "activationPage": {
+    "seoTitleLoading": "Account activation | Pirate Hero",
+    "seoTitleSuccess": "Account activated | Pirate Hero",
+    "seoTitleError": "Account activation failed | Pirate Hero",
+    "seoDescription": "Activate your Pirate Hero account to complete registration and sign in.",
+    "titleLoading": "Activating your account...",
+    "titleSuccess": "Account activated!",
+    "titleError": "We couldn't activate your account",
+    "loadingText": "We are validating your activation token. This will only take a moment.",
+    "backToLogin": "Go to login",
+    "backToHome": "Back to home"
+  },
+  "loading": "Loading game...",
+  "gameLoadingScreen": {
+    "ariaLabel": "Loading game, please wait",
+    "title": "Pirate Hero",
+    "subtitle": "Pirate browser RPG",
+    "progressPercent": "{{percent}}%",
+    "tips": [
+      "Missions spend energy - check your resource bar before you sail out.",
+      "Jobs cost no energy and pay gold - remember: you can't start a mission or training while working.",
+      "Training improves attributes with training points - refill them with gold if needed.",
+      "The arena spends fight points and awards fame - come back after a refill.",
+      "Dungeons have multiple stages; clearing them fills your bestiary.",
+      "On your ship you grow crew, treasury, and upgrades - and fight in ship battles.",
+      "Quests and titles reward regular play: claim pending rewards often.",
+      "The daily bonus resets if you miss a day - log in every day.",
+      "Boosters temporarily empower missions, work, energy, or combat.",
+      "Diamonds and coupons are premium shortcuts - gold and loot also come from normal play."
+    ]
+  },
+  "dailyReward": {
+    "title": "Daily bonus",
+    "shortLabel": "Bonus",
+    "subtitle": "Visit every day - miss a day and you start from day one again.",
+    "dayShort": "Day {{day}}",
+    "randomItem": "Item",
+    "experience": "Experience",
+    "amountGold": "{{amount}} gold",
+    "amountDiamonds": "{{amount}} diamonds",
+    "amountExperience": "{{amount}} experience",
+    "claimedTodayLabel": "Claimed today",
+    "rewardForDay": "Reward for day {{day}}",
+    "comeBackTomorrow": "Come back tomorrow for the next loot.",
+    "todaysReward": "Today's loot",
+    "claimButton": "Claim loot!",
+    "claimedButton": "Loot claimed",
+    "claiming": "Claiming...",
+    "claimError": "Could not claim the reward. Please try again."
+  },
+  "loadingProfile": "Loading profile...",
+  "userProfile": "User profile",
+  "previewProfile": "Preview profile",
+  "userPreviewPage": {
+    "shipPanelTitle": "Ship",
+    "shipNoShip": "No ship - this player is not in any crew.",
+    "shipCrew": "Crew: {{current}} / {{max}}",
+    "shipFame": "Ship fame: {{count}}",
+    "shipLevelsProgress": "{{current}}/{{max}}",
+    "shopBoostersTitle": "Boosters",
+    "shopBoosterCategoryEmpty": "No active booster."
+  },
+  "viewProfile": "View profile",
+  "view": "View",
+  "actions": "Actions",
+  "loadingStatek": "Loading ship...",
+  "creatingStatek": "Creating ship...",
+  "loadingLogin": "Signing in...",
+  "loadingRegister": "Signing up...",
+  "registerStepContinue": "Continue",
+  "registerCredentialsTitle": "Create your account",
+  "registerCredentialsSubtitle": "Step 1: Enter your registration details",
+  "registerAvatarTitle": "Choose avatar",
+  "registerAvatarSubtitle": "Step 2: What does your pirate look like?",
+  "registerStartGame": "Start game",
+  "registerSuccess": {
+    "seoTitle": "Registration complete | Pirate Hero",
+    "seoDescription": "Your Pirate Hero account has been created. Check your email and activate your account to start playing.",
+    "title": "Check your inbox!",
+    "primaryText": "An",
+    "activationLink": "activation link",
+    "sentTo": "Sent to:",
+    "secondaryText": "Click the link in the email to activate your account and begin your sea adventure.",
+    "spamHint": "Can't find the message? Check your",
+    "spamFolder": "Spam",
+    "backToLogin": "Back to login"
+  },
+  "avatarRequired": "Choose an avatar to complete registration.",
+  "level": "Level",
+  "exp": "EXP",
+  "gold": "Gold",
+  "diamonds": "Diamonds",
+  "goldSingular": "gold",
+  "goldPlural": "gold",
+  "goldGenitive": "gold",
+  "diamondsingular": "Diamond",
+  "diamondsPlural": "Diamonds",
+  "diamondsGenitive": "Diamonds",
+  "logout": "Logout",
+  "menu": "Main Menu",
+  "menuDescription": "Select an option from the menu on the left to start playing.",
+  "missions": "Missions",
+  "missionsPage": {
+    "seoDescription": "Choose missions, track progress and grow your pirate hero in Pirate Hero.",
+    "availableMissions": "Available missions",
+    "depart": "Depart",
+    "energyUnit": "energy",
+    "completed": "Completed!",
+    "energyStatus": "Energy",
+    "missionInProgress": "Mission in progress",
+    "missionProgressLabel": "Mission progress",
+    "cancelMission": "Cancel",
+    "cancelMissionAria": "Cancel mission",
+    "notEnoughEnergy": "Not enough energy for this mission.",
+    "cancelMissionTitle": "Cancel this mission?",
+    "cancelMissionBody": "You will lose current progress. Spent energy will be refunded.",
+    "cancelMissionConfirm": "Yes, cancel",
+    "cancelMissionDismiss": "No, keep going",
+    "missionCompleted": "Mission completed!",
+    "claimReward": "Claim reward",
+    "loadingNewMissions": "Loading new missions…",
+    "durationMinutesShort": "{{count}} min",
+    "durationHoursShort": "{{count}} h"
+  },
+  "boostersPage": {
+    "title": "Boosters",
+    "seoTitle": "Boosters | Pirate Hero",
+    "seoDescription": "Activate mission, training, work, and skill boosters to develop your character faster.",
+    "pageAriaLabel": "Boosters",
+    "activeSectionAria": "Active boosters",
+    "activeSectionToggle": "Active boosters",
+    "activeUntilLine": "until {{until}} · {{countdown}}",
+    "categoryAria": "Category {{label}}",
+    "purchaseBuy": "Buy",
+    "purchaseActive": "Active",
+    "purchaseNoGold": "Not enough gold.",
+    "purchaseNoGoldShort": "Not enough gold",
+    "purchaseNoDiamonds": "Not enough diamonds.",
+    "purchaseNoDiamondsShort": "Not enough diamonds",
+    "cardActiveUntil": "Active until {{until}} · {{countdown}} left",
+    "replaceTitle": "Replace the active booster?",
+    "replaceBodyBefore": "You can only have one active booster in this category. Activating ",
+    "replaceBodyAfter": " will remove the current one.",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "durationDays_one": "1 day",
+    "durationDays_other": "{{count}} days",
+    "durationHours_one": "1 hour",
+    "durationHours_other": "{{count}} hours"
+  },
+  "titlesPage": {
+    "nav": "Titles",
+    "title": "Player titles",
+    "seoTitle": "Titles | Pirate Hero",
+    "seoDescription": "Unlock and equip prestigious captain titles - from arena veterans to emperors of Atlantis. Endgame milestones unlock crowns the whole archipelago will recognize.",
+    "subtitle": "Earn prestigious captain titles through dungeon clears, arena fame, collector milestones, and endgame levels - then display your chosen title beside your name for every crew to see.",
+    "loading": "Loading titles…",
+    "loadError": "Could not load titles.",
+    "equipSuccess": "Title equipped.",
+    "equipError": "Could not equip title.",
+    "unlocked": "Unlocked",
+    "active": "Active",
+    "activate": "Activate",
+    "progress": "Progress: {{current}} / {{target}}",
+    "toggleClose": "Hide titles"
+  },
+  "titles": {
+    "rookie": {
+      "name": "Rookie",
+      "unlockHint": "Available from the start"
+    },
+    "crypt_hunter": {
+      "name": "Crypt Hunter",
+      "unlockHint": "Complete the Crypt dungeon - pass through misty sunken graveyard ruins"
+    },
+    "kraken_slayer": {
+      "name": "Kraken Slayer",
+      "unlockHint": "Complete the Kraken dungeon - reach the sea monster's heart"
+    },
+    "fortress_raider": {
+      "name": "Fortress Raider",
+      "unlockHint": "Complete Blackbeard's Fortress - conquer the legendary corsair stronghold"
+    },
+    "volcanic_conqueror": {
+      "name": "Volcano Conqueror",
+      "unlockHint": "Complete Davy Jones' Volcano - survive the hellish depths"
+    },
+    "poseidon_champion": {
+      "name": "Poseidon Champion",
+      "unlockHint": "Complete Poseidon's Palace - stand before the sea god's throne"
+    },
+    "veteran": {
+      "name": "Veteran",
+      "unlockHint": "Reach level 25 - the sea begins to take you seriously"
+    },
+    "rich_captain": {
+      "name": "Rich Captain",
+      "unlockHint": "Hold 10,000 gold"
+    },
+    "collector": {
+      "name": "First Collector",
+      "unlockHint": "Collect 10 different items"
+    },
+    "treasure_hunter": {
+      "name": "Treasure Hunter",
+      "unlockHint": "Collect 75 items"
+    },
+    "dungeon_master": {
+      "name": "Dungeon Master",
+      "unlockHint": "Complete all dungeons"
+    },
+    "veteran_collector": {
+      "name": "Veteran Collector",
+      "unlockHint": "Equip a full Rare set"
+    },
+    "legendary_collector": {
+      "name": "Legendary Collector",
+      "unlockHint": "Collect 100 items"
+    },
+    "sea_legend": {
+      "name": "Sea Legend",
+      "unlockHint": "Complete all dungeons and reach level 50"
+    },
+    "master_collector": {
+      "name": "Master Collector",
+      "unlockHint": "Collect 85 items"
+    },
+    "legendary_hunter": {
+      "name": "Legendary Hunter",
+      "unlockHint": "Collect 5 Legendary items"
+    },
+    "veteran_captain": {
+      "name": "Veteran Captain",
+      "unlockHint": "Reach level 35 - your crew sings shanties about you in every port"
+    },
+    "undead_slayer": {
+      "name": "Undead Slayer",
+      "unlockHint": "Complete the Crypt and crush the Admiral of the Lich - guardians of the sunken graveyard"
+    },
+    "beast_hunter": {
+      "name": "Beast Hunter",
+      "unlockHint": "Discover every bestiary entry - from skeletons to avatars of sea gods"
+    },
+    "black_corsair": {
+      "name": "Black Corsair",
+      "unlockHint": "Win 250 fights - the arena trembles when you step aboard"
+    },
+    "elite_captain": {
+      "name": "Elite Captain",
+      "unlockHint": "Reach level 50 - join the archipelago admiral elite"
+    },
+    "fortress_lord": {
+      "name": "Fortress Lord",
+      "unlockHint": "Complete Blackbeard's Fortress and sit upon his cursed throne"
+    },
+    "atlantis_guardian": {
+      "name": "Guardian of Atlantis",
+      "unlockHint": "Complete Poseidon's Palace - the water itself yields to your will"
+    },
+    "legend_collector": {
+      "name": "Legend Collector",
+      "unlockHint": "Collect 15 Legendary items - treasures whispered about in every cove"
+    },
+    "ocean_master": {
+      "name": "Master of the Ocean",
+      "unlockHint": "Win 1000 fights - the seas sing your name"
+    },
+    "undefeated_pirate": {
+      "name": "Undefeated Pirate",
+      "unlockHint": "Win 500 fights - pirates avoid your ship like a curse"
+    },
+    "great_explorer": {
+      "name": "Great Explorer",
+      "unlockHint": "Complete all dungeons - every chamber, boss, and legend behind you"
+    },
+    "fight_veteran_50": {
+      "name": "Fight Veteran I",
+      "unlockHint": "Win 50 fights - first rank of arena fame"
+    },
+    "fight_veteran_100": {
+      "name": "Fight Veteran II",
+      "unlockHint": "Win 100 fights - the arena knows your name"
+    },
+    "epic_collector": {
+      "name": "Epic Relic Hunter",
+      "unlockHint": "Collect 10 Epic items - echoes of sea battles in every loot drop"
+    },
+    "epic_lord": {
+      "name": "Lord of Epic Glow",
+      "unlockHint": "Equip a full Epic set - you look like an avatar of the storm"
+    },
+    "legendary_lord": {
+      "name": "Lord of Legendary Treasures",
+      "unlockHint": "Equip a full Legendary set - Poseidon watches with interest"
+    },
+    "grand_collector": {
+      "name": "Grand Master Collector",
+      "unlockHint": "Collect 200 unique items - your chest becomes a port legend"
+    },
+    "legend_slayer": {
+      "name": "Legend Slayer",
+      "unlockHint": "Collect 25 Legendary items - the sea yields its deepest secrets"
+    },
+    "ocean_ruler": {
+      "name": "Ocean Ruler",
+      "unlockHint": "Reach level 150 - the waves yield before your ship"
+    },
+    "atlantis_master": {
+      "name": "Master of Atlantis",
+      "unlockHint": "Complete Poseidon's Palace and claim the key to the sunken city"
+    },
+    "golden_corsair": {
+      "name": "Golden Corsair",
+      "unlockHint": "Amass 50,000 gold - merchants bow to your purse"
+    },
+    "expedition_veteran": {
+      "name": "Expedition Veteran",
+      "unlockHint": "Win 2,000 fights - arena and dungeons know your step"
+    },
+    "titan_slayer": {
+      "name": "Titan Slayer",
+      "unlockHint": "Clear all dungeons and reach level 100 - titans are not beaten by chance"
+    },
+    "relic_lord": {
+      "name": "Lord of Relics",
+      "unlockHint": "Collect 300 unique items - every relic knows your name"
+    },
+    "great_discoverer": {
+      "name": "Great Discoverer",
+      "unlockHint": "Discover all 50 bestiary entries - every creature documented"
+    },
+    "immortal_captain": {
+      "name": "Immortal Captain",
+      "unlockHint": "Reach level 200 - a boundary even sea gods whisper about"
+    },
+    "fight_archmaster": {
+      "name": "Archmaster of Fights",
+      "unlockHint": "Win 10,000 arena battles - the sand itself bows to you"
+    },
+    "atlantis_emperor": {
+      "name": "Emperor of Atlantis",
+      "unlockHint": "Reach level 250 - the drowned throne recognizes its heir"
+    },
+    "storm_lord": {
+      "name": "Lord of Storms",
+      "unlockHint": "Win 7,500 fights - thunder follows your wake"
+    },
+    "leviathan_hunter": {
+      "name": "Leviathan Hunter",
+      "unlockHint": "Collect 50 legendary items - leviathans fear your name"
+    },
+    "collection_master": {
+      "name": "Master of Collections",
+      "unlockHint": "Collect 400 unique items - museums envy your chest"
+    },
+    "grand_seeker": {
+      "name": "Grand Seeker",
+      "unlockHint": "Collect 500 unique items - no relic escapes your maps"
+    },
+    "ocean_slayer": {
+      "name": "Ocean Slayer",
+      "unlockHint": "Win 15,000 fights - oceans part before your blade"
+    },
+    "relic_sovereign": {
+      "name": "Sovereign of Relics",
+      "unlockHint": "Collect 75 epic items - every relic answers to you"
+    },
+    "unbeaten_corsair": {
+      "name": "Unbeaten Corsair",
+      "unlockHint": "Reach level 225 - corsair kings salute your flag"
+    },
+    "legend_lord": {
+      "name": "Lord of Legends",
+      "unlockHint": "Collect 75 legendary items - legends kneel in your vault"
+    },
+    "greatest_explorer": {
+      "name": "Greatest Explorer",
+      "unlockHint": "Collect 350 unique items - every horizon yields to you"
+    },
+    "eternal_captain": {
+      "name": "Eternal Captain",
+      "unlockHint": "Reach level 300 - time itself cannot retire your command"
+    },
+    "lvl_rank_5": {
+      "name": "Junior Deckhand",
+      "unlockHint": "Reach level 5 - free rank title"
+    },
+    "lvl_rank_10": {
+      "name": "Deckhand",
+      "unlockHint": "Reach level 10 - free rank title"
+    },
+    "lvl_rank_15": {
+      "name": "Senior Deckhand",
+      "unlockHint": "Reach level 15 - free rank title"
+    },
+    "lvl_rank_20": {
+      "name": "Boatswain",
+      "unlockHint": "Reach level 20 - free rank title"
+    },
+    "lvl_rank_25": {
+      "name": "Senior Boatswain",
+      "unlockHint": "Reach level 25 - free rank title"
+    },
+    "lvl_rank_30": {
+      "name": "Quartermaster",
+      "unlockHint": "Reach level 30 - free rank title"
+    },
+    "lvl_rank_35": {
+      "name": "Lieutenant",
+      "unlockHint": "Reach level 35 - free rank title"
+    },
+    "lvl_rank_40": {
+      "name": "Senior Lieutenant",
+      "unlockHint": "Reach level 40 - free rank title"
+    },
+    "lvl_rank_45": {
+      "name": "Captain III Class",
+      "unlockHint": "Reach level 45 - free rank title"
+    },
+    "lvl_rank_50": {
+      "name": "Captain II Class",
+      "unlockHint": "Reach level 50 - free rank title"
+    },
+    "lvl_rank_55": {
+      "name": "Captain I Class",
+      "unlockHint": "Reach level 55 - free rank title"
+    },
+    "lvl_rank_60": {
+      "name": "Commander",
+      "unlockHint": "Reach level 60 - free rank title"
+    },
+    "lvl_rank_65": {
+      "name": "Senior Commander",
+      "unlockHint": "Reach level 65 - free rank title"
+    },
+    "lvl_rank_70": {
+      "name": "Fleet Admiral",
+      "unlockHint": "Reach level 70 - free rank title"
+    },
+    "lvl_rank_75": {
+      "name": "Vice Admiral",
+      "unlockHint": "Reach level 75 - free rank title"
+    },
+    "lvl_rank_80": {
+      "name": "Admiral",
+      "unlockHint": "Reach level 80 - free rank title"
+    },
+    "lvl_rank_85": {
+      "name": "Grand Admiral",
+      "unlockHint": "Reach level 85 - free rank title"
+    },
+    "lvl_rank_90": {
+      "name": "Lord of the Seas",
+      "unlockHint": "Reach level 90 - free rank title"
+    },
+    "lvl_rank_95": {
+      "name": "Archlord of the Seas",
+      "unlockHint": "Reach level 95 - free rank title"
+    },
+    "lvl_rank_100": {
+      "name": "Archipelago Legend",
+      "unlockHint": "Reach level 100 - free rank title"
+    }
+  },
+  "shipPage": {
+    "title": "Ship",
+    "seoTitle": "Ship | Pirate Hero",
+    "seoDescription": "Build your ship, manage your crew, upgrades, and fight rival ships in Pirate Hero.",
+    "noShipDescription": "You don't have a ship yet. Build your own or join an existing one!",
+    "buildShipTitle": "Build ship",
+    "buildShipCost": "Cost: 500 gold",
+    "shipNamePlaceholder": "Ship name *",
+    "shipDescriptionPlaceholder": "Ship description (optional)",
+    "buildShipButton": "Build ship for 500 gold",
+    "joinShipTitle": "Join a ship",
+    "joinShipDescription": "Browse the ship ranking and send a join request to another captain's crew.",
+    "rankingButton": "Ship ranking",
+    "demoLoadButton": "Demo: load ship",
+    "tabs": {
+      "crew": "Crew",
+      "upgrades": "Upgrades",
+      "description": "Description",
+      "battles": "Battles",
+      "notes": "Notes / description",
+      "chat": "Chat"
+    },
+    "joinRequestBlockedOtherCrew": "Leave your current crew first, then you can send a request.",
+    "joinRequestPendingLabel": "Your join request is awaiting the captain",
+    "loginRequired": "Sign in to view your ship.",
+    "shipLoading": "Loading ship…",
+    "creatingShip": "Creating…",
+    "shipDescriptionSectionTitle": "Ship description",
+    "emptyShipDescription": "No ship description yet.",
+    "fameLabel": "fame",
+    "treasuryLabel": "Treasury:",
+    "amountPlaceholder": "Amount",
+    "depositButton": "Deposit",
+    "viewButton": "View",
+    "kickButton": "Kick",
+    "deleteShipButton": "Delete ship",
+    "leaveShipButton": "Leave ship",
+    "memberContributions": "Contributed: {{gold}} gold · {{diamonds}} diamonds",
+    "battleCrewSize": "Crew: {{count}}",
+    "crewTitle": "Crew",
+    "crewJoinSectionTitle": "Joining the crew",
+    "crewJoinRestrictedLabel": "Invite or join request",
+    "crewJoinOpenLabel": "Open join (free crew slot)",
+    "membersLabel": "Members",
+    "captainLabel": "Captain",
+    "upgradesTitle": "Ship upgrades",
+    "levelShort": "Lvl {{level}}",
+    "levelWithMax": "Lvl {{level}}/{{max}}",
+    "max": "MAX",
+    "battlesTitle": "Ship battles",
+    "attackUsedToday": "Today's attack already used",
+    "battlesOpponentsHiddenAfterQuota": "Today's attack has already been used. Tomorrow you'll be able to choose a ship to attack again.",
+    "battleAttackStarting": "Attacking…",
+    "battlesHint": "You can attack one ship per day. Victory grants fame!",
+    "attackButton": "Attack",
+    "battleHistoryTitle": "Battle history",
+    "battleHistoryWin": "Victory",
+    "battleHistoryLoss": "Defeat",
+    "battleHistoryFame": "fame {{delta}}",
+    "battleHistoryEmpty": "No recorded fights yet.",
+    "battleResultWin": "Victory!",
+    "battleResultLoss": "Defeat.",
+    "battlesOwnerOnly": "Only the captain can pick opponents and start a ship fight.",
+    "battlesLoading": "Loading…",
+    "battleBackToShip": "Back to ship",
+    "upgradeCostLine": "{{gold}} gold · {{diamonds}} diamonds",
+    "upgradeCostGoldOnly": "{{gold}} gold",
+    "editButton": "Edit",
+    "saveButton": "Save",
+    "cancelEditButton": "Cancel",
+    "chatTitle": "Crew chat",
+    "chatLoading": "Loading chat and secure WebSocket…",
+    "chatPlaceholder": "Type a message...",
+    "chatYou": "You",
+    "chatTemporarilyUnavailable": "Crew chat is temporarily unavailable.",
+    "chatWsNotConnected": "WebSocket chat is not connected (wrong URL/port?). Run the WS server (`websocket:server`) and set `VITE_WS_URL=ws://localhost:PORT` in the frontend `.env` (same PORT as the server; use `ws://`, not `http://`).",
+    "chatSystemAuthor": "System",
+    "chatSystem": {
+      "depositGold": "{{name}} deposited {{amount}} gold into the treasury.",
+      "depositDiamonds": "{{name}} deposited {{amount}} diamonds into the treasury.",
+      "depositBoth": "{{name}} deposited {{gold}} gold and {{diamonds}} diamonds into the treasury.",
+      "memberJoined": "{{name}} joined the crew.",
+      "memberKicked": "{{target}} was kicked from the crew by {{by}}.",
+      "internalNotesUpdated": "{{by}} updated the crew notes.",
+      "memberLeft": "{{name}} left the ship.",
+      "upgradeSkills": "Skills module upgraded to level {{level}}.",
+      "upgradeWork": "Work module upgraded to level {{level}}.",
+      "upgradeMissions": "Missions module upgraded to level {{level}}.",
+      "upgradeHull": "Hull upgraded to level {{level}}.",
+      "upgradeGeneric": "{{type}} upgraded to level {{level}}."
+    },
+    "roles": {
+      "OWNER": "Captain",
+      "MANAGER": "Officer",
+      "MEMBER": "Member"
+    },
+    "upgrades": {
+      "skills": {
+        "label": "Skills",
+        "effectCurrent": "+{{level}}% to skills",
+        "effectZero": "No skill bonus yet."
+      },
+      "work": {
+        "label": "Work",
+        "effectCurrent": "+{{level}}% gold from work",
+        "effectZero": "No work gold bonus yet."
+      },
+      "quests": {
+        "label": "Quests",
+        "effectCurrent": "+{{level}}% quest gold and +{{level}}% quest XP",
+        "effectZero": "No quest gold or XP bonus yet."
+      },
+      "training": {
+        "label": "Training",
+        "effectCurrent_one": "+{{count}} training point",
+        "effectCurrent_other": "+{{count}} training points",
+        "effectZero": "No extra training points yet."
+      },
+      "hull": {
+        "label": "Hull",
+        "effectZero": "No hull upgrades yet - {{base}} crew slots.",
+        "effectCurrent": "{{count}} crew slots (base {{base}} + {{level}} from hull)"
+      }
+    }
+  },
+  "shipBonus": {
+    "plusGoldFromShip": "+{{amount}} gold from ship",
+    "plusExpFromShip": "+{{amount}} {{expUnit}} from ship"
+  },
+  "shopBooster": {
+    "missionGoldExtraSuffix": " + {{amount}} gold from booster ({{percent}}%)",
+    "missionExpExtraSuffix": " + {{amount}} {{expUnit}} from booster ({{percent}}%)",
+    "workGoldExpectedOneLine": "{{base}} {{goldWord}} · +{{extra}} gold from booster after claim",
+    "workGoldClaimOneLine": "+{{base}} {{goldWord}} · +{{extra}} gold from booster after claim",
+    "workBoosterGoldAfterClaimSegment": "+{{extra}} gold from booster after claim",
+    "catalog": {
+      "mis_1": {
+        "name": "Gilded Chart",
+        "description": "Faded sea routes - a touch more mission XP and gold.",
+        "effect": "+5% mission XP and +5% mission gold"
+      },
+      "mis_2": {
+        "name": "Treasure Map",
+        "description": "Clearer path to plunder - bigger mission rewards.",
+        "effect": "+15% mission XP and +15% mission gold"
+      },
+      "mis_3": {
+        "name": "Admiral's Writ",
+        "description": "Official blessing and maximum mission bonus.",
+        "effect": "+40% mission XP and +40% mission gold"
+      },
+      "trn_1": {
+        "name": "Small Vigor Vial",
+        "description": "A quick shot of energy for training.",
+        "effect": "+5 training points"
+      },
+      "trn_2": {
+        "name": "Endurance Flask",
+        "description": "A stronger dose of training points.",
+        "effect": "+15 training points"
+      },
+      "trn_3": {
+        "name": "Sharkfin Tonic",
+        "description": "The full brew and the largest training point bundle.",
+        "effect": "+40 training points"
+      },
+      "wrk_1": {
+        "name": "Stock Contract",
+        "description": "Quayside paperwork - slightly more work gold.",
+        "effect": "+5% work gold"
+      },
+      "wrk_2": {
+        "name": "Harbor Letter",
+        "description": "Better rates for dockside labor.",
+        "effect": "+15% work gold"
+      },
+      "wrk_3": {
+        "name": "Captain's Patent",
+        "description": "Gilded clauses - maximum earnings from work.",
+        "effect": "+40% work gold"
+      },
+      "skl_1": {
+        "name": "Study Notes",
+        "description": "Small tricks to grow your attributes.",
+        "effect": "+5% attributes"
+      },
+      "skl_2": {
+        "name": "Shipwright's Log",
+        "description": "Smarter ways to boost your skills.",
+        "effect": "+15% attributes"
+      },
+      "skl_3": {
+        "name": "Discovery Journal",
+        "description": "Secrets from far voyages and the strongest attribute bonus.",
+        "effect": "+40% attributes"
+      }
+    }
+  },
+  "trainingsPage": {
+    "seoDescription": "Schedule trainings, spend training points wisely, and grow your pirate’s stats in Pirate Hero.",
+    "availableTrainings": "Available trainings",
+    "beginTraining": "Begin",
+    "trainingPointsUnit": "training pts",
+    "trainingPointsStatus": "Training points",
+    "trainingInProgress": "Training in progress",
+    "trainingCompleted": "Training completed!",
+    "loadingNewTrainings": "Loading new trainings…",
+    "trainingProgressLabel": "Training progress",
+    "notEnoughTrainingPoints": "Not enough training points for this session.",
+    "cancelTrainingAria": "Cancel training",
+    "rewardOnCompletion": "Applied on completion",
+    "startFailed": "Could not start training. Check your points and try again."
+  },
+  "worksPage": {
+    "seoDescription": "In Pirate Hero, take odd jobs to earn gold - no mission energy or training points required.",
+    "availableWorks": "Available jobs",
+    "startWork": "Start job",
+    "workInProgress": "Job in progress",
+    "workProgressLabel": "Job progress",
+    "expectedRewardCaption": "Payout after completion",
+    "cancelWork": "Cancel",
+    "cancelWorkAria": "Cancel current job",
+    "cancelWorkTitle": "Cancel this job?",
+    "cancelWorkBody": "You'll end the current shift and won't earn gold for this stint.",
+    "cancelWorkConfirm": "Yes, cancel",
+    "cancelWorkDismiss": "No, go back",
+    "workCompleted": "Job finished!",
+    "loadingNewWorks": "Loading jobs…"
+  },
+  "trainingRefillInfoLoading": "Loading…",
+  "trainingRefillCannot": "You cannot refill training points right now.",
+  "trainingRefillFailed": "Failed to refill training points.",
+  "trainingRefillError": "An error occurred while refilling training points.",
+  "noMissions": "No available missions.",
+  "back": "Back",
+  "reward": "Reward",
+  "bonus": "Bonus",
+  "duration": "Duration",
+  "energy": "Energy",
+  "refill": "Refill",
+  "refillEnergy": "Refill Energy",
+  "refillEnergyDescription": "Refill energy to full for {{cost}} gold.",
+  "refillTrainingPoints": "Refill Training Points",
+  "refillTrainingPointsDescription": "Refill training points to full for {{cost}} gold.",
+  "refillsRemaining": "Refills Remaining",
+  "refillsUsed": "Refills Used",
+  "energyRefilled": "Energy has been refilled to full!",
+  "energyRefillCannot": "You cannot refill energy right now.",
+  "energyRefillFailed": "Failed to refill energy.",
+  "energyRefillError": "An error occurred while refilling energy.",
+  "energyRefillInfoLoading": "Loading…",
+  "energyRefillNoRefillsTooltip": "You can't refill energy again today - you've used all daily refills. Try again tomorrow.",
+  "energyFull": "Energy is full",
+  "trainingPointsRefilled": "Training points have been refilled to full!",
+  "trainingPointsFull": "Training points are full",
+  "refillFightPoints": "Refill Fight Points",
+  "refillFightPointsDescription": "Refill fight points to full for {{cost}} gold.",
+  "fightPointsRefilled": "Fight points have been refilled to full!",
+  "fightPointsFull": "Fight points are full",
+  "fightRefillInfoLoading": "Loading refills…",
+  "allRefillsUsed": "All refills have been used",
+  "notEnoughGold": "Not enough gold",
+  "cancel": "Cancel",
+  "cancelMission": "Cancel Mission",
+  "start": "Start",
+  "notEnoughEnergy": "Not enough energy to start this mission.",
+  "confirmMissionStart": "Are you sure you want to start this mission?",
+  "mission": {
+    "pirate_smugglers_cove": "Smuggler's Cove Run",
+    "pirate_smugglers_cove_desc": "Slip past patrols and move contraband through the smugglers' cove.",
+    "pirate_galleon_plunder": "Galleon Plunder",
+    "pirate_galleon_plunder_desc": "Board a fat merchant galleon and claim its cargo before escorts arrive.",
+    "pirate_skull_harbor_raid": "Skull Harbor Raid",
+    "pirate_skull_harbor_raid_desc": "Strike Skull Harbor at dusk and seize what the black market left unguarded.",
+    "pirate_cursed_compass": "Cursed Compass Chase",
+    "pirate_cursed_compass_desc": "Hunt a compass that points only to trouble - and treasure.",
+    "pirate_admirals_bounty": "Admiral's Bounty",
+    "pirate_admirals_bounty_desc": "Collect the admiral's bounty before rival crews close in.",
+    "pirate_black_flag_job": "Black Flag Job",
+    "pirate_black_flag_job_desc": "A discreet job under the black flag - no questions, quick pay.",
+    "pirate_kraken_deep": "Into the Kraken Deep",
+    "pirate_kraken_deep_desc": "Descend into dark waters where the Kraken's shadow still stirs.",
+    "pirate_treasure_convoy": "Treasure Convoy Heist",
+    "pirate_treasure_convoy_desc": "Ambush a treasure convoy and vanish with the chests intact.",
+    "coast_patrol": "Coast Patrol",
+    "coast_patrol_desc": "Sweep the shoreline for raiders and keep the trade lanes clear.",
+    "convoy_protection": "Convoy Protection",
+    "convoy_protection_desc": "Shield a merchant convoy through contested waters.",
+    "corsair_hunt": "Corsair Hunt",
+    "corsair_hunt_desc": "Track and engage corsairs preying on coastal shipping.",
+    "merchant_escort": "Merchant Escort",
+    "merchant_escort_desc": "Escort wealthy merchants to safe harbor under your guns.",
+    "island_recon": "Island Reconnaissance",
+    "island_recon_desc": "Scout distant isles and chart dangers before the fleet arrives.",
+    "ruins_survey": "Ruins Survey",
+    "ruins_survey_desc": "Study Atlantean ruins and record what the tides have uncovered.",
+    "relic_search": "Relic Search",
+    "relic_search_desc": "Search sunken vaults for relics of the lost empire.",
+    "temple_guard": "Temple Guard",
+    "temple_guard_desc": "Defend a submerged temple from looters and worse.",
+    "deep_expedition": "Deep Expedition",
+    "deep_expedition_desc": "Lead an expedition into the crushing deeps of Atlantis.",
+    "atlantis_map": "Map of Atlantis",
+    "atlantis_map_desc": "Piece together a map that leads to the heart of Atlantis.",
+    "tentacle_tracking": "Tentacle Tracking",
+    "tentacle_tracking_desc": "Follow torn sails and ink trails to the beast's path.",
+    "nest_search": "Nest Search",
+    "nest_search_desc": "Locate the Kraken's nest before it awakens again.",
+    "scale_gathering": "Scale Gathering",
+    "scale_gathering_desc": "Harvest hardened scales left in the monster's wake.",
+    "monster_research": "Monster Research",
+    "monster_research_desc": "Gather samples and lore on the deep-sea terror.",
+    "crew_training": "Crew Training",
+    "crew_training_desc": "Drill your crew in boarding, gunnery, and discipline.",
+    "fleet_patrol": "Fleet Patrol",
+    "fleet_patrol_desc": "Join a fleet patrol along the war-torn frontier.",
+    "weapon_delivery": "Weapon Delivery",
+    "weapon_delivery_desc": "Deliver arms to a beleaguered garrison under fire.",
+    "garrison_support": "Garrison Support",
+    "garrison_support_desc": "Reinforce a coastal garrison holding the line.",
+    "timber_transport": "Timber Transport",
+    "timber_transport_desc": "Haul precious timber for shipyards hungry for planks.",
+    "spice_trade": "Spice Trade",
+    "spice_trade_desc": "Broker a spice run through rival ports and storms.",
+    "loot_sale": "Loot Sale",
+    "loot_sale_desc": "Fence hard-won loot before the navy asks questions.",
+    "treasure_hunt": "Treasure Hunt",
+    "treasure_hunt_desc": "Chase a half-true map to buried chests and traps.",
+    "emperor_audience": "Audience with the Emperor of Atlantis",
+    "emperor_audience_desc": "Stand before the Emperor and plead your case - or seize opportunity.",
+    "leviathan_relic": "Leviathan Relic",
+    "leviathan_relic_desc": "Recover a relic said to bind the Leviathan itself.",
+    "abyss_voyage": "Voyage into the Abyss",
+    "abyss_voyage_desc": "Sail where charts end and the abyss answers back.",
+    "final_expedition": "Final Expedition",
+    "final_expedition_desc": "One last push into waters that swallow fleets whole.",
+    "great_battle": "The Great Battle",
+    "great_battle_desc": "Join the clash that will decide who rules these seas.",
+    "fog_bank_ambush": "Fog Bank Ambush",
+    "fog_bank_ambush_desc": "Use the fog to strike first - and vanish before the smoke clears.",
+    "shipyard_sabotage": "Shipyard Sabotage",
+    "shipyard_sabotage_desc": "Cripple an enemy shipyard without starting open war.",
+    "siren_coast_watch": "Siren Coast Watch",
+    "siren_coast_watch_desc": "Keep watch on coasts where sirens lure crews onto the rocks.",
+    "coral_reef_charting": "Coral Reef Charting",
+    "coral_reef_charting_desc": "Chart deadly reefs so future fleets may pass unharmed.",
+    "sunken_vault_raid": "Sunken Vault Raid",
+    "sunken_vault_raid_desc": "Break into a sunken vault before rival divers claim it."
+  },
+  "timeLeftMinutesSeconds": "{{minutes}}m {{seconds}}s left",
+  "timeLeftHoursMinutesSeconds": "{{hours}}h {{minutes}}m {{seconds}}s left",
+  "timeLeftSeconds": "{{seconds}}s left",
+  "availableMissionCard": {
+    "gold": "Gold",
+    "exp": "EXP",
+    "energy": "Energy",
+    "duration": "Duration"
+  },
+  "levelUpModal": {
+    "title": "NEW LEVEL!",
+    "congrats": "Congratulations, pirate captain! You've reached a new experience level.",
+    "rewardLabel": "✨ LEVEL-UP REWARD ✨",
+    "rewardDescription": "Free attribute points",
+    "distributePoints": "ASSIGN POINTS"
+  },
+  "missionCompletedModal": {
+    "title": "Mission Completed!",
+    "description": "You have successfully completed the mission and earned:",
+    "button": "Awesome!"
+  },
+  "cancelMissionModal": {
+    "title": "Cancel Mission",
+    "description": "Are you sure you want to cancel the current mission? Progress will be lost.",
+    "confirm": "Yes, cancel",
+    "cancel": "No, go back"
+  },
+  "minutesSeconds": "{{minutes}}m {{seconds}}s",
+  "seconds": "{{seconds}}s",
+  "hours": "{{count}}h",
+  "work.kitchen_helper": "Galley hand",
+  "work.warehouse_loader": "Hold stower",
+  "work.car_wash_attendant": "Deck swabber",
+  "work.port_dockhand": "Wharf hand",
+  "work.tavern_server": "Rum-runner at the inn",
+  "works": "Works",
+  "noWorks": "No available works.",
+  "confirmWorkStart": "Are you sure you want to start this work?",
+  "workWillTakeAndEarn": "This work will take {{hours}} hour(s) and earn you {{gold}} gold.",
+  "cancelWorkModal.cancel": "Cancel",
+  "cancelWorkModal.confirm": "Yes, cancel the work",
+  "cancelWork": "Cancel work",
+  "cancelWorkModal.title": "Cancel Work",
+  "cancelWorkModal.description": "Are you sure you want to cancel this work? You won't earn any gold.",
+  "finishWorkFirst": "Finish work first",
+  "finishMissionFirst": "Finish mission first",
+  "skills": "Skills",
+  "strong": "Strength",
+  "strength": "Strength",
+  "agility": "Agility",
+  "intelligence": "Intelligence",
+  "endurance": "Endurance",
+  "luck": "Luck",
+  "health": "Health",
+  "criticalChance": "Critical Chance",
+  "stats": "Stats",
+  "equipment": "Equipment",
+  "statekLabel": "Ship",
+  "freeSkillPoints": "free skill points",
+  "addPoint": "Add point",
+  "buyPoint": "Buy point for {{price}} gold",
+  "character": "Character",
+  "characterPage": {
+    "seoTitle": "Character | Pirate Hero",
+    "seoDescription": "Manage equipment, compare item stats, spend attribute points, and optimize your corsair build - your hero sheet holds relics of Atlantis, the leviathan, and the lost fleet.",
+    "heroTitle": "Captain Hook",
+    "heroImageAlt": "Player character",
+    "className": "Corsair",
+    "dragHint": "Double-click to equip or unequip • Drag items onto slots",
+    "attributesTitle": "Attributes",
+    "baseStatLabel": "Base stat",
+    "bonusFromGear": "from gear",
+    "bonusFromShopBooster": "+{{delta}} from shop booster",
+    "bonusFromShipSkills": "+{{delta}} from ship (skills)",
+    "shipBonusWorkLine": "Ship - work: +{{percent}}% gold",
+    "shipBonusQuestsLine": "Ship - missions: +{{goldPercent}}% gold, +{{expPercent}}% XP",
+    "freeAttributePoints": "Free attribute points: {{count}}",
+    "attributeUpgradeFree": "Free point",
+    "attributeUpgradeBuy": "Buy for {{price}} gold",
+    "attributeUpgradePlusFree": "Add one point (uses a free attribute point)",
+    "attributeUpgradePlusBuy": "Buy one point for {{price}} gold",
+    "attributeNotEnoughGold": "Not enough gold - need {{price}}, you have {{gold}}",
+    "perPointShort": "pt.",
+    "backpackTitle": "Backpack",
+    "chestTitle": "Chest",
+    "slotsLabel": "slots",
+    "emptySlot": "Empty",
+    "goldLabel": "Gold",
+    "fameLabel": "Fame",
+    "diamondsLabel": "Diamonds",
+    "itemsCount": "items",
+    "emptyBackpack": "Backpack is empty",
+    "sellFor": "Sell for",
+    "stats": {
+      "strength": "Strength",
+      "agility": "Agility",
+      "endurance": "Endurance",
+      "intelligence": "Intelligence",
+      "luck": "Luck"
+    },
+    "slots": {
+      "shield": "Shield",
+      "weapon": "Weapon",
+      "armor": "Armor",
+      "helmet": "Helmet",
+      "amulet": "Amulet",
+      "ring": "Ring",
+      "boots": "Boots"
+    },
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    },
+    "equipmentTitle": "Equipment"
+  },
+  "items": {
+    "captainTricorn": "Captain's Tricorn",
+    "ironBascinet": "Iron Bascinet",
+    "leatherHood": "Leather Hood",
+    "goldenCrown": "Captain's Golden Crown",
+    "stormHornedHelm": "Storm Horned Helm",
+    "deckSlippers": "Deck Slippers",
+    "sailorBoots": "Sailor Boots",
+    "corsairBoots": "Corsair Boots",
+    "ironGreaves": "Iron Greaves",
+    "swashbucklerBoots": "Swashbuckler Boots",
+    "rustyCutlass": "Rusty Cutlass",
+    "steelSaber": "Steel Saber",
+    "admiralBlade": "Admiral's Blade",
+    "skullDagger": "Skull Dagger",
+    "krakenStiletto": "Kraken Stiletto",
+    "leatherJerkin": "Leather Jerkin",
+    "sailorCoat": "Sailor's Coat",
+    "captainCloak": "Captain's Cloak",
+    "krakenScaleMail": "Kraken Scale Mail",
+    "plateVest": "Plate Vest",
+    "compassCharm": "Compass Charm",
+    "krakenTooth": "Kraken Tooth",
+    "stormEye": "Storm Eye",
+    "rumVialCharm": "Rum Vial Charm",
+    "pearlPendant": "Pearl Pendant",
+    "brassBand": "Brass Band",
+    "goldSignet": "Gold Signet",
+    "pirateEarring": "Pirate Earring",
+    "rubyRing": "Ruby Ring",
+    "serpentCoil": "Serpent Coil Ring",
+    "woodenRapier": "Wooden Rapier",
+    "oldPirateSaber": "Old Pirate Saber",
+    "shortDeckKnife": "Short Deck Knife",
+    "boardingCutlass": "Boarding Cutlass",
+    "corsairSaber": "Corsair Saber",
+    "navySaber": "Navy Saber",
+    "boneCutlass": "Bone Cutlass",
+    "rustyDagger": "Rusty Dagger",
+    "corsairDirk": "Corsair Dirk",
+    "boneStiletto": "Bone Stiletto",
+    "noviceCap": "Novice Cap",
+    "oldTricornHat": "Old Tricorn Hat",
+    "sailorVest": "Sailor Vest",
+    "leatherJacket": "Leather Jacket",
+    "deckGloves": "Deck Gloves",
+    "wornGloves": "Worn Gloves",
+    "sailorShoes": "Sailor Shoes",
+    "wetFootwear": "Wet Footwear",
+    "woodenAmulet": "Wooden Amulet",
+    "oldMedallion": "Old Medallion",
+    "copperRing": "Copper Ring",
+    "boneRing": "Bone Ring",
+    "stormbreakerBlade": "Stormbreaker Blade",
+    "reefFangSabre": "Reef Fang Sabre",
+    "abyssLordCutlass": "Abyss Lord Cutlass",
+    "tideRipperKnife": "Tide Ripper Knife",
+    "deepwaterStiletto": "Deepwater Stiletto",
+    "fortressBascinet": "Fortress Bascinet",
+    "tempestAdmiralHat": "Tempest Admiral Hat",
+    "reefguardVest": "Reefguard Vest",
+    "krakenLordMail": "Kraken Lord Mail",
+    "volcanicPlatecoat": "Volcanic Platecoat",
+    "stoneDockBoots": "Stone Dock Boots",
+    "abyssWalkerGreaves": "Abyss Walker Greaves",
+    "abyssPearlCharm": "Abyss Pearl Charm",
+    "volcanoHeartPendant": "Volcano Heart Pendant",
+    "treasureHunterSignet": "Treasure Hunter Signet",
+    "krakenBlade": "Kraken Blade",
+    "blackFleetSabre": "Black Fleet Sabre",
+    "abyssReaver": "Abyss Reaver",
+    "cursedAdmiralCutlass": "Cursed Admiral Cutlass",
+    "reefStriker": "Reef Striker",
+    "cursedTreasureKnife": "Cursed Treasure Knife",
+    "oceanWarriorBlade": "Ocean Warrior Blade",
+    "ironCorsairHelm": "Iron Corsair Helm",
+    "blackbeardFortressHelm": "Blackbeard Fortress Helm",
+    "krakenCrown": "Kraken Crown",
+    "boardingCaptainCoat": "Boarding Captain's Coat",
+    "cursedTreasureVest": "Cursed Treasure Vest",
+    "oceanWarriorMail": "Ocean Warrior Mail",
+    "blackFleetPlate": "Black Fleet Plate",
+    "deepSeaTreads": "Deep Sea Treads",
+    "krakenTractionGreaves": "Kraken Traction Greaves",
+    "pirateArtifactCharm": "Pirate Artifact Charm",
+    "cursedDoubloonPendant": "Cursed Doubloon Pendant",
+    "abyssRing": "Abyss Ring",
+    "blackFleetSignet": "Black Fleet Signet",
+    "ghostShipSabre": "Ghost Ship Sabre",
+    "phantomAdmiralBlade": "Phantom Admiral Blade",
+    "poseidonTridentSabre": "Poseidon Trident Sabre",
+    "corsairKingsCutlass": "Corsair King's Cutlass",
+    "spiritTideKnife": "Spirit Tide Knife",
+    "hauntedDoubloonStiletto": "Haunted Doubloon Stiletto",
+    "abyssCorsairDagger": "Abyss Corsair Dagger",
+    "ghostCaptainHat": "Ghost Captain Hat",
+    "hauntedGalleonHelm": "Haunted Galleon Helm",
+    "poseidonCrown": "Poseidon Crown",
+    "spectralDeckcoat": "Spectral Deckcoat",
+    "cursedAdmiralCoat": "Cursed Admiral Coat",
+    "ghostFleetMail": "Ghost Fleet Mail",
+    "oceanRelicPlate": "Ocean Relic Plate",
+    "phantomDeckBoots": "Phantom Deck Boots",
+    "poseidonTideGreaves": "Poseidon Tide Greaves",
+    "hauntedCompassCharm": "Haunted Compass Charm",
+    "poseidonRelicPendant": "Poseidon Relic Pendant",
+    "corsairRelicSignet": "Corsair Relic Signet",
+    "cursedAdmiralRing": "Cursed Admiral Ring",
+    "poseidonTideCharm": "Poseidon Tide Charm",
+    "atlantisSignet": "Atlantis Signet",
+    "cursedRelicDagger": "Cursed Relic Dagger",
+    "cursedRelicHelm": "Cursed Relic Helm",
+    "atlantisTreasureBlade": "Atlantis Treasure Blade",
+    "atlantisRelicMail": "Atlantis Relic Mail",
+    "pirateTrophyRing": "Pirate Trophy Ring",
+    "pirateTrophyBoots": "Pirate Trophy Boots",
+    "legendarySouvenirSabre": "Legendary Souvenir Sabre",
+    "legendarySouvenirHelm": "Legendary Souvenir Helm",
+    "atlantisDeepSabre": "Atlantis Deep Sabre",
+    "titanSlayerBlade": "Titan Slayer Blade",
+    "immortalCaptainCutlass": "Immortal Captain Cutlass",
+    "abyssEmperorBlade": "Abyss Emperor Blade",
+    "krakenFangKnife": "Kraken Fang Knife",
+    "relicHunterStiletto": "Relic Hunter Stiletto",
+    "shadowTideDagger": "Shadow Tide Dagger",
+    "abyssSentinelHelm": "Abyss Sentinel Helm",
+    "titanGuardHelm": "Titan Guard Helm",
+    "oceanEmperorCrown": "Ocean Emperor Crown",
+    "deepRelicMail": "Deep Relic Mail",
+    "atlantisGuardPlate": "Atlantis Guard Plate",
+    "krakenLordPlate": "Kraken Lord Plate",
+    "immortalAdmiralCoat": "Immortal Admiral Coat",
+    "abyssStrideBoots": "Abyss Stride Boots",
+    "titanWalkGreaves": "Titan Walk Greaves",
+    "deepOceanCharm": "Deep Ocean Charm",
+    "emperorRelicPendant": "Emperor Relic Pendant",
+    "atlantisSealRing": "Atlantis Seal Ring",
+    "titanSignet": "Titan Signet",
+    "atlantisRelicBlade": "Atlantis Relic Blade",
+    "sunkenCityMail": "Sunken City Mail",
+    "krakenEyeDagger": "Kraken Eye Dagger",
+    "krakenHeartCharm": "Kraken Heart Charm",
+    "blackbeardTreasureHat": "Blackbeard Treasure Hat",
+    "blackbeardLootRing": "Blackbeard Loot Ring",
+    "cursedDoubloonRing": "Cursed Doubloon Ring",
+    "cursedCoinPendant": "Cursed Coin Pendant",
+    "ancientMapBoots": "Ancient Map Boots",
+    "chartBladeDagger": "Chart Blade Dagger",
+    "atlantisEmperorSabre": "Atlantis Emperor Sabre",
+    "leviathanFangBlade": "Leviathan Fang Blade",
+    "stormCrownCutlass": "Storm Crown Cutlass",
+    "volcanoForgeSabre": "Volcano Forge Sabre",
+    "lostFleetAdmiralBlade": "Lost Fleet Admiral Blade",
+    "oceanRelicDirk": "Ocean Relic Dirk",
+    "iceSeaStiletto": "Ice Sea Stiletto",
+    "pirateArtifactKnife": "Pirate Artifact Knife",
+    "leviathanSpineDagger": "Leviathan Spine Dagger",
+    "stormCrownHelm": "Storm Crown Helm",
+    "atlantisEmperorCrown": "Atlantis Emperor Crown",
+    "volcanoWarHelm": "Volcano War Helm",
+    "lostFleetCaptainHat": "Lost Fleet Captain Hat",
+    "oceanRelicCuirass": "Ocean Relic Cuirass",
+    "iceSeaMail": "Ice Sea Mail",
+    "volcanoForgeCoat": "Volcano Forge Coat",
+    "pirateArtifactVest": "Pirate Artifact Vest",
+    "lostFleetWarPlate": "Lost Fleet War Plate",
+    "stormStrideBoots": "Storm Stride Boots",
+    "iceSeaGreaves": "Ice Sea Greaves",
+    "volcanoAshBoots": "Volcano Ash Boots",
+    "lostFleetTreads": "Lost Fleet Treads",
+    "oceanRelicCharm": "Ocean Relic Charm",
+    "stormCrownPendant": "Storm Crown Pendant",
+    "leviathanHeartAmulet": "Leviathan Heart Amulet",
+    "atlantisEmperorSeal": "Atlantis Emperor Seal",
+    "iceSeaBand": "Ice Sea Band",
+    "volcanoEmberRing": "Volcano Ember Ring",
+    "pirateArtifactSignet": "Pirate Artifact Signet",
+    "lostFleetSealRing": "Lost Fleet Seal Ring",
+    "poseidonCrownHelm": "Poseidon's Crown",
+    "atlantisScepterCharm": "Atlantis Scepter",
+    "leviathanToothBlade": "Leviathan Tooth",
+    "krakenEyeRelic": "Kraken's Eye",
+    "explorerCompassCharm": "Explorer's Compass",
+    "stormRelicRing": "Storm Relic",
+    "admiralMedallion": "Admiral's Medallion",
+    "corsairMaskHelm": "Corsair Mask",
+    "abyssDepthRing": "Abyss Depth Ring",
+    "oceanLordPlate": "Ocean Lord's Plate",
+    "genericLoot": "Unidentified gear"
+  },
+  "item": {
+    "type": "Type",
+    "types": {
+      "HEAD": "Helmet",
+      "HANDS": "Gloves",
+      "SHIRT": "Shirt",
+      "PANTS": "Pants",
+      "SHOES": "Shoes"
+    },
+    "stats": {
+      "title": "Statistics",
+      "strongPoints": "Strength",
+      "agilityPoints": "Agility",
+      "criticalChancePoints": "Luck",
+      "healthPoints": "Health"
+    },
+    "rarities": {
+      "COMMON": "Common",
+      "UNCOMMON": "Uncommon",
+      "RARE": "Rare",
+      "EPIC": "Epic",
+      "LEGENDARY": "Legendary"
+    }
+  },
+  "inventory": "Inventory",
+  "slot": "Slot",
+  "empty": "Empty",
+  "store": "Store",
+  "storePage": {
+    "seoDescription": "Buy gear for your pirate, manage equipment and chest - pirate shop offering Tier 6 Atlantis relics, storm crowns, and lost fleet treasures.",
+    "refresh": "Refresh",
+    "refreshFreeBadge": "Free",
+    "refreshCostDiamonds": "{{count}}",
+    "goldLabel": "gold",
+    "soldOut": "Sold out",
+    "refreshingOffer": "Refreshing offers…",
+    "chestTitle": "Chest ({{count}})",
+    "attributesPreviewHint": "Preview if equipped",
+    "dragHint": "Drag onto an equipment slot or the chest to buy; onto the shop to sell.",
+    "phoneTapHint": "Double-tap an offer to buy • chest item to equip • equipped item to unequip",
+    "dropToSell": "Drop here to sell",
+    "chestOverflow": "+{{count}} more (not shown in grid)",
+    "tooltipBuy": "Price",
+    "levelShort": "Lvl {{level}}",
+    "buyFor": "Buy for {{price}}",
+    "sellFor": "Sell for {{price}}",
+    "emptyChest": "Empty",
+    "rarity": {
+      "common": "Common",
+      "uncommon": "Uncommon",
+      "rare": "Rare",
+      "legendary": "Legendary"
+    },
+    "stats": {
+      "strength": "Strength",
+      "defense": "Defense",
+      "health": "Health",
+      "speed": "Speed",
+      "agility": "Agility",
+      "intelligence": "Intelligence",
+      "luck": "Luck"
+    },
+    "slots": {
+      "helmet": "Helmet",
+      "weapon": "Weapon",
+      "armor": "Armor",
+      "shield": "Shield",
+      "gloves": "Gloves",
+      "boots": "Boots",
+      "amulet": "Amulet",
+      "ring": "Ring",
+      "potions": "Potions"
+    }
+  },
+  "arenaPage": {
+    "seoDescription": "Challenge other players in the arena - duels are resolved on the server in Pirate Hero. Climb from first blood to fifteen thousand victories and claim the Archmaster of Fights.",
+    "title": "Arena PvP",
+    "subtitle": "Fight for fame across endless tides - battles run on the server, and legends are written in sand.",
+    "battleOngoing": "Battle in progress!",
+    "victoryTitle": "Victory!",
+    "defeatTitle": "Defeat",
+    "replayBadge": "Replay",
+    "skipBattle": "Skip battle",
+    "you": "You",
+    "levelShort": "Lvl {{level}}",
+    "damageAmount": "{{n}} damage",
+    "critical": "CRITICAL!",
+    "wonMessage": "You won!",
+    "lostMessage": "You lost!",
+    "backToArena": "Back to arena",
+    "historyTitle": "Battle history",
+    "historyEmpty": "No battles yet",
+    "historyLoading": "Loading history…",
+    "vs": "vs",
+    "vsShort": "vs you",
+    "historyFameHint": "Fame change from this battle",
+    "dodgeLog": "Dodge",
+    "dodgeFloat": "Dodge",
+    "logHit": "{{striker}} attacks {{target}} for {{n}} damage.",
+    "logHitCrit": "{{striker}} lands a critical hit on {{target}} for {{n}} damage!",
+    "logDodgeNarrative": "{{target}} dodges {{striker}}'s attack.",
+    "replayUnavailable": "No replay",
+    "replayUnavailableHint": "This entry has no replay data",
+    "refreshList": "Refresh opponents",
+    "fight": "Fight!",
+    "statStr": "STR",
+    "statDef": "DEF",
+    "statHp": "HP",
+    "statSpd": "SPD",
+    "compareHint": "Hover a row to compare stats (desktop)",
+    "fightLoadingTitle": "Preparing duel…",
+    "replayPreparingTitle": "Preparing replay…",
+    "replayFinishedTitle": "Replay finished",
+    "replayFinishedHint": "This was a replay - no rewards change.",
+    "replayEndButton": "Back to arena",
+    "noOpponents": "No opponents available.",
+    "fightPointsStatus": "Fight points",
+    "statColOpponent": "Them",
+    "statColDelta": "Δ",
+    "statCompareTotalLabel": "Total Δ"
+  },
+  "storage": "Storage",
+  "equip": "Equip",
+  "unequip": "Unequip",
+  "not_enough_gold": "Not enough gold",
+  "not_enough_gold_info": "You need {{missing}} more gold to buy this item.",
+  "free_refresh_available": "Free refresh available",
+  "store_loading": "Loading store...",
+  "not_enough_diamonds": "You do not have enough diamonds",
+  "refresh_cost": "Refresh cost",
+  "storeSlot": "Store slot",
+  "store_empty": "No items in the store",
+  "buy_failed": "Purchase failed",
+  "sell_failed": "Sale failed",
+  "refresh_failed": "Refresh failed",
+  "buy": "Buy",
+  "refresh": "Refresh store",
+  "golds": "gold",
+  "sell": "Sell",
+  "confirm_buy_title": "Confirm Purchase",
+  "confirm_buy_message": "Are you sure you want to buy this item?",
+  "confirm_sell_title": "Confirm Sale",
+  "confirm_sell_message": "Are you sure you want to sell this item? This action cannot be undone.",
+  "confirm": "Confirm",
+  "confirmBoosterPurchase": "Confirm Booster Purchase",
+  "confirmBoosterPurchaseMessage": "You already have an active booster of this category. The current booster will be cancelled and replaced with the new one. Are you sure you want to continue?",
+  "training": "Training",
+  "trainings": {
+    "trainings": "Trainings",
+    "noTrainings": "No available trainings.",
+    "STRENGTH_1": "Weightlifting",
+    "STRENGTH_2": "Combat Training",
+    "STRENGTH_3": "Endurance Exercises",
+    "STRENGTH_1_description": "Classic strength exercises that build mass and muscle power.",
+    "STRENGTH_2_description": "Battle simulations that improve strength and strike technique.",
+    "STRENGTH_3_description": "Intensive exercises that develop overall strength and endurance.",
+    "AGILITY_1": "Obstacle Course",
+    "AGILITY_2": "Acrobatic Training",
+    "AGILITY_3": "Speed Sparring",
+    "AGILITY_1_description": "Agility drills that enhance reflexes and reaction speed.",
+    "AGILITY_2_description": "Acrobatic movements improving flexibility and coordination.",
+    "AGILITY_3_description": "Exercises focused on reflexes and quick movement.",
+    "CRITICAL_CHANCE_1": "Target Practice",
+    "CRITICAL_CHANCE_2": "Focus Meditation",
+    "CRITICAL_CHANCE_3": "Secret Precision Techniques",
+    "CRITICAL_CHANCE_1_description": "Accuracy training to increase chances of critical hits.",
+    "CRITICAL_CHANCE_2_description": "Focus and intuition drills to strike more effectively.",
+    "CRITICAL_CHANCE_3_description": "Advanced precision techniques for master-level critical hits.",
+    "HEALTH_1": "Recovery Jog",
+    "HEALTH_2": "Breathing Training",
+    "HEALTH_3": "Stamina Exercises",
+    "HEALTH_1_description": "Light running to improve stamina and body resilience.",
+    "HEALTH_2_description": "Breathing techniques that strengthen both body and mind.",
+    "HEALTH_3_description": "Exercises that increase maximum endurance and health.",
+    "INTELLIGENCE_1": "Target Practice",
+    "INTELLIGENCE_2": "Focus Meditation",
+    "INTELLIGENCE_3": "Precision Drills",
+    "INTELLIGENCE_1_description": "Accuracy training to sharpen perception and tactical thinking.",
+    "INTELLIGENCE_2_description": "Focus drills that improve analysis and decision-making.",
+    "INTELLIGENCE_3_description": "Advanced exercises for mental clarity and insight.",
+    "ENDURANCE_1": "Recovery Jog",
+    "ENDURANCE_2": "Breathing Training",
+    "ENDURANCE_3": "Stamina Circuit",
+    "ENDURANCE_1_description": "Light running to improve stamina and resilience.",
+    "ENDURANCE_2_description": "Breathing techniques that strengthen body and mind.",
+    "ENDURANCE_3_description": "Circuit training that raises maximum endurance.",
+    "LUCK_1": "Dice & Fortune",
+    "LUCK_2": "Lucky Charms Drill",
+    "LUCK_3": "Serendipity Sprint",
+    "LUCK_1_description": "Games of chance that tune intuition and timing.",
+    "LUCK_2_description": "Rituals and drills said to attract favorable outcomes.",
+    "LUCK_3_description": "Quick sessions to stay alert and seize opportunities."
+  },
+  "confirmTrainingStart": "Are you sure you want to start this training?",
+  "trainingPoints": "training points",
+  "cancelTraining": "Cancel training",
+  "cancelTrainingModal.cancel": "Cancel",
+  "cancelTrainingModal.confirm": "Yes, cancel the training",
+  "cancelTrainingModal.title": "Cancel Training",
+  "cancelTrainingModal.description": "Are you sure you want to cancel this training?",
+  "finishTrainingFirst": "Finish training first",
+  "notEnoughTrainingEnergy": "Not enough training points to start this training.",
+  "fights": "Fights",
+  "defeatPreviousOpponent": "Defeat previous opponent",
+  "defeatPreviousOpponentToUnlock": "Defeat the previous opponent to unlock this one",
+  "defeated": "Defeated",
+  "locked": "Locked",
+  "fight": "Fight",
+  "wait": "Wait",
+  "notEnoughDuelPoints": "Not enough duel points",
+  "required": "required",
+  "opponentAlreadyDefeated": "This opponent has already been defeated",
+  "notEnoughDuelPointsTooltip": "Not enough duel points. Required: {{required}}, you have: {{current}}",
+  "unlockAtLevel": "Current level: {{current}}. Required level: {{level}}",
+  "unlockAtLevelShort": "Unlock at level {{level}}",
+  "famePoints": "Fame Points",
+  "duelPoints": "Duel Points",
+  "availableOpponents": "Available Opponents",
+  "loadingOpponents": "Loading opponents...",
+  "error": "Error",
+  "refreshOpponents": "Refresh Opponents",
+  "refreshing": "Refreshing...",
+  "noOpponents": "No opponents available for battle",
+  "checkAgainLater": "Check again later",
+  "attack": "Attack",
+  "statsComparison": "Stats Comparison",
+  "critical": "Critical",
+  "fightInfo": "Fight Info",
+  "cost": "Cost",
+  "victory": "Victory",
+  "defeat": "Defeat",
+  "points": "points",
+  "fightHistory": "Fight History",
+  "showFightHistory": "Show Fight History",
+  "hideFightHistory": "Hide Fight History",
+  "noFightHistory": "No fight history",
+  "startYourFirstFight": "Start your first fight!",
+  "opponent": "Opponent",
+  "date": "Date",
+  "result": "Result",
+  "page": "Page",
+  "of": "of",
+  "previous": "Previous",
+  "next": "Next",
+  "firstPage": "First",
+  "lastPage": "Last",
+  "fightInProgress": "FIGHT IN PROGRESS",
+  "player": "PLAYER",
+  "fightLog": "Fight Log",
+  "hit": "HIT!",
+  "dodge": "DODGE!",
+  "miss": "MISS!",
+  "pleaseWait": "Please wait...",
+  "showHistory": "Show History",
+  "hideHistory": "Hide History",
+  "move": "Move",
+  "attacks": "attacks",
+  "deals": "deals",
+  "damage": "damage",
+  "butMisses": "but misses",
+  "butUnknown": "but result unknown",
+  "fightCost": "Fight Cost",
+  "numberOfMoves": "Number of Moves",
+  "fightProgress": "Fight Progress",
+  "startingFight": "Starting fight...",
+  "fightOngoing": "Fight ongoing...",
+  "fightCompleted": "=== FIGHT COMPLETED ===",
+  "noMovesData": "No moves data",
+  "boosters": "Boosters",
+  "premiumShop": "Diamonds",
+  "arena": "Arena",
+  "dungeons": "Dungeons",
+  "dungeonsPage": {
+    "subtitle": "Descend into cursed corridors and clear {{stages}} stages per dungeon. From Crypt to Poseidon's Palace - every boss guards a chapter of archipelago lore. Captain level:",
+    "dungeonBadge": "Dungeon {{number}}",
+    "locked": "Locked",
+    "reqLevel": "Req. lvl",
+    "backToList": "Back to dungeons",
+    "pickStage": "Pick a stage",
+    "stage": "Stage",
+    "retreat": "Retreat",
+    "stageProgress": "Stage {{stage}} / {{total}}",
+    "attack": "Attack!",
+    "energyCost": "Cost: 1 energy (demo)",
+    "victory": "Victory!",
+    "dungeonCompletedTitle": "Dungeon completed!",
+    "dungeonCompletedMessage": "You cleared all stages - here is your special reward!",
+    "completionRewardTitle": "Dungeon completion reward",
+    "completionRewardHint": "Clear all 10 stages to earn a bonus reward:",
+    "completionRewardItem": "Special item",
+    "dungeonCompleted": "Dungeon completed",
+    "dungeonFullyCompleted": "Dungeon completed - special reward claimed",
+    "victoryRewards": "You gain +{{gold}} gold and +{{xp}} XP (local save only)",
+    "claimReward": "Claim reward",
+    "defeat": "Defeat...",
+    "defeatHint": "The enemy was too strong.",
+    "retry": "Try again",
+    "battleLog": "Battle log",
+    "battleStart": "The battle begins...",
+    "logYou": "You",
+    "logEnemy": "Enemy",
+    "crit": "CRIT!",
+    "dungeons": {
+      "krypta": {
+        "name": "Sunken Crypt",
+        "desc": "Dark ruins of a pirate graveyard where mist rises over sunken tombs and undead corsairs watch from broken masts. The Sunken Crypt is the archipelago's first dungeon - ten stages of salt, bone, and the Lich Admiral's drowned ambition.",
+        "enemy": "Corsair Skeleton",
+        "enemies": {
+          "stage01": "Grave Lantern Keeper",
+          "stage02": "Barnacle Brawler",
+          "stage03": "Gallows Shade",
+          "stage04": "Salt Wraith",
+          "stage05": "Anchor Knight",
+          "stage06": "Rum Wraith",
+          "stage07": "Jelly Widow",
+          "stage08": "Lobster Lurker",
+          "stage09": "Vault Revenant",
+          "stage10": "Lich Admiral"
+        }
+      },
+      "kraken": {
+        "name": "Kraken's Lair",
+        "desc": "Damp tunnels beneath the waves where the kraken's echo bounces off stone and tentacles cut through the dark. Ten stages lead from sentry tentacles to the Heart of the Kraken - the second dungeon in the island chain.",
+        "enemy": "Kraken Tentacle",
+        "enemies": {
+          "stage01": "Tentacle Sentry",
+          "stage02": "Juvenile Kraken",
+          "stage03": "Coral Hunter",
+          "stage04": "Ink Stalker",
+          "stage05": "Abyssal Miasma",
+          "stage06": "Wide Grasper",
+          "stage07": "Spined Spawn",
+          "stage08": "Phosphor Shade",
+          "stage09": "Lair Warden",
+          "stage10": "Heart of the Kraken"
+        }
+      },
+      "forteca": {
+        "name": "Blackbeard's Fortress",
+        "desc": "Blackbeard's abandoned stronghold where gunpowder and gold soaked into the beams and his echo still rules the halls. Clear ten stages of crew, shades, and cannon fire to face the captain himself.",
+        "enemy": "Blackbeard's Servant",
+        "enemies": {
+          "stage01": "Deck Rat",
+          "stage02": "Powder Monkey",
+          "stage03": "Cutlass Corsair",
+          "stage04": "Sharpshooter",
+          "stage05": "Boarding Axeman",
+          "stage06": "Quartermaster's Guard",
+          "stage07": "Iron Hook Veteran",
+          "stage08": "Mutineer's Shade",
+          "stage09": "First Mate Thunder",
+          "stage10": "Captain Blackbeard"
+        }
+      },
+      "wulkan": {
+        "name": "Davy Jones' Volcano",
+        "desc": "Davy Jones's Volcano - gateway to hellish depths where lava pulses like a cursed heart and drowned souls cry from below. Ten ash-choked stages climb toward the Herald who speaks for the damned admiral.",
+        "enemy": "Abyss Demon",
+        "enemies": {
+          "stage01": "Ash Deckhand",
+          "stage02": "Magma Watch Sailor",
+          "stage03": "Boatswain's Flame Soul",
+          "stage04": "Basalt Ripper",
+          "stage05": "Crater Drowned",
+          "stage06": "Ravenous Salamander",
+          "stage07": "Burned Crew Wraith",
+          "stage08": "Jones's Ash Priest",
+          "stage09": "Lava Leviathan",
+          "stage10": "Davy Jones's Herald"
+        }
+      },
+      "palac": {
+        "name": "Poseidon's Palace",
+        "desc": "Poseidon's Palace - golden chambers beneath the reef where coral columns support a throne of tide and storm. Ten stages of Atlantean guards lead to the Avatar who judges every pirate bold enough to enter.",
+        "enemy": "Poseidon's Guard",
+        "enemies": {
+          "stage01": "Reef Guardian",
+          "stage02": "Coral Warrior",
+          "stage03": "Storm Siren",
+          "stage04": "Abyssal Executioner",
+          "stage05": "Trident Keeper",
+          "stage06": "Atlantean Champion",
+          "stage07": "Tide Archmage",
+          "stage08": "Deepsea Leviathan",
+          "stage09": "Herald of Poseidon",
+          "stage10": "Avatar of Poseidon"
+        }
+      }
+    },
+    "backToStages": "Back to stages",
+    "beforeBattle": "Battle preparation",
+    "yourStats": "Your stats",
+    "enemyStats": "Enemy stats",
+    "startBattle": "Start battle",
+    "nextStage": "Go to next stage",
+    "statLevel": "Level",
+    "statStrength": "Strength",
+    "statAgility": "Agility",
+    "statEndurance": "Endurance",
+    "statIntelligence": "Intelligence",
+    "statLuck": "Luck",
+    "completedLocked": "This stage is already completed.",
+    "loadFailed": "Could not load dungeons.",
+    "fightFailed": "Could not start the battle.",
+    "startingBattle": "Starting battle…",
+    "saveProgressFailed": "Could not save progress.",
+    "savingProgress": "Saving progress…"
+  },
+  "bestiaryPage": {
+    "title": "Bestiary",
+    "subtitle": "A living catalog of dungeon foes across the archipelago. Defeat an enemy to unlock their story - origin, role, sailor gossip, and ties to each dungeon's master.",
+    "openFromDungeons": "Bestiary",
+    "backToDungeons": "Back to dungeons",
+    "backToBestiary": "Back to bestiary",
+    "undiscovered": "Undiscovered",
+    "unknownEnemy": "Unknown foe",
+    "defeated": "Defeated",
+    "stageLabel": "Stage {{stage}}",
+    "defeatedAt": "Defeated on",
+    "defeatedAtUnknown": "Date unavailable",
+    "loreHeading": "Story",
+    "hint": "Entries unlock when you defeat an enemy in a dungeon. Return after each stage to fill the bestiary and learn how every guard connects to the boss waiting at stage ten.",
+    "discoveredCount": "Discovered {{count}} / {{total}}",
+    "loadFailed": "Could not load the bestiary.",
+    "detailDescription": "Bestiary entry details: {{name}}",
+    "enemies": {
+      "krypta": {
+        "stage01": {
+          "lore": [
+            "The Grave Lantern Keeper tends the first threshold of the Sunken Crypt with a green flame that never goes out. He was once a ship's chaplain who buried pirates at sea - until his own crew drowned him in the hold for preaching mercy to prisoners they meant to kill.",
+            "His hood hides a face more waterlogged than human, and his lantern does not light the way forward. It lights the names of the dead carved into wet stone, reminding every intruder that the crypt remembers trespassers.",
+            "Pirates say if the lantern flickers when you enter, the Keeper has already written your name in salt. Defeating him is the first proof that this graveyard fights back with more than bones.",
+            "Sailors in Port Ash swear the Keeper's lantern still burns on storm nights above the crypt - a green pinprick visible from the reef. Old charts mark the Sunken Crypt as the archipelago's first cursed anchorage; defeating him opens the path the Lich Admiral's drowned fleet once used to bury their dead."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "The Barnacle Brawler crawled from a reef where a pirate brig broke apart decades ago. Shells fused to his skin like armor no smith could forge, and each fist carries the weight of tides that never stopped pounding the wreck.",
+            "He cannot speak - only roar through a throat full of sand and broken coral. Raiders who survived him claim the barnacles cut their blades as badly as any cutlass.",
+            "The bestiary lists the Barnacle Brawler as proof that the sea does not only drown its dead. Sometimes it grows them into something new, hungry, and impossible to ignore.",
+            "Dock gossip says barnacles from the Brawler's reef sell for a fortune in Nassau, but no diver returns with a clean haul. He guards the second ring of tombs where the crypt's tide turns violent - a proving ground before the deeper dead awaken for the Vault Revenant's master."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "The Gallows Shade hangs where the crypt's ceiling drops low, rope creaking though no beam supports it. He was a mutineer hanged from his own mast and thrown into the burial shafts when the tide rose through the graves.",
+            "He has no feet - only the memory of the drop that broke his neck and the cold patience of a punishment that never ended. His fingers are long, grey, and eager to share the noose.",
+            "Old captains warn that looking up when you hear rope groan is how the Shade chooses its next victim. The bestiary advises keeping your eyes on the floor - or on your blade.",
+            "A mutineer's journal, washed ashore in a corked bottle, describes rope groaning in an empty corridor hours before the Shade appeared. The Gallows Shade marks the crypt's middle descent, where pirates say the Lich Admiral hanged deserters to feed the mist that hides his throne."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "The Salt Wraith rises from brine pools that should have dried centuries ago, skin crusted white like harbor frost. He was a smuggler who hid contraband in coffins - until the dead refused to stay buried with his cargo.",
+            "Every step leaves crystals that crack like thin ice. His touch burns with the dryness of sun on salt flats, a paradox in a place drowned by the sea.",
+            "Sea priests say the Salt Wraith punishes those who profit from graves. Defeating him feels like breaking a curse - and hearing the crypt exhale for the first time in years.",
+            "Smugglers once called the Salt Wraith 'the toll collector' - every coffin cargo left a coin of brine on the ledger. He patrols the brine pools that feed the crypt's lower vaults, and sailors claim his defeat thins the fog over the whole sunken graveyard for a week."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "The Anchor Knight stands where the crypt narrows into a tomb corridor, shield shaped like a ship's anchor and heavy enough to crush bone. He was a royal marine who hunted pirates - until a curse bound him to guard the very dead he once tried to erase.",
+            "His armor weeps rust and seawater. He does not speak oaths anymore; he only counts footsteps until intruders cross the line where mercy ends.",
+            "The bestiary records that the Anchor Knight never strikes first. He waits until you prove you want the treasure more than your life - then he reminds you that some doors weigh more than gold.",
+            "Royal navy records mention an Anchor Knight lost at the pirate graveyard raid of '68, cursed to guard until 'the sea forgives.' He blocks the corridor to the crypt's treasure tiers - the last checkpoint before rum-soaked halls where the Lich Admiral's treasurer still counts coin."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "The Rum Wraith drifts through the ruins of a tavern buried with the crypt, phantom bottles floating around his bloated coat. He was the jolliest bartender in Port Ash - until a poisoned barrel turned his crew into the first bodies interred here.",
+            "He laughs without breath and offers drinks that pass through living hands like fog. Those who accept wake days later on the surface with no memory; those who refuse fight a ghost who knows every dirty trick taught in a dockside inn.",
+            "Survivors say defeating the Rum Wraith leaves the smell of spilled rum in your hair for a week. The bestiary notes that he is the crypt's cruel joke - death with a smile and a toast.",
+            "Tavern songs in Tortuga mock the Rum Wraith's toast, but captains leave a spilled dram at the crypt entrance for luck. His buried tavern sits on the route to the vault antechamber; beat him and dockhands say the air smells less like rot and more like open sea."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "The Jelly Widow was a pirate queen who sailed with her husband until a jellyfish bloom swallowed their sloop in a night of phosphorescent horror. She alone walked out of the water - if walking is what the tendrils dragging her bones can be called.",
+            "Bioluminescent strands pulse around her like a wedding veil made of venom. She mourns and hunts in the same motion, each strike a memory of the crew she could not save.",
+            "The bestiary warns that pity is the deadliest mistake against the Jelly Widow. She does not want comfort. She wants company in the dark.",
+            "Fishers off the reef report jellyfish blooms that glow the same green as the Widow's veil - a sign the crypt stirs. She haunts the flooded gallery before the vault, mourning crew the Lich Admiral refused to raise; pity her and the bestiary notes you will join them."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "The Lobster Lurker guards a choke point where the crypt floods with cold current, claws clicking like rigging in a gale. He began as a cook's mate who fell overboard into a nest of deep-water lobsters - and climbed back aboard something else entirely.",
+            "One arm remains human enough to grip a knife; the other is a chitinous pincer that can snip through chain. He waits in stillness for hours, patient as a trap on the ocean floor.",
+            "Pirates who beat him say the fight felt like wrestling the tide itself. The bestiary recommends speed - the Lurker wins every battle that lasts too long.",
+            "The Lobster Lurker's choke point appears on smuggler maps as 'the pinch' - no boat passes the crypt's cold current without a fight. Cooks who survived the lair say the Lurker was the admiral's galley terror, kept hungry to warn thieves away from the Lich's hoard."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "The Vault Revenant wears a mask of hammered gold over what was once a treasurer's face, coins sewn into rotting finery like buttons. He counted the crypt's plunder for a captain who promised him a share - then sealed him alive with the chest.",
+            "He knows the weight of every gem in the vault and the price of every lie told to obtain them. His blows ring like counterfeit coin on stone.",
+            "The bestiary says the Vault Revenant is greed made visible. Defeating him does not open the treasury - but it proves you are not here only for gold.",
+            "Treasure hunters whisper that the Vault Revenant's mask is real gold, melted from the Lich Admiral's first conquest. He is the final guardian before the throne hall; defeat him and the crypt's bells ring underwater - a sound old captains say the Lich Admiral answers personally."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "The Lich Admiral rules the Sunken Crypt from a throne of coral and broken figureheads, crown rusted like an anchor lost to the abyss. He was the greatest pirate admiral of his age - until his fleet sank in a battle so vast the sea still remembers the smoke.",
+            "He commands not only magic but the ambition of every captain buried beneath him. His voice is the murmur of water in a drowned bell, and his eyes are lanterns for the dead fleet that sails behind his words.",
+            "Defeating the Lich Admiral inscribes a name in legends beside the oldest sea wars. The bestiary closes with a warning: the crypt may yield treasure, but the admiral of the drowned never forgets who dared stand before him.",
+            "When the Lich Admiral falls, reef pilots report tides shifting across the whole archipelago for three days - channels open that charts never showed. Crypt Hunter titles are earned here; the drowned fleet's ambition sleeps again, but every captain knows the sea may wake it when greed returns."
+          ]
+        }
+      },
+      "kraken": {
+        "stage01": {
+          "lore": [
+            "The Tentacle Sentry rises from darkness like a living shield, blocking the path of anyone who enters the Kraken's Lair without the sea's permission. Its skin is rough as coral, and its suckers grasp with the precision of a seasoned boarder.",
+            "It is the lair's first line of defense - patient, silent, and merciless. It does not ask where you came from. It asks only whether you can survive the first wave that never breaks.",
+            "Logs from sunken ships mention Tentacle Sentries appearing just before entire crews vanished. The bestiary advises treating it not as a monster but as a threshold - one you must cross if you wish to know the lair's true face.",
+            "Kraken cultists on the outer isles leave fish at cave mouths 'for the sentry' before diving for pearls. The Tentacle Sentry's defeat is the sign pearl divers wait for - only then do they risk the tunnels that echo toward the Heart of the Kraken."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "The Juvenile Kraken is still learning to hunt in the cave's narrow tunnels, yet youth does not mean weakness. Young tentacles probe every crack, and its eyes glow with phosphorescent light reflected from wet walls like a lantern in a storm.",
+            "It looks less fearsome than its elders, yet its strikes are as quick as a tidal surge - sudden, cold, and hard to predict. Pirates say the Juvenile Kraken attacks like a child that has not yet learned mercy.",
+            "The bestiary records that defeating the Juvenile Kraken is a lesson in vigilance. In the lair it is not about seeing the enemy - it is about noticing him before you feel suckers on your ankle.",
+            "A juvenile's beak, sold in a Nassau market, supposedly came from this lair - buyers claim it still pulses at night. Young Krakens herd intruders toward the Wide Grasper's corridor; sailors say killing one draws the Lair Warden's attention deeper in."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "The Coral Hunter moves among coral colonies, blending into pink and violet hues like a scout in colored fog. Its blows leave stinging wounds like salt in a fresh cut.",
+            "Rumor says it collects trophies from every defeated wanderer - shells, coins, even fragments of maps. Its legend grows with every new trace of blood on coral.",
+            "In the Kraken's Lair the Coral Hunter acts as a hunter seeking not glory but further proof that the cave belongs to the sea. The bestiary warns: if you see movement among coral, do not trust the colors - trust instinct.",
+            "Coral Hunters decorate their lairs with compass shards and earring hooks from dead pirates - trophies the bestiary lists by the dozen. They scout for the Ink Stalker ahead of the heart chamber; defeat this one and the lair's colors grow dull, a sign the Kraken senses you."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "The Ink Stalker releases a cloud of black ink that steals direction, courage, and the sense of where water ends and wall begins. In that fog you hear only splashes, breath, and the dry laugh of a creature that knows the tunnel better than you.",
+            "Captains say that in such darkness you see your own fears - sinking ships, abandoned crews, nights of hunger. The Ink Stalker does not create illusions. It merely reveals them.",
+            "The bestiary records that fighting it is a test of character more than strength. Whoever masters fear may leave the cloud. Whoever hesitates remains in it forever - another tale whispered by sailors at the fire.",
+            "Captains teach green hands to count breaths in ink fog: if you reach ten without a strike, the Stalker has chosen mercy. The Stalker guards the miasma vents below the Warden's gate - beat it and veteran divers say the cave air clears enough to see the final descent."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "The Abyssal Miasma hangs above the water like toxic vapor born from the sea's wrath and ancient wrecks. Breathing near it dulls the senses, and every movement feels as heavy as diving in armor on the ocean floor.",
+            "It has no face or eyes, yet it has intent - to slow the intruder, weaken them, and make them hesitate where the lair is most dangerous. It is a creature that fights through exhaustion.",
+            "Old chronicles say the Abyssal Miasma appears where the sea remembers sinkings no one mourned. The bestiary advises: if the air grows thick, do not pause. Either fight at once or withdraw - the miasma offers no third option.",
+            "The Abyssal Miasma smells like gunpowder and drowned cargo - old sailors tie scarves over mouths and still fall. It chokes the tunnel before the Wide Grasper's kill zone, weakening crews the Heart of the Kraken prefers half-drowned."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "The Wide Grasper spreads its tentacles across the entire corridor, closing every escape route like a living gate. Its strength comes not from speed but from relentless pressure that breaks resistance as a wave breaks a wooden pier.",
+            "It does not attack once. It attacks in waves until the opponent loses the rhythm of breath. In a lair where every step echoes, the Wide Grasper can make you feel as if you are fighting the cave itself.",
+            "The bestiary notes that defeating the Wide Grasper requires patience and room for error - except in its corridor there is no room for error. Victors say the key is focus: one target, one breath, one strike at a time.",
+            "Wide Grasper victims' bones pile in alcoves 'like stacked cannonballs,' according to a salvager's log. This corridor is the Kraken's ribcage in legend - break through and the Phosphor Shade's flashes are the last warning before the Warden and the Heart."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "The Spined Spawn is covered in sharp ridges that wound even when it seems to defend passively. Young but already cruel, it attacks in a frenzy as if it must prove its place in the lair hierarchy before older tentacles.",
+            "Each blow leaves a mark like claws scraping stone. Pirates who met it claim the Spined Spawn fights not for glory but for fear - its own and yours.",
+            "The bestiary considers it the most unpredictable in the entire lair. Not because it is strongest, but because it fights like a being still learning what pain is - and wants to learn it on you.",
+            "Spined Spawn scars match the Kraken Slayer title's heraldry in pirate tattoos across Tortuga. The young beast tests intruders for the Heart - too weak and the lair ejects you in ink; strong enough and the Warden rises to measure you properly."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "The Phosphor Shade moves in flashes, leaving trails of luminous dust that briefly light the tunnel like comets in a night sky. It is hard to tell where its body ends and the water begins.",
+            "Many captains swear they saw it twice before feeling the first blow. The Phosphor Shade fights like an illusion that nonetheless leaves very real wounds.",
+            "The bestiary recommends watching not the light but the silence between flashes. There, in that brief pause, you may hear the enemy move. Hearing it early is often the only difference between leaving and disappearing.",
+            "Phosphor trails guide lost divers wrong, but also mark safe footing - if you watch the dark between flashes. The Shade dances before the Warden's chamber; sailors bet barrels of rum on whether seeing it twice means death or promotion to Kraken Slayer."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "The Lair Warden stands before the final chamber like a living anchor driven into the heart of the cave. It knows every tunnel, shortcut, and echo - because it has listened to them for years, waiting for the next bold soul or fool.",
+            "Its presence means the heart of the lair is near, and the price of going deeper will be steep. It says nothing, yet its tentacles arrange themselves in a stance that leaves no questions: onward only through battle.",
+            "The bestiary records the Lair Warden as a gate between the world of the living and a place where the sea keeps its own law. Defeating it is not the end of the road - it is an invitation to meet what the lair protects most.",
+            "The Lair Warden's tentacles scar the stone like mooring lines on a pier - proof it has held this gate for centuries. Defeat it and the whole archipelago hears a groan from the deep, a tremor fishers blame on the Heart waking to face you."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "The Heart of the Kraken beats slowly, yet each pulse shakes the entire cave like a wave striking cliffs during a storm of the century. It is an ancient being long tied to legends of maritime catastrophe, sunk fleets, and nights when the sea burned with light.",
+            "It is not merely a monster. It is a symbol that the ocean has boundaries, and those who cross them without respect pay a price greater than gold. Its tentacles surround the chamber like walls of a living temple altar.",
+            "Defeating the Heart of the Kraken is an act that will long be sung in port taverns - songs whispered, because even victors know the sea remembers. The bestiary closes this entry with a sentence captains repeat: \"We won the battle, but the sea never stops watching.\"",
+            "Kraken Slayers say pearl beds bloom overnight after the Heart falls, then vanish by the next moon. The lair's collapse is a myth, but tides around the archipelago run strange for a season - proof the ocean keeps score when its oldest tenant is humbled."
+          ]
+        }
+      },
+      "forteca": {
+        "stage01": {
+          "lore": [
+            "The Deck Rat guards the outer gate of Blackbeard's Fortress like a stray dog that learned to bite. He was pressed into service after stealing biscuits from the captain's table and survived only because he could climb rigging faster than anyone on the crew.",
+            "His cutlass is chipped and his coat smells of tar and cheap rum, yet he fights with the desperation of a man who knows the fortress has no room for failures. Pirates say he never sleeps on watch - he simply waits for someone foolish enough to test the first wall.",
+            "Defeating the Deck Rat is the first sign that Blackbeard's stronghold is no abandoned ruin. It is a living war machine where even the lowest deckhand fights as if the captain's eye were upon him.",
+            "Recruits in Tortuga dare each other to steal a chip from Blackbeard's outer wall - the Deck Rat collects those chips as trophies. His gate is the fortress threshold; pass it and the Powder Monkey's corridors smell of fear and black powder all the way to the captain's hall."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "The Powder Monkey carries gunpowder through corridors where a single spark could end a dynasty of pirates. He is young, quick, and terrified in equal measure - a dangerous combination in a fortress full of cannons and grudges.",
+            "Barrels strapped to his back rattle with every step, and his hands are stained black from hauling charges to the battlements. Veterans treat him as expendable; the fortress treats him as essential.",
+            "The bestiary warns that underestimating a Powder Monkey is how fortresses stay defended. He may look like a boy, but in these halls a boy with powder is as deadly as a captain with a fleet.",
+            "Fortress manuals (stolen from a dead quartermaster) warn: never chase the Powder Monkey - lead him toward a spark and the wall wins. He runs the powder routes Blackbeard's cannons still feed on; beat him and sharpshooters above start taking aim - the fortress escalates."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "The Cutlass Corsair patrols the torchlit corridors with the steady rhythm of a man who has fought a hundred boarding actions and lived. His blade is curved like a question mark, and he answers every challenge the same way - with steel.",
+            "He wears no fancy insignia, only scars and a belt heavy with trophies taken from intruders. In Blackbeard's Fortress he is the standard by which all other fighters are measured.",
+            "Captains who survived him say the Cutlass Corsair never speaks during battle. He lets his sword do the talking, and it has a vocabulary wide enough to end most conversations permanently.",
+            "The Cutlass Corsair's notches number over two hundred on a blade displayed in a Nassau museum - allegedly copied from the original. He holds the mid-fortress line where boarding tactics are taught; fall here and you never smell the treasury or hear Blackbeard's fuse-lit laugh."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "The Sharpshooter watches from the battlement walls, musket ready, rain sliding off his tricorn like water off a ship's hull. He was once a navy marksman who defected for gold and never looked back at the uniform he burned.",
+            "One shot from his position can turn a confident assault into a retreat. He knows every angle of the fortress walls, every crack in the stone where wind carries the smell of the sea.",
+            "The bestiary records that fighting the Sharpshooter is a lesson in patience. In the fortress you do not charge blindly - you move when he reloads, or you do not move at all.",
+            "Sharpshooter nests are marked on fortress raider maps with skulls and 'reload counts.' One musket guards the approach to the boarding axeman's iron gate - survive the shot and the Quartermaster's Guard knows your name before you arrive."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "The Boarding Axeman blocks the iron gate with a weapon made for breaking doors, masts, and men. Chains hang from his belt like trophies from ships that never escaped Blackbeard's reach.",
+            "His strikes are slow but devastating, each blow echoing through the corridor like a hammer on a hull. He does not chase - he waits until you come to him, and then the fortress itself seems to swing the axe.",
+            "Old raid logs say the Boarding Axeman was once a shipbreaker who joined the crew after Blackbeard sank his employer's fleet. Now he breaks invaders instead of timbers, with the same professional calm.",
+            "The Boarding Axeman's chains once hung from Blackbeard's flagship - salvagers paid gold just to touch a link. He guards the treasury approach; defeat him and the Iron Hook Veteran sends word (so say deserters) that Blackbeard should finish his drink."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "The Quartermaster's Guard stands before the treasury hall with keys that jingle like a warning bell. His armor is polished not for parade but because the quartermaster demands order even in a pirate fortress.",
+            "He knows the value of every coin in the vault and the cost of every life spent defending it. To him, intruders are not enemies - they are accounting errors that must be corrected with violence.",
+            "The bestiary notes that defeating the Quartermaster's Guard means you are deep enough to smell the treasure. It also means the fortress will stop pretending you are a nuisance and start treating you as a threat.",
+            "Quartermasters in the Caribbean copied this fortress's ledger system - 'correct errors with violence' - from the Guard's own rulebook. Beat the Guard and the vault door sweats salt air; one hall remains before the Mutineer's Shade and First Mate Thunder."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "The Iron Hook Veteran bears the scars of a dozen mutinies put down with one gleaming hand. His hook catches torchlight like a blade, and his banner - torn but never lowered - marks him as a man who survived what killed others.",
+            "He fought beside Blackbeard in the fortress's bloodiest years and stayed when lesser pirates fled. His loyalty is not to gold but to the legend that made this stronghold feared across the Caribbean.",
+            "Survivors say the Iron Hook Veteran fights as if remembering every comrade lost on these walls. The bestiary advises respect: he is not guarding a room. He is guarding a memory of war.",
+            "The Iron Hook Veteran's banner fragment sells on black markets as a charm against mutiny - it never works. He stands before the haunted lower halls where the Mutineer's Shade roams; veterans salute him even in death before marching to Thunder and Blackbeard."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "The Mutineer's Shade drifts through fog in the haunted lower halls, a pirate who turned on his captain and was hanged from the fortress gate - yet never quite left. His eyes glow with cold light, and his voice is only the whisper of chains.",
+            "He attacks without warning, appearing where torchlight fails and courage thins. Many intruders flee before striking a blow, convinced the fortress itself has risen against them.",
+            "The bestiary records the Mutineer's Shade as proof that Blackbeard's Fortress remembers betrayal. Defeating him is not just a battle - it is a verdict against the ghosts of failed revolts.",
+            "Mutineer's Shade sightings spike before every failed fortress raid - superstition or warning, captains debate over rum. Clear the Shade and the antechamber lights burn steady for the first time in years, a sign First Mate Thunder has loaded both pistols."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "First Mate Thunder stands in the antechamber to the captain's quarters, twin pistols drawn, coat heavy with medals taken from enemy ships. He is the second voice of the fortress and the last wall before Blackbeard himself.",
+            "His nickname comes not from weather but from the sound his shots make in enclosed stone - a crack that deafens, then silences. He has buried more captains than most pirates have met.",
+            "The bestiary warns that First Mate Thunder does not negotiate, retreat, or boast. He simply fires, reloads, and fires again until either he falls or the intruder does. There is no third outcome.",
+            "First Mate Thunder's pistols have names in crew gossip: 'Last Argument' and 'Final Verdict.' He is Blackbeard's last living wall; beat him and the captain's chamber doors unlock with the smell of burning fuse - no more intermediaries, only legend."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "Captain Blackbeard sits upon a throne of captured ship wheels and broken crowns, slow-burning fuses woven into his beard casting hellish light across the captain's chamber. He is not a myth exaggerated by sailors - he is the reason the myth exists.",
+            "His iron hook gleams sharper than any cutlass in the fortress, and his laugh shakes the chandeliers of stolen crystal. Legends say he made a pact with storm and fire; the fortress says he simply refused to die like ordinary men.",
+            "Defeating Captain Blackbeard is an act sung in taverns from Tortuga to Nassau - songs half-whispered, because even victors know the sea has not forgotten his name. The bestiary closes with words every raider repeats: \"The fortress may fall today, but Blackbeard's shadow sails on every horizon.\"",
+            "When Blackbeard falls, fortress bells ring across the archipelago in stolen dreams - or so drunk captains claim. Fortress Raider titles spread; smugglers use the stronghold's collapse as cover for new routes, but every pirate knows his shadow still sails every horizon."
+          ]
+        }
+      },
+      "wulkan": {
+        "stage01": {
+          "lore": [
+            "The Ash Deckhand guards the first staircase of the crater, wading through embers as if crossing a wet deck. He once handled rigging on Davy Jones's prison ship before lava stripped his skin and left only soot.",
+            "His steps are light, but every footprint leaves a burning trail - proof that the volcano remembers every intruder. He strikes fast with a charred belaying pin, testing reflexes before the deeper guardians judge your worth.",
+            "Dockhands in the archipelago spit when they speak his name, claiming he still whistles the bosun's pipe tune on windy nights above the caldera. A salvager's journal notes: 'First ash, then the bell - the volcano knows you came.'",
+            "Defeat the Deckhand and the stairwell's heat drops one degree - old pilots say that is the Herald's invitation. He is the threshold to Davy Jones's Volcano, the fourth dungeon of the archipelago chain where drowned debts catch fire."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "The Magma Watch Sailor once stood night watch in the harbor where Jones's fleet vanished. In death he returned with lava veins and a voice hot as a forge.",
+            "He carries a melted alarm bell as a mace and strikes as if trying to wake the entire volcano. Every blow sounds like a signal flare to the Basalt Ripper and the Herald waiting at the crown.",
+            "Night watch logs from Jones's lost port describe a bell that rang underwater the night the fleet sailed into fire. Sailors bet that hearing it twice in the crater means the Herald already knows your name.",
+            "Beat the Watch Sailor and steam vents shift - a path opens toward the Boatswain's Flame Soul. The volcano dungeon grows louder here; captains say the archipelago's southern reefs glow red when this guard falls."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "The Boatswain's Flame Soul is the ghost of an officer who punished every mistake. Fire consumed him during a mutiny, but his orders survived death.",
+            "He whirls over basalt with a burning lash, commanding the living to kneel as the dead once did. His discipline holds the mid-crater where lava rivers fork toward the Crater Drowned and the Ash Priest's altar.",
+            "Mutineers' confessions (confiscated in Nassau) mention a bosun whose lash 'burned without flame' on Jones's barge. Tavern gossip says he still counts lashes aloud - and stops at thirteen, Jones's unlucky number.",
+            "Breaking the Flame Soul snaps the first chain of Jones's discipline in this dungeon. Deeper down, the Burned Crew Wraith gathers the sailors he once broke - defeat him before they merge again."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "The Basalt Ripper hatched in lava fissures like a predator carved from stone. Its claws split steel, and its armor cracks only where magma breathes beneath the shell.",
+            "It hunts by tremor, reading the ground instead of sight. It patrols the fissure maze where intruders lose direction before the Crater Drowned pulls them under.",
+            "Miners on the outer isles sell 'ripper scales' that smoke when lied to - fraud, mostly, but the bestiary confirms real scales hiss near the caldera rim. Fishers avoid the south reef when ripper tremors shake their nets.",
+            "Slay the Ripper and the crater floor steadies for one heartbeat - a window sailors use to reach the drowning pool. The Herald's Herald priests say the beast was Jones's hound, bred to keep debtors from climbing back out."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "The Crater Drowned drags anchor chains fused with bone. He was a sailor who tried to flee Jones's sacrifice barge and was thrown into the boiling pit.",
+            "He rises from the molten pool eyeless, yet hears heartbeats through steam and ash. He holds the central pool where the Ravenous Salamander feeds and the Ash Priest watches rites.",
+            "A bottle note found in the archipelago reads: 'He pulled my mate under by the chain we shared.' Divers refuse the crater pool on the anniversary of Jones's pact - they say the Drowned counts names aloud.",
+            "When he falls, the crater surface stills for one breath - the Salamander's hunger wakes immediately after. Beat him to prove you are not running from Jones's debt; the Herald waits only for those who walk forward."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "The Ravenous Salamander is an ancient beast fed on the souls of dead corsairs. Its throat glows like a furnace and every hiss sprays sparks.",
+            "It crawls across walls and vanishes into cracks to strike from another angle. This guardian cannot be beaten by brute force alone - it herds prey toward the Burned Crew Wraith's chamber.",
+            "Old sea charts mark this volcano with a salamander sigil older than Jones himself. Captains leave rum at the crater lip 'for the furnace tongue' - superstition, but raids succeed more when they do.",
+            "Defeat the Salamander and ash falls soft as snow - the Ash Priest's litany begins. You are three stages from the Herald; the archipelago trembles when this beast dies, and Jones's cursed ships report strange lights below."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "The Burned Crew Wraith is a single shadow made from sailors who burned under Jones's banner. Dozens of voices speak in one whisper about betrayal and debt.",
+            "Fighting it feels like dueling a wall of smoke that remembers every death. It blocks the ascent to the Ash Priest, merging and splitting to surround intruders who hesitate.",
+            "Survivors of the prison ship fire describe singing from the smoke - not hymns, but a muster roll of the dead. The bestiary lists their names when you win; lose, and your name joins the chorus.",
+            "Tear the Wraith apart and the altar stairs clear - the Ash Priest conducts rites for the Lava Leviathan and the Herald. This stage separates cowards from captains who earn the Volcano Conqueror whisper across the archipelago."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "Jones's Ash Priest conducts rites on a basalt altar where lava serves as incense. He believes every slain soul strengthens his master's throne.",
+            "He casts ash like a curse while runes ignite beneath his feet with the names of the dead. He summons the Lava Leviathan when intruders reach the caldera crown's lower lip.",
+            "Confessionals seized from a sunken chapel quote the Priest: 'Jones eats what the sea rejects.' Pilots mark his altar on charts with a trident crossed by ash - avoid the rim during black moon nights.",
+            "Silence the Priest and the litany binding the volcano to Jones weakens. One beast and one Herald remain; beat him or the Leviathan rises twice as hungry, and the archipelago's tides run backward for a day."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "The Lava Leviathan rises from the caldera like a warship forged in flame. Its scales are harder than iron, and its horns shatter basalt pillars.",
+            "The beast knows neither pity nor fear, only hunger. It is the final beast before the Herald - roars shake the chamber until ash falls like snowfall from the cavern roof.",
+            "Whalers passing the southern strait report seeing a fiery spine break the surface once per decade. They call it 'Jones's keel' and double their prayers - the bestiary confirms it dives back toward this caldera.",
+            "Slaying the Leviathan cracks the crown open to sky and hell alike. The Herald of Davy Jones stands beyond, trident in hand; conquer here and captains across the archipelago toast your name - if you return."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "Davy Jones's Herald waits at the crater crown with a trident tempered in souls. He is the voice of the damned admiral and the final judgment for all challengers.",
+            "Each motion leaves a ring of fire, each word summons shadows from the ocean floor. He speaks verdicts Jones himself once pronounced against captains who cheated death.",
+            "The last page of a drowned captain's log reads: 'The Herald knew my debt before I spoke.' Volcano titles unlock when he falls; reef pilots say steam pillars rise visible from three islands away.",
+            "Defeating the Herald means the volcano names you conqueror - and the archipelago's southern routes open for a season. Jones's shadow remains on every depth sounder, but his gate here stays shut until another fool climbs the ash stairs."
+          ]
+        }
+      },
+      "palac": {
+        "stage01": {
+          "lore": [
+            "The Reef Guardian stands where Atlantis meets the open sea, coral armor fused to skin that has not breathed air in millennia. He was sworn to Poseidon before the city sank, and his oath outlived the sun.",
+            "His trident does not strike first - it measures trespassers against the reef's patience. He tests footing and nerve at the palace gate where currents rip like boarding lines in a gale.",
+            "Pearl divers whisper that the Guardian counts heartbeats aloud - stop breathing wrong and the reef closes. A merchant's letter from Nassau mentions 'a trident shadow' guarding the richest bed east of Tortuga.",
+            "Pirates who defeat him earn the reef's grudging passage into Poseidon's Palace, the archipelago's deepest dungeon. Fail, and your keel joins the coral memorial the Avatar reads when judgment comes."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "The Coral Warrior patrols shattered colonnades where Atlantean banners once flew. Shell pauldrons ring when he moves, and each blow carries the weight of a civilization that refused to kneel to the surface world.",
+            "He fights with the discipline of an elite guard who has trained since before your grandfather's grandfather was born. He holds the outer halls where Storm Sirens listen for intruders who bleed.",
+            "Atlantean coins (forgeries, mostly) show warriors with the same shell shoulders - collectors pay for them anyway. The bestiary notes his stance never breaks; only speed and cruelty together drop him.",
+            "Beat the Coral Warrior and colonnade echoes change - the palace stops pretending you are driftwood. The Storm Siren ahead sings for Poseidon himself; surface sailors say her note cracks masts ten leagues away."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "The Storm Siren sings where palace currents collide with abyssal cold, her voice stitching lightning into tidal walls. Sailors who heard her on the surface went mad; intruders who hear her here go silent.",
+            "She does not beg for mercy - she offers the mercy of drowning quickly. Her song disorients before the Abyssal Executioner's chains find your throat.",
+            "Harbor wives in the archipelago warn children with 'the Siren counts waves' - one, two, three, then pull under. Captains plug ears with wax stolen from beekeepers; it helps until it melts in the palace heat.",
+            "Silence the Siren and the palace thunder fades to heartbeat rhythm - the Executioner waits in trenches below. Defeat her to prove your mind is yours; Poseidon's Herald records every victor's name in foam."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "The Abyssal Executioner drags chains forged in trenches where light has never reached. He was Poseidon's answer to pirates who believed depth alone could hide them from divine judgment.",
+            "Each link remembers a condemned soul. His strikes feel less like combat and more like sentencing - until you prove your name is not yet written in the ledger of the deep.",
+            "Chain links salvaged near the palace sell as relics; the real ones still scream when heated. Smugglers call this hall 'the docket' - cases end in one swing.",
+            "Survive the Executioner and the Trident Keeper's golden gates gleam ahead. You are halfway through Atlantis's last dungeon; the archipelago's storms calm for an hour when he falls - then Poseidon watches personally."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "The Trident Keeper guards the golden gates with rites older than any chart in Tortuga. His staff bears three prongs not for war alone, but for law, tide, and the price of entering a god's house uninvited.",
+            "Incense of brine and amber drifts around him like a second skin. He reads trespass without speaking - intruders feel weighed like cargo on a scale only gods see.",
+            "Priests of the tide isles copy his rites poorly, charging sailors for 'safe passage' that never works. The bestiary quotes him once: 'Gold buys a door, not forgiveness.'",
+            "Pass the Keeper and the Atlantean Champion salutes inside - honor before blood. Fail, and the reef remembers your ship; fishers will not sell you bait for a year."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "The Atlantean Champion wears crystal armor grown from the palace floor, each facet holding a reflection of battles fought when Atlantis ruled the waves. He is the last knight of a throne room that never emptied.",
+            "He salutes before he strikes - an old courtesy from a world that believed honor could survive the flood. He guards the inner sanctum approach where the Tide Archmage bends water into weapons.",
+            "Arena fighters study recordings of his salute - some swear the crystal shows their own death if they watch too long. Surface kings once sent champions to duel him; none returned with titles.",
+            "Defeating the Champion breaks the first seal of the inner sanctum. Two guardians and the Avatar remain; the archipelago's pearl beds brighten when he falls, as if Poseidon turned his face toward the fight."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "The Tide Archmage bends currents into blades and runes into whirlpools that swallow torchlight. He studied magic when the city still traded with surface kings, and he has not stopped learning in the dark.",
+            "His spells do not flash - they pull. Fighting him feels like dueling the ocean itself, one breath at a time, until you tear the tide from his hands.",
+            "Stolen spell pages circulate in Nassau, signed with a trident watermark - fakes, usually, but mages pay anyway. He mutters equations in a dead tongue; linguists say half the words are tide tables.",
+            "Break the Archmage and the Deepsea Leviathan coils free - no more illusions, only mass and teeth. Beat him to show Atlantis your mind cuts deeper than water; the Herald announces you to Poseidon next."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "The Deepsea Leviathan coils through throne-room pillars broken by its own passage, scales black as the trench and harder than ship iron. It is not a pet - it is a living boundary between mortals and divinity.",
+            "When it roars, chandeliers of pearl tremble and gold dust falls like snow. It blocks the herald's stair - fleets would break here; one beast suffices.",
+            "Whalers who drift too east tell of a shadow longer than their ship that dives without sound. Charts mark 'Palace Leviathan' with a warning: do not harpoon unless you intend to sink.",
+            "Slay the Leviathan and pearl dust coats the hall like victory snow. The Herald of Poseidon descends to speak your name; one step remains before the Avatar judges the archipelago's boldest captain."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "The Herald of Poseidon speaks with the sea god's authority, crown of foam and coral bright enough to blind unprepared eyes. He announces challengers to the throne as if the ocean were a court and every pirate a defendant.",
+            "His words can calm a storm or summon one. He reads charges - theft of pearls, murder of reef guardians, hubris - before the Avatar rises.",
+            "Court poets in the archipelago mimic his cadence at weddings and executions alike. Sailors say hearing 'You are summoned' in dreams means turn back; hearing it in the palace means it is already too late to run.",
+            "Defeat the Herald and the golden chamber opens fully - no more messengers, only the master. Win here and every island port hears your name tied to Atlantis; lose, and the reef grows one more coral figure with your face."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "The Avatar of Poseidon rises at the heart of the golden chamber, divine trident leveled with the calm of a god who has drowned empires and forgotten their names. This is not a guard - it is the sea made judgment.",
+            "Each motion sends waves through the floor; each glance weighs your soul against the abyss. The palace dungeon exists to answer one question: does the surface world deserve the tides it steals?",
+            "When the Avatar falls, legends say Atlantis exhales and the archipelago's storms reorganize for a generation. Poseidon Slayer titles are born here - not given lightly, and never forgotten by the deep.",
+            "Defeating the Avatar means Atlantis names you champion - and the ocean remembers. Reefs bloom, currents obey strange new paths, and captains who were not there still toast your victory, afraid to sail without your luck."
+          ]
+        }
+      }
+    }
+  },
+  "guild": "Ship",
+  "options": "Options",
+  "statek": "Ship",
+  "statekComingSoon": "Ship feature coming soon",
+  "noStatek": "You are not a member of any ship",
+  "createStatek": "Build ship",
+  "createStatekCardLead": "Name your ship and set the tale other pirates will hear in port.",
+  "joinStatekCardLead": "No ship of your own yet? Seek a crew on the captains' board.",
+  "createStatekCost": "Building a ship costs 500 gold",
+  "shipName": "Ship name",
+  "shipNamePlaceholder": "Enter ship name",
+  "statekDescription": "Ship description",
+  "statekDescriptionPlaceholder": "Enter ship description (optional)",
+  "noDescription": "No ship description",
+  "statekInfo": "Ship information",
+  "members": "Members",
+  "viewStatek": "View ship",
+  "previewStatek": "Preview ship",
+  "upgrades": "Upgrades",
+  "yourRole": "Your Role",
+  "owner": "Owner",
+  "manager": "Manager",
+  "member": "Member",
+  "internalNotes": "Internal Notes",
+  "internalNotesPlaceholder": "Notes visible only to crew members",
+  "noInternalNotes": "No internal notes",
+  "statekChat": "Ship chat",
+  "noMessages": "No messages",
+  "typeMessage": "Type a message...",
+  "send": "Send",
+  "edit": "Edit",
+  "editStatek": "Edit ship",
+  "create": "Create",
+  "save": "Save",
+  "shipNameRequired": "Ship name is required",
+  "statekCreatedSuccessfully": "Ship created successfully",
+  "statekUpdatedSuccessfully": "Ship updated successfully",
+  "success": "Success",
+  "statekMembers": "Crew",
+  "goldContributed": "Gold Contributed",
+  "diamondsContributed": "Diamonds Contributed",
+  "inviteMember": "Invite Member",
+  "searchUsername": "Search Username",
+  "enterUsername": "Enter username...",
+  "invite": "Invite",
+  "joined": "Joined",
+  "transferOwnership": "Transfer Ownership",
+  "makeOwner": "Owner",
+  "removeMember": "Remove Member",
+  "remove": "Remove",
+  "leaveStatek": "Leave ship",
+  "inviteToStatek": "Invite to ship",
+  "inviting": "Inviting...",
+  "removeFromStatek": "Remove from ship",
+  "removing": "Removing...",
+  "memberInvitedSuccessfully": "Member invited successfully",
+  "cancelJoinRequest": "Cancel Join Request",
+  "cancelling": "Cancelling...",
+  "joinRequestCancelled": "Join request has been cancelled",
+  "cancelInvitation": "Cancel ship invitation",
+  "invitationCancelled": "Invitation has been cancelled",
+  "statekIsFull": "Ship is full",
+  "memberRemovedSuccessfully": "Member removed successfully",
+  "leftStatekSuccessfully": "Left ship successfully",
+  "ownershipTransferredSuccessfully": "Ownership transferred successfully",
+  "memberRoleChangedSuccessfully": "Member role changed successfully",
+  "confirmRemoveMember": "Remove Member",
+  "confirmRemoveMemberMessage": "Are you sure you want to remove {{member}} from the ship?",
+  "confirmLeaveStatek": "Leave ship",
+  "confirmLeaveStatekMessage": "Are you sure you want to leave this ship? You will lose access to the crew treasury and ship features. You can join again if the captain invites you or the ship is open.",
+  "confirmLeaveStatekAsOwner": "If you are the owner, the ship will be deleted along with all crew members.",
+  "confirmTransferOwnership": "Transfer Ownership",
+  "confirmTransferOwnershipMessage": "Are you sure you want to transfer ship ownership to {{member}}? You will become a regular member.",
+  "confirmChangeRole": "Change Role",
+  "confirmChangeRoleMessage": "Are you sure you want to change {{member}}'s role from {{currentRole}} to {{targetRole}}?",
+  "statekUpgrades": "Upgrades",
+  "statekUpgradesComingSoon": "Ship upgrades coming soon",
+  "deleteStatek": "Delete ship",
+  "confirmDeleteStatek": "Delete ship",
+  "confirmDeleteStatekMessage": "Are you sure you want to delete the ship? This operation is irreversible and will remove all crew members and all ship data.",
+  "delete": "Delete",
+  "statekDeletedSuccessfully": "Ship deleted successfully",
+  "statekTreasury": "Ship treasury",
+  "statekSettings": "Ship settings",
+  "requiresInvitation": "Requires Invitation",
+  "invitationRequiredDescription": "Joining: by captain invitation, or by sending a join request (the captain decides).",
+  "openStatekDescription": "Anyone can join without an invitation if there is a free crew slot.",
+  "invitationRequirementUpdated": "Invitation requirement updated successfully",
+  "joining": "Joining...",
+  "sending": "Sending...",
+  "joinStatek": "Join ship",
+  "sendJoinRequest": "Send Join Request",
+  "joinRequestAlreadySent": "Join request already sent",
+  "joinRequestSent": "Join request has been sent",
+  "statekRequiresInvitation": "This ship requires an invitation to join",
+  "onlyOwnerCanChangeSettings": "Only ship owner can change this setting",
+  "joinExistingStatek": "Join existing ship",
+  "joinStatekInfo": "You can find a ship in the ranking and join it.",
+  "goToRanking": "Go to Ranking",
+  "depositGold": "Deposit Gold",
+  "depositdiamonds": "Deposit diamonds",
+  "yourGold": "Your Gold",
+  "yourdiamonds": "Your diamonds",
+  "deposit": "Deposit",
+  "depositing": "Depositing...",
+  "depositSuccessful": "Deposit successful",
+  "depositAmountRequired": "You must deposit at least some gold or diamonds",
+  "insufficientGold": "Insufficient gold",
+  "insufficientdiamonds": "Insufficient diamonds",
+  "activeBoosters": "Active Boosters",
+  "availableBoosters": "Available Boosters",
+  "noActiveBoosters": "No active boosters",
+  "use": "Use",
+  "effect": "Effect",
+  "fightPoints": "Fight Points",
+  "days": "days",
+  "expired": "Expired",
+  "timeRemainingDaysHours": "{{days}}d {{hours}}h",
+  "timeRemainingHoursMinutes": "{{hours}}h {{minutes}}m",
+  "timeRemainingMinutes": "{{minutes}}m",
+  "active": "Active",
+  "alreadyActive": "Already Active",
+  "notEnoughResources": "Not Enough Resources",
+  "notEnoughDiamonds": "Not enough diamonds",
+  "skillsUpgrade": "Skills Upgrade",
+  "workUpgrade": "Work Upgrade",
+  "missionsUpgrade": "Missions Upgrade",
+  "onlyOwnerCanUpgrade": "Only owner can upgrade the ship",
+  "upgradeSuccessful": "Upgrade successful!",
+  "invalidUpgradeType": "Invalid upgrade type",
+  "statekGold": "Ship gold",
+  "statekDiamonds": "Ship diamonds",
+  "statekFamePoints": "Ship fame points",
+  "currentLevel": "Level",
+  "nextLevel": "Next Level",
+  "upgrade": "Upgrade",
+  "upgrading": "Upgrading...",
+  "maxLevel": "Maximum Level",
+  "upgradeMaxed": "Upgrade has reached maximum level",
+  "boosterPurchasedSuccessfully": "Booster purchased successfully",
+  "loadingBoosters": "Loading boosters...",
+  "noAvailableBoosters": "No available boosters",
+  "ranking": "Ranking",
+  "notifications": "Notifications",
+  "categories": "Categories",
+  "news": "News",
+  "noNotifications": "No notifications",
+  "notificationsPage": {
+    "pendingBadge_one": "{{count}} new",
+    "pendingBadge_other": "{{count}} new",
+    "emptyTitle": "No notifications to show",
+    "emptyHint": "When you receive invitations or join requests, they will appear here.",
+    "shipLabel": "Ship:",
+    "preview": "Preview",
+    "previewPlayer": "View player",
+    "badgeInvite": "Invitation",
+    "badgeRequest": "Request",
+    "badgeInfo": "Info",
+    "levelShort": "Lvl {{level}}",
+    "decisionJoined": "Joined",
+    "decisionAccepted": "Accepted",
+    "decisionDeclined": "Declined",
+    "yourShip": "Your ship",
+    "fightShip": "Ship battles"
+  },
+  "statekInvitation": "Crew invitation",
+  "statekInvitationContent": "{{inviter}} invited you to join the crew of {{statekName}}",
+  "invitedBy": "Invited by",
+  "accept": "Accept",
+  "decline": "Decline",
+  "joinRequest": "Join Request",
+  "joinRequestContent": "{{username}} wants to join your ship",
+  "invitationAccepted": "Invitation has been accepted",
+  "invitationDeclined": "Invitation has been declined",
+  "invitationAlreadyMember": "You are already a member of this ship",
+  "invitationJoinedThroughOther": "You joined the ship through another invitation",
+  "joinRequestApproved": "Join request has been approved",
+  "joinRequestRejected": "Join request has been rejected",
+  "joinRequestAlreadyMember": "User is already a member of the ship",
+  "removalNotification": "Removed from ship",
+  "removalNotificationContent": "{{remover}} removed you from ship {{statekName}}",
+  "statekFightNotification": {
+    "attacked": "Your ship has been attacked",
+    "attackedContent": "Ship {{attackerShip}} attacked your ship. {{result}}",
+    "attacking": "Your ship attacked",
+    "attackingContent": "Your captain attacked ship {{defenderShip}}. {{result}}",
+    "resultWon": "You won.",
+    "resultLost": "You lost.",
+    "resultUnknown": "Fight result is unavailable.",
+    "viewFightInfo": "To view the fight, open your ship and in the \"Fights\" tab you can view the fight history."
+  },
+  "user": "User",
+  "alreadyMember": "User is already a member of the ship",
+  "loadingNotifications": "Loading notifications...",
+  "new": "New",
+  "players": "Players",
+  "stateki": "Ships",
+  "you": "You",
+  "yourStatek": "Your ship",
+  "totalFamePoints": "Total Fame Points",
+  "noPlayersInRanking": "No players in ranking",
+  "noStatekiInRanking": "No ships in ranking",
+  "errorLoadingRanking": "Error loading ranking",
+  "rankingPage": {
+    "subtitle": "See who rules the archipelago - captains ranked by fame, level, and the legends they leave on every tide.",
+    "colRank": "#",
+    "colPlayer": "Player",
+    "colShip": "Ship",
+    "colCaptain": "Captain",
+    "colCrew": "Crew",
+    "colLevel": "Level",
+    "colFame": "Fame",
+    "noShip": " - ",
+    "unknownCaptain": " - ",
+    "searchPlayerPlaceholder": "Search by player nickname…",
+    "searchShipPlaceholder": "Search by ship name…",
+    "clearSearch": "Clear search",
+    "noSearchResults": "No results for \"{{query}}\""
+  },
+  "loadingPlayers": "Loading players...",
+  "loadingStateki": "Loading ships...",
+  "position": "Position",
+  "booster": {
+    "ENERGY": {
+      "1": {
+        "name": "Small Energy Booster",
+        "description": "Increases maximum energy capacity by 20 points"
+      },
+      "2": {
+        "name": "Medium Energy Booster",
+        "description": "Increases maximum energy capacity by 50 points"
+      },
+      "3": {
+        "name": "Large Energy Booster",
+        "description": "Increases maximum energy capacity by 100 points"
+      }
+    },
+    "TRAINING_POINTS": {
+      "1": {
+        "name": "Small Training Points Booster",
+        "description": "Increases maximum training points capacity by 5 points"
+      },
+      "2": {
+        "name": "Medium Training Points Booster",
+        "description": "Increases maximum training points capacity by 15 points"
+      },
+      "3": {
+        "name": "Large Training Points Booster",
+        "description": "Increases maximum training points capacity by 30 points"
+      }
+    },
+    "DUEL_POINTS": {
+      "1": {
+        "name": "Small Fight Points Booster",
+        "description": "Increases maximum fight points capacity by 5 points"
+      },
+      "2": {
+        "name": "Medium Fight Points Booster",
+        "description": "Increases maximum fight points capacity by 15 points"
+      },
+      "3": {
+        "name": "Large Fight Points Booster",
+        "description": "Increases maximum fight points capacity by 30 points"
+      }
+    },
+    "SKILLS": {
+      "1": {
+        "name": "Small Skills Booster",
+        "description": "Increases all skills by 10%"
+      },
+      "2": {
+        "name": "Medium Skills Booster",
+        "description": "Increases all skills by 20%"
+      },
+      "3": {
+        "name": "Large Skills Booster",
+        "description": "Increases all skills by 50%"
+      }
+    }
+  },
+  "questTasksPage": {
+    "seoTitle": "Quests | Pirate Hero",
+    "seoDescription": "Track active quests, claim gold and gear rewards, and chase endgame collector, fight, and level milestones across the Pirate Hero archipelago.",
+    "pageAriaLabel": "Quests",
+    "title": "Quests",
+    "tabActive": "Active",
+    "tabHistory": "History",
+    "claim": "Claim",
+    "inProgress": "In progress",
+    "claimModalTitle": "Reward claimed!",
+    "claimModalSubtitle": "Your quest is complete - here is your reward.",
+    "rewardTitleLine": "Title: {{titles}}",
+    "claimModalQuest": "Quest",
+    "claimModalGold": "Gold",
+    "claimModalPremium": "Diamonds",
+    "claimModalExperience": "Experience",
+    "claimModalItemLoading": "Rolling your item…",
+    "claiming": "Claiming reward",
+    "claimModalButton": "Awesome!",
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    },
+    "allDone": "All quests completed!",
+    "noHistory": "No completed quests yet.",
+    "historyTitle": "Completed quests",
+    "rewards": {
+      "lootChest": "Loot chest",
+      "randomItem": "Random item",
+      "rareOrEpicItem": "Rare or Epic item"
+    },
+    "mock": {
+      "q1": {
+        "title": "Spend 200 gold",
+        "desc": "Spend 200 gold in the shop or on upgrades."
+      },
+      "q2": {
+        "title": "Fight 10 arena battles",
+        "desc": "Win or lose - every fight counts."
+      },
+      "q3": {
+        "title": "Complete 5 missions",
+        "desc": "Finish any 5 pirate adventures."
+      },
+      "q4": {
+        "title": "Dig 3 treasures",
+        "desc": "Play the treasure vault 3 times."
+      },
+      "q5": {
+        "title": "Guess 10 cards",
+        "desc": "Win 10 times in the 3-card game."
+      },
+      "q6": {
+        "title": "Win 3 ship battles",
+        "desc": "Win 3 naval skirmishes with your ship."
+      }
+    }
+  },
+  "questTasks": "Quests",
+  "claimReward": "Claim Reward",
+  "rewardClaimed": "Reward Claimed",
+  "progress": "Progress",
+  "errorLoadingQuests": "Error loading quests",
+  "errorClaimingReward": "Error claiming reward",
+  "errorClaimingRewardTitle": "Could not claim reward",
+  "noQuestsAvailable": "No quests available",
+  "noQuestsInCategory": "No quests in selected category",
+  "loadingQuests": "Loading quests...",
+  "experience": "EXP",
+  "experienceShort": "EXP",
+  "randomItem": "Random Item",
+  "rareItem": "Rare Item",
+  "questItemRewardModal": {
+    "title": "You received an item!",
+    "description": "You received an item.",
+    "itemValue": "Value",
+    "button": "Awesome!"
+  },
+  "unclaimedRewards": "You have unclaimed rewards!",
+  "unclaimedReward": "Unclaimed reward",
+  "sortBy": "Sort by",
+  "filterByCategory": "Filter by category",
+  "all": "All",
+  "activeQuests": "Active",
+  "completedQuests": "Completed",
+  "noActiveQuests": "No active quests",
+  "noCompletedQuests": "No completed quests",
+  "completedOn": "Completed on",
+  "questCategory": {
+    "storeVisits": "Store Visits",
+    "goldSpent": "Gold Spent",
+    "levelUp": "Level Up",
+    "fightsWon": "Fights Won",
+    "fightsLost": "Fights Lost",
+    "trainingsCompleted": "Trainings Completed",
+    "worksCompleted": "Works Completed",
+    "itemsBought": "Items Bought",
+    "boostersUsed": "Boosters Used",
+    "itemsCollected": "Items Collected",
+    "rareItemCollected": "Rare Items",
+    "equipmentFull": "Full Equipment",
+    "rareEquipmentFull": "Rare Full Set",
+    "allDungeonsCompleted": "Dungeon Master",
+    "allDungeonsAndLevel": "Sea Legend",
+    "legendaryItemCollected": "Legendary Items",
+    "dungeonCompleted": "Dungeon Completion",
+    "bestiaryEntriesDiscovered": "Bestiary",
+    "epicItemCollected": "Epic Items",
+    "epicEquipmentFull": "Full Epic Set",
+    "legendaryEquipmentFull": "Full Legendary Set",
+    "allDungeonTitlesUnlocked": "Dungeon Titles"
+  },
+  "statekFights": "Fights",
+  "statekFights.title": "Ship fights",
+  "statekFights.onlyOwnerCanFight": "Only ship owner can challenge other ships to fights.",
+  "statekFights.checking": "Checking...",
+  "statekFights.canFightToday": "✅ You can challenge a ship today!",
+  "statekFights.alreadyFoughtToday": "❌ You have already fought today. Come back tomorrow!",
+  "statekFights.opponentsHiddenNoDailyFight": "Today's attack has already been used - the list of ships to challenge will be available again tomorrow.",
+  "statekFights.availableOpponents": "Available Opponents",
+  "statekFights.fightHistory": "Fight History",
+  "statekFights.showHistory": "Show History",
+  "statekFights.showFight": "Show Fight",
+  "statekFights.hideHistory": "Hide History",
+  "statekFights.loadingHistory": "Loading history...",
+  "statekFights.noHistory": "No fight history yet.",
+  "statekFights.loadingOpponents": "Loading opponents...",
+  "statekFights.noOpponents": "No opponents available.",
+  "statekFights.totalFamePoints": "Total Fame Points",
+  "statekFights.members": "Members",
+  "statekFights.fighting": "Fighting...",
+  "statekFights.challenge": "Challenge",
+  "statekFights.fightResult": "Fight Result",
+  "statekFights.victory": "VICTORY!",
+  "statekFights.defeat": "DEFEAT",
+  "statekFights.earned": "Earned",
+  "statekFights.lost": "Lost",
+  "statekFights.famePoints": "Fame Points",
+  "statekFights.startingFight": "Starting fight...",
+  "statekFights.loadingFight": "Loading fight...",
+  "statekFights.fightInProgress": "Fight in Progress",
+  "statekFights.attackerStatek": "Attacking ship",
+  "statekFights.defenderStatek": "Defending ship",
+  "statekFights.fightBetween": "Fight between",
+  "vs": "vs",
+  "famePointsChange": "{{points}} fame points",
+  "famePointsChangePositive": "+{{points}} fame points",
+  "famePointsChangeNegative": "-{{points}} fame points",
+  "statekFights.fightDetails": "Fight Details",
+  "statekFights.attackLog": "Attack Log",
+  "win": "WIN",
+  "loss": "LOSS",
+  "system": {
+    "join": "{{username}} joined the ship.",
+    "removed": "{{username}} was removed from the ship by {{remover}}.",
+    "leave": "{{username}} left the ship.",
+    "deposit": {
+      "gold": "{{username}} deposited {{gold}} gold to the ship.",
+      "diamonds": "{{username}} deposited {{diamonds}} diamonds to the ship.",
+      "both": "{{username}} deposited {{gold}} gold and {{diamonds}} diamonds to the ship."
+    }
+  },
+  "avatars": {
+    "pirate": "Pirate",
+    "captain": "Captain",
+    "boatswain": "Boatswain",
+    "navigator": "Navigator",
+    "rogue": "Rogue",
+    "buccaneer": "Buccaneer",
+    "admiral": "Admiral",
+    "captainess": "Captainess",
+    "sorceress": "Sorceress",
+    "scout": "Scout",
+    "warrior": "Warrior"
+  },
+  "coupons": "Coupons",
+  "rzutMoneta": "Coin toss",
+  "settings": "Settings",
+  "sidebarCollapse": "Collapse menu",
+  "sidebarExpand": "Pin menu",
+  "redeemCoupon": "Redeem Coupon",
+  "enterCouponCode": "Enter coupon code",
+  "redeem": "Redeem",
+  "redeeming": "Redeeming...",
+  "couponHistory": "Coupon History",
+  "noCouponsUsed": "No coupons used yet",
+  "code": "Code",
+  "usedAt": "Used At",
+  "couponCodeRequired": "Please enter a coupon code",
+  "couponRedeemedSuccessfully": "Coupon redeemed successfully!",
+  "couponRedeemedSuccessfullyWithReward": "Coupon redeemed successfully! You received: {{reward}}",
+  "couponRedeemFailed": "Failed to redeem coupon",
+  "couponCodeNotFound": "Coupon code not found",
+  "couponExpired": "Coupon has expired",
+  "couponAlreadyUsed": "This coupon has already been used",
+  "couponAlreadyUsedByYou": "You have already used this coupon",
+  "premiumShopPage": {
+    "title": "Diamond Dealer",
+    "pageAriaLabel": "Premium diamond shop",
+    "seoTitle": "Diamonds | Pirate Hero",
+    "seoDescription": "Buy diamond packs and power up your captain in Pirate Hero.",
+    "subtitle": "Running low on diamonds? Order from the dealer - bigger packs mean bigger bonuses!",
+    "dealerLabel": "Premium dealer",
+    "yourBalance": "Your diamonds",
+    "sectionFeatured": "Special offer",
+    "sectionPacks": "Diamond packs",
+    "oneTimeOffer": "One-time",
+    "badgePopular": "Popular",
+    "badgeBestValue": "Best value",
+    "bonusFree": "+{{percent}}% free",
+    "buyFor": "{{price}} PLN",
+    "comingSoon": "Payments coming soon",
+    "comingSoonHint": "{{diamonds}} diamond pack - payment integration is on the way.",
+    "disclaimer": "This is a preview of the premium shop. Real payments and diamond delivery will be added in a future update.",
+    "featured": {
+      "title": "Starter pack",
+      "subtitle": "Perfect for new captains - once per account.",
+      "bonusItem": "Bonus: experience potion and one week of the best mount",
+      "levelHint": "For captains up to level 20"
+    },
+    "confirm": {
+      "subtitle": "Confirm your diamond pack purchase.",
+      "button": "Buy now"
+    },
+    "historyTitle": "Transaction history",
+    "historyLoading": "Loading transaction history…",
+    "noTransactions": "No diamond purchases yet.",
+    "transactionDiamonds": "+{{count}} diamonds",
+    "purchaseFailed": "Purchase could not be completed. Your diamonds were restored.",
+    "catalogLoadFailed": "Could not load diamond packs. Please try again.",
+    "catalogRetry": "Try again",
+    "catalogLoading": "Loading diamond packs…",
+    "packs": {
+      "handful": {
+        "name": "Handful of diamonds"
+      },
+      "pouch": {
+        "name": "Pouch of diamonds"
+      },
+      "sack": {
+        "name": "Sack of diamonds"
+      },
+      "chest": {
+        "name": "Chest of diamonds"
+      },
+      "vault": {
+        "name": "Diamond vault"
+      },
+      "treasure": {
+        "name": "Pirate's treasure"
+      }
+    }
+  },
+  "couponPage": {
+    "title": "Coupons",
+    "pageAriaLabel": "Coupons",
+    "skeletonAria": "Loading coupon page",
+    "seoTitle": "Coupons | Pirate Hero",
+    "seoDescription": "Redeem coupon codes for gold, diamonds, boosters, and exclusive items in Pirate Hero.",
+    "subtitle": "Enter your code below to claim a reward.",
+    "received": "You received"
+  },
+  "settingsPage": {
+    "seoTitle": "Settings | Pirate Hero",
+    "seoDescription": "Server and account password.",
+    "pageAriaLabel": "Game settings",
+    "title": "Settings",
+    "server": {
+      "title": "Server"
+    },
+    "servers": {
+      "PL1": "PL1 - Tortuga",
+      "PL2": "PL2 - Nassau",
+      "DE1": "DE1 - Kiel",
+      "EN1": "EN1 - Port Royal",
+      "FR1": "FR1 - Marseille"
+    },
+    "password": {
+      "title": "Change password",
+      "current": "Current password",
+      "new": "New password",
+      "newPlaceholder": "At least 6 characters",
+      "confirm": "Confirm new password",
+      "confirmPlaceholder": "Repeat password",
+      "submit": "Change password",
+      "fillAll": "Fill in all fields",
+      "mismatch": "Passwords do not match",
+      "tooShort": "Password must be at least 6 characters",
+      "changedSuccess": "Your password was updated.",
+      "submitting": "Saving…",
+      "changeFailed": "Could not change password. Try again."
+    }
+  },
+  "changePasswordInvalidPayload": "Invalid password change request.",
+  "changePasswordCurrentRequired": "Enter your current password.",
+  "changePasswordNewRequired": "Enter a new password.",
+  "changePasswordNewTooShort": "New password must be at least 6 characters.",
+  "changePasswordNewMismatch": "New password confirmation does not match.",
+  "changePasswordCurrentWrong": "Current password is incorrect.",
+  "changePasswordSameAsCurrent": "New password must be different from your current one.",
+  "changePasswordSessionInvalid": "Your session is out of date - please sign in again.",
+  "passwordResetIntro": "Enter your account email. We will send you a link to set a new password.",
+  "passwordResetSendLink": "Send reset link",
+  "passwordResetSendingLink": "Sending link…",
+  "passwordResetSaving": "Saving password…",
+  "passwordResetBackToLogin": "Back to sign in",
+  "passwordResetRequestSent": "If an account with this email exists, we sent a password reset link. Check your inbox (and spam).",
+  "passwordResetRequestFailed": "Could not send the reset link. Please try again.",
+  "passwordResetSuccessTitle": "Check your email",
+  "passwordResetErrorTitle": "Password reset",
+  "passwordResetPage": {
+    "seoTitle": "New password | Pirate Hero",
+    "seoDescription": "Set a new password for your Pirate Hero account.",
+    "title": "Set a new password",
+    "subtitle": "Enter a new password for your account."
+  },
+  "passwordResetSavePassword": "Save new password",
+  "passwordResetCompleted": "Your password has been changed. You can sign in now.",
+  "passwordResetFailed": "Could not reset your password. Try again or request a new link.",
+  "passwordResetInvalidPayload": "Invalid request data.",
+  "passwordResetEmailRequired": "Enter your email address.",
+  "passwordResetEmailInvalid": "Enter a valid email address.",
+  "passwordResetTokenInvalid": "This reset link is invalid or has expired.",
+  "passwordResetTokenExpired": "This reset link has expired. Request a new one.",
+  "passwordResetNewRequired": "Enter a new password.",
+  "passwordResetNewTooShort": "New password must be at least 6 characters.",
+  "passwordResetNewMismatch": "Passwords do not match.",
+  "repeatPasswordRequired": "Repeat your password.",
+  "coinFlipStakeInvalid": "Stake must be a whole number from 1 to 10 diamonds",
+  "coinFlipChoiceInvalid": "Choose heads or tails",
+  "coinFlipPage": {
+    "title": "Coin toss",
+    "pageAriaLabel": "Coin toss minigame",
+    "seoTitle": "Coin toss | Pirate Hero",
+    "seoDescription": "Pirate coin toss - diamond stakes, double on a win.",
+    "stakeLabel": "Stake (diamonds)",
+    "sideLabel": "Your side",
+    "heads": "Heads",
+    "tails": "Tails",
+    "flip": "Flip",
+    "flipping": "Flipping…",
+    "pickSideHint": "Choose heads or tails before flipping.",
+    "resultWin": "You won {{payout}} diamonds!",
+    "resultLose": "No win this time. The coin landed on {{outcome}}.",
+    "outcomeHeads": "heads",
+    "outcomeTails": "tails",
+    "lastOutcome": "Last result",
+    "playFailed": "Could not complete the toss. Try again."
+  },
+  "invalidGoldRewardAmount": "Invalid gold reward amount",
+  "invaliddiamondsRewardAmount": "Invalid diamonds reward amount",
+  "invalidBoosterRewardData": "Invalid booster reward data",
+  "invalidItemCouponRewardData": "This item coupon has invalid configuration (missing item type or rarity)",
+  "boosterTemplateNotFound": "Booster template not found",
+  "userStorageNotFound": "User storage not found",
+  "noFreeStorageSlot": "No free storage slot available for the item reward",
+  "itemLabel": "Item",
+  "contact": {
+    "seoTitle": "Contact | Pirate Hero",
+    "seoDescription": "Pirate Hero support: contact form and support email. Help with account access, billing, and gameplay issues.",
+    "title": "Contact",
+    "description": "Tell us what you need help with - account access, billing, or gameplay. We read every message.",
+    "formAria": "Contact form",
+    "name": "Full name",
+    "namePlaceholder": "e.g. Alex Smith",
+    "nameRequired": "Please enter your name.",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "emailRequired": "Please enter your email address.",
+    "emailInvalid": "Please enter a valid email address.",
+    "subject": "Subject",
+    "subjectPlaceholder": "e.g. Can’t log in",
+    "subjectRequired": "Please add a short subject.",
+    "message": "Message",
+    "messagePlaceholder": "Include as much detail as you can so we can help faster.",
+    "messageHint": "At least 10 characters.",
+    "messageRequired": "Please enter your message.",
+    "messageMinLength": "Your message must be at least 10 characters.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "successTitle": "Message sent",
+    "successMessage": "Thanks for reaching out. We’ll reply to the email address you provided as soon as we’ve reviewed your request.",
+    "errorTitle": "Message not sent",
+    "errorMessage": "Something went wrong. Please try again in a moment, or use the support address below.",
+    "otherWays": "Email us directly",
+    "emailLabel": "Support",
+    "responseTime": "We typically respond within 1-2 business days."
+  }
+}

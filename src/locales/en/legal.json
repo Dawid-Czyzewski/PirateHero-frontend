@@ -1,0 +1,144 @@
+{
+  "relatedNavAria": "Related legal documents",
+  "terms": {
+    "shortTitle": "Terms of Service",
+    "seoTitle": "Terms of Service | Pirate Hero",
+    "seoDescription": "Pirate Hero terms: account, gameplay (missions, arena, dungeons, ship), virtual currencies, fair play, and liability.",
+    "title": "Pirate Hero Terms of Service",
+    "updated": "Effective as of July 2026. The current version is always published at this URL.",
+    "intro": "These terms govern your use of the browser game Pirate Hero (the “Service”). By creating an account, activating it, signing in, or otherwise using the Service, you agree to them in full.",
+    "sections": [
+      {
+        "h": "1. General",
+        "p": [
+          "Pirate Hero is an online entertainment service delivered in a web browser without requiring a client install.",
+          "We may change features (including missions, jobs, training, arena, dungeons, ship, quests, titles, shop, boosters, and rankings), schedules, or availability for technical, legal, or operational reasons. We will notify you of material changes in a reasonable way (e.g. in-game or on-site) where required."
+        ]
+      },
+      {
+        "h": "2. Definitions",
+        "p": [
+          "“Account” - your user profile linked to an email address and username that grants access to the Service after activation.",
+          "“User” - anyone using the Service who is at least 16 years old, or uses it with a legal guardian’s consent where local law requires.",
+          "“Virtual items” - in-game elements tied to your Account, including your character, gear, gold, diamonds, energy, training and fight points, boosters, titles, quest/dungeon progress, and ship membership; they are not physical goods.",
+          "“Ship” - a player crew in the Service (crew roster, treasury, upgrades, chat, ship battles) linked to member Accounts."
+        ]
+      },
+      {
+        "h": "3. Registration and account security",
+        "p": [
+          "You agree to provide accurate information where required (especially a valid email) and to keep your password confidential.",
+          "Accounts must be activated as instructed by email. You are responsible for activity on your Account until you report a security issue to us.",
+          "You must not share full Account control with third parties or create Accounts solely to bypass limits, penalties, or fair-play rules.",
+          "We may suspend or delete Accounts for serious breaches, cheating, security abuse, or harm to other players or infrastructure - usually after a warning when circumstances allow."
+        ]
+      },
+      {
+        "h": "4. Acceptable use and fair play",
+        "p": [
+          "You must not: exploit bugs, use unauthorized automation, manipulate fight outcomes or the in-game economy, harass others, or distribute unlawful or infringing content.",
+          "Usernames, ship chat, and other user-generated content must respect others’ rights and applicable law.",
+          "Ship cooperation (donations, upgrades, ship battles) is subject to the same fair-play rules as solo play."
+        ]
+      },
+      {
+        "h": "5. Virtual items and payments",
+        "p": [
+          "Virtual items are a limited licence for personal use within the Service only; they are not physical property and are not redeemable for cash outside mechanisms we explicitly provide.",
+          "Gold, diamonds, energy, training/fight points, boosters, and gear may be earned through play (missions, jobs, arena, dungeons, quests, daily bonus, coupons, and similar) or - if offered - purchased in the premium shop under the terms shown at purchase.",
+          "Paid features, if offered, are governed by the pricing and billing terms shown at purchase, including any statutory withdrawal rights that apply in your region. We may adjust economy parameters (including refill costs and rewards) while keeping the Service’s entertainment purpose."
+        ]
+      },
+      {
+        "h": "6. Liability",
+        "p": [
+          "The Service is provided on an “as available” basis. We strive for uptime but do not guarantee uninterrupted access or error-free operation.",
+          "Our liability is limited to foreseeable loss typical for this type of service, except where mandatory law (e.g. intent or gross negligence) says otherwise."
+        ]
+      },
+      {
+        "h": "7. Changes to these terms",
+        "p": [
+          "We may update these terms. Where law or contract requires, we will give advance notice of material changes. Continued use after the effective date may constitute acceptance unless you have a statutory right to object or terminate."
+        ]
+      },
+      {
+        "h": "8. Governing law and contact",
+        "p": [
+          "Unless mandatory consumer law in your country says otherwise, Polish law applies. Disputes should first be resolved amicably; otherwise courts of general jurisdiction apply as set by law.",
+          "Contact us via the Contact page or the support email shown there."
+        ]
+      }
+    ],
+    "contactLead": "Questions about these terms:",
+    "contactLinkLabel": "Contact"
+  },
+  "privacy": {
+    "shortTitle": "Privacy Policy",
+    "seoTitle": "Privacy Policy | Pirate Hero",
+    "seoDescription": "How Pirate Hero processes personal data: account, gameplay, ship chat, GDPR bases, cookies, and your rights.",
+    "title": "Pirate Hero Privacy Policy",
+    "updated": "Version of July 2026. We may update this policy - the effective date is always shown above.",
+    "intro": "This policy explains what personal data we may process when you use Pirate Hero, why we do it, and on what legal basis - aligned with the EU GDPR and applicable national law.",
+    "sections": [
+      {
+        "h": "1. Data controller",
+        "p": [
+          "The controller of your personal data is the operator of Pirate Hero (the “Controller”). For privacy requests, use the support email on the Contact page with “Privacy” or “GDPR” in the subject line."
+        ]
+      },
+      {
+        "h": "2. Data we process",
+        "p": [
+          "Account data: email, username, password hash, activation status, login metadata, and password-reset tokens while valid.",
+          "Gameplay data: character progress, gear, virtual currencies and resources, fight results, dungeon/quest progress, and Ship membership activity (including ship chat messages as needed to operate the Service).",
+          "Technical data: IP address, browser type, session identifiers, auth tokens, or cookies as needed for security, diagnostics, and reliable delivery of the Service (including real-time notifications when enabled)."
+        ]
+      },
+      {
+        "h": "3. Purposes and legal bases",
+        "p": [
+          "Performance of our contract with you (GDPR Art. 6(1)(b)) - operating your Account and providing gameplay.",
+          "Legitimate interests (Art. 6(1)(f)) - IT security, fraud/cheat prevention, moderation of user content, aggregated analytics, and product improvement, balanced against your rights.",
+          "Consent (Art. 6(1)(a)) - only where required separately (e.g. optional marketing or non-essential analytics), which you may withdraw at any time."
+        ]
+      },
+      {
+        "h": "4. Retention",
+        "p": [
+          "We keep data while your Account exists and for any additional period required for legal claims, accounting, or compliance, then delete or anonymise it.",
+          "Technical logs and chat content may be kept for shorter or longer periods proportionate to the purpose (security, dispute handling, moderation)."
+        ]
+      },
+      {
+        "h": "5. Recipients",
+        "p": [
+          "Processors such as hosting, cloud infrastructure, transactional email, or - if payments go live - a payment gateway may access data solely under written agreements and instructions.",
+          "We do not sell your personal data. Disclosure to public authorities occurs only when legally required."
+        ]
+      },
+      {
+        "h": "6. Your rights",
+        "p": [
+          "You may request access, rectification, erasure, restriction, objection to certain processing, and data portability where applicable.",
+          "You may lodge a complaint with your local supervisory authority (in Poland, the President of the Personal Data Protection Office - UODO)."
+        ]
+      },
+      {
+        "h": "7. Cookies and similar technologies",
+        "p": [
+          "We use cookies or similar tools that are necessary for authentication, sessions, and security. If we add optional categories, we will describe them in a banner or settings with consent where required."
+        ]
+      },
+      {
+        "h": "8. Updates and contact",
+        "p": [
+          "Material changes to this policy will be posted with a new effective date.",
+          "For privacy questions, use the Contact page or the support address listed there."
+        ]
+      }
+    ],
+    "contactLead": "Privacy questions:",
+    "contactLinkLabel": "Contact"
+  }
+}

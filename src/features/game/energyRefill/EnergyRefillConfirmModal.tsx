@@ -1,0 +1,89 @@
+import { useEffect, useId, type ReactNode } from 'react';
+
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  title: string;
+  dismissLabel: string;
+  confirmLabel: string;
+  confirmDisabled?: boolean;
+  children?: ReactNode;
+};
+
+export function EnergyRefillConfirmModal({
+  isOpen,
+  onClose,
+  onConfirm,
+  title,
+  dismissLabel,
+  confirmLabel,
+  confirmDisabled = false,
+  children,
+}: Props) {
+  const titleId = useId();
+  const bodyId = useId();
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-[2px]"
+      role="presentation"
+      onClick={onClose}
+      onKeyDown={(e) => e.key === 'Escape' && onClose()}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        aria-describedby={bodyId}
+        className="w-full max-w-md rounded-xl border border-[hsl(43,38%,28%)]/55 bg-[hsl(220_20%_14%)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_20px_50px_rgba(0,0,0,0.55)] outline-none"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="border-b border-white/[0.07] bg-[hsl(220_18%_11%)] px-5 py-4">
+          <h2
+            id={titleId}
+            className="font-heading text-base font-black uppercase tracking-[0.15em] text-[hsl(43,72%,55%)] sm:text-lg"
+          >
+            {title}
+          </h2>
+        </div>
+        <div id={bodyId} className="px-5 py-5">
+          {children}
+          <div className="mt-6 flex flex-wrap justify-end gap-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="cursor-pointer rounded-lg border border-white/15 bg-white/[0.06] px-4 py-2.5 font-heading text-xs font-bold uppercase tracking-wide text-white/90 transition hover:border-white/25 hover:bg-white/[0.1]"
+            >
+              {dismissLabel}
+            </button>
+            <button
+              type="button"
+              onClick={onConfirm}
+              disabled={confirmDisabled}
+              className="cursor-pointer rounded-lg border border-[hsl(43,38%,28%)] bg-[hsl(45,88%,48%)] px-4 py-2.5 font-heading text-xs font-bold uppercase tracking-wide text-black shadow-md transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100"
+            >
+              {confirmLabel}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,89 @@
+{
+  "seoTitle": "O grze | Pirate Hero - gra przeglądarkowa RPG",
+  "seoDescription": "Pirate Hero: darmowa gra RPG w przeglądarce. Postać, misje, prace, treningi, arena, lochy, statek, zadania, tytuły i ranking - bez instalacji.",
+  "heroTitle": "O grze",
+  "heroLead": "Darmowa gra przeglądarkowa RPG w pirackim klimacie - rozwijaj kapitana, żegluj na misje i zdobywaj sławę!",
+  "introTitle": "Czym jest Pirate Hero?",
+  "introBodyRest": "to darmowa gra przeglądarkowa RPG w stylu klasycznych browser RPG, osadzona w klimacie pirackim. Tworzysz kapitana, rozwijasz pięć atrybutów, zbierasz ekwipunek, wykonujesz misje i prace, trenujesz załogę, walczysz na arenie, eksplorujesz lochy, dołączasz na statek i odhaczasz zadania oraz tytuły. Bez instalacji - grasz prosto z przeglądarki.",
+  "featuresSectionSrOnly": "Szczegóły rozgrywki",
+  "characterTitle": "Rozwijaj postać",
+  "characterBody": "Stwórz unikalnego pirata i rozwijaj go poziom po poziomie. Przydzielaj punkty umiejętności - siła, zręczność, wytrzymałość, inteligencja i szczęście wpływają na walkę, misje i treningi. Odblokowuj tytuły i dopasuj ekwipunek z plecaka.",
+  "characterBullets": [
+    "Poziomy, doświadczenie i punkty umiejętności",
+    "5 atrybutów oraz tytuły przy nicku",
+    "Ekwipunek, plecak i sklep z rzadkościami przedmiotów"
+  ],
+  "arenaTitle": "Arena PvP",
+  "arenaBody": "Wyzywaj innych graczy na pojedynki. Walki rozstrzygane są na serwerze na podstawie statystyk, ekwipunku i wspomagaczy. Zdobywaj sławę, punkty walki i wspinaj się w rankingu graczy.",
+  "arenaBullets": [
+    "Automatyczne pojedynki oparte na buildzie",
+    "Sława, punkty walki i historia pojedynków",
+    "Ranking graczy (oraz ranking statków)"
+  ],
+  "dungeonTitle": "Lochy, misje i statek",
+  "dungeonBody": "Wysyłaj bohatera na misje czasowe (energia), pracuj za złoto, trenuj atrybuty i szturmuj wieloetapowe lochy z bestiariuszem. Na statku buduj załogę, ulepszaj statek i walcz w bitwach statków.",
+  "dungeonBullets": [
+    "Misje, prace i treningi z osobnymi zasobami",
+    "Lochy wieloetapowe (m.in. Krypta, Kraken, Forteca, Wulkan, Pałac)",
+    "Statek: załoga, ulepszenia, skarbiec, czat i bitwy statków"
+  ],
+  "statsTitle": "Gra w liczbach",
+  "statsLead": "Pirate Hero to rozbudowany cykl dnia - zawsze jest coś do zrobienia: misje, praca, arena, lochy albo rozwój statku.",
+  "stats": [
+    { "label": "100+", "desc": "Poziomów postaci" },
+    { "label": "180+", "desc": "Przedmiotów ekwipunku" },
+    { "label": "5", "desc": "Lochów PvE do eksploracji" },
+    { "label": "∞", "desc": "Pojedynków na arenie" }
+  ],
+  "mechanicsTitle": "Mechaniki rozgrywki",
+  "mechanics": [
+    {
+      "title": "Ekwipunek i sklep",
+      "desc": "Kupuj, sprzedawaj i zakładaj broń oraz pancerze. Przedmioty mają rzadkość i własne statystyki - od zwykłych po legendarne."
+    },
+    {
+      "title": "Arena PvP",
+      "desc": "Wyzywaj graczy, zużywaj punkty walki, zdobywaj sławę i śledź historię pojedynków."
+    },
+    {
+      "title": "Statek",
+      "desc": "Dołącz do załogi, wpłacaj do skarbca, ulepszaj statek, czatuj i walcz w bitwach statków."
+    },
+    {
+      "title": "Misje, prace i treningi",
+      "desc": "Misje zużywają energię, prace dają złoto, treningi rozwijają atrybuty za punkty treningowe - z możliwością uzupełnień."
+    },
+    {
+      "title": "Lochy i zadania",
+      "desc": "Czyść etapy lochów, uzupełniaj bestiariusz, odbieraj nagrody z zadań i codzienny bonus logowania."
+    },
+    {
+      "title": "Wspomagacze i ekonomia",
+      "desc": "Używaj boosterów, kuponów i diamentów ze sklepu premium. Ranking porównuje zarówno kapitanów, jak i statki."
+    }
+  ],
+  "howTitle": "Jak zacząć grać?",
+  "steps": [
+    {
+      "step": "1",
+      "title": "Zarejestruj się",
+      "desc": "Stwórz darmowe konto w kilka sekund - wystarczy e-mail i hasło, potem aktywacja konta."
+    },
+    {
+      "step": "2",
+      "title": "Wejdź na pokład",
+      "desc": "Zaloguj się, sprawdź postać, ekwipunek i zasoby (złoto, energia, punkty treningowe i walki)."
+    },
+    {
+      "step": "3",
+      "title": "Ruszaj na przygodę",
+      "desc": "Odpal misję lub pracę, walcz na arenie, wejdź do lochu albo dołącz na statek - i odbierz dzienny bonus!"
+    }
+  ],
+  "ctaTitle": "Gotowy na przygodę?",
+  "ctaLead": "Załóż konto i rozpocznij swoją piracką legendę - za darmo, prosto z przeglądarki.",
+  "ctaButton": "Zagraj za darmo",
+  "imgCharacterAlt": "Postać RPG w Pirate Hero",
+  "imgArenaAlt": "Walka na arenie PvP",
+  "imgDungeonAlt": "Lochy i przygoda"
+}

@@ -1,0 +1,89 @@
+{
+  "seoTitle": "About the game | Pirate Hero - browser RPG",
+  "seoDescription": "Pirate Hero: a free browser RPG. Character, missions, work, training, arena, dungeons, ship, quests, titles, and rankings - no install required.",
+  "heroTitle": "About the game",
+  "heroLead": "A free pirate-themed browser RPG - grow your captain, sail on missions, and earn fame!",
+  "introTitle": "What is Pirate Hero?",
+  "introBodyRest": "is a free browser RPG in the spirit of classic browser heroes, set in a pirate world. You create a captain, improve five attributes, collect gear, run timed missions and jobs, train stats, fight in the arena, clear multi-stage dungeons, join a ship, and chase quests and titles. No install - play in your browser.",
+  "featuresSectionSrOnly": "Gameplay highlights",
+  "characterTitle": "Grow your character",
+  "characterBody": "Create a unique pirate and level them up. Spend skill points - strength, agility, stamina, intelligence, and luck shape combat, missions, and training. Unlock titles and equip loot from your inventory.",
+  "characterBullets": [
+    "Levels, experience, and skill points",
+    "Five attributes plus equippable titles",
+    "Gear, storage, and a shop with item rarities"
+  ],
+  "arenaTitle": "PvP arena",
+  "arenaBody": "Challenge other players to duels. Battles resolve on the server from your stats, gear, and boosters. Earn fame, spend fight points, and climb the player ladder.",
+  "arenaBullets": [
+    "Server-resolved fights driven by your build",
+    "Fame, fight points, and fight history",
+    "Player rankings (plus ship rankings)"
+  ],
+  "dungeonTitle": "Dungeons, missions & ship",
+  "dungeonBody": "Send your hero on timed missions (energy), work for gold, train attributes, and storm multi-stage dungeons with a bestiary. On your ship, grow the crew, upgrade the ship, and fight in ship battles.",
+  "dungeonBullets": [
+    "Missions, jobs, and training with separate resources",
+    "Multi-stage dungeons (Crypt, Kraken, Fortress, Volcano, Palace)",
+    "Ship: crew, upgrades, treasury, chat, and ship battles"
+  ],
+  "statsTitle": "By the numbers",
+  "statsLead": "Pirate Hero is built for daily loops - missions, work, arena, dungeons, or ship progress are always waiting.",
+  "stats": [
+    { "label": "100+", "desc": "Character levels" },
+    { "label": "180+", "desc": "Gear pieces" },
+    { "label": "5", "desc": "PvE dungeons to explore" },
+    { "label": "∞", "desc": "Arena duels" }
+  ],
+  "mechanicsTitle": "Core gameplay",
+  "mechanics": [
+    {
+      "title": "Gear & shop",
+      "desc": "Buy, sell, and equip weapons and armor. Items have rarities and rolled stats - from common to legendary."
+    },
+    {
+      "title": "PvP arena",
+      "desc": "Challenge players, spend fight points, earn fame, and review your duel history."
+    },
+    {
+      "title": "Ship",
+      "desc": "Join a crew, fund the treasury, upgrade the ship, chat, and fight in ship battles."
+    },
+    {
+      "title": "Missions, work & training",
+      "desc": "Missions cost energy, jobs pay gold, training spends training points - with optional gold refills."
+    },
+    {
+      "title": "Dungeons & quests",
+      "desc": "Clear dungeon stages, fill the bestiary, claim quest rewards, and collect the daily login bonus."
+    },
+    {
+      "title": "Boosters & economy",
+      "desc": "Use boosters, coupons, and premium diamonds. Rankings compare both captains and ships."
+    }
+  ],
+  "howTitle": "How do I start?",
+  "steps": [
+    {
+      "step": "1",
+      "title": "Sign up",
+      "desc": "Create a free account in seconds - email and password, then activate your account."
+    },
+    {
+      "step": "2",
+      "title": "Board the ship",
+      "desc": "Sign in and check your character, gear, and resources (gold, energy, training and fight points)."
+    },
+    {
+      "step": "3",
+      "title": "Set sail",
+      "desc": "Start a mission or job, fight in the arena, enter a dungeon, or join a ship - and claim your daily bonus!"
+    }
+  ],
+  "ctaTitle": "Ready to sail?",
+  "ctaLead": "Create an account and start your pirate legend - free, straight from the browser.",
+  "ctaButton": "Play for free",
+  "imgCharacterAlt": "RPG character in Pirate Hero",
+  "imgArenaAlt": "PvP arena battle",
+  "imgDungeonAlt": "Dungeon adventure"
+}

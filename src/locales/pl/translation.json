@@ -1,0 +1,2712 @@
+{
+  "home": "Strona główna",
+  "gameTitle": "Pirate Hero",
+  "auth": {
+    "seoTitle": "Logowanie i rejestracja | Pirate Hero",
+    "seoDescription": "Zaloguj się lub utwórz konto w Pirate Hero - przeglądarkowa gra RPG o piratach z walkami, załogą i przygodami na morzu.",
+    "heroTagline": "Dołącz do załogi i zostań najgroźniejszym piratem na siedmiu morzach!",
+    "welcomeBack": "Witaj ponownie!",
+    "subtitleLogin": "Zaloguj się i wróć na morza.",
+    "createAccount": "Utwórz konto",
+    "subtitleRegister": "Rozpocznij piracką przygodę.",
+    "emailPlaceholder": "kapitan@siedmiomorza.pl",
+    "pirateNamePlaceholder": "Kapitan Czarnobrody",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "footerNoAccount": "Nie masz konta?",
+    "footerHasAccount": "Masz już konto?",
+    "showPassword": "Pokaż hasło",
+    "hidePassword": "Ukryj hasło",
+    "tabLogin": "Logowanie",
+    "tabRegister": "Rejestracja"
+  },
+  "about": "O grze",
+  "play": "Zagraj",
+  "login": "Logowanie",
+  "register": "Rejestracja",
+  "email": "Email",
+  "password": "Hasło",
+  "username": "Nazwa użytkownika",
+  "repeatPassword": "Powtórz hasło",
+  "loginPrompt": "Masz już konto? Zaloguj się",
+  "registerPrompt": "Nie masz konta? Zarejestruj się",
+  "termsOfService": "Regulamin",
+  "privacyPolicy": "Politykę prywatności",
+  "and": "oraz",
+  "acceptTerms": "Akceptuję",
+  "footer": {
+    "copyright": "Wszystkie prawa zastrzeżone.",
+    "version": "Wersja {{version}}",
+    "contact": "Kontakt",
+    "terms": "Regulamin",
+    "privacy": "Polityka prywatności"
+  },
+  "usernameRequired": "Nazwa użytkownika jest wymagana.",
+  "usernameLength": "Nazwa użytkownika musi mieć od {{min}} do {{max}} znaków.",
+  "usernameInvalid": "Nazwa użytkownika może zawierać tylko litery, cyfry oraz znaki . _ -.",
+  "networkUnavailable": "Brak połączenia z internetem lub serwer jest niedostępny. Spróbuj ponownie.",
+  "emailRequired": "Email jest wymagany.",
+  "emailInvalid": "Podaj poprawny adres email.",
+  "passwordRequired": "Hasło jest wymagane.",
+  "passwordLength": "Hasło musi mieć co najmniej {{min}} znaków.",
+  "passwordRepeatRequired": "Potwierdź swoje hasło.",
+  "passwordsMustMatch": "Hasła muszą być takie same.",
+  "rulesAcceptedRequired": "Musisz zaakceptować regulamin i politykę prywatności.",
+  "emailIsAlreadyTaken": "Adres email jest już zajęty.",
+  "registrationSuccess": "Rejestracja zakończona sukcesem!",
+  "usernameIsAlreadyTaken": "Nazwa użytkownika jest już zajęta.",
+  "registrationFailed": "Rejestracja nie powiodła się. Spróbuj ponownie.",
+  "registrationError": "Wystąpił błąd. Spróbuj ponownie później.",
+  "registrationModalTitle": "Status rejestracji",
+  "close": "Zamknij",
+  "activationEmailSent": "Link aktywacyjny został wysłany na adres {{email}}. Sprawdź swoją skrzynkę pocztową, aby aktywować konto.",
+  "accountActivated": "Udało Ci się aktywować konto. Teraz możesz się zalogować.",
+  "activationFailed": "Nieprawidłowy token lub token został już wykorzystany.",
+  "activationError": "Wystąpił błąd podczas aktywacji konta. Spróbuj ponownie później.",
+  "activationPage": {
+    "seoTitleLoading": "Aktywacja konta | Pirate Hero",
+    "seoTitleSuccess": "Konto aktywowane | Pirate Hero",
+    "seoTitleError": "Aktywacja nie powiodła się | Pirate Hero",
+    "seoDescription": "Aktywuj konto Pirate Hero, aby dokończyć rejestrację i się zalogować.",
+    "titleLoading": "Aktywujemy Twoje konto…",
+    "titleSuccess": "Konto aktywowane!",
+    "titleError": "Nie udało się aktywować konta",
+    "loadingText": "Sprawdzamy token aktywacyjny - to potrwa tylko chwilę.",
+    "backToLogin": "Przejdź do logowania",
+    "backToHome": "Wróć na stronę główną"
+  },
+  "activationModalTitle": "Aktywacja konta",
+  "loginSuccess": "Zalogowano pomyślnie.",
+  "loginSuccessTitle": "Logowanie zakończone sukcesem",
+  "loginErrorTitle": "Błąd logowania",
+  "invalidCredentials": "Nieprawidłowy email lub hasło.",
+  "accountNotActivated": "Twoje konto nie zostało aktywowane. Sprawdź swoją skrzynkę pocztową, aby znaleźć link aktywacyjny.",
+  "loginFailed": "Logowanie nie powiodło się. Sprawdź swoje dane.",
+  "loginError": "Wystąpił błąd podczas logowania. Spróbuj ponownie później.",
+  "loading": "Ładowanie gry...",
+  "gameLoadingScreen": {
+    "ariaLabel": "Trwa ładowanie gry, proszę czekać",
+    "title": "Pirate Hero",
+    "subtitle": "Pirackie RPG w przeglądarce",
+    "progressPercent": "{{percent}}%",
+    "tips": [
+      "Misje zużywają energię - przed wyprawą sprawdź zapas na pasku zasobów.",
+      "Prace nie biorą energii i dają złoto - pamiętaj: podczas pracy nie zaczniesz misji ani treningu.",
+      "Treningi rozwijają atrybuty za punkty treningowe - możesz je uzupełnić za złoto.",
+      "Arena zużywa punkty walki i daje sławę - warto wracać po refillu.",
+      "Lochy mają wiele etapów; ukończenie odblokuje wpisy w bestiariuszu.",
+      "Na statku budujesz załogę, skarbiec i ulepszenia - oraz walczysz w bitwach statków.",
+      "Zadania i tytuły nagradzają regularną grę: sprawdzaj listę nagród do odebrania.",
+      "Codzienny bonus resetuje się po przerwie - loguj się codziennie.",
+      "Wspomagacze wzmacniają misje, pracę, energię lub walkę na czas działania.",
+      "Diamenty i kupony to skróty premium - złoto i loot zdobywasz też w normalnej grze."
+    ]
+  },
+  "dailyReward": {
+    "title": "Bonus codzienny",
+    "shortLabel": "Bonus",
+    "subtitle": "Odwiedzaj grę każdego dnia - po opuszczeniu dnia zaczynasz od pierwszego.",
+    "dayShort": "Dzień {{day}}",
+    "randomItem": "Przedmiot",
+    "experience": "Doświadczenie",
+    "amountGold": "{{amount}} złota",
+    "amountDiamonds": "{{amount}} diamentów",
+    "amountExperience": "{{amount}} doświadczenia",
+    "claimedTodayLabel": "Odebrano dzisiaj",
+    "rewardForDay": "Nagroda za dzień {{day}}",
+    "comeBackTomorrow": "Wróć jutro po kolejny łup.",
+    "todaysReward": "Dzisiejszy łup",
+    "claimButton": "Zabierz łup!",
+    "claimedButton": "Łup zdobyty",
+    "claiming": "Zbieram łup...",
+    "claimError": "Nie udało się odebrać nagrody. Spróbuj ponownie."
+  },
+  "loadingProfile": "Ładowanie profilu...",
+  "userProfile": "Profil użytkownika",
+  "previewProfile": "Podgląd profilu",
+  "userPreviewPage": {
+    "shipPanelTitle": "Statek",
+    "shipNoShip": "Brak statku - ten gracz nie należy do żadnej załogi.",
+    "shipCrew": "Załoga: {{current}} / {{max}}",
+    "shipFame": "Sława statku: {{count}}",
+    "shipLevelsProgress": "{{current}}/{{max}}",
+    "shopBoostersTitle": "Wspomagacze",
+    "shopBoosterCategoryEmpty": "Brak aktywnego wspomagacza."
+  },
+  "viewProfile": "Zobacz profil",
+  "view": "Zobacz",
+  "actions": "Akcje",
+  "loadingStatek": "Ładowanie statku...",
+  "creatingStatek": "Tworzenie statku...",
+  "loadingLogin": "Logowanie...",
+  "loadingRegister": "Rejestracja...",
+  "registerStepContinue": "Dalej",
+  "registerCredentialsTitle": "Utwórz konto",
+  "registerCredentialsSubtitle": "Krok 1: Wpisz dane rejestracji",
+  "registerAvatarTitle": "Wybierz awatar",
+  "registerAvatarSubtitle": "Krok 2: Jak wygląda Twój pirat?",
+  "registerStartGame": "Rozpocznij grę",
+  "registerSuccess": {
+    "seoTitle": "Rejestracja zakończona | Pirate Hero",
+    "seoDescription": "Konto Pirate Hero zostało utworzone. Sprawdź pocztę i aktywuj konto, aby zacząć grać.",
+    "title": "Sprawdź skrzynkę!",
+    "primaryText": "Na podany adres wysłaliśmy",
+    "activationLink": "link aktywacyjny",
+    "sentTo": "Wysłano na:",
+    "secondaryText": "Kliknij link w wiadomości, aby aktywować konto i wyruszyć w morską przygodę.",
+    "spamHint": "Nie widzisz wiadomości? Sprawdź folder",
+    "spamFolder": "Spam",
+    "backToLogin": "Wróć do logowania"
+  },
+  "avatarRequired": "Wybierz awatar, aby dokończyć rejestrację.",
+  "level": "Poziom",
+  "freeSkillPoints": "wolne punkty umiejętności",
+  "skills": "Umiejętności",
+  "strong": "Siła",
+  "strength": "Siła",
+  "agility": "Zręczność",
+  "intelligence": "Inteligencja",
+  "endurance": "Wytrzymałość",
+  "luck": "Szczęście",
+  "health": "Zdrowie",
+  "criticalChance": "Szansa na krytyka",
+  "stats": "Statystyki",
+  "equipment": "Ekwipunek",
+  "statekLabel": "Statek",
+  "addPoint": "Dodaj punkt",
+  "buyPoint": "Kup punkt za {{price}} golda",
+  "character": "Postać",
+  "characterPage": {
+    "seoTitle": "Postać | Pirate Hero",
+    "seoDescription": "Zarządzaj ekwipunkiem, porównuj statystyki przedmiotów, wydawaj punkty atrybutów i optymalizuj build korsarza - karta postaci skrywa relikty Atlantydy, lewiatana i zaginionej floty.",
+    "heroTitle": "Kapitan Hak",
+    "heroImageAlt": "Postać gracza",
+    "className": "Korsarz",
+    "dragHint": "Kliknij 2x, aby założyć lub zdjąć • Przeciągnij przedmiot na slot",
+    "attributesTitle": "Atrybuty",
+    "baseStatLabel": "Statystyka bazowa",
+    "bonusFromGear": "z ekwipunku",
+    "bonusFromShopBooster": "+{{delta}} ze wspomagacza",
+    "bonusFromShipSkills": "+{{delta}} ze statku",
+    "shipBonusWorkLine": "Statek - praca: +{{percent}}% złota",
+    "shipBonusQuestsLine": "Statek - misje: +{{goldPercent}}% złota, +{{expPercent}}% PD",
+    "freeAttributePoints": "Wolne punkty atrybutów: {{count}}",
+    "attributeUpgradeFree": "Darmowy punkt",
+    "attributeUpgradeBuy": "Kup za {{price}} złota",
+    "attributeUpgradePlusFree": "Dodaj punkt (zużywa wolny punkt atrybutu)",
+    "attributeUpgradePlusBuy": "Kup punkt za {{price}} złota",
+    "attributeNotEnoughGold": "Za mało złota - potrzebujesz {{price}}, masz {{gold}}",
+    "perPointShort": "pkt.",
+    "backpackTitle": "Plecak",
+    "chestTitle": "Skrzynia",
+    "slotsLabel": "slotów",
+    "emptySlot": "Pusty",
+    "goldLabel": "Złoto",
+    "fameLabel": "Sława",
+    "diamondsLabel": "Diamenty",
+    "itemsCount": "przedmiotów",
+    "emptyBackpack": "Plecak jest pusty",
+    "sellFor": "Sprzedaj za",
+    "equipmentTitle": "Ekwipunek",
+    "statsTitle": "Statystyki",
+    "defaultRole": "Korsarz",
+    "battles": "Walki",
+    "wins": "Wygrane",
+    "winRate": "Win rate",
+    "pointsToSpend": "Punkty do wydania",
+    "stats": {
+      "strength": "Siła",
+      "agility": "Zręczność",
+      "endurance": "Wytrzymałość",
+      "intelligence": "Inteligencja",
+      "luck": "Szczęście"
+    },
+    "slots": {
+      "shield": "Tarcza",
+      "weapon": "Broń",
+      "armor": "Zbroja",
+      "helmet": "Hełm",
+      "amulet": "Amulet",
+      "ring": "Pierścień",
+      "boots": "Buty"
+    },
+    "rarity": {
+      "common": "Pospolity",
+      "rare": "Rzadki",
+      "epic": "Epicki",
+      "legendary": "Legendarny"
+    }
+  },
+  "items": {
+    "captainTricorn": "Trójkąt Kapitana",
+    "ironBascinet": "Żelazny Bascinet",
+    "leatherHood": "Skórzany Kaptur",
+    "goldenCrown": "Złota Korona Kapitana",
+    "stormHornedHelm": "Rogaty Hełm Burzy",
+    "deckSlippers": "Pantofle Pokładowe",
+    "sailorBoots": "Buty Marynarza",
+    "corsairBoots": "Buty Korsarza",
+    "ironGreaves": "Żelazne Nagolenniki",
+    "swashbucklerBoots": "Buty Szermierza",
+    "rustyCutlass": "Zardzewiały Kordelas",
+    "steelSaber": "Stalowa Szabla",
+    "admiralBlade": "Ostrze Admirała",
+    "skullDagger": "Sztylet z Czaszką",
+    "krakenStiletto": "Sztylet Krakena",
+    "leatherJerkin": "Skórzany Kaftan",
+    "sailorCoat": "Kaftan Marynarza",
+    "captainCloak": "Peleryna Kapitana",
+    "krakenScaleMail": "Kolczuga z Łusek Krakena",
+    "plateVest": "Kamizelka Płytowa",
+    "compassCharm": "Amulet Kompasu",
+    "krakenTooth": "Ząb Krakena",
+    "stormEye": "Oko Sztormu",
+    "rumVialCharm": "Amulet z Bimbrem",
+    "pearlPendant": "Perłowy Wisiorek",
+    "brassBand": "Mosiężna Obrączka",
+    "goldSignet": "Złoty Sygnet",
+    "pirateEarring": "Kolczyk Pirata",
+    "rubyRing": "Pierścień z Rubinem",
+    "serpentCoil": "Pierścień Węża",
+    "woodenRapier": "Drewniany Rapier",
+    "oldPirateSaber": "Stara Piracka Szabla",
+    "shortDeckKnife": "Krótki Nóż Pokładowy",
+    "boardingCutlass": "Kordelas Abordażowy",
+    "corsairSaber": "Szabla Korsarza",
+    "navySaber": "Szabla Marynarki",
+    "boneCutlass": "Kościany Kordelas",
+    "rustyDagger": "Zardzewiały Sztylet",
+    "corsairDirk": "Puginał Korsarza",
+    "boneStiletto": "Kościany Sztylet",
+    "noviceCap": "Czapka Nowicjusza",
+    "oldTricornHat": "Stary Trójgraniasty Kapelusz",
+    "sailorVest": "Marynarska Kamizelka",
+    "leatherJacket": "Skórzana Kurtka",
+    "deckGloves": "Rękawice Pokładowe",
+    "wornGloves": "Zniszczone Rękawice",
+    "sailorShoes": "Buty Żeglarza",
+    "wetFootwear": "Mokre Obuwie",
+    "woodenAmulet": "Drewniany Amulet",
+    "oldMedallion": "Stary Medalion",
+    "copperRing": "Miedziany Pierścień",
+    "boneRing": "Kościany Pierścień",
+    "stormbreakerBlade": "Ostrze Burzłamacza",
+    "reefFangSabre": "Szabla Rafowego Kła",
+    "abyssLordCutlass": "Kordelas Władcy Otchłani",
+    "tideRipperKnife": "Nóż Rozdzieracza Fal",
+    "deepwaterStiletto": "Sztylet Głębin",
+    "fortressBascinet": "Bascinet Fortecy",
+    "tempestAdmiralHat": "Kapelusz Admiralicji Burzy",
+    "reefguardVest": "Kamizelka Strażnika Rafy",
+    "krakenLordMail": "Pancerz Władcy Krakena",
+    "volcanicPlatecoat": "Płaszcz Wulkanicznej Płyty",
+    "stoneDockBoots": "Buty Kamiennego Nabrzeża",
+    "abyssWalkerGreaves": "Nagolenniki Wędrowca Otchłani",
+    "abyssPearlCharm": "Amulet Perły Otchłani",
+    "volcanoHeartPendant": "Wisior Serca Wulkanu",
+    "treasureHunterSignet": "Pierścień Łowcy Skarbów",
+    "krakenBlade": "Ostrze Krakena",
+    "blackFleetSabre": "Szabla Czarnej Floty",
+    "abyssReaver": "Pogromca Głębin",
+    "cursedAdmiralCutlass": "Przeklęta Szabla Admirała",
+    "reefStriker": "Uderzenie Rafy",
+    "cursedTreasureKnife": "Sztylet Przeklętego Skarbu",
+    "oceanWarriorBlade": "Ostrze Wojownika Oceanu",
+    "ironCorsairHelm": "Hełm Żelaznego Korsarza",
+    "blackbeardFortressHelm": "Hełm Fortecy Czarnobrodego",
+    "krakenCrown": "Korona Krakena",
+    "boardingCaptainCoat": "Pancerz Abordażowego Kapitana",
+    "cursedTreasureVest": "Kamizelka Przeklętego Skarbu",
+    "oceanWarriorMail": "Kolczuga Wojownika Oceanu",
+    "blackFleetPlate": "Płyta Czarnej Floty",
+    "deepSeaTreads": "Buty Głębin",
+    "krakenTractionGreaves": "Niskie Buty Krakena",
+    "pirateArtifactCharm": "Amulet Artefaktu Pirata",
+    "cursedDoubloonPendant": "Wisior Przeklętego Doubloona",
+    "abyssRing": "Pierścień Głębin",
+    "blackFleetSignet": "Pierścień Czarnej Floty",
+    "ghostShipSabre": "Szabla Statku Duchów",
+    "phantomAdmiralBlade": "Ostrze Widmowego Admirała",
+    "poseidonTridentSabre": "Szabla Trójzębu Posejdona",
+    "corsairKingsCutlass": "Kordelas Króla Korsarzy",
+    "spiritTideKnife": "Nóż Duchowej Fali",
+    "hauntedDoubloonStiletto": "Sztylet Nawiedzonego Doubloona",
+    "abyssCorsairDagger": "Sztylet Korsarza Otchłani",
+    "ghostCaptainHat": "Kapelusz Kapitana Duchów",
+    "hauntedGalleonHelm": "Hełm Nawiedzonej Galeony",
+    "poseidonCrown": "Korona Posejdona",
+    "spectralDeckcoat": "Widmowy Płaszcz Pokładowy",
+    "cursedAdmiralCoat": "Płaszcz Przeklętego Admirała",
+    "ghostFleetMail": "Kolczuga Widmowej Floty",
+    "oceanRelicPlate": "Płyta Reliktu Oceanu",
+    "phantomDeckBoots": "Widmowe Buty Pokładowe",
+    "poseidonTideGreaves": "Nagolenniki Fali Posejdona",
+    "hauntedCompassCharm": "Amulet Nawiedzonego Kompasu",
+    "poseidonRelicPendant": "Wisior Reliktu Posejdona",
+    "corsairRelicSignet": "Pierścień Reliktu Korsarza",
+    "cursedAdmiralRing": "Pierścień Przeklętego Admirała",
+    "poseidonTideCharm": "Amulet Przypływu Posejdona",
+    "atlantisSignet": "Sygnet Atlantydy",
+    "cursedRelicDagger": "Sztylet Przeklętej Relikwii",
+    "cursedRelicHelm": "Hełm Przeklętej Relikwii",
+    "atlantisTreasureBlade": "Ostrze Skarbu Atlantydy",
+    "atlantisRelicMail": "Zbroja Reliktu Atlantydy",
+    "pirateTrophyRing": "Pierścień Pirackiego Trofeum",
+    "pirateTrophyBoots": "Buty Pirackiego Trofeum",
+    "legendarySouvenirSabre": "Szabla Legendarnej Pamiątki",
+    "legendarySouvenirHelm": "Hełm Legendarnej Pamiątki",
+    "atlantisDeepSabre": "Głębinowa Szabla Atlantydy",
+    "titanSlayerBlade": "Ostrze Pogromcy Tytanów",
+    "immortalCaptainCutlass": "Kordelas Nieśmiertelnego Kapitana",
+    "abyssEmperorBlade": "Ostrze Cesarza Otchłani",
+    "krakenFangKnife": "Nóż Kła Krakena",
+    "relicHunterStiletto": "Sztylet Łowcy Reliktów",
+    "shadowTideDagger": "Sztylet Cienia Fali",
+    "abyssSentinelHelm": "Hełm Strażnika Otchłani",
+    "titanGuardHelm": "Hełm Strażnika Tytanów",
+    "oceanEmperorCrown": "Korona Cesarza Oceanu",
+    "deepRelicMail": "Kolczuga Głębinowego Reliktu",
+    "atlantisGuardPlate": "Płyta Strażnika Atlantydy",
+    "krakenLordPlate": "Płyta Lorda Krakena",
+    "immortalAdmiralCoat": "Płaszcz Nieśmiertelnego Admirała",
+    "abyssStrideBoots": "Buty Kroku Otchłani",
+    "titanWalkGreaves": "Nagolenniki Kroku Tytana",
+    "deepOceanCharm": "Amulet Głębin Oceanu",
+    "emperorRelicPendant": "Wisior Reliktu Cesarza",
+    "atlantisSealRing": "Pierścień Pieczęci Atlantydy",
+    "titanSignet": "Sygnet Tytana",
+    "atlantisRelicBlade": "Ostrze Reliktu Atlantydy",
+    "sunkenCityMail": "Zbroja Zatopionego Miasta",
+    "krakenEyeDagger": "Sztylet Oka Krakena",
+    "krakenHeartCharm": "Amulet Serca Krakena",
+    "blackbeardTreasureHat": "Kapelusz Skarbu Czarnobrodego",
+    "blackbeardLootRing": "Pierścień Łupu Czarnobrodego",
+    "cursedDoubloonRing": "Pierścień Przeklętego Doubloona",
+    "cursedCoinPendant": "Wisior Przeklętej Monety",
+    "ancientMapBoots": "Buty Starożytnej Mapy",
+    "chartBladeDagger": "Sztylet Mapy Skarbów",
+    "atlantisEmperorSabre": "Szabla Cesarza Atlantydy",
+    "leviathanFangBlade": "Ostrze Kła Lewiatana",
+    "stormCrownCutlass": "Kordelas Korony Burz",
+    "volcanoForgeSabre": "Szabla Kuźni Wulkanu",
+    "lostFleetAdmiralBlade": "Ostrze Admirała Zaginionej Floty",
+    "oceanRelicDirk": "Dirk Reliktu Oceanu",
+    "iceSeaStiletto": "Sztylet Lodowego Morza",
+    "pirateArtifactKnife": "Nóż Pirackiego Artefaktu",
+    "leviathanSpineDagger": "Sztylet Kręgosłupa Lewiatana",
+    "stormCrownHelm": "Hełm Korony Burz",
+    "atlantisEmperorCrown": "Korona Cesarza Atlantydy",
+    "volcanoWarHelm": "Hełm Wojenny Wulkanu",
+    "lostFleetCaptainHat": "Kapelusz Kapitana Zaginionej Floty",
+    "oceanRelicCuirass": "Kirys Reliktu Oceanu",
+    "iceSeaMail": "Kolczuga Lodowego Morza",
+    "volcanoForgeCoat": "Płaszcz Kuźni Wulkanu",
+    "pirateArtifactVest": "Kamizelka Pirackiego Artefaktu",
+    "lostFleetWarPlate": "Płyta Wojenna Zaginionej Floty",
+    "stormStrideBoots": "Buty Kroku Burzy",
+    "iceSeaGreaves": "Nagolenniki Lodowego Morza",
+    "volcanoAshBoots": "Buty Popiołu Wulkanu",
+    "lostFleetTreads": "Ślady Zaginionej Floty",
+    "oceanRelicCharm": "Amulet Reliktu Oceanu",
+    "stormCrownPendant": "Wisior Korony Burz",
+    "leviathanHeartAmulet": "Amulet Serca Lewiatana",
+    "atlantisEmperorSeal": "Pieczęć Cesarza Atlantydy",
+    "iceSeaBand": "Obrączka Lodowego Morza",
+    "volcanoEmberRing": "Pierścień Żaru Wulkanu",
+    "pirateArtifactSignet": "Sygnet Pirackiego Artefaktu",
+    "lostFleetSealRing": "Pierścień Pieczęci Zaginionej Floty",
+    "poseidonCrownHelm": "Korona Posejdona",
+    "atlantisScepterCharm": "Berło Atlantydy",
+    "leviathanToothBlade": "Ząb Lewiatana",
+    "krakenEyeRelic": "Oko Krakena",
+    "explorerCompassCharm": "Kompas Odkrywcy",
+    "stormRelicRing": "Relikt Burzy",
+    "admiralMedallion": "Medalion Admirała",
+    "corsairMaskHelm": "Maska Korsarza",
+    "abyssDepthRing": "Pierścień Głębin",
+    "oceanLordPlate": "Pancerz Władcy Oceanów",
+    "genericLoot": "Nieznany ekwipunek"
+  },
+  "exp": "PD",
+  "gold": "Złoto",
+  "goldSingular": "złoto",
+  "goldPlural": "złota",
+  "goldGenitive": "złota",
+  "diamonds": "Diamenty",
+  "diamondsingular": "Diament",
+  "diamondsPlural": "Diamenty",
+  "diamondsGenitive": "Diamentów",
+  "fameCoins": "Monety Sławy",
+  "fameCoinSingular": "Moneta Sławy",
+  "fameCoinsPlural": "Monety Sławy",
+  "fameCoinsGenitive": "Monet Sławy",
+  "logout": "Wyloguj się",
+  "missions": "Misje",
+  "missionsPage": {
+    "seoDescription": "Wybieraj misje, śledź postęp i rozwijaj swojego pirata w Pirate Hero.",
+    "availableMissions": "Dostępne misje",
+    "depart": "Wyrusz",
+    "energyUnit": "energii",
+    "completed": "Ukończono!",
+    "energyStatus": "Energia",
+    "missionInProgress": "Misja w toku",
+    "missionProgressLabel": "Postęp misji",
+    "cancelMission": "Anuluj",
+    "cancelMissionAria": "Anuluj misję",
+    "notEnoughEnergy": "Za mało energii na tę misję.",
+    "cancelMissionTitle": "Anulować misję?",
+    "cancelMissionBody": "Stracisz bieżący postęp misji. Zużyta energia zostanie zwrócona na konto.",
+    "cancelMissionConfirm": "Tak, anuluj",
+    "cancelMissionDismiss": "Nie, wracam",
+    "missionCompleted": "Misja ukończona!",
+    "claimReward": "Odbierz nagrodę",
+    "loadingNewMissions": "Ładowanie nowych misji…",
+    "durationMinutesShort": "{{count}} min",
+    "durationHoursShort": "{{count}} h"
+  },
+  "boostersPage": {
+    "title": "Wspomagacze",
+    "seoTitle": "Wspomagacze | Pirate Hero",
+    "seoDescription": "Aktywuj wspomagacze misji, treningu, pracy i umiejętności, aby szybciej rozwijać postać.",
+    "pageAriaLabel": "Wspomagacze",
+    "activeSectionAria": "Aktywne wspomagacze",
+    "activeSectionToggle": "Aktywne wspomagacze",
+    "activeUntilLine": "do {{until}} · {{countdown}}",
+    "categoryAria": "Kategoria {{label}}",
+    "purchaseBuy": "Kup",
+    "purchaseActive": "Aktywny",
+    "purchaseNoGold": "Brak wystarczającej ilości złota.",
+    "purchaseNoGoldShort": "Za mało złota",
+    "purchaseNoDiamonds": "Brak wystarczającej liczby diamentów.",
+    "purchaseNoDiamondsShort": "Za mało diamentów",
+    "cardActiveUntil": "Aktywny do {{until}} · pozostało {{countdown}}",
+    "replaceTitle": "Podmienić aktywny wspomagacz?",
+    "replaceBodyBefore": "W tej kategorii możesz mieć aktywny tylko jeden wspomagacz. Aktywacja ",
+    "replaceBodyAfter": " usunie aktualnie aktywny.",
+    "cancel": "Anuluj",
+    "confirm": "Potwierdź",
+    "durationDays_one": "1 dzień",
+    "durationDays_few": "{{count}} dni",
+    "durationDays_many": "{{count}} dni",
+    "durationDays_other": "{{count}} dni",
+    "durationHours_one": "1 godzina",
+    "durationHours_few": "{{count}} godziny",
+    "durationHours_many": "{{count}} godzin",
+    "durationHours_other": "{{count}} godzin"
+  },
+  "titlesPage": {
+    "nav": "Tytuły",
+    "title": "Tytuły gracza",
+    "seoTitle": "Tytuły | Pirate Hero",
+    "seoDescription": "Odblokuj i aktywuj prestiżowe tytuły kapitańskie - od weteranów areny po cesarzy Atlantydy. Kamienie milowe endgame odblokowują korony, które rozpozna cały archipelag.",
+    "subtitle": "Zdobywaj prestiżowe tytuły kapitańskie za ukończone lochy, sławę na arenie, kolekcje i poziomy endgame - potem pokaż wybrany tytuł przy nicku, by cała załoga go widziała.",
+    "loading": "Ładowanie tytułów…",
+    "loadError": "Nie udało się załadować tytułów.",
+    "equipSuccess": "Tytuł został aktywowany.",
+    "equipError": "Nie udało się aktywować tytułu.",
+    "unlocked": "Odblokowany",
+    "active": "Aktywny",
+    "activate": "Aktywuj",
+    "progress": "Postęp: {{current}} / {{target}}",
+    "toggleClose": "Ukryj tytuły"
+  },
+  "titles": {
+    "rookie": {
+      "name": "Rekrut",
+      "unlockHint": "Dostępny od startu gry"
+    },
+    "crypt_hunter": {
+      "name": "Łowca Krypt",
+      "unlockHint": "Ukończ loch Krypta - przejdź przez mgliste ruiny zatopionego cmentarza"
+    },
+    "kraken_slayer": {
+      "name": "Pogromca Krakena",
+      "unlockHint": "Ukończ loch Krakena - dotrzyj do serca morskiego potwora"
+    },
+    "fortress_raider": {
+      "name": "Najeźdźca Twierdzy",
+      "unlockHint": "Ukończ Fortecę Czarnobrodego - zdobądź twierdzę legendarnego korsarza"
+    },
+    "volcanic_conqueror": {
+      "name": "Zdobywca Wulkanu",
+      "unlockHint": "Ukończ Wulkan Davy'ego Jonesa - przetrwaj piekielne głębiny"
+    },
+    "poseidon_champion": {
+      "name": "Czempion Posejdona",
+      "unlockHint": "Ukończ Pałac Posejdona - stanąć przed tronem morskiego boga"
+    },
+    "veteran": {
+      "name": "Weteran",
+      "unlockHint": "Osiągnij poziom 25 - morze zaczyna traktować cię poważnie"
+    },
+    "rich_captain": {
+      "name": "Bogaty Kapitan",
+      "unlockHint": "Zgromadź 10 000 złota"
+    },
+    "collector": {
+      "name": "Pierwszy Kolekcjoner",
+      "unlockHint": "Zdobądź 10 różnych przedmiotów"
+    },
+    "treasure_hunter": {
+      "name": "Łowca Skarbów",
+      "unlockHint": "Zdobądź 75 przedmiotów"
+    },
+    "dungeon_master": {
+      "name": "Mistrz Lochów",
+      "unlockHint": "Ukończ wszystkie lochy"
+    },
+    "veteran_collector": {
+      "name": "Weteran Kolekcjoner",
+      "unlockHint": "Załóż pełny zestaw Rare"
+    },
+    "legendary_collector": {
+      "name": "Legendarny Kolekcjoner",
+      "unlockHint": "Zdobądź 100 przedmiotów"
+    },
+    "sea_legend": {
+      "name": "Legenda Mórz",
+      "unlockHint": "Ukończ wszystkie lochy i osiągnij poziom 50"
+    },
+    "master_collector": {
+      "name": "Mistrz Kolekcjoner",
+      "unlockHint": "Zdobądź 85 przedmiotów"
+    },
+    "legendary_hunter": {
+      "name": "Łowca Legend",
+      "unlockHint": "Zdobądź 5 przedmiotów Legendarnych"
+    },
+    "veteran_captain": {
+      "name": "Weteran Kapitan",
+      "unlockHint": "Osiągnij poziom 35 - twoja załoga śpiewa o tobie szanty w każdym porcie"
+    },
+    "undead_slayer": {
+      "name": "Pogromca Nieumarłych",
+      "unlockHint": "Ukończ Kryptę i zmiażdż Admiral Lichów - strażników zatopionego cmentarza"
+    },
+    "beast_hunter": {
+      "name": "Łowca Bestii",
+      "unlockHint": "Odkryj wszystkie wpisy bestiariusza - od szkieletów po awatary bogów mórz"
+    },
+    "black_corsair": {
+      "name": "Czarny Korsarz",
+      "unlockHint": "Wygraj 250 walk - arena drży, gdy wchodzisz na pokład"
+    },
+    "elite_captain": {
+      "name": "Elitarny Kapitan",
+      "unlockHint": "Osiągnij poziom 50 - dołącz do elity admirałów archipelagu"
+    },
+    "fortress_lord": {
+      "name": "Władca Fortec",
+      "unlockHint": "Ukończ Fortecę Czarnobrodego i zasiądź na jego przeklętym tronie"
+    },
+    "atlantis_guardian": {
+      "name": "Strażnik Atlantydy",
+      "unlockHint": "Ukończ Pałac Posejdona - woda sama ustępuje przed twoją wolą"
+    },
+    "legend_collector": {
+      "name": "Kolekcjoner Legend",
+      "unlockHint": "Zdobądź 15 przedmiotów Legendarnych - skarby, o których szepczą w kniejach"
+    },
+    "ocean_master": {
+      "name": "Mistrz Oceanu",
+      "unlockHint": "Wygraj 1000 walk - morza śpiewają o twoim imieniu"
+    },
+    "undefeated_pirate": {
+      "name": "Niepokonany Pirat",
+      "unlockHint": "Wygraj 500 walk - piraci unikają twojego okrętu jak klątwy"
+    },
+    "great_explorer": {
+      "name": "Wielki Odkrywca",
+      "unlockHint": "Ukończ wszystkie lochy - każda komnata, każdy boss, każda legenda"
+    },
+    "fight_veteran_50": {
+      "name": "Weteran Walk I",
+      "unlockHint": "Wygraj 50 walk - pierwszy stopień arenowej sławy"
+    },
+    "fight_veteran_100": {
+      "name": "Weteran Walk II",
+      "unlockHint": "Wygraj 100 walk - arena zna twoje imię"
+    },
+    "epic_collector": {
+      "name": "Łowca Epickich Reliktów",
+      "unlockHint": "Zdobądź 10 przedmiotów Epickich - echo morskich bitew w każdym łupie"
+    },
+    "epic_lord": {
+      "name": "Pan Epickiego Blasku",
+      "unlockHint": "Załóż pełny zestaw Epicki - wyglądasz jak awatar burzy"
+    },
+    "legendary_lord": {
+      "name": "Pan Legendarnych Skarbów",
+      "unlockHint": "Załóż pełny zestaw Legendarny - Posejdon patrzy z zainteresowaniem"
+    },
+    "grand_collector": {
+      "name": "Arcymistrz Kolekcjoner",
+      "unlockHint": "Zdobądź 200 unikalnych przedmiotów - twoja skrzynia staje się legendą portów"
+    },
+    "legend_slayer": {
+      "name": "Pogromca Legend",
+      "unlockHint": "Zbierz 25 przedmiotów Legendarnych - morze oddaje ci swoje najgłębsze sekrety"
+    },
+    "ocean_ruler": {
+      "name": "Władca Oceanów",
+      "unlockHint": "Osiągnij poziom 150 - fale same ustępują przed twoim okrętem"
+    },
+    "atlantis_master": {
+      "name": "Mistrz Atlantydy",
+      "unlockHint": "Ukończ Pałac Posejdona i zdobądź klucz do serca zatopionego miasta"
+    },
+    "golden_corsair": {
+      "name": "Złoty Korsarz",
+      "unlockHint": "Gromadź 50 000 złota - handlarze kłaniają się twojej sakiewce"
+    },
+    "expedition_veteran": {
+      "name": "Weteran Wypraw",
+      "unlockHint": "Wygraj 2000 walk - arena i lochy znają twój krok"
+    },
+    "titan_slayer": {
+      "name": "Pogromca Tytanów",
+      "unlockHint": "Ukończ wszystkie lochy i osiągnij poziom 100 - tytanów nie pokonuje się przypadkiem"
+    },
+    "relic_lord": {
+      "name": "Pan Reliktów",
+      "unlockHint": "Zdobądź 300 unikalnych przedmiotów - każdy relikt zna twoje imię"
+    },
+    "great_discoverer": {
+      "name": "Wielki Odkrywca",
+      "unlockHint": "Odkryj wszystkie 50 wpisów bestiariusza - każde stworzenie udokumentowane"
+    },
+    "immortal_captain": {
+      "name": "Nieśmiertelny Kapitan",
+      "unlockHint": "Osiągnij poziom 200 - granica, o której szepczą nawet bogowie mórz"
+    },
+    "fight_archmaster": {
+      "name": "Arcymistrz Walk",
+      "unlockHint": "Wygraj 10 000 walk na arenie - sam piasek się przed tobą kłania"
+    },
+    "atlantis_emperor": {
+      "name": "Cesarz Atlantydy",
+      "unlockHint": "Osiągnij poziom 250 - zatopiony tron rozpoznaje swego dziedzica"
+    },
+    "storm_lord": {
+      "name": "Pan Burz",
+      "unlockHint": "Wygraj 7500 walk - grzmot idzie twoim kilwaterem"
+    },
+    "leviathan_hunter": {
+      "name": "Łowca Lewiatanów",
+      "unlockHint": "Zdobądź 50 przedmiotów legendarnych - lewiatany lękają się twojego imienia"
+    },
+    "collection_master": {
+      "name": "Mistrz Kolekcji",
+      "unlockHint": "Zdobądź 400 unikalnych przedmiotów - muzea zazdroszczą twojej skrzyni"
+    },
+    "grand_seeker": {
+      "name": "Wielki Poszukiwacz",
+      "unlockHint": "Zdobądź 500 unikalnych przedmiotów - żaden relikt nie umknie twoim mapom"
+    },
+    "ocean_slayer": {
+      "name": "Pogromca Oceanów",
+      "unlockHint": "Wygraj 15 000 walk - oceany rozstępują się przed twoim ostrzem"
+    },
+    "relic_sovereign": {
+      "name": "Władca Reliktów",
+      "unlockHint": "Zdobądź 75 przedmiotów epickich - każdy relikt odpowiada na twój rozkaz"
+    },
+    "unbeaten_corsair": {
+      "name": "Niepokonany Korsarz",
+      "unlockHint": "Osiągnij poziom 225 - korsarscy królowie salutują twojej fladze"
+    },
+    "legend_lord": {
+      "name": "Pan Legend",
+      "unlockHint": "Zdobądź 75 przedmiotów legendarnych - legendy klękają w twoim skarbcu"
+    },
+    "greatest_explorer": {
+      "name": "Największy Odkrywca",
+      "unlockHint": "Zdobądź 350 unikalnych przedmiotów - każdy horyzont ustępuje przed tobą"
+    },
+    "eternal_captain": {
+      "name": "Wieczny Kapitan",
+      "unlockHint": "Osiągnij poziom 300 - nawet czas nie może zdjąć cię z dowództwa"
+    },
+    "lvl_rank_5": {
+      "name": "Młodszy Majtek",
+      "unlockHint": "Osiągnij poziom 5 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_10": {
+      "name": "Majtek",
+      "unlockHint": "Osiągnij poziom 10 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_15": {
+      "name": "Starszy Majtek",
+      "unlockHint": "Osiągnij poziom 15 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_20": {
+      "name": "Bosman",
+      "unlockHint": "Osiągnij poziom 20 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_25": {
+      "name": "Starszy Bosman",
+      "unlockHint": "Osiągnij poziom 25 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_30": {
+      "name": "Kwatermistrz",
+      "unlockHint": "Osiągnij poziom 30 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_35": {
+      "name": "Porucznik",
+      "unlockHint": "Osiągnij poziom 35 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_40": {
+      "name": "Starszy Porucznik",
+      "unlockHint": "Osiągnij poziom 40 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_45": {
+      "name": "Kapitan III klasy",
+      "unlockHint": "Osiągnij poziom 45 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_50": {
+      "name": "Kapitan II klasy",
+      "unlockHint": "Osiągnij poziom 50 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_55": {
+      "name": "Kapitan I klasy",
+      "unlockHint": "Osiągnij poziom 55 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_60": {
+      "name": "Komandor",
+      "unlockHint": "Osiągnij poziom 60 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_65": {
+      "name": "Starszy Komandor",
+      "unlockHint": "Osiągnij poziom 65 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_70": {
+      "name": "Admirał Floty",
+      "unlockHint": "Osiągnij poziom 70 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_75": {
+      "name": "Wiceadmirał",
+      "unlockHint": "Osiągnij poziom 75 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_80": {
+      "name": "Admirał",
+      "unlockHint": "Osiągnij poziom 80 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_85": {
+      "name": "Wielki Admirał",
+      "unlockHint": "Osiągnij poziom 85 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_90": {
+      "name": "Lord Mórz",
+      "unlockHint": "Osiągnij poziom 90 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_95": {
+      "name": "Arcylord Mórz",
+      "unlockHint": "Osiągnij poziom 95 - darmowy tytuł rangowy"
+    },
+    "lvl_rank_100": {
+      "name": "Legenda Archipelagu",
+      "unlockHint": "Osiągnij poziom 100 - darmowy tytuł rangowy"
+    }
+  },
+  "shipPage": {
+    "title": "Statek",
+    "seoTitle": "Statek | Pirate Hero",
+    "seoDescription": "Buduj statek, rozwijaj załogę, ulepszenia i bierz udział w bitwach statków w Pirate Hero.",
+    "noShipDescription": "Nie posiadasz jeszcze statku. Zbuduj własny lub dołącz do istniejącego!",
+    "buildShipTitle": "Zbuduj statek",
+    "buildShipCost": "Koszt: 500 złota",
+    "shipNamePlaceholder": "Nazwa statku *",
+    "shipDescriptionPlaceholder": "Opis statku (opcjonalnie)",
+    "buildShipButton": "Zbuduj statek za 500 złota",
+    "joinShipTitle": "Dołącz do statku",
+    "joinShipDescription": "Przeglądaj ranking statków i wyślij prośbę o dołączenie do załogi innego kapitana.",
+    "rankingButton": "Ranking statków",
+    "demoLoadButton": "Demo: załaduj statek",
+    "tabs": {
+      "crew": "Załoga",
+      "upgrades": "Ulepszenia",
+      "description": "Opis",
+      "battles": "Bitwy",
+      "notes": "Notatki / opis",
+      "chat": "Czat"
+    },
+    "joinRequestBlockedOtherCrew": "Najpierw opuść obecną załogę - wtedy możesz wysłać prośbę.",
+    "joinRequestPendingLabel": "Twoja prośba czeka na decyzję kapitana",
+    "loginRequired": "Zaloguj się, aby zobaczyć statek.",
+    "shipLoading": "Ładowanie statku…",
+    "creatingShip": "Tworzenie…",
+    "shipDescriptionSectionTitle": "Opis statku",
+    "emptyShipDescription": "Brak opisu statku.",
+    "fameLabel": "sława",
+    "treasuryLabel": "Skarbiec:",
+    "amountPlaceholder": "Ilość",
+    "depositButton": "Wpłać",
+    "viewButton": "Zobacz",
+    "kickButton": "Wyrzuć",
+    "deleteShipButton": "Usuń statek",
+    "leaveShipButton": "Opuść statek",
+    "memberContributions": "Wpłacił: {{gold}} złota · {{diamonds}} diamentów",
+    "battleCrewSize": "Załoga: {{count}}",
+    "crewTitle": "Załoga",
+    "crewJoinSectionTitle": "Dołączanie do załogi",
+    "crewJoinRestrictedLabel": "Zaproszenie albo prośba o dołączenie",
+    "crewJoinOpenLabel": "Bez zaproszenia (wolne miejsce)",
+    "membersLabel": "Członkowie",
+    "captainLabel": "Kapitan",
+    "upgradesTitle": "Ulepszenia statku",
+    "levelShort": "Poz. {{level}}",
+    "levelWithMax": "Poz. {{level}}/{{max}}",
+    "max": "MAX",
+    "battlesTitle": "Bitwy statków",
+    "attackUsedToday": "Dzisiejszy atak wykorzystany",
+    "battlesOpponentsHiddenAfterQuota": "Dzisiejszy atak został już wykorzystany. Jutro znów będziesz mógł wybrać statek jako cel.",
+    "battleAttackStarting": "Atak…",
+    "battlesHint": "Możesz zaatakować jeden statek dziennie. Wygrana przynosi sławę!",
+    "attackButton": "Atakuj",
+    "battleHistoryTitle": "Historia bitew",
+    "battleHistoryWin": "Wygrana",
+    "battleHistoryLoss": "Porażka",
+    "battleHistoryFame": "sława {{delta}}",
+    "battleHistoryEmpty": "Brak zapisanych walk.",
+    "battleResultWin": "Wygrana walka!",
+    "battleResultLoss": "Przegrana walka.",
+    "battlesOwnerOnly": "Tylko kapitan może wybierać przeciwników i rozpoczynać walkę klubu.",
+    "battlesLoading": "Ładowanie…",
+    "battleBackToShip": "Wróć do statku",
+    "upgradeCostLine": "{{gold}} złota · {{diamonds}} diamentów",
+    "upgradeCostGoldOnly": "{{gold}} złota",
+    "editButton": "Edytuj",
+    "saveButton": "Zapisz",
+    "cancelEditButton": "Anuluj",
+    "chatTitle": "Czat załogi",
+    "chatLoading": "Ładowanie wiadomości i połączenie z czatem…",
+    "chatPlaceholder": "Napisz wiadomość...",
+    "chatYou": "Ty",
+    "chatTemporarilyUnavailable": "Czat drużyny jest chwilowo niedostępny.",
+    "chatWsNotConnected": "Brak połączenia WebSocket (np. zły port lub URL). Uruchom `php bin/console websocket:server`, w `.env` frontendu ustaw `VITE_WS_URL=ws://localhost:PORT` (ten sam PORT co serwer WS; nie używaj `http://`).",
+    "chatSystemAuthor": "System",
+    "chatSystem": {
+      "depositGold": "{{name}} wpłacił(a) {{amount}} złota do skarbca.",
+      "depositDiamonds": "{{name}} wpłacił(a) {{amount}} diamentów do skarbca.",
+      "depositBoth": "{{name}} wpłacił(a) {{gold}} złota i {{diamonds}} diamentów do skarbca.",
+      "memberJoined": "{{name}} dołączył(a) do załogi.",
+      "memberKicked": "{{target}} został(a) wyrzucony(a) z załogi przez {{by}}.",
+      "internalNotesUpdated": "{{by}} zaktualizował(a) notatki dla załogi.",
+      "memberLeft": "{{name}} opuścił(a) statek.",
+      "upgradeSkills": "Ulepszono moduł umiejętności do poziomu {{level}}.",
+      "upgradeWork": "Ulepszono moduł pracy do poziomu {{level}}.",
+      "upgradeMissions": "Ulepszono moduł misji do poziomu {{level}}.",
+      "upgradeHull": "Ulepszono kadłub do poziomu {{level}}.",
+      "upgradeGeneric": "Ulepszono {{type}} do poziomu {{level}}."
+    },
+    "roles": {
+      "OWNER": "Kapitan",
+      "MANAGER": "Oficer",
+      "MEMBER": "Członek"
+    },
+    "upgrades": {
+      "skills": {
+        "label": "Umiejętności",
+        "effectCurrent": "+{{level}}% do umiejętności",
+        "effectZero": "Brak bonusu do umiejętności."
+      },
+      "work": {
+        "label": "Praca",
+        "effectCurrent": "+{{level}}% złota z pracy",
+        "effectZero": "Brak bonusu złota z pracy."
+      },
+      "quests": {
+        "label": "Misje",
+        "effectCurrent": "+{{level}}% złota i +{{level}}% PD z misji",
+        "effectZero": "Brak bonusu złota i PD z misji."
+      },
+      "training": {
+        "label": "Trening",
+        "effectCurrent_one": "+{{count}} punkt treningu",
+        "effectCurrent_few": "+{{count}} punkty treningu",
+        "effectCurrent_many": "+{{count}} punktów treningu",
+        "effectCurrent_other": "+{{count}} punktów treningu",
+        "effectZero": "Brak dodatkowych punktów treningu."
+      },
+      "hull": {
+        "label": "Kadłub",
+        "effectZero": "Brak ulepszeń kadłuba - {{base}} miejsc na załogę.",
+        "effectCurrent": "{{count}} miejsc na załogę (baza {{base}} + {{level}} z kadłuba)"
+      }
+    }
+  },
+  "shipBonus": {
+    "plusGoldFromShip": "+{{amount}} złota ze statku",
+    "plusExpFromShip": "+{{amount}} {{expUnit}} ze statku"
+  },
+  "shopBooster": {
+    "missionGoldExtraSuffix": " + {{amount}} złota z wspomagacza ({{percent}}%)",
+    "missionExpExtraSuffix": " + {{amount}} {{expUnit}} z wspomagacza ({{percent}}%)",
+    "workGoldExpectedOneLine": "{{base}} {{goldWord}} · +{{extra}} złota z wspomagacza po odbiorze",
+    "workGoldClaimOneLine": "+{{base}} {{goldWord}} · +{{extra}} złota z wspomagacza po odbiorze",
+    "workBoosterGoldAfterClaimSegment": "+{{extra}} złota z wspomagacza po odbiorze",
+    "catalog": {
+      "mis_1": {
+        "name": "Pozłacana mapa",
+        "description": "Ślady dawnych tras - trochę więcej PD i złota z misji.",
+        "effect": "+5% PD i +5% złota z misji"
+      },
+      "mis_2": {
+        "name": "Mapa skarbu",
+        "description": "Wyraźniejsza droga do łupów - większy bonus z misji.",
+        "effect": "+15% PD i +15% złota z misji"
+      },
+      "mis_3": {
+        "name": "Rozkaz admiralski",
+        "description": "Oficjalne błogosławieństwo i maksymalny bonus z misji.",
+        "effect": "+40% PD i +40% złota z misji"
+      },
+      "trn_1": {
+        "name": "Mała fiolka wigoru",
+        "description": "Szybki zastrzyk energii na trening.",
+        "effect": "+5 pkt treningu"
+      },
+      "trn_2": {
+        "name": "Fiolka wytrzymałości",
+        "description": "Większa dawka punktów treningowych.",
+        "effect": "+15 pkt treningu"
+      },
+      "trn_3": {
+        "name": "Napar z płetwy rekina",
+        "description": "Pełna moc i najwięcej punktów treningu naraz.",
+        "effect": "+40 pkt treningu"
+      },
+      "wrk_1": {
+        "name": "Kontrakt na sztok",
+        "description": "Papiery od ładowni - nieco więcej złota z pracy.",
+        "effect": "+5% złota z pracy"
+      },
+      "wrk_2": {
+        "name": "List komisji portowej",
+        "description": "Wyższa stawka za fatygę na nabrzeżu.",
+        "effect": "+15% złota z pracy"
+      },
+      "wrk_3": {
+        "name": "Patent kapitański",
+        "description": "Złote klauzule i maksymalny przychód z pracy.",
+        "effect": "+40% złota z pracy"
+      },
+      "skl_1": {
+        "name": "Notatki z nauki",
+        "description": "Drobne sztuczki na rozwój atrybutów.",
+        "effect": "+5% atrybutów"
+      },
+      "skl_2": {
+        "name": "Zeszyt szkutnika",
+        "description": "Sprytniejsze wzmocnienie umiejętności.",
+        "effect": "+15% atrybutów"
+      },
+      "skl_3": {
+        "name": "Dziennik odkryć",
+        "description": "Sekrety z dalekich wypraw i najsilniejszy bonus.",
+        "effect": "+40% atrybutów"
+      }
+    }
+  },
+  "trainingsPage": {
+    "seoDescription": "Planuj treningi, rozsądnie wydawaj punkty treningowe i rozwijaj statystyki pirata w Pirate Hero.",
+    "availableTrainings": "Dostępne treningi",
+    "beginTraining": "Rozpocznij",
+    "trainingPointsUnit": "pkt treningu",
+    "trainingPointsStatus": "Punkty treningowe",
+    "trainingInProgress": "Trening w toku",
+    "trainingCompleted": "Trening ukończony!",
+    "loadingNewTrainings": "Ładowanie nowych treningów…",
+    "trainingProgressLabel": "Postęp treningu",
+    "notEnoughTrainingPoints": "Za mało punktów treningowych na ten trening.",
+    "cancelTrainingAria": "Anuluj trening",
+    "rewardOnCompletion": "Po ukończeniu",
+    "startFailed": "Nie udało się rozpocząć treningu. Sprawdź punkty i spróbuj ponownie."
+  },
+  "worksPage": {
+    "seoDescription": "W Pirate Hero wykonuj prace dorywcze - zarabiaj złoto bez zużycia energii misyjnej ani punktów treningowych.",
+    "availableWorks": "Dostępne prace",
+    "startWork": "Rozpocznij pracę",
+    "workInProgress": "Praca w toku",
+    "workProgressLabel": "Postęp pracy",
+    "expectedRewardCaption": "Wypłata po zakończeniu",
+    "cancelWork": "Anuluj",
+    "cancelWorkAria": "Anuluj bieżącą pracę",
+    "cancelWorkTitle": "Anulować pracę?",
+    "cancelWorkBody": "Przerwiesz bieżącą zmianę i nie otrzymasz złota za ten czas.",
+    "cancelWorkConfirm": "Tak, anuluj",
+    "cancelWorkDismiss": "Nie, wracam",
+    "workCompleted": "Praca ukończona!",
+    "loadingNewWorks": "Ładowanie prac…"
+  },
+  "trainingRefillInfoLoading": "Ładowanie…",
+  "trainingRefillCannot": "Nie możesz teraz uzupełnić punktów treningowych.",
+  "trainingRefillFailed": "Nie udało się uzupełnić punktów treningowych.",
+  "trainingRefillError": "Wystąpił błąd podczas uzupełniania punktów treningowych.",
+  "noMissions": "Brak dostępnych misji.",
+  "back": "Powrót",
+  "reward": "Nagroda",
+  "bonus": "Premia",
+  "duration": "Czas trwania",
+  "energy": "Energia",
+  "refill": "Uzupełnij",
+  "refillEnergy": "Uzupełnij energię",
+  "refillEnergyDescription": "Uzupełnij energię do pełna za {{cost}} złota.",
+  "refillTrainingPoints": "Uzupełnij punkty treningowe",
+  "refillTrainingPointsDescription": "Uzupełnij punkty treningowe do pełna za {{cost}} złota.",
+  "refillsRemaining": "Pozostałe uzupełnienia",
+  "refillsUsed": "Użyte uzupełnienia",
+  "energyRefilled": "Energia została uzupełniona do pełna!",
+  "energyRefillCannot": "Nie możesz teraz uzupełnić energii.",
+  "energyRefillFailed": "Nie udało się uzupełnić energii.",
+  "energyRefillError": "Wystąpił błąd podczas uzupełniania energii.",
+  "energyRefillInfoLoading": "Ładowanie…",
+  "energyRefillNoRefillsTooltip": "Nie możesz już dziś uzupełnić energii - wykorzystałeś wszystkie dzienne uzupełnienia. Spróbuj ponownie jutro.",
+  "energyFull": "Energia jest pełna",
+  "trainingPointsRefilled": "Punkty treningowe zostały uzupełnione do pełna!",
+  "trainingPointsFull": "Punkty treningowe są pełne",
+  "refillFightPoints": "Uzupełnij punkty walki",
+  "refillFightPointsDescription": "Uzupełnij punkty walki do pełna za {{cost}} złota.",
+  "fightPointsRefilled": "Punkty walki zostały uzupełnione do pełna!",
+  "fightPointsFull": "Punkty walki są pełne",
+  "fightRefillInfoLoading": "Ładowanie uzupełnień…",
+  "allRefillsUsed": "Wszystkie uzupełnienia są już zużyte",
+  "notEnoughGold": "Nie masz wystarczająco złota",
+  "cancel": "Anuluj",
+  "notEnoughEnergy": "Nie masz wystarczającej ilości energii, aby rozpocząć tę misję.",
+  "cancelMission": "Anuluj misję",
+  "start": "Rozpocznij",
+  "confirmMissionStart": "Czy na pewno chcesz rozpocząć tę misję?",
+  "mission": {
+    "pirate_smugglers_cove": "Przemyt na Zatoce Przemytników",
+    "pirate_smugglers_cove_desc": "Przemknij obok patroli i przepchnij kontrabandę przez zatokę przemytników.",
+    "pirate_galleon_plunder": "Grabież galeonu",
+    "pirate_galleon_plunder_desc": "Wejdź na pokład bogatego galeonu i przejmij ładunek, zanim dotrze eskortę.",
+    "pirate_skull_harbor_raid": "Najazd na Czaszkowy port",
+    "pirate_skull_harbor_raid_desc": "Uderz na Czaszkowy port o zmierzchu i zabierz to, czego czarny rynek nie upilnował.",
+    "pirate_cursed_compass": "Pościg za przeklętym kompasem",
+    "pirate_cursed_compass_desc": "Trop kompas, który wskazuje tylko kłopoty - i skarby.",
+    "pirate_admirals_bounty": "Łup admirała",
+    "pirate_admirals_bounty_desc": "Zgarnij łup admirała, zanim zrobią to rywalizujące załogi.",
+    "pirate_black_flag_job": "Robot pod czarną banderą",
+    "pirate_black_flag_job_desc": "Dyskretna robota pod czarną banderą - bez pytań, szybka zapłata.",
+    "pirate_kraken_deep": "W głąb Krakena",
+    "pirate_kraken_deep_desc": "Zejdź w mroczne wody, gdzie wciąż porusza się cień Krakena.",
+    "pirate_treasure_convoy": "Napad na konwój ze skarbem",
+    "pirate_treasure_convoy_desc": "Zasadź się na konwój ze skarbem i zniknij ze skrzyniami w całości.",
+    "coast_patrol": "Patrol Wybrzeża",
+    "coast_patrol_desc": "Przeszukaj linię brzegową za najeźdźcami i utrzymaj czyste szlaki handlowe.",
+    "convoy_protection": "Ochrona Konwoju",
+    "convoy_protection_desc": "Osłoń kupiecki konwój przez sporne wody.",
+    "corsair_hunt": "Polowanie na Korsarzy",
+    "corsair_hunt_desc": "Trop i zwalcz korsarzy żerujących na żegludze przybrzeżnej.",
+    "merchant_escort": "Eskorta Kupców",
+    "merchant_escort_desc": "Eskortuj bogatych kupców do bezpiecznego portu pod Twoimi działami.",
+    "island_recon": "Rekonesans Wysp",
+    "island_recon_desc": "Zbadaj odległe wyspy i wytycz zagrożenia, zanim dotrze flota.",
+    "ruins_survey": "Badanie Ruin",
+    "ruins_survey_desc": "Zbadaj ruiny Atlantydy i zapisz to, co odsłoniły pływy.",
+    "relic_search": "Poszukiwanie Reliktów",
+    "relic_search_desc": "Szukaj reliktów zaginionego imperium w zatopionych skarbcach.",
+    "temple_guard": "Ochrona Świątyni",
+    "temple_guard_desc": "Broń zatopionej świątyni przed grabieżcami i czymś gorszym.",
+    "deep_expedition": "Ekspedycja Głębinowa",
+    "deep_expedition_desc": "Poprowadź ekspedycję w miażdżące głębiny Atlantydy.",
+    "atlantis_map": "Mapa Atlantydy",
+    "atlantis_map_desc": "Złóż mapę prowadzącą do serca Atlantydy.",
+    "tentacle_tracking": "Tropienie Macki",
+    "tentacle_tracking_desc": "Podążaj za poszarpanych żaglami i śladami atramentu po ścieżce bestii.",
+    "nest_search": "Poszukiwanie Gniazda",
+    "nest_search_desc": "Odnajdź gniazdo Krakena, zanim znów się przebudzi.",
+    "scale_gathering": "Zbieranie Łusek",
+    "scale_gathering_desc": "Zbieraj stwardniałe łuski pozostawione w śladzie potwora.",
+    "monster_research": "Badania Potwora",
+    "monster_research_desc": "Zbierz próbki i wiedzę o grozie głębin.",
+    "crew_training": "Szkolenie Załogi",
+    "crew_training_desc": "Ćwicz załogę w abordażu, artylerii i dyscyplinie.",
+    "fleet_patrol": "Patrol Floty",
+    "fleet_patrol_desc": "Dołącz do patrolu floty wzdłuż wojennej granicy.",
+    "weapon_delivery": "Dostarczenie Broni",
+    "weapon_delivery_desc": "Dostarcz broń oblężonemu garnizonowi pod ostrzałem.",
+    "garrison_support": "Wsparcie Garnizonu",
+    "garrison_support_desc": "Wzmocnij nadbrzeżny garnizon trzymający linię.",
+    "timber_transport": "Transport Drewna",
+    "timber_transport_desc": "Przewieź cenne drewno dla stoczni głodnych desek.",
+    "spice_trade": "Handel Przyprawami",
+    "spice_trade_desc": "Poprowadź handel przyprawami przez rywalizujące porty i burze.",
+    "loot_sale": "Sprzedaż Łupów",
+    "loot_sale_desc": "Zbyj ciężko zdobyte łupy, zanim marynarka zacznie pytać.",
+    "treasure_hunt": "Poszukiwanie Skarbów",
+    "treasure_hunt_desc": "Gonić półprawdziwą mapę do zakopanych skrzyń i pułapek.",
+    "emperor_audience": "Audiencja Cesarza Atlantydy",
+    "emperor_audience_desc": "Stań przed Cesarzem i przedstaw sprawę - albo wykorzystaj okazję.",
+    "leviathan_relic": "Relikt Lewiatana",
+    "leviathan_relic_desc": "Odzyskaj relikt, który ma związać samego Lewiatana.",
+    "abyss_voyage": "Wyprawa do Otchłani",
+    "abyss_voyage_desc": "Płyń tam, gdzie kończą się mapy, a otchłań odpowiada.",
+    "final_expedition": "Ostatnia Ekspedycja",
+    "final_expedition_desc": "Ostatni rzut w wody, które połykają całe floty.",
+    "great_battle": "Wielka Bitwa",
+    "great_battle_desc": "Dołącz do starcia, które rozstrzygnie, kto rządzi tymi morzami.",
+    "fog_bank_ambush": "Zasadzka we Mgle",
+    "fog_bank_ambush_desc": "Użyj mgły, by uderzyć pierwszy - i zniknąć, zanim dym opadnie.",
+    "shipyard_sabotage": "Sabotaż Stoczni",
+    "shipyard_sabotage_desc": "Uszkodź wrogą stocznię bez otwartej wojny.",
+    "siren_coast_watch": "Wartowanie Wybrzeża Syren",
+    "siren_coast_watch_desc": "Strzeż wybrzeży, gdzie syreny wabią załogi na skały.",
+    "coral_reef_charting": "Kartowanie Raf Koralowych",
+    "coral_reef_charting_desc": "Wyznacz śmiertelne rafy, by przyszłe floty mogły przepłynąć bezpiecznie.",
+    "sunken_vault_raid": "Najazd na Zatopiony Skarbiec",
+    "sunken_vault_raid_desc": "Włam się do zatopionego skarbca, zanim zrobią to rywale."
+  },
+  "timeLeftMinutesSeconds": "Pozostało {{minutes}}m {{seconds}}s",
+  "timeLeftHoursMinutesSeconds": "Pozostało {{hours}} godz. {{minutes}} min {{seconds}} sek",
+  "timeLeftSeconds": "Pozostało {{seconds}}s",
+  "availableMissionCard": {
+    "gold": "Złoto",
+    "exp": "PD",
+    "energy": "Energia",
+    "duration": "Czas trwania"
+  },
+  "levelUpModal": {
+    "title": "NOWY POZIOM!",
+    "congrats": "Gratulacje, piracki kapitanie! Osiągnąłeś nowy poziom doświadczenia.",
+    "rewardLabel": "✨ NAGRODA ZA AWANS ✨",
+    "rewardDescription": "Darmowych punktów atrybutów",
+    "distributePoints": "ROZDZIEL PUNKTY"
+  },
+  "missionCompletedModal": {
+    "title": "Misja zakończona!",
+    "description": "Udało Ci się ukończyć misję i zdobyć:",
+    "button": "Super!"
+  },
+  "cancelMissionModal": {
+    "title": "Anulowanie misji",
+    "description": "Czy na pewno chcesz anulować aktualną misję? Postępy zostaną utracone.",
+    "confirm": "Tak, anuluj",
+    "cancel": "Nie, wróć"
+  },
+  "minutesSeconds": "{{minutes}}min {{seconds}}sek",
+  "seconds": "{{seconds}}sek",
+  "hours": "{{count}}g",
+  "work.kitchen_helper": "Kuchta na galerze",
+  "work.warehouse_loader": "Ładowacz ładowni",
+  "work.car_wash_attendant": "Szczotkarz pokładu",
+  "work.port_dockhand": "Dokarz przy kei",
+  "work.tavern_server": "Podawacz rumu w szynku",
+  "works": "Prace",
+  "noWorks": "Brak dostępnych prac.",
+  "confirmWorkStart": "Czy na pewno chcesz rozpocząć tę pracę?",
+  "workWillTakeAndEarn": "Ta praca zajmie {{hours}} godzin(y) i zapewni Ci {{gold}} sztuk złota.",
+  "cancelWorkModal.confirm": "Tak, anuluj pracę",
+  "cancelWork": "Anuluj pracę",
+  "cancelWorkModal.title": "Anulowanie pracy",
+  "cancelWorkModal.description": "Czy na pewno chcesz anulować tę pracę? Nie otrzymasz żadnego złota.",
+  "finishWorkFirst": "Najpierw dokończ pracę",
+  "finishMissionFirst": "Najpierw dokończ misję",
+  "item": {
+    "type": "Typ",
+    "types": {
+      "HEAD": "Hełm",
+      "HANDS": "Rękawice",
+      "SHIRT": "Koszula",
+      "PANTS": "Spodnie",
+      "SHOES": "Buty"
+    },
+    "stats": {
+      "title": "Statystyki",
+      "strongPoints": "Siła",
+      "agilityPoints": "Zręczność",
+      "criticalChancePoints": "Szczęście",
+      "healthPoints": "Zdrowie"
+    },
+    "rarities": {
+      "COMMON": "Zwykły",
+      "UNCOMMON": "Zwykły",
+      "RARE": "Rzadki",
+      "EPIC": "Epicki",
+      "LEGENDARY": "Legendarny"
+    }
+  },
+  "inventory": "Ekwipunek",
+  "slot": "Slot",
+  "empty": "Pusty",
+  "store": "Sklep",
+  "storePage": {
+    "seoDescription": "Kupuj ekwipunek dla pirata, zarządzaj plecakiem i zbroją - sklep oferuje relikty Atlantydy Tier 6, korony burz i skarby zaginionej floty.",
+    "refresh": "Odśwież",
+    "refreshFreeBadge": "Za darmo",
+    "refreshCostDiamonds": "{{count}}",
+    "goldLabel": "złota",
+    "soldOut": "Wyprzedane",
+    "refreshingOffer": "Odświeżanie oferty…",
+    "chestTitle": "Skrzynia ({{count}})",
+    "attributesPreviewHint": "Podgląd po założeniu",
+    "dragHint": "Przeciągnij na slot ekwipunku lub skrzynię, aby kupić; na sklep, aby sprzedać.",
+    "phoneTapHint": "Kliknij 2x ofertę, aby kupić • 2x przedmiot w skrzyni, aby założyć • 2x założony, aby zdjąć",
+    "dropToSell": "Upuść tutaj, aby sprzedać",
+    "chestOverflow": "+{{count}} więcej (poza siatką)",
+    "tooltipBuy": "Cena",
+    "levelShort": "Poz. {{level}}",
+    "buyFor": "Kup za {{price}}",
+    "sellFor": "Sprzedaj za {{price}}",
+    "emptyChest": "Pusto",
+    "rarity": {
+      "common": "Zwykła",
+      "uncommon": "Zwykła",
+      "rare": "Rzadka",
+      "legendary": "Legendarna"
+    },
+    "stats": {
+      "strength": "Siła",
+      "defense": "Obrona",
+      "health": "Zdrowie",
+      "speed": "Szybkość",
+      "agility": "Zwinność",
+      "intelligence": "Inteligencja",
+      "luck": "Szczęście"
+    },
+    "slots": {
+      "helmet": "Hełm",
+      "weapon": "Broń",
+      "armor": "Pancerz",
+      "shield": "Tarcza",
+      "gloves": "Rękawice",
+      "boots": "Buty",
+      "amulet": "Amulet",
+      "ring": "Pierścień",
+      "potions": "Mikstury"
+    }
+  },
+  "arenaPage": {
+    "seoDescription": "Arena PvP w Pirate Hero - pojedynki rozstrzygane na serwerze. Wspinaj się od pierwszej krwi do piętnastu tysięcy zwycięstw i zdobądź tytuł Arcymistrza Walk.",
+    "title": "Arena PvP",
+    "subtitle": "Walcz o sławę na bezkresnych falach - walki liczy serwer, a legendy pisze piasek areny.",
+    "battleOngoing": "Walka trwa!",
+    "victoryTitle": "Zwycięstwo!",
+    "defeatTitle": "Porażka",
+    "replayBadge": "Powtórka",
+    "skipBattle": "Pomiń walkę",
+    "you": "Ty",
+    "levelShort": "Poz. {{level}}",
+    "damageAmount": "{{n}} obrażeń",
+    "critical": "KRYTYK!",
+    "wonMessage": "Wygrałeś!",
+    "lostMessage": "Przegrałeś!",
+    "backToArena": "Wróć na arenę",
+    "historyTitle": "Historia walk",
+    "historyEmpty": "Brak walk do wyświetlenia",
+    "historyLoading": "Ładowanie historii…",
+    "vs": "vs",
+    "vsShort": "vs Ty",
+    "historyFameHint": "Zmiana sławy z tej walki",
+    "dodgeLog": "Unik",
+    "dodgeFloat": "Unik",
+    "logHit": "{{striker}} atakuje {{target}} i zadaje {{n}} pkt obrażeń.",
+    "logHitCrit": "{{striker}} trafia krytycznie {{target}} za {{n}} pkt obrażeń!",
+    "logDodgeNarrative": "{{target}} unika ataku {{striker}}.",
+    "replayUnavailable": "Bez powtórki",
+    "replayUnavailableHint": "Brak danych do powtórki dla tego wpisu",
+    "refreshList": "Odśwież przeciwników",
+    "fight": "Walcz!",
+    "statStr": "Siła",
+    "statDef": "Obrona",
+    "statHp": "Zdrowie",
+    "statSpd": "Szybkość",
+    "compareHint": "Najedź na wiersz, by porównać statystyki (desktop)",
+    "fightLoadingTitle": "Przygotowanie pojedynku…",
+    "replayPreparingTitle": "Przygotowywanie powtórki walki…",
+    "replayFinishedTitle": "Koniec powtórki",
+    "replayFinishedHint": "To była powtórka - nagrody się nie zmieniają.",
+    "replayEndButton": "Wróć na arenę",
+    "noOpponents": "Brak przeciwników.",
+    "fightPointsStatus": "Punkty walki",
+    "statColOpponent": "On",
+    "statColDelta": "Δ",
+    "statCompareTotalLabel": "Łącznie Δ"
+  },
+  "storage": "Schowek",
+  "not_enough_gold": "Nie masz wystarczająco złota",
+  "not_enough_gold_info": "Brakuje Ci jeszcze {{missing}} sztuk złota, aby kupić ten przedmiot.",
+  "not_enough_diamonds": "Nie masz wystarczająco diamentów",
+  "refresh": "Odśwież sklep",
+  "free_refresh_available": "Darmowe odświeżenie dostępne",
+  "refresh_cost": "Koszt odświeżenia",
+  "no_store": "Brak sklepu",
+  "buy": "Kup",
+  "sell": "Sprzedaj",
+  "storeSlot": "Slot sklepu",
+  "store_empty": "Brak przedmiotów w sklepie",
+  "buy_failed": "Zakup nieudany",
+  "sell_failed": "Sprzedaż nieudana",
+  "refresh_failed": "Odświeżenie nieudane",
+  "store_loading": "Ładowanie sklepu...",
+  "not_enough_fame_coins": "Nie masz wystarczającej liczby Monet sławy",
+  "golds": "złota",
+  "confirm_buy_title": "Potwierdź zakup",
+  "confirm_buy_message": "Czy na pewno chcesz kupić ten przedmiot?",
+  "confirm_sell_title": "Potwierdź sprzedaż",
+  "confirm_sell_message": "Czy na pewno chcesz sprzedać ten przedmiot? Tej akcji nie można cofnąć!",
+  "confirm": "Potwierdź",
+  "confirmBoosterPurchase": "Potwierdź zakup wspomagacza",
+  "confirmBoosterPurchaseMessage": "Masz już aktywny wspomagacz tej kategorii. Obecny wspomagacz zostanie anulowany i zastąpiony nowym. Czy na pewno chcesz kontynuować?",
+  "training": "Treningi",
+  "trainings": {
+    "trainings": "Treningi",
+    "noTrainings": "Brak dostępnych treningów.",
+    "STRENGTH_1": "Podnoszenie ciężarów",
+    "STRENGTH_2": "Trening bojowy",
+    "STRENGTH_3": "Ćwiczenia wytrzymałościowe",
+    "STRENGTH_1_description": "Klasyczne ćwiczenia siłowe zwiększające masę i moc mięśni.",
+    "STRENGTH_2_description": "Symulacja walki poprawiająca siłę i technikę ciosów.",
+    "STRENGTH_3_description": "Intensywne ćwiczenia budujące ogólną siłę i wytrzymałość.",
+    "AGILITY_1": "Bieg przez przeszkody",
+    "AGILITY_2": "Trening akrobatyczny",
+    "AGILITY_3": "Sparing szybkościowy",
+    "AGILITY_1_description": "Zwinnościowe ćwiczenia poprawiające szybkość reakcji.",
+    "AGILITY_2_description": "Akrobatyczne ruchy zwiększające elastyczność i koordynację.",
+    "AGILITY_3_description": "Ćwiczenia skupione na refleksie i szybkości poruszania się.",
+    "CRITICAL_CHANCE_1": "Strzelanie do celu",
+    "CRITICAL_CHANCE_2": "Medytacja koncentracji",
+    "CRITICAL_CHANCE_3": "Sekretne techniki precyzji",
+    "CRITICAL_CHANCE_1_description": "Trening celności zwiększający szanse na krytyczne trafienia.",
+    "CRITICAL_CHANCE_2_description": "Ćwiczenia skupienia i intuicji pozwalające trafiać skuteczniej.",
+    "CRITICAL_CHANCE_3_description": "Zaawansowane techniki precyzji gwarantujące mistrzowskie trafienia.",
+    "HEALTH_1": "Jogging regeneracyjny",
+    "HEALTH_2": "Trening oddechowy",
+    "HEALTH_3": "Ćwiczenia wytrzymałościowe",
+    "HEALTH_1_description": "Lekki bieg poprawiający kondycję i odporność organizmu.",
+    "HEALTH_2_description": "Techniki oddechowe wzmacniające ciało i umysł.",
+    "HEALTH_3_description": "Ćwiczenia podnoszące maksymalną wytrzymałość i zdrowie.",
+    "INTELLIGENCE_1": "Strzelanie do celu",
+    "INTELLIGENCE_2": "Medytacja koncentracji",
+    "INTELLIGENCE_3": "Drille precyzji",
+    "INTELLIGENCE_1_description": "Trening celności i spostrzegawczości.",
+    "INTELLIGENCE_2_description": "Ćwiczenia skupienia i analizy sytuacji.",
+    "INTELLIGENCE_3_description": "Zaawansowane ćwiczenia na bystrość i wgląd.",
+    "ENDURANCE_1": "Jogging regeneracyjny",
+    "ENDURANCE_2": "Trening oddechowy",
+    "ENDURANCE_3": "Obwód wytrzymałościowy",
+    "ENDURANCE_1_description": "Lekki bieg poprawiający kondycję i odporność.",
+    "ENDURANCE_2_description": "Techniki oddechowe wzmacniające ciało i umysł.",
+    "ENDURANCE_3_description": "Ćwiczenia podnoszące maksymalną wytrzymałość.",
+    "LUCK_1": "Kości i fortuna",
+    "LUCK_2": "Trening szczęśliwych talizmanów",
+    "LUCK_3": "Sprint przypadku",
+    "LUCK_1_description": "Gry losowe uczące intuicji i timingu.",
+    "LUCK_2_description": "Rytuały i ćwiczenia na korzystne okoliczności.",
+    "LUCK_3_description": "Krótkie sesje na czujność i łapanie okazji."
+  },
+  "confirmTrainingStart": "Czy na pewno chcesz rozpocząć ten trening?",
+  "trainingPoints": "punkty treningowe",
+  "cancelTraining": "Anuluj trening",
+  "cancelTrainingModal.title": "Anulowanie treningu",
+  "cancelTrainingModal.description": "Czy na pewno chcesz anulować ten trening?",
+  "cancelTrainingModal.cancel": "Wróć",
+  "cancelTrainingModal.confirm": "Tak, anuluj trening",
+  "finishTrainingFirst": "Najpierw zakończ trening",
+  "notEnoughTrainingEnergy": "Nie masz wystarczającej ilości punktów treningowych, aby rozpocząć ten trening.",
+  "fights": "Walki",
+  "defeatPreviousOpponent": "Pokonaj poprzedniego przeciwnika",
+  "defeatPreviousOpponentToUnlock": "Pokonaj poprzedniego przeciwnika, aby odblokować tego",
+  "defeated": "Pokonany",
+  "locked": "Zablokowany",
+  "fight": "Walcz",
+  "wait": "Czekaj",
+  "notEnoughDuelPoints": "Brak punktów walki",
+  "required": "wymagane",
+  "opponentAlreadyDefeated": "Ten przeciwnik został już pokonany",
+  "notEnoughDuelPointsTooltip": "Brak punktów walki. Wymagane: {{required}}, masz: {{current}}",
+  "unlockAtLevel": "Aktualny poziom: {{current}}. Wymagany poziom: {{level}}",
+  "unlockAtLevelShort": "Odblokuj na poziomie {{level}}",
+  "famePoints": "Punkty sławy",
+  "duelPoints": "Punkty walki",
+  "availableOpponents": "Dostępni przeciwnicy",
+  "loadingOpponents": "Ładowanie przeciwników...",
+  "error": "Błąd",
+  "refreshOpponents": "Odśwież przeciwników",
+  "refreshing": "Odświeżanie...",
+  "noOpponents": "Brak przeciwników do walki",
+  "checkAgainLater": "Sprawdź ponownie za chwilę",
+  "attack": "Zaatakuj",
+  "statsComparison": "Porównanie statystyk",
+  "critical": "Krytyk",
+  "fightInfo": "Informacje o walce",
+  "cost": "Koszt",
+  "victory": "Zwycięstwo",
+  "defeat": "Porażka",
+  "points": "punkty",
+  "fightHistory": "Historia walk",
+  "showFightHistory": "Zobacz historię walk",
+  "hideFightHistory": "Schowaj historię walk",
+  "noFightHistory": "Brak historii walk",
+  "startYourFirstFight": "Rozpocznij swoją pierwszą walkę!",
+  "opponent": "Przeciwnik",
+  "date": "Data",
+  "result": "Wynik",
+  "page": "Strona",
+  "of": "z",
+  "previous": "Poprzednia",
+  "next": "Następna",
+  "firstPage": "Pierwsza",
+  "lastPage": "Ostatnia",
+  "fightInProgress": "WALKA W TOKU",
+  "player": "GRACZ",
+  "fightLog": "Dziennik walki",
+  "hit": "TRAFIONO!",
+  "dodge": "UNIK!",
+  "miss": "PUDŁO!",
+  "pleaseWait": "Proszę czekać...",
+  "showHistory": "Pokaż historię",
+  "hideHistory": "Ukryj historię",
+  "move": "Ruch",
+  "attacks": "atakuje",
+  "deals": "zadaje",
+  "damage": "obrażeń",
+  "butMisses": "ale nie trafia",
+  "butUnknown": "ale wynik nieznany",
+  "fightCost": "Koszt walki",
+  "numberOfMoves": "Liczba ruchów",
+  "fightProgress": "Przebieg walki",
+  "startingFight": "Rozpoczynanie walki...",
+  "fightOngoing": "Walka trwa...",
+  "fightCompleted": "=== WALKA ZAKOŃCZONA ===",
+  "noMovesData": "Brak danych o ruchach",
+  "boosters": "Wspomagacze",
+  "premiumShop": "Diamenty",
+  "dungeons": "Lochy",
+  "dungeonsPage": {
+    "subtitle": "Zejdź w przeklęte korytarze i pokonaj {{stages}} etapów każdego lochu. Od Krypt po Pałac Posejdona - każdy boss strzeże rozdziału lore archipelagu. Poziom kapitana:",
+    "dungeonBadge": "Loch {{number}}",
+    "locked": "Zablokowany",
+    "reqLevel": "Wymagany lvl",
+    "backToList": "Powrót do lochów",
+    "pickStage": "Wybierz etap",
+    "stage": "Etap",
+    "retreat": "Wycofaj się",
+    "stageProgress": "Etap {{stage}} / {{total}}",
+    "attack": "Atakuj!",
+    "energyCost": "Koszt: 1 energii (demo)",
+    "victory": "Zwycięstwo!",
+    "dungeonCompletedTitle": "Loch ukończony!",
+    "dungeonCompletedMessage": "Pokonałeś wszystkie etapy - odbierasz nagrodę specjalną!",
+    "completionRewardTitle": "Nagroda za ukończenie lochu",
+    "completionRewardHint": "Za pokonanie wszystkich 10 etapów otrzymasz dodatkową nagrodę:",
+    "completionRewardItem": "Specjalny przedmiot",
+    "dungeonCompleted": "Loch ukończony",
+    "dungeonFullyCompleted": "Loch ukończony - nagroda specjalna odebrana",
+    "victoryRewards": "Otrzymujesz +{{gold}} złota i +{{xp}} XP (zapis lokalny)",
+    "claimReward": "Odbierz nagrodę",
+    "defeat": "Porażka...",
+    "defeatHint": "Wróg okazał się silniejszy.",
+    "retry": "Spróbuj ponownie",
+    "battleLog": "Dziennik walki",
+    "battleStart": "Walka się rozpoczyna...",
+    "logYou": "Ty",
+    "logEnemy": "Wróg",
+    "crit": "KRYT!",
+    "dungeons": {
+      "krypta": {
+        "name": "Zatopiona Krypta",
+        "desc": "Mroczne ruiny pirackiego cmentarza, gdzie mgła unosi się nad zatopionymi grobami, a nieumarli korsarze czuwają w cieniu złamanych masztów. Zatopiona Krypta to pierwszy loch archipelagu - dziesięć etapów soli, kości i utopionej ambicji Admirala Lichów.",
+        "enemy": "Szkielet Korsarza",
+        "enemies": {
+          "stage01": "Latarnik Grobu",
+          "stage02": "Korsarz Omułkowy",
+          "stage03": "Cień Wisielca",
+          "stage04": "Solny Upiór",
+          "stage05": "Rycerz Kotwicy",
+          "stage06": "Upiór Karczmarza",
+          "stage07": "Wdowa z Meduzą",
+          "stage08": "Homarowy Czyhaj",
+          "stage09": "Strażnik Skarbca",
+          "stage10": "Admiral Lichów"
+        }
+      },
+      "kraken": {
+        "name": "Jaskinia Krakena",
+        "desc": "Wilgotne korytarze pod falami, gdzie echo krakena odbija się od kamienia, a macki przecinają ciemność. Dziesięć etapów prowadzi od macek strażniczych do Serca Krakena - drugiego lochu w łańcuchu wysp.",
+        "enemy": "Macka Krakena",
+        "enemies": {
+          "stage01": "Macka Strażniczka",
+          "stage02": "Mały Krak",
+          "stage03": "Koralowy Łowca",
+          "stage04": "Atramentowy Stalker",
+          "stage05": "Głębinowy Miazmat",
+          "stage06": "Szeroki Chwytacz",
+          "stage07": "Kolczasty Młód",
+          "stage08": "Fosforyczny Cień",
+          "stage09": "Strażnik Groty",
+          "stage10": "Serce Krakena"
+        }
+      },
+      "forteca": {
+        "name": "Forteca Czarnobrodego",
+        "desc": "Opuszczona twierdza Czarnobrodego, gdzie proch i złoto wsiąkły w drewniane belki, a jego echo wciąż włada salami. Pokonaj dziesięć etapów załogi, widm i ognia armatniego, by stanąć przed samym kapitanem.",
+        "enemy": "Sługa Czarnobrodego",
+        "enemies": {
+          "stage01": "Szczur Pokładowy",
+          "stage02": "Małpi Maluch Prochu",
+          "stage03": "Korsarz Szablą",
+          "stage04": "Strzelec Wyborowy",
+          "stage05": "Siekiernik Abordażowy",
+          "stage06": "Strażnik Kwartemistrza",
+          "stage07": "Weteran z Żelaznym Hakiem",
+          "stage08": "Widmo Buntownika",
+          "stage09": "Pierwszy Oficer Grom",
+          "stage10": "Kapitan Czarnobrody"
+        }
+      },
+      "wulkan": {
+        "name": "Wulkan Davy'ego Jonesa",
+        "desc": "Wulkan Davy'ego Jonesa - wrota do piekielnych głębin, gdzie lawa pulsuje jak przeklęte serce, a utopione dusze wołają z dołu. Dziesięć popiołowych etapów wiedzie ku Heroldowi mówiącemu w imieniu potępionego admirała.",
+        "enemy": "Demon Otchłani",
+        "enemies": {
+          "stage01": "Popiołowy Majtek",
+          "stage02": "Marynarz Magmowej Wachty",
+          "stage03": "Płomienna Dusza Bosmana",
+          "stage04": "Bazaltowy Rozpruwacz",
+          "stage05": "Topielec z Krateru",
+          "stage06": "Żarłoczny Salamander",
+          "stage07": "Widmo Spalonej Załogi",
+          "stage08": "Kapłan Popiołu Jonesa",
+          "stage09": "Lewiatan Lawy",
+          "stage10": "Herald Davy'ego Jonesa"
+        }
+      },
+      "palac": {
+        "name": "Pałac Posejdona",
+        "desc": "Pałac Posejdona - złote komnaty pod rafą, gdzie kolumny z korala podtrzymują tron przypływu i burzy. Dziesięć etapów atlantyjskich strażników prowadzi do Awatara osądzającego każdego pirata wystarczająco odważnego, by wejść.",
+        "enemy": "Strażnik Posejdona",
+        "enemies": {
+          "stage01": "Strażnik Rafy",
+          "stage02": "Wojownik Koralowy",
+          "stage03": "Syrena Burz",
+          "stage04": "Głębinowy Egzekutor",
+          "stage05": "Strażnik Trójzębu",
+          "stage06": "Atlantydzki Czempion",
+          "stage07": "Arcymag Pływów",
+          "stage08": "Lewiatan Głębin",
+          "stage09": "Herold Posejdona",
+          "stage10": "Awatar Posejdona"
+        }
+      }
+    },
+    "backToStages": "Powrót do etapów",
+    "beforeBattle": "Przygotowanie do walki",
+    "yourStats": "Twoje statystyki",
+    "enemyStats": "Statystyki przeciwnika",
+    "startBattle": "Rozpocznij walkę",
+    "nextStage": "Przejdź do następnego etapu",
+    "statLevel": "Poziom",
+    "statStrength": "Siła",
+    "statAgility": "Zręczność",
+    "statEndurance": "Wytrzymałość",
+    "statIntelligence": "Inteligencja",
+    "statLuck": "Szczęście",
+    "completedLocked": "Ten etap jest już ukończony.",
+    "loadFailed": "Nie udalo sie zaladowac lochow.",
+    "fightFailed": "Nie udalo sie rozpoczac walki.",
+    "startingBattle": "Rozpoczynanie walki…",
+    "saveProgressFailed": "Nie udalo sie zapisac postepu.",
+    "savingProgress": "Zapisywanie postepu…"
+  },
+  "bestiaryPage": {
+    "title": "Bestiariusz",
+    "subtitle": "Żywy katalog przeciwników z lochów archipelagu. Pokonaj wroga, by odkryć jego historię - pochodzenie, rolę, morskie plotki i więź z panem lochu na dziesiątym etapie.",
+    "openFromDungeons": "Bestiariusz",
+    "backToDungeons": "Wróć do lochów",
+    "backToBestiary": "Wróć do bestiariusza",
+    "undiscovered": "Nieodkryty",
+    "unknownEnemy": "Nieznany przeciwnik",
+    "defeated": "Pokonany",
+    "stageLabel": "Etap {{stage}}",
+    "defeatedAt": "Data pokonania",
+    "defeatedAtUnknown": "Data niedostępna",
+    "loreHeading": "Historia",
+    "hint": "Wpisy odblokowują się po pokonaniu przeciwnika w lochu. Wracaj po każdym etapie, by uzupełniać bestiariusz i poznać, jak każdy strażnik łączy się z bossem czekającym na końcu.",
+    "discoveredCount": "Odkryto {{count}} / {{total}}",
+    "loadFailed": "Nie udało się załadować bestiariusza.",
+    "detailDescription": "Szczegóły wpisu bestiariusza: {{name}}",
+    "enemies": {
+      "krypta": {
+        "stage01": {
+          "lore": [
+            "Latarnik Grobu czuwa przy pierwszym progu Zatopionej Krypty z zielonym płomieniem, który nigdy nie gaśnie. Kiedyś był kapłanem okrętowym, który chował piratów na morzu - aż własna załoga utopiła go w ładowni za głoszenie litości więźniom, których chcieli zabić.",
+            "Kaptur skrywa twarz bardziej przesiąkniętą wodą niż ludzką, a latarnia nie oświetla drogi naprzód. Oświetla imiona zmarłych wyryte w wilgotnym kamieniu, przypominając każdemu wchodzącemu, że krypta pamięta intruzów.",
+            "Piraci mówią, że jeśli płomień migocze przy wejściu, Latarnik już zapisał twoje imię w soli. Pokonanie go to pierwszy dowód, że ten cmentarz broni się czymś więcej niż samymi kośćmi.",
+            "Marynarze z Portu Popiołu przysięgają, że latarnia Latarnika wciąż płonie w nocy burzy nad kryptą - zielona iskierka widoczna z rafy. Stare mapy oznaczają Zatopioną Kryptę jako pierwszą przeklętą kotwicowiskę archipelagu; pokonanie go otwiera drogę, którą utopiona flota Admirala Lichów kiedyś wiozła swoich umarłych."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "Korsarz Omułkowy wypełzł z rafy, gdzie dekady temu rozbił się piracki bryg. Muszle zrosły z jego skórą jak zbroja, której żaden kowal nie wykuje, a każde uderzenie pięścią niesie ciężar fal, które nie przestały uderzać w wrak.",
+            "Nie potrafi mówić - tylko ryczeć przez gardło pełne piasku i rozbitego koralu. Najemnicy, którzy przeżyli spotkanie z nim, twierdzą, że omułki tną ich ostrza równie boleśnie co szabla.",
+            "Bestiariusz zapisuje Korsarza Omułkowego jako dowód, że morze nie tylko topi swoich umarłych. Czasem przerabia ich w coś nowego, głodnego i niemożliwego do zignorowania.",
+            "Plotki przy nabrzeżu mówią, że omułki z rafy Korsarza Omułkowego idą w Nassau za fortunę, lecz żaden nurk nie wraca z czystym łupem. Strzeże drugiego pierścienia grobów, gdzie przypływ krypty robi się gwałtowny - to poligon przed głębszymi umarłymi budzonymi dla pana Strażnika Skarbca."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "Cień Wisielca wisi tam, gdzie sklepienie krypty opada nisko, lina skrzypi, choć żaden belka jej nie trzyma. Był buntownikiem powieszonym na własnym maszcie i wrzuconym do szybów grobowych, gdy przypływ wdarł się między mogiły.",
+            "Nie ma stóp - tylko pamięć upadku, który złamał mu kark, i zimną cierpliwość kary, która nigdy się nie skończyła. Jego palce są długie, szare i chętne, by podzielić się sznurem.",
+            "Starzy kapitanowie ostrzegają, że patrzenie w górę, gdy słychać skrzyp liny, to sposób, w jaki Cień wybiera ofiarę. Bestiariusz radzi trzymać wzrok na podłodze - albo na ostrzu.",
+            "Dziennik buntownika, wyrzucony na brzeg w butelce po korku, opisuje skrzyp liny w pustym korytarzu na godziny przed pojawieniem się Cienia. Cień Wisielca oznacza środek zejścia krypty, gdzie piraci mówią, że Admiral Lichów wieszał dezerterów, by karmić mgłę skrywającą jego tron."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "Solny Upiór wzbija się z kałuż solanki, która powinna wyschnąć wieki temu, skóra pokryta białą skorupą jak portowy szron. Był przemytnikiem chowającym towar w trumnach - aż umarli odmówili spoczynku z jego ładunkiem.",
+            "Każdy krok zostawia kryształy trzeszczące jak cienki lód. Jego dotyk parzy suchością słońca na solniskach - paradoks w miejscu zalanym przez morze.",
+            "Kapłani morscy mówią, że Solny Upiór karze tych, którzy czerpią zysk z grobów. Pokonanie go przypomina złamanie klątwy - i pierwszy oddech krypty po latach milczenia.",
+            "Przemytnicy nazywali Solnego Upiora 'poborcą myta' - każdy ładunek trumien zostawiał monetę z solanki w rejestrze. Patroluje kałuże solanki zasilające niższe skarbce krypty, a żeglarze twierdzą, że po jego pokonaniu mgła nad całym zatopionym cmentarzem rarejeje przez tydzień."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "Rycerz Kotwicy stoi tam, gdzie krypta zwęża się w korytarz grobowy, tarcza w kształcie kotwicy ciężka jak zmiażdżenie kości. Był królewskim marine ścigającym piratów - aż klątwa związała go ze strzeżeniem umarłych, których kiedyś chciał wymazać.",
+            "Jego zbroja ocieka rdzą i morską wodą. Nie wymawia już przysiąg - tylko liczy kroki, aż intruzi przekroczą granicę, za którą kończy się litość.",
+            "Bestiariusz zapisuje, że Rycerz Kotwicy nigdy nie uderza pierwszy. Czeka, aż udowodnisz, że chcesz skarbu bardziej niż życia - wtedy przypomina, że niektóre drzwi ważą więcej niż złoto.",
+            "Kroniki marynarki królewskiej wspominają Rycerza Kotwicy zgubionego podczas najazdu na piracki cmentarz w '68, przeklętego na straż aż 'morze wybaczy'. Blokuje korytarz do warstw skarbca krypty - ostatni punkt kontrolny przed salami przesiąkniętymi rumem, gdzie skarbnik Admirala Lichów wciąż liczy monety."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "Upiór Karczmarza dryfuje przez ruiny tawerny pogrzebanej z kryptą, widmowe butelki unoszą się wokół jego nabrzmiałego płaszcza. Był najweselszym barmanem w Porcie Popiołu - aż zatruta beczka zamieniła jego załogę w pierwsze ciała pochowane tutaj.",
+            "Śmieje się bez oddechu i oferuje drinki, które przechodzą przez żywe dłonie jak mgła. Ci, którzy przyjmują, budzą się dni później na powierzchni bez pamięci; ci, którzy odmawiają, walczą z duchem znającym każdy podły trik nauczony w tawernie przy nabrzeżu.",
+            "Ocalały mówią, że po pokonaniu Upiora Karczmarza zapach rozlanej rumy zostaje we włosach na tydzień. Bestiariusz zapisuje go jako okrutny żart krypty - śmierć z uśmiechem i toastem.",
+            "Piosenki tawern w Tortudze drwią z toastu Upiora Karczmarza, lecz kapitanowie wylewają kroplę rumu przy wejściu do krypty dla szczęścia. Jego pogrzebana tawerna leży na drodze do przedsionka skarbca; pokonaj go, a dokerzy mówią, że powietrze pachnie mniej gniciem, a bardziej otwartym morzem."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "Wdowa z Meduzą była królową piratów żeglującą z mężem, aż rozkwit meduz połknął ich slup w nocy fosforescencyjnego horroru. Tylko ona wyszła z wody - jeśli to, co ciągną za nią macki, można nazwać chodzeniem.",
+            "Bioluminescencyjne pasma pulsują wokół niej jak welon ślubny z jadu. Opłakuje i poluje jednym ruchem, każdy cios to wspomnienie załogi, której nie ocaliła.",
+            "Bestiariusz ostrzega, że litość to najśmiertelniejszy błąd wobec Wdowy z Meduzą. Nie chce pocieszenia. Chce towarzystwa w ciemności.",
+            "Rybacy przy rfie donoszą o rozkwitach meduz świecących tak samo zielono jak welon Wdowy - znak, że krypta się budzi. Nawiedza zalany galerię przed skarbcem, opłakując załogę, której Admiral Lichów odmówił wskrzeszenia; zlituj się nad nią, a bestiariusz zapisze, że do nich dołączysz."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "Homarowy Czyhaj strzeży wąskiego przejścia, gdzie kryptę zalewa zimny prąd, szczypce stukają jak olinowanie w sztormie. Zaczynał jako pomocnik kuchni, który wypadł za burtę w gniazdo głębinowych homarów - i wrócił na pokład kimś innym.",
+            "Jedno ramię pozostało na tyle ludzkie, by chwycić nóż; drugie to chitynowe szczypce, które przegryzają łańcuch. Czeka w bezruchu godzinami, cierpliwy jak pułapka na dnie oceanu.",
+            "Piraci, którzy go pokonali, mówią, że walka przypominała zapas z samym prądem. Bestiariusz radzi szybkość - Czyhaj wygrywa każdą bitwę, która trwa zbyt długo.",
+            "Wąskie przejście Homarowego Czychaja widać na mapach przemytników jako 'Szczypcę' - żadna łódź nie przechodzi zimnego prądu krypty bez walki. Kucharze, którzy przeżyli loch, mówią, że Czyhaj był terror galowy admirała, trzymany głodny, by odstraszać złodziei od skarbu Licha."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "Strażnik Skarbca nosi maskę z bitego złota na tym, co kiedyś było twarzą skarbnika, monety wszyte w gnijące szaty jak guziki. Liczył łupy krypty dla kapitana, który obiecał mu dział - a potem zapieczętował go żywcem ze skrzynią.",
+            "Zna wagę każdego klejnotu w skarbcu i cenę każdej kłamstwa, które go przyniosło. Jego ciosy brzmią jak fałszywa moneta uderzająca o kamień.",
+            "Bestiariusz mówi, że Strażnik Skarbca to chciwość ujawniona. Pokonanie go nie otwiera skarbca - ale dowodzi, że nie jesteś tu tylko po złoto.",
+            "Poszukiwacze skarbów szepczą, że maska Strażnika Skarbca to prawdziwe złoto stopione z pierwszego łupu Admirala Lichów. To ostatni strażnik przed salą tronową; pokonaj go, a dzwony krypty dzwonią pod wodą - dźwięk, na który, jak mówią starzy kapitanowie, admirał odpowiada osobiście."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "Admiral Lichów rządzi Zatopioną Kryptą z tronu z koralu i połamanych galowych figur, korona zardzewiała jak kotwica zgubiona w otchłani. Był największym admirałem piratów swojej epoki - aż jego flota zatonęła w bitwie tak wielkiej, że morze wciąż pamięta dym.",
+            "Rozkazuje nie tylko magią, lecz ambicją każdego kapitana pochowanego pod nim. Jego głos to szmer wody w zatopionym dzwonie, a oczy - latarnie dla martwej floty płynącej za jego słowami.",
+            "Pokonanie Admirala Lichów zapisuje imię w legendach obok najstarszych bitew morskich. Bestiariusz kończy ostrzeżeniem: krypta może oddać skarb, lecz admirał utopionych nigdy nie zapomina, kto odważył się stanąć przed nim.",
+            "Gdy Admiral Lichów pada, pilotów rafowych informuje się o przesunięciu przypływów na trzy dni w całym archipelagu - otwierają się kanały, których mapy nie znały. Tytuł Łowcy Krypt zdobywa się tutaj; ambicja utopionej floty znów śpi, lecz każdy kapitan wie, że morze może ją obudzić, gdy wróci chciwość."
+          ]
+        }
+      },
+      "kraken": {
+        "stage01": {
+          "lore": [
+            "Macka Strażniczka wysuwa się z ciemności jak żywy szyld, blokując drogę każdemu, kto wchodzi do Jaskini Krakena bez pozwolenia morza. Jej skóra jest chropowata jak koral, a ssawki chwytają z precyzją doświadczonego abordażowca.",
+            "To pierwsza linia obrony jaskini - cierpliwa, cicha i bezlitosna. Nie pyta, skąd przybywasz. Pyta tylko, czy jesteś w stanie przetrwać pierwsze uderzenie fali, która nigdy nie opada.",
+            "W dziennikach zatopionych statków znajdowano notatki o Mackach Strażniczkach, które pojawiały się tuż przed zniknięciem całych załóg. Bestiariusz zaleca traktować ją nie jak potwora, lecz jak próg - próg, który trzeba przekroczyć, jeśli chcesz poznać prawdziwe oblicze jaskini.",
+            "Kultyści krakena na zewnętrznych wyspach zostawiają ryby przy wejściach do jaskiń 'dla strażniczki' przed nurkowaniem po perły. Pokonanie Macki Strażniczki to znak, na który czekają nurkowie - dopiero wtedy ryzykują tunele echujące w stronę Serca Krakena."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "Mały Krak jeszcze uczy się polować w wąskich tunelach jaskini, lecz jego młodość nie oznacza słabości. Młode macki eksplorują każdą szczelinę, a oczy świecą fosforescencyjnym blaskiem, który odbija się od wilgotnych ścian jak latarnia w sztormie.",
+            "Wygląda na mniej groźnego niż jego starsi bracia, lecz jego uderzenia są szybkie jak prąd morski - nagłe, zimne i trudne do przewidzenia. Piraci mówią, że Mały Krak atakuje jak dziecko, które jeszcze nie nauczyło się litości.",
+            "Bestiariusz zapisuje, że pokonanie Małego Kraka to lekcja czujności. W jaskini nie chodzi o to, by zobaczyć wroga - chodzi o to, by zauważyć go, zanim poczujesz ssawki na kostce.",
+            "Dziób małego kraka, sprzedany na targu w Nassau, podobno pochodzi z tej jaskini - kupcy twierdzą, że wciąż pulsuje nocą. Młode krakeny spędzają intruzów w stronę korytarza Szerokiego Chwytacza; marynarze mówią, że zabicie jednego przyciąga uwagę Strażnika Groty głębiej."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "Koralowy Łowca przesuwa się między koloniami koralowców, maskując się wśród różowych i fioletowych odcieni jak zwiadowca w kolorowej mgle. Jego ciosy pozostawiają drobne rany, które palą jak sól w świeżym cięciu.",
+            "Podobno zbiera trofea z każdego pokonanego wędrowca - muszle, monety, a nawet małe fragmenty map. Jego legenda rośnie z każdym nowym śladem krwi na koralu.",
+            "W Jaskini Krakena Koralowy Łowca pełni rolę myśliwego, który nie goni za chwałą, lecz za kolejnym dowodem, że jaskinia należy do morza. Bestiariusz ostrzega: jeśli widzisz ruch wśród koralowców, nie ufaj kolorom - ufaj instynktowi.",
+            "Koralowi Łowcy ozdabiają legowiska odłamkami kompasów i haczykami na kolczyki z martwych piratów - trofea, których bestiariusz liczy na tuziny. Zwiadowczą przed Atramentowym Stalkerem przed komnatą serca; pokonaj go, a kolory jaskini blakną - znak, że Kraken cię wyczuwa."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "Atramentowy Stalker rozpyla chmurę czarnego atramentu, która odbiera orientację, odwagę i poczucie, gdzie kończy się woda, a zaczyna ściana. W tej mgle słychać tylko plusk, oddech i suchy śmiech istoty, która zna tunel lepiej niż ty.",
+            "Kapitanowie mówią, że w takiej ciemności widać własne lęki - tonące statki, porzucone załogi, noce pełne głodu. Atramentowy Stalker nie tworzy iluzji. On je tylko odsłania.",
+            "Bestiariusz zapisuje, że walka z nim to próba charakteru bardziej niż siły. Kto panuje nad strachem, może wyjść z chmury. Kto zawaha się, zostanie w niej na zawsze - kolejną opowieścią szeptaną przez marynarzy przy ognisku.",
+            "Kapitanowie uczą zielonych rachować oddechy we mgle atramentu: jeśli dojdziesz do dziesięciu bez ciosu, Stalker wybrał litość. Strzeże otworów miazmatu pod bramą Strażnika; pokonaj go, a doświadczeni nurkowie mówią, że powietrze jaskini oczyszcza się na tyle, by zobaczyć ostatnie zejście."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "Głębinowy Miazmat unosi się nad wodą jak toksyczna para zrodzona z gniewu morza i starych wraków. Wdech w jego obecności paraliżuje zmysły, a każdy ruch staje się ciężki jak nurkowanie w zbroi na dnie oceanu.",
+            "Nie ma twarzy ani oczu, lecz ma intencję - spowolnić intruza, osłabić go i sprawić, by zawahał się w miejscu, gdzie jaskinia jest najbardziej niebezpieczna. To istota, która walczy przez zmęczenie.",
+            "Stare kroniki mówią, że Głębinowy Miazmat pojawia się tam, gdzie morze pamięta zatopienia, których nikt nie opłakał. Bestiariusz radzi: jeśli czujesz, że powietrze gęstnieje, nie zatrzymuj się. Albo walcz od razu, albo wycofaj się - bo miazmat nie daje trzeciej opcji.",
+            "Głębinowy Miazmat pachnie prochem i zatopionym ładunkiem - starzy żeglarze wiążą chusty na ustach i i tak padają. Dusi tunel przed strefą zabijania Szerokiego Chwytacza, osłabiając załogi, które Serce Krakena woli półutopione."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "Szeroki Chwytacz rozpościera macki na całą szerokość korytarza, zamykając drogę ucieczki jak żywa brama. Jego siła nie bierze się z szybkości, lecz z nieustępliwego nacisku, który łamie opór tak jak fala łamie drewniany pomost.",
+            "Nie atakuje raz. Atakuje falami, aż przeciwnik straci rytm oddechu. W jaskini, gdzie każdy krok brzmi jak echo, Szeroki Chwytacz potrafi sprawić, że wydaje ci się, iż walczysz z samą jaskinią.",
+            "Bestiariusz zapisuje, że pokonanie Szerokiego Chwytacza wymaga cierpliwości i miejsca na błąd - tylko że w jego korytarzu miejsca na błąd nie ma. Zwycięzcy mówią, że kluczem jest koncentracja: jeden cel, jeden oddech, jeden cios na raz.",
+            "Kości ofiar Szerokiego Chwytacza układają się w wnękach 'jak ułożone kule armatnie', według dziennika salwagerów. Ten korytarz to, według legendy, żebra krakena - przebij się, a błyski Fosforycznego Cienia to ostatnie ostrzeżenie przed Strażnikiem i Sercem."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "Kolczasty Młód jest pokryty ostrymi wyrostkami, które ranią nawet wtedy, gdy wydaje się, że broni się biernie. Młody, lecz już okrutny, atakuje w furii, jakby musiał udowodnić swoje miejsce w hierarchii jaskini przed starszymi mackami.",
+            "Każde jego uderzenie zostawia ślad jak rozdrapanie pazurami skały. Piraci, którzy go spotkali, twierdzą, że Kolczasty Młód walczy nie dla chwały, lecz dla strachu - własnego i cudzego.",
+            "Bestiariusz uważa go za najbardziej nieprzewidywalnego w całej jaskini. Nie dlatego, że jest najsilniejszy, lecz dlatego, że walczy jak istota, która jeszcze uczy się, czym jest ból - i chce nauczyć się go na tobie.",
+            "Blizny Kolczastego Młoda pasują do heraldyki tytułu Pogromcy Krakena w tatuażach piratów w Tortudze. Młode bestia testuje intruzów dla Serca - za słabych jaskinia wyrzuca atramentem; wystarczająco silnych mierzy Strażnik Groty."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "Fosforyczny Cień porusza się błyskawicznie, zostawiając za sobą ślady świetlistego pyłu, który na chwilę oświetla tunel jak komety na nocnym niebie. Trudno określić, gdzie kończy się jego ciało, a zaczyna woda.",
+            "Wielu kapitanów twierdzi, że widzieli go dwa razy - zanim w ogóle poczuli pierwszy cios. Fosforyczny Cień walczy jak iluzja, która jednak zostawia bardzo realne rany.",
+            "Bestiariusz zaleca patrzeć nie na światło, lecz na ciszę między błyskami. Tam, w tej krótkiej przerwie, można usłyszeć ruch wroga. A usłyszeć go wcześniej to często jedyna różnica między wyjściem a zniknięciem.",
+            "Fosforyczne smugi wiodą zagubionych nurków na manowce, lecz też oznaczają bezpieczne podparcie - jeśli patrzysz w ciemność między błyskami. Cień tańczy przed komnatą Strażnika; marynarze stawiają beczki rumu, czy widzieć go dwa razy oznacza śmierć czy awans na Pogromcę Krakena."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "Strażnik Groty stoi przed ostatnią komnatą jak żywa kotwica wbita w samo serce jaskini. Zna każdy tunel, każdy skrót i każde echo - bo to on je słucha od lat, czekając na kolejnego śmiałka lub głupca.",
+            "Jego obecność oznacza, że serce jaskini jest już blisko, a cena zejścia głębiej będzie wysoka. Nie mówi nic, lecz jego macki układają się w pozycję, która nie pozostawia pytań: dalej tylko przez walkę.",
+            "Bestiariusz zapisuje Strażnika Groty jako bramę między światem żywych a miejscem, gdzie morze trzyma własne prawo. Pokonanie go to nie koniec drogi - to dopiero zaproszenie do spotkania z tym, co jaskinia chroni najbardziej.",
+            "Macki Strażnika Groty szramują kamień jak cumy na pomoście - dowód, że trzyma tę bramę od wieków. Pokonaj go, a cały archipelag słyszy jęk z głębi, drganie, za które rybacy obwiniają budzące się Serce."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "Serce Krakena bije powoli, lecz każde uderzenie wstrząsa całą jaskinią jak fala uderzająca w skały podczas sztormu stulecia. To starożytna istota, od wieków wiązana z legendami morskich kataklizmów, zatopień flot i nocy, w których morze płonęło od światła.",
+            "Nie jest tylko potworem. Jest symbolem tego, że ocean ma swoje granice, a ci, którzy je przekraczają bez szacunku, płacą cenę większą niż złoto. Jego macki otaczają komnatę jak ściany żywego świątynnego ołtarza.",
+            "Pokonanie Serca Krakena to akt, który na długo zapisze się w pieśniach portowych tawern - pieśniach śpiewanych szeptem, bo nawet zwycięzcy wiedzą, że morze pamięta. Bestiariusz kończy ten wpis zdaniem, które powtarzają kapitanowie: „Wygraliśmy bitwę, lecz morze nigdy nie przestaje patrzeć”.",
+            "Pogromcy Krakena mówią, że łoża pereł kwitną po upadku Serca przez noc, by zniknąć przy następnej lunie. Zawalenie jaskini to mit, lecz przypływy wokół archipelagu przez sezon biegną dziwnie - dowód, że ocean pamięta, gdy jego najstarszy lokator zostaje poniżony."
+          ]
+        }
+      },
+      "forteca": {
+        "stage01": {
+          "lore": [
+            "Szczur Pokładowy strzeży zewnętrznej bramy Fortecy Czarnobrodego jak bezpański pies, który nauczył się gryźć. Zaciągnięto go do służby po kradzieży sucharów ze stołu kapitana - przeżył tylko dlatego, że wspinał się po linach szybciej niż ktokolwiek w załodze.",
+            "Jego szabla jest wyszczerbiona, a płaszcz pachnie smołą i tanim rumem, lecz walczy z desperacją człowieka, który wie, że w twierdzy nie ma miejsca na porażki. Piraci mówią, że nigdy nie śpi na warcie - po prostu czeka na kogoś wystarczająco głupiego, by sprawdzić pierwszy mur.",
+            "Pokonanie Szczura Pokładowego to pierwszy znak, że twierdza Czarnobrodego nie jest opuszczoną ruiną. To żywa machina wojenna, w której nawet najniższy pokładowy walczy, jakby kapitan na niego patrzył.",
+            "Rekruci w Tortudze wyzwają się na kradzież odłupka z zewnętrznego muru Czarnobrodego - Szczur Pokładowy zbiera te odłupki jako trofea. Jego brama to próg twierdzy; przejdź ją, a korytarze Małpiego Malucha Prochu pachną strachem i czarnym prochem aż do sali kapitana."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "Małpi Maluch Prochu nosi proch przez korytarze, gdzie jedna iskra mogłaby zakończyć dynastię piratów. Jest młody, szybki i w równym stopniu przerażony - niebezpieczne połączenie w twierdzy pełnej dział i uraz.",
+            "Beczki na plecach brzęczą przy każdym kroku, a dłonie ma czarne od wnoszenia ładunków na blanki. Weterani traktują go jak materiał jednorazowy; twierdza traktuje go jak niezbędnego.",
+            "Bestiariusz ostrzega, że lekceważenie Małpiego Malucha Prochu to sposób, w jaki twierdze pozostają bronione. Może wyglądać jak chłopak, lecz w tych salach chłopak z prochem jest równie śmiertelny jak kapitan z flotą.",
+            "Podręczniki twierdzy (skradzione u martwego kwatermistrza) ostrzegają: nie gonić Małpiego Malucha Prochu - prowadź go ku iskrze, a wygra mur. Biega trasami prochu, które wciąż zasilają działa Czarnobrodego; pokonaj go, a strzelcy wyborowi z góry zaczynają celować - twierdza eskaluje."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "Korsarz Szablą patroluje oświetlone pochodniami korytarze z rytmem człowieka, który stoczył sto abordaży i przeżył. Jego ostrze jest wygięte jak znak zapytania, a na każde wyzwanie odpowiada tak samo - stalą.",
+            "Nie nosi ozdobnych insygniów, tylko blizny i pas ciężki od trofeów zdobytych od intruzów. W Fortecy Czarnobrodego jest miarą, do której porównuje się wszystkich innych wojowników.",
+            "Kapitanowie, którzy przeżyli spotkanie z nim, mówią, że Korsarz Szablą nigdy nie przemawia w walce. Mówi za niego miecz - a jego słownictwo wystarcza, by większość rozmów zakończyć na stałe.",
+            "Wcięcia na szabli Korsarza Szablą liczą ponad dwieście na ostrzu w muzeum w Nassau - podobno skopiowane z oryginału. Trzyma środkową linię twierdzy, gdzie uczą taktyki abordażu; padnij tu, a nie poczujesz skarbca ani śmiechu Czarnobrodego z płonącymi lontami."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "Strzelec Wyborowy obserwuje z murów bastionu, muszkiet gotowy, deszcz spływa po tricornie jak woda po kadłubie. Był kiedyś strzelcem marynarki, który przeszedł na stronę złota i nigdy nie spojrzał na spaloną mundur.",
+            "Jeden strzał z jego pozycji może zamienić pewny szturm w odwrót. Zna każdy kąt murów twierdzy, każdą szczelinę w kamieniu, gdzie wiatr niesie zapach morza.",
+            "Bestiariusz zapisuje, że walka ze Strzelcem Wyborowym to lekcja cierpliwości. W twierdzy nie szarżuje się na oślep - rusza się, gdy przeładowuje, albo w ogóle się nie rusza.",
+            "Gniazda Strzelca Wyborowego oznaczone są na mapach najeźdźców czaszkami i 'liczbą przeładowań'. Jeden muszkiet strzeże podejścia do żelaznej bramy Siekiernika Abordażowego - przeżyj strzał, a Strażnik Kwartemistrza zna twoje imię, zanim dotrzesz."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "Siekiernik Abordażowy blokuje żelazną bramę bronią stworzoną do łamania drzwi, masztów i ludzi. Łańcuchy na pasie wiszą jak trofea statków, które nigdy nie uciekły spod władzy Czarnobrodego.",
+            "Jego ciosy są powolne, lecz niszczycielskie - każdy uderzenie odbija się echem w korytarzu jak młot w kadłub. Nie goni - czeka, aż przyjdziesz do niego, i wtedy zdaje się, że to sama twierdza zamachuje toporem.",
+            "Stare dzienniki najazdów mówią, że Siekiernik Abordażowy był kiedyś łamaczem statków, który dołączył do załogi po tym, jak Czarnobrody zatopił flotę jego pracodawcy. Teraz łamie intruzów zamiast belek - z tą samą zawodową opanowaniem.",
+            "Łańcuchy Siekiernika Abordażowego kiedyś wisiały na flagowcu Czarnobrodego - salwagerzy płacili złoto za dotknięcie ogniwa. Strzeże podejścia do skarbca; pokonaj go, a Weteran z Żelaznym Hakiem wysyła wieść (twierdzą dezerterzy), że Czarnobrody powinien dolać rumu."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "Strażnik Kwartemistrza stoi przed salą skarbca z kluczami brzęczącymi jak dzwonek ostrzegawczy. Jego zbroja jest wypolerowana nie na paradę, lecz dlatego, że kwatermistrz wymaga porządku nawet w pirackiej twierdzy.",
+            "Zna wartość każdej monety w skarbcu i koszt każdego życia wydanego na jej obronę. Dla niego intruzi nie są wrogami - to błędy w księgach, które trzeba skorygować przemocą.",
+            "Bestiariusz zauważa, że pokonanie Strażnika Kwartemistrza oznacza, że jesteś wystarczająco głęboko, by poczuć zapach skarbu. Oznacza też, że twierdza przestanie udawać, iż jesteś uciążliwością, i zacznie traktować cię jak zagrożenie.",
+            "Kwatermistrzowie na Karaibach kopiowali system księgowy tej twierdzy - 'koryguj błędy przemocą' - z własnej reguły Strażnika. Pokonaj Strażnika, a drzwi skarbca spocą się solą; jedna sala dzieli cię od Widma Buntownika i Pierwszego Oficera Gromu."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "Weteran z Żelaznym Hakiem nosi blizny po tuzinie stłumionych buntów, z jedną lśniącą dłonią. Jego hak łapie światło pochodni jak ostrze, a sztandar - podarty, lecz nigdy nie opuszczony - oznacza go jako człowieka, który przeżył to, co zabiło innych.",
+            "Walczył u boku Czarnobrodego w najkrwawszych latach twierdzy i został, gdy słabsi piraci uciekli. Jego lojalność nie jest dla złota, lecz dla legendy, która uczyniła tę twierdzę przerażającą na całym Karaibach.",
+            "Ocalały mówią, że Weteran z Żelaznym Hakiem walczy jakby pamiętał każdego towarzysza poległego na tych murach. Bestiariusz radzi szacunek: nie strzeże pokoju. Strzeże pamięci o wojnie.",
+            "Fragment sztandaru Weterana z Żelaznym Hakiem sprzedaje się na czarnym rynku jako amulet przeciw buntowi - nigdy nie działa. Stoi przed nawiedzonymi salami, gdzie wędruje Widmo Buntownika; weterani salutują mu nawet po śmierci przed marszem do Gromu i Czarnobrodego."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "Widmo Buntownika dryfuje przez mgłę w nawiedzonych dolnych salach - pirat, który zbuntował się przeciw kapitanowi i został powieszony przy bramie twierdzy, lecz nigdy do końca nie odszedł. Oczy świecą zimnym światłem, a głos to tylko szelest łańcuchów.",
+            "Atakuje bez ostrzeżenia, pojawiając się tam, gdzie gaśnie pochodnia i cieńnie odwagi. Wielu intruzów ucieka, zanim zada cios, przekonanych, że sama twierdza powstała przeciwko nim.",
+            "Bestiariusz zapisuje Widmo Buntownika jako dowód, że Forteca Czarnobrodego pamięta zdradę. Pokonanie go to nie tylko bitwa - to wyrok na duchach nieudanych rewolt.",
+            "Doniesienia o Widmie Buntownika rosną przed każdym nieudanym najazdem - przesąd czy ostrzeżenie, kapitanowie spierają się przy rumie. Oczyść Widmo, a światła przedsionka palą się stabilnie po raz pierwszy od lat - znak, że Pierwszy Oficer Grom naładował oba pistolety."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "Pierwszy Oficer Grom stoi w przedsionku kajuty kapitana, oba pistolety w dłoniach, płaszcz ciężki od medali zdobytych na wrogich statkach. Jest drugim głosem twierdzy i ostatnią ścianą przed samym Czarnobrodym.",
+            "Przydomek nie pochodzi od pogody, lecz od dźwięku jego strzałów w zamkniętym kamieniu - trzask, który ogłusza, a potem ucisza. Pochował więcej kapitanów niż większość piratów spotkała.",
+            "Bestiariusz ostrzega, że Pierwszy Oficer Grom nie negocjuje, nie cofa się i nie przechwala. Po prostu strzela, przeładowuje i strzela znowu, aż albo on padnie, albo intruz. Nie ma trzeciego wyniku.",
+            "Pistolety Pierwszego Oficera Gromu mają w plotkach załogi imiona: 'Ostatnia Argumentacja' i 'Ostateczny Wyrok'. To ostatni żywy mur Czarnobrodego; pokonaj go, a drzwi komnaty kapitana otwierają się zapachem płonącego lontu - bez pośredników, tylko legenda."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "Kapitan Czarnobrody siedzi na tronie z przejętych sterów i połamanych koron, powolne lonty wplecione w brodę rzucają piekielne światło po komnacie kapitana. Nie jest mitem wyolbrzymionym przez żeglarzy - jest powodem, dla którego mit istnieje.",
+            "Jego żelazny hak lśni ostrzej niż jakakolwiek szabla w twierdzy, a śmiech wstrząsa żyrandolami ze skradzionego kryształu. Legendy mówią, że zawarł pakt z burzą i ogniem; twierdza mówi, że po prostu odmówił umierania jak zwykli ludzie.",
+            "Pokonanie Kapitana Czarnobrodego to akt śpiewany w tawernach od Tortugi po Nassau - pieśni półszeptem, bo nawet zwycięzcy wiedzą, że morze nie zapomniało jego imienia. Bestiariusz kończy słowami, które powtarza każdy najeźdźca: „Twierdza może dziś upaść, lecz cień Czarnobrodego żegluje na każdym horyzoncie.”",
+            "Gdy Czarnobrody pada, dzwony twierdzy dzwonią w skradzionych snach w całym archipelagu - twierdzą pijani kapitanowie. Rozprzestrzenia się tytuł Najeźdźcy Fortecy; przemytnicy wykorzystują upadek strongholdu jako osłonę dla nowych tras, lecz każdy pirat wie, że jego cień wciąż żegluje na każdym horyzoncie."
+          ]
+        }
+      },
+      "wulkan": {
+        "stage01": {
+          "lore": [
+            "Popiołowy Majtek pilnuje pierwszych schodów krateru, brodząc po żarze jak po mokrym pokładzie. Dawniej czyścił liny na statku więziennym Davy'ego Jonesa, zanim lawa zabrała mu skórę i zostawiła tylko czarny pył.",
+            "Jego kroki są lekkie, lecz każdy zostawia iskrzącą smugę - dowód, że wulkan pamięta każdego intruza. Uderza szybko spalonym knagą, testując refleks, zanim głębsi strażnicy osądzą twoją wartość.",
+            "Dokerzy w archipelagu plują, gdy wymawiają jego imię, twierdząc, że w wietrzne noce nad kalderą wciąż gwizda bosmańską melodię. Dziennik salwagera notuje: 'Najpierw popiół, potem dzwon - wulkan wie, że przyszedłeś.'",
+            "Pokonaj Majtka, a gorąc na schodach spada o jeden stopień - starzy piloci mówią, że to zaproszenie Heralda. To próg Wulkanu Davy'ego Jonesa, czwartego lochu łańcucha archipelagu, gdzie utopione długi płoną."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "Marynarz Magmowej Wachty stał kiedyś na nocnej warcie w porcie, gdzie zaginęła flota Jonesa. Po śmierci wrócił z pęknięciami pełnymi lawy i głosem gorącym jak piec hutniczy.",
+            "Nosi dzwon alarmowy przetopiony w maczugę i uderza nim tak, jakby chciał obudzić cały wulkan. Każdy cios brzmi jak sygnał dla Bazaltowego Rozpruwacza i Heralda czekającego na szczycie.",
+            "Wachty nocne z zaginionego portu Jonesa opisują dzwon dzwoniący pod wodą w noc, gdy flota popłynęła w ogień. Marynarze obstawiają, że usłyszenie go dwa razy w kraterze oznacza, iż Herald zna już twoje imię.",
+            "Pokonaj Marynarza Wachty, a otwory parowe się przesuwają - droga ku Płomiennej Duszy Bosmana. Loch wulkanu robi się głośniejszy; kapitanowie mówią, że południowe rafy archipelagu świecą na czerwono, gdy ten strażnik pada."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "Płomienna Dusza Bosmana to widmo oficera, który karcił załogę za najmniejszy błąd. Ogień pożarł go podczas buntu, lecz rozkazy przetrwały śmierć.",
+            "Wiruje nad bazaltem z płonącym batem, każąc żywym klękać tak samo jak martwym. Jego dyscyplina trzyma środek krateru, gdzie rzeki lawy rozchodzą się ku Topielcowi z Krateru i ołtarzowi Kapłana Popiołu.",
+            "Wyznania buntowników (skonfiskowane w Nassau) wspominają bosmana, którego bat 'palił bez płomienia' na barki Jonesa. Plotki tawern mówią, że wciąż liczy razy na głos - i zatrzymuje się na trzynastym, pechowej liczbie Jonesa.",
+            "Złamanie Duszy Bosmana rwie pierwszy łańcuch dyscypliny Jonesa w tym lochu. Głębiej Widmo Spalonej Załogi zbiera marynarzy, których kiedyś połamał - pokonaj go, zanim znów się połączą."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "Bazaltowy Rozpruwacz wykluł się w szczelinach lawowych niczym drapieżnik z kamienia. Jego pazury tną stal, a pancerz pęka tylko tam, gdzie magma oddycha pod skorupą.",
+            "Poluje po omacku, wyczuwając drgania gruntu zamiast patrzeć. Patroluje labirynt szczelin, gdzie intruzi tracą orientację, zanim Topielec z Krateru wciągnie ich pod powierzchnię.",
+            "Górnicy na zewnętrznych wyspach sprzedają 'łuski rozpruwacza', które dymią, gdy się kłamie - mosty oszustw, lecz bestiariusz potwierdza, że prawdziwe łuski syyczą przy krawędzi kaldery. Rybacy omijają południową rafę, gdy drgania trzęsą sieciami.",
+            "Zabij Rozpruwacza, a posadzka krateru na jedno uderzenie serca stabilnieje - okno, którego żeglarze używają, by dotrzeć do tonącej kałuży. Kapłani Heralda mówią, że bestia była ogarem Jonesa, hodowanym, by dłużnicy nie wspinali się z powrotem."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "Topielec z Krateru niesie na sobie łańcuchy kotwiczne stopione z kośćmi. To marynarz, który próbował uciec z ofiarnej barki Jonesa i został wrzucony prosto do wrzącego jeziora.",
+            "Wychodzi z wrzątku bez oczu, lecz słyszy bicie serca przez parę i popiół. Trzyma centralną kałużę, gdzie karmi się Żarłoczny Salamander, a Kapłan Popiołu obserwuje rytuały.",
+            "Notatka w butelce znaleziona w archipelagu brzmi: 'Wciągnął mojego towarzysza łańcuchem, który nas łączył.' Nurkowie unikają kałuży w rocznicę paktu Jonesa - mówią, że Topielec wymienia imiona na głos.",
+            "Gdy pada, powierzchnia krateru na chwilę cichnie - głód Salamandra budzi się natychmiast potem. Pokonaj go, by udowodnić, że nie uciekasz przed długiem Jonesa; Herald czeka tylko na tych, którzy idą naprzód."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "Żarłoczny Salamander jest starożytną bestią karmioną duszami poległych korsarzy. Jego gardło świeci jak piec, a każdy syk niesie deszcz iskier.",
+            "Pełza po ścianach i znika w pęknięciach skał, by uderzyć z innej strony. Tego strażnika nie pokona sama siła - spędza ofiarę ku komnacie Widma Spalonej Załogi.",
+            "Stare mapy morza oznaczają ten wulkan sygillum salamandry starszym od samego Jonesa. Kapitanowie zostawiają rum u krawędzi kaldery 'dla języka pieca' - przesąd, lecz najazdy udają się częściej, gdy to robią.",
+            "Pokonaj Salamandra, a popiół opada miękko jak śnieg - litanię Kapłana Popiołu słychać wyraźniej. Do Heralda dzielą cię trzy etapy; archipelag drży, gdy bestia ginie, a przeklęte statki Jonesa donoszą o dziwnych światłach z głębi."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "Widmo Spalonej Załogi to zbiorowy cień marynarzy, którzy spłonęli pod banderą Jonesa. Dziesiątki głosów mówią jednym szeptem o zdradzie i długu.",
+            "Walka z nim przypomina pojedynek ze ścianą dymu pamiętającą każdą śmierć. Blokuje wspinaczkę ku Kapłanowi Popiołu, łącząc się i rozdzielając wokół zawahałych intruzów.",
+            "Ocalały z pożaru statku więziennego opisuje śpiew ze dymu - nie hymny, lecz listę obecności umarłych. Bestiariusz wypisuje ich imiona po zwycięstwie; po porażce twoje dołącza do chóru.",
+            "Rozerwij Widmo, a schody ołtarza się oczyszczają - Kapłan Popiołu odprawia rytuały dla Lewiatana Lawy i Heralda. Ten etap oddziela tchórzy od kapitanów, których archipelag nazywa Zdobywcą Wulkanu."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "Kapłan Popiołu Jonesa odprawia rytuały na kamiennym ołtarzu, gdzie lawa służy za kadzidło. Wierzy, że każda pokonana dusza wzmacnia tron jego pana.",
+            "Rzuca popiołem jak klątwą, a runy pod stopami zapalają się od imion umarłych. Przyzywa Lewiatana Lawy, gdy intruzi docierają do dolnej krawędzi korony kaldery.",
+            "Spowiedzi z zatopionej kaplicy cytują Kapłana: 'Jones je to, co morze odrzuca.' Piloci oznaczają jego ołtarz na mapach trójzębem skrzyżowanym popiołem - unikaj krawędzi w noce czarnego księżyca.",
+            "Ucisz Kapłana, a litania wiążąca wulkan z Jonesem słabnie. Zostają bestia i Herald; pokonaj go, bo inaczej Lewiatan wstanie dwa razy głodniejszy, a przypływy archipelagu przez dzień płyną wstecz."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "Lewiatan Lawy wynurza się z kaldery jak żywy okręt wojenny wykuty z ognia. Jego łuski są twardsze niż żelazo, a rogi łamią bazaltowe filary.",
+            "Bestia nie zna litości ani strachu, tylko głód. To ostatnia bestia przed Heroldem - ryk wstrząsa komnatą, aż pył spada jak śnieg z sufitu jaskini.",
+            "Wielorybnicy na południowej cieśninie donoszą o ognistym grzbiecie przebijającym powierzchnię raz na dekadę. Nazywają go 'kilem Jonesa' i podwajają modlitwy - bestiariusz potwierdza, że nurkuje z powrotem ku tej kalderze.",
+            "Zabij Lewiatana, a korona pęka ku niebu i piekłu naraz. Herald Davy'ego Jonesa stoi dalej z trójzębem w dłoni; zdobądź to miejsce, a kapitanowie w archipelagu wznoszą toast - jeśli wrócisz."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "Herald Davy'ego Jonesa czeka na szczycie krateru z trójzębem zaprawionym duszami. Jest głosem admirała potępionych i ostatnim sądem dla śmiałków.",
+            "Każdy ruch zostawia krąg ognia, każde słowo przyzywa cienie z dna oceanu. Wymawia wyroki, które sam Jones kiedyś wygłaszał kapitanom oszukującym śmierć.",
+            "Ostatnia strona dziennika utopionego kapitana brzmi: 'Herald znał mój dług, zanim przemówiłem.' Tytuły wulkanu odblokowują się, gdy pada; piloci rafowi mówią o filarach pary widocznych z trzech wysp.",
+            "Pokonanie Heralda oznacza, że wulkan nazywa cię zdobywcą - południowe szlaki archipelagu otwierają się na sezon. Cień Jonesa zostaje na każdym sondzie głębi, lecz jego brama tu pozostaje zamknięta, dopóki inny głupiec nie wspięnie się popiołowymi schodami."
+          ]
+        }
+      },
+      "palac": {
+        "stage01": {
+          "lore": [
+            "Strażnik Rafy stoi tam, gdzie Atlantyda spotyka otwarte morze, koralowa zbroja zrosła ze skórą, która nie oddychała powietrzem od tysiącleci. Złożył przysięgę Posejdonowi, zanim miasto zatonęło, a jego słowo przetrwało słońce.",
+            "Jego trójząb nie uderza pierwszy - mierzy intruzów cierpliwością rafy. Testuje footing i nerwy przy bramie pałacu, gdzie prądy rwą jak liny abordażowe w sztormie.",
+            "Nurkowie po perły szepczą, że Strażnik liczy oddechy na głos - przestań źle oddychać, a rafa się zamyka. List kupca z Nassau wspomina 'cień trójzębu' strzegący najbogatszego łoża na wschód od Tortugi.",
+            "Piraci, którzy go pokonują, zyskują zgodę rafy na wejście do Pałacu Posejdona, najgłębszego lochu archipelagu. Padnij, a twój stęp dołączy do koralowego pomnika, który Awatar czyta przy sądzie."
+          ]
+        },
+        "stage02": {
+          "lore": [
+            "Wojownik Koralowy patroluje rozbitą kolumnadę, gdzie niegdyś powiewały atlantyjskie sztandary. Muszlowe naramienniki dzwonią przy każdym ruchu, a każde uderzenie niesie ciężar cywilizacji, która odmówiła uklęknięcia przed światem powierzchni.",
+            "Walczy z dyscypliną elitarnego strażnika trenującego od czasów, gdy twój pradziadek jeszcze nie żył. Trzyma zewnętrzne sale, gdzie Syreny Burz nasłuchują intruzów, którzy krwawią.",
+            "Atlantyjskie monety (fałszerstwa, głównie) pokazują wojowników z tymi samymi muszlowymi ramionami - kolekcjonerzy i tak płacą. Bestiariusz zapisuje, że jego postawa nigdy nie pęka; tylko szybkość i okrucieństwo razem go powalają.",
+            "Pokonaj Wojownika Koralowego, a echa kolumnady się zmieniają - pałac przestaje udawać, że jesteś dryfem. Syrena Burz dalej śpiewa dla samego Posejdona; żeglarze z powierzchni mówią, że jej nuta łamie maszty dziesięć mil stąd."
+          ]
+        },
+        "stage03": {
+          "lore": [
+            "Syrena Burz śpiewa tam, gdzie prądy pałacu zderzają się z otchłannym zimnem, a jej głos zszywa błyskawice w ściany pływów. Żeglarze, którzy usłyszeli ją na powierzchni, zwariowali; intruzi, którzy słyszą ją tutaj, milkną.",
+            "Nie błaga o litość - oferuje litość szybkiego utonięcia. Jej pieśń dezorientuje, zanim łańcuchy Głębinowego Egzekutora znajdą twoje gardło.",
+            "Żony w portach archipelagu straszają dzieci: 'Syrena liczy fale' - raz, dwa, trzy, potem wciągnij pod wodę. Kapitanowie zatykają uszy woskiem od pszczelarzy; pomaga, dopóki nie stopi się w pałacowym cieple.",
+            "Ucisz Syrenę, a grzmot pałacu cichnie do rytmu serca - Egzekutor czeka w rowach poniżej. Pokonaj ją, by udowodnić, że twój umysł należy do ciebie; Herold Posejdona zapisuje każde zwycięstwo w pianie."
+          ]
+        },
+        "stage04": {
+          "lore": [
+            "Głębinowy Egzekutor ciągnie łańcuchy kute w rowach, gdzie światło nigdy nie dotarło. Był odpowiedzią Posejdona na piratów, którzy wierzyli, że głębokość sama ukryje ich przed boskim sądem.",
+            "Każde ogniwo pamięta skazaną duszę. Jego ciosy przypominają mniej walkę, a bardziej wyrok - dopóki nie udowodnisz, że twoje imię nie jest jeszcze w rejestrze głębin.",
+            "Ogniwa łańcuchów salvowane przy pałacu sprzedają się jako relikwie; prawdziwe wciąż krzyczą, gdy je podgrzewać. Przemytnicy nazywają tę salę 'aktownią' - sprawy kończą się jednym zamachem.",
+            "Przeżyj Egzekutora, a złote wrota Strażnika Trójzębu lśnią przed tobą. Jesteś w połowie ostatniego lochu Atlantydy; burze archipelagu cichną na godzinę, gdy pada - potem Posejdon patrzy osobiście."
+          ]
+        },
+        "stage05": {
+          "lore": [
+            "Strażnik Trójzębu strzeże złotych wrót rytuałami starszymi niż jakakolwiek mapa z Tortugi. Jego laska ma trzy zęby nie tylko do wojny, lecz do prawa, przypływu i ceny wejścia do domu boga bez zaproszenia.",
+            "Kadzidło z solanki i bursztynu unosi się wokół niego jak druga skóra. Czyta wtargnięcie bez słów - intruzi czują się ważeni jak ładunek na wadze, której widzą tylko bogowie.",
+            "Kapłani wysp pływowych naśladują jego rytuały - pobierają opłaty za 'bezpieczny przepływ', który nigdy nie działa. Bestiariusz cytuje go raz: 'Złoto kupuje drzwi, nie przebaczenie.'",
+            "Przejdź obok Strażnika, a Atlantydzki Czempion salutuje w środku - honor przed krwią. Padnij, a rafa zapamięta twój statek; rybacy nie sprzedadzą ci przynęty przez rok."
+          ]
+        },
+        "stage06": {
+          "lore": [
+            "Atlantydzki Czempion nosi kryształową zbroję wyrosłą z posadzki pałacu, każda fasetka trzyma odbicie bitew, gdy Atlantyda rządziła falami. To ostatni rycerz sali tronowej, która nigdy nie opustoszała.",
+            "Salutuje przed uderzeniem - stara grzeczność ze świata, który wierzył, że honor przetrwa potop. Strzeże podejścia do wewnętrznego sanktuarium, gdzie Arcymag Pływów wygina wodę w broń.",
+            "Zawodnicy areny studiują nagrania jego salutu - niektórzy przysięgają, że kryształ pokazuje ich własną śmierć, jeśli patrzą zbyt długo. Królowie powierzchni wysyłali kiedyś czempionów; żaden nie wrócił z tytułem.",
+            "Pokonanie Czempiona łamie pierwszą pieczęć wewnętrznego sanktuarium. Zostają dwaj strażnicy i Awatar; łoża pereł archipelagu jaśnieją, gdy pada, jakby Posejdon odwrócił twarz ku walce."
+          ]
+        },
+        "stage07": {
+          "lore": [
+            "Arcymag Pływów wygina prądy w ostrza, a runy w wiry połykające światło pochodni. Studiował magię, gdy miasto jeszcze handlowało z królami lądu, i nie przestał uczyć się w ciemności.",
+            "Jego zaklęcia nie błyszczą - ciągną. Walka z nim przypomina pojedynek z samym oceanem, oddech po oddechu, aż wyrwiesz przypływ z jego dłoni.",
+            "Skradzione strony zaklęć krążą w Nassau z znakiem wodnym trójzębu - fałszerstwa, zwykle, lecz magowie i tak płacą. Mamrocze równania martwym językiem; językoznawcy mówią, że połowa słów to tablice pływów.",
+            "Pokonaj Arcymaga, a Lewiatan Głębin zwija się wolno - bez iluzji, tylko masa i zęby. Udowodnij Atlantydzie, że twój umysł tnie głębiej niż woda; Herold ogłasza cię Posejdonowi."
+          ]
+        },
+        "stage08": {
+          "lore": [
+            "Lewiatan Głębin zwija się między filarami sali tronowej, które sam rozbił swoim przejściem, łuski czarne jak rów i twardsze niż okrętowe żelazo. To nie zwierzę domowe - to żywa granica między śmiertelnikami a boskością.",
+            "Gdy ryczy, perłowe żyrandole drżą, a złoty pył spada jak śnieg. Blokuje schody herolda - floty by tu pękły; wystarczy jedna bestia.",
+            "Wielorybnicy zbyt na wschód opowiadają o cieniu dłuższym od statku, który nurkuje bez dźwięku. Mapy oznaczają 'Lewiatana Pałacowego' z ostrzeżeniem: nie harpunuj, jeśli nie chcesz tonąć.",
+            "Zabij Lewiatana, a pył perłowy okrywa salę jak śnieg zwycięstwa. Herold Posejdona schodzi wymówić twoje imię; jeden krok dzieli cię od Awatara osądzającego najśmielszych kapitanów archipelagu."
+          ]
+        },
+        "stage09": {
+          "lore": [
+            "Herold Posejdona mówi z władzą boga morza, korona z piany i koralu jasna jak ślepić nieprzygotowanych. Ogłasza wyzwania tronowi, jakby ocean był sądem, a każdy pirat oskarżonym.",
+            "Jego słowa mogą uspokoić burzę albo ją przywołać. Czyta zarzuty - kradzież pereł, morderstwo strażników rafy, pycha - zanim wstanie Awatar.",
+            "Poeci dworscy w archipelagu naśladują jego rytm na weselach i egzekucjach. Żeglarze mówią, że 'Jesteś wezwany' we śnie znaczy zawróć; w pałacu - że uciekać jest już za późno.",
+            "Pokonaj Herolda, a złota komnata otwiera się w pełni - bez posłańców, tylko pan. Wygraj tu, a każdy port wyspy usłyszy twoje imię obok Atlantydy; przegraj, a rafa dorasta o kolejną koralową postać z twoją twarzą."
+          ]
+        },
+        "stage10": {
+          "lore": [
+            "Awatar Posejdona wstaje w sercu złotej komnaty, boski trójząb wycelowany z spokojem boga, który topił imperia i zapominał ich imiona. To nie strażnik - to morze uczynione sądem.",
+            "Każdy ruch wysyła fale przez posadzkę; każde spojrzenie waży twoją duszę na wadze otchłani. Loch pałacu istnieje, by odpowiedzieć na jedno pytanie: czy świat powierzchni zasługuje na przypływy, które kradnie?",
+            "Gdy Awatar pada, legendy mówią, że Atlantyda wydycha, a burze archipelagu układają się na pokolenie. Tytuły Pogromcy Posejdona rodzą się tutaj - nie dawane lekkomyślnie i nigdy nie zapomniane przez głębię.",
+            "Pokonanie Awatara oznacza, że Atlantyda nazywa cię czempionem - ocean zapamięta. Rafy kwitną, prądy słuchają dziwnych nowych ścieżek, a kapitanowie, którzy tam nie byli, i tak wznoszą toast, bojąc się żeglować bez twojego szczęścia."
+          ]
+        }
+      }
+    }
+  },
+  "guild": "Statek",
+  "options": "Opcje",
+  "statek": "Statek",
+  "statekComingSoon": "Funkcja statku wkrótce dostępna",
+  "noStatek": "Nie należysz do żadnego statku",
+  "createStatek": "Zbuduj statek",
+  "createStatekCardLead": "Nadaj nazwę okrętowi i opowiedz historię, jaką usłyszą inni w tawernie.",
+  "joinStatekCardLead": "Nie masz jeszcze własnego kutra? Zaciągnij się do załogi z tablicy kapitanów.",
+  "createStatekCost": "Zbudowanie statku kosztuje 500 złota",
+  "shipName": "Nazwa statku",
+  "shipNamePlaceholder": "Wprowadź nazwę statku",
+  "statekDescription": "Opis statku",
+  "statekDescriptionPlaceholder": "Wprowadź opis statku (opcjonalnie)",
+  "noDescription": "Brak opisu statku",
+  "statekInfo": "Informacje o statku",
+  "members": "Członkowie",
+  "viewStatek": "Zobacz statek",
+  "previewStatek": "Podgląd statku",
+  "upgrades": "Ulepszenia",
+  "yourRole": "Twoja rola",
+  "owner": "Właściciel",
+  "manager": "Menadżer",
+  "member": "Członek",
+  "internalNotes": "Notatki wewnętrzne",
+  "internalNotesPlaceholder": "Notatki widoczne tylko dla załogi statku",
+  "noInternalNotes": "Brak notatek wewnętrznych",
+  "statekChat": "Czat statku",
+  "noMessages": "Brak wiadomości",
+  "typeMessage": "Wpisz wiadomość...",
+  "send": "Wyślij",
+  "edit": "Edytuj",
+  "editStatek": "Edytuj statek",
+  "create": "Utwórz",
+  "save": "Zapisz",
+  "shipNameRequired": "Nazwa statku jest wymagana",
+  "statekCreatedSuccessfully": "Statek został utworzony pomyślnie",
+  "statekUpdatedSuccessfully": "Statek został zaktualizowany pomyślnie",
+  "success": "Sukces",
+  "statekMembers": "Załoga",
+  "goldContributed": "Wpłacone złoto",
+  "fameCoinsContributed": "Wpłacone monety sławy",
+  "inviteMember": "Zaproś członka",
+  "searchUsername": "Wyszukaj użytkownika",
+  "enterUsername": "Wprowadź nazwę użytkownika...",
+  "invite": "Zaproś",
+  "joined": "Dołączył",
+  "transferOwnership": "Przekaż własność",
+  "makeOwner": "Właściciel",
+  "removeMember": "Wyrzuć członka",
+  "remove": "Usuń",
+  "leaveStatek": "Opuść statek",
+  "inviteToStatek": "Zaproś na statek",
+  "inviting": "Zapraszanie...",
+  "removeFromStatek": "Usuń ze statku",
+  "removing": "Usuwanie...",
+  "memberInvitedSuccessfully": "Członek został zaproszony pomyślnie",
+  "cancelJoinRequest": "Wycofaj prośbę o dołączenie",
+  "cancelling": "Wycofywanie...",
+  "joinRequestCancelled": "Prośba o dołączenie została wycofana",
+  "cancelInvitation": "Cofnij zaproszenie na statek",
+  "invitationCancelled": "Zaproszenie zostało cofnięte",
+  "statekIsFull": "Statek jest pełny",
+  "memberRemovedSuccessfully": "Członek został usunięty",
+  "leftStatekSuccessfully": "Opuszczono statek",
+  "ownershipTransferredSuccessfully": "Własność została przekazana",
+  "memberRoleChangedSuccessfully": "Ranga członka została zmieniona pomyślnie",
+  "confirmRemoveMember": "Usuń członka",
+  "confirmRemoveMemberMessage": "Czy na pewno chcesz usunąć {{member}} ze statku?",
+  "confirmLeaveStatek": "Opuść statek",
+  "confirmLeaveStatekMessage": "Czy na pewno chcesz opuścić ten statek? Stracisz dostęp do skarbca załogi i funkcji statku. Możesz dołączyć ponownie, jeśli kapitan zaprosi lub statek będzie otwarty.",
+  "confirmLeaveStatekAsOwner": "Jeśli jesteś kapitanem, statek zostanie usunięty razem z całą załogą.",
+  "confirmTransferOwnership": "Przekaż własność",
+  "confirmTransferOwnershipMessage": "Czy na pewno chcesz przekazać własność statku użytkownikowi {{member}}? Staniesz się zwykłym członkiem załogi.",
+  "confirmChangeRole": "Zmień rangę",
+  "confirmChangeRoleMessage": "Czy na pewno chcesz zmienić rangę użytkownika {{member}} z {{currentRole}} na {{targetRole}}?",
+  "statekUpgrades": "Ulepszenia",
+  "statekUpgradesComingSoon": "Ulepszenia statku wkrótce dostępne",
+  "deleteStatek": "Usuń statek",
+  "confirmDeleteStatek": "Usuń statek",
+  "confirmDeleteStatekMessage": "Czy na pewno chcesz usunąć statek? Ta operacja jest nieodwracalna i usunie całą załogę oraz dane statku.",
+  "delete": "Usuń",
+  "statekDeletedSuccessfully": "Statek został usunięty pomyślnie",
+  "statekTreasury": "Kasa statku",
+  "statekSettings": "Ustawienia statku",
+  "requiresInvitation": "Wymaga zaproszenia",
+  "invitationRequiredDescription": "Dołączenie: przez zaproszenie kapitana albo przez wysłanie prośby o dołączenie (kapitan ją rozpatruje).",
+  "openStatekDescription": "Każdy może dołączyć bez zaproszenia, jeśli jest wolne miejsce w załodze.",
+  "invitationRequirementUpdated": "Wymaganie zaproszenia zostało zaktualizowane",
+  "joining": "Dołączanie...",
+  "sending": "Wysyłanie...",
+  "joinStatek": "Dołącz do statku",
+  "sendJoinRequest": "Wyślij prośbę o dołączenie",
+  "joinRequestAlreadySent": "Wysłano już prośbę o dołączenie",
+  "joinRequestSent": "Prośba o dołączenie została wysłana",
+  "statekRequiresInvitation": "Ten statek wymaga zaproszenia, aby dołączyć",
+  "onlyOwnerCanChangeSettings": "Tylko kapitan statku może zmienić to ustawienie",
+  "joinExistingStatek": "Dołącz do istniejącego statku",
+  "joinStatekInfo": "Możesz znaleźć statek w rankingu i dołączyć do niego.",
+  "goToRanking": "Przejdź do rankingu",
+  "depositGold": "Wpłać złoto",
+  "depositFameCoins": "Wpłać Fame Coins",
+  "yourGold": "Twoje złoto",
+  "yourFameCoins": "Twoje Fame Coins",
+  "deposit": "Wpłać",
+  "depositing": "Wpłacanie...",
+  "depositSuccessful": "Wpłata zakończona sukcesem",
+  "depositAmountRequired": "Musisz wpłacić przynajmniej trochę złota lub fame coins",
+  "insufficientGold": "Nie masz wystarczająco złota",
+  "insufficientFameCoins": "Nie masz wystarczająco fame coins",
+  "skillsUpgrade": "Ulepszenie umiejętności",
+  "workUpgrade": "Ulepszenie pracy",
+  "missionsUpgrade": "Ulepszenie misji",
+  "onlyOwnerCanUpgrade": "Tylko kapitan może ulepszać statek",
+  "upgradeSuccessful": "Ulepszenie zakończone pomyślnie!",
+  "invalidUpgradeType": "Nieprawidłowy typ ulepszenia",
+  "statekGold": "Złoto statku",
+  "statekFameCoins": "Monety sławy statku",
+  "statekFamePoints": "Punkty sławy statku",
+  "currentLevel": "Poziom",
+  "nextLevel": "Następny poziom",
+  "upgrade": "Ulepsz",
+  "upgrading": "Ulepszanie...",
+  "maxLevel": "Maksymalny poziom",
+  "upgradeMaxed": "Ulepszenie osiągnęło maksymalny poziom",
+  "activeBoosters": "Aktywne wspomagacze",
+  "availableBoosters": "Dostępne wspomagacze",
+  "noActiveBoosters": "Brak aktywnych wspomagaczy",
+  "use": "Użyj",
+  "effect": "Efekt",
+  "fightPoints": "Punkty walki",
+  "days": "dni",
+  "expired": "Wygasł",
+  "timeRemainingDaysHours": "{{days}}d {{hours}}g",
+  "timeRemainingHoursMinutes": "{{hours}}g {{minutes}}m",
+  "timeRemainingMinutes": "{{minutes}}m",
+  "active": "Aktywny",
+  "alreadyActive": "Już aktywny",
+  "notEnoughResources": "Niewystarczające zasoby",
+  "notEnoughFameCoins": "Za mało Monet Sławy",
+  "notEnoughDiamonds": "Za mało diamentów",
+  "boosterPurchasedSuccessfully": "Udało się kupić wspomagacz",
+  "loadingBoosters": "Ładowanie wspomagaczy...",
+  "noAvailableBoosters": "Brak dostępnych wspomagaczy",
+  "ranking": "Ranking",
+  "notifications": "Powiadomienia",
+  "categories": "Kategorie",
+  "news": "Aktualności",
+  "noNotifications": "Brak powiadomień",
+  "notificationsPage": {
+    "pendingBadge_one": "{{count}} nowe",
+    "pendingBadge_few": "{{count}} nowe",
+    "pendingBadge_many": "{{count}} nowych",
+    "pendingBadge_other": "{{count}} nowych",
+    "emptyTitle": "Brak powiadomień do wyświetlenia",
+    "emptyHint": "Gdy pojawią się nowe zaproszenia lub prośby o dołączenie, zobaczysz je tutaj.",
+    "shipLabel": "Statek:",
+    "preview": "Podgląd",
+    "previewPlayer": "Podgląd gracza",
+    "badgeInvite": "Zaproszenie",
+    "badgeRequest": "Prośba",
+    "badgeInfo": "Informacja",
+    "levelShort": "Poz. {{level}}",
+    "decisionJoined": "Dołączono",
+    "decisionAccepted": "Zaakceptowano",
+    "decisionDeclined": "Odrzucono",
+    "yourShip": "Twój statek",
+    "fightShip": "Walki statków"
+  },
+  "statekInvitation": "Zaproszenie do załogi",
+  "statekInvitationContent": "{{inviter}} zaprosił Cię do załogi statku {{statekName}}",
+  "invitedBy": "Zaproszony przez",
+  "accept": "Akceptuj",
+  "decline": "Odrzuć",
+  "joinRequest": "Prośba o dołączenie",
+  "joinRequestContent": "{{username}} chce dołączyć na Twój statek",
+  "invitationAccepted": "Zaproszenie zostało zaakceptowane",
+  "invitationDeclined": "Zaproszenie zostało odrzucone",
+  "invitationAlreadyMember": "Jesteś już członkiem załogi tego statku",
+  "invitationJoinedThroughOther": "Dołączyłeś na statek przez inne zaproszenie",
+  "joinRequestApproved": "Prośba została zatwierdzona",
+  "joinRequestRejected": "Prośba została odrzucona",
+  "joinRequestAlreadyMember": "Użytkownik jest już członkiem załogi tego statku",
+  "removalNotification": "Wyrzucono ze statku",
+  "removalNotificationContent": "{{remover}} wyrzucił Cię ze statku {{statekName}}",
+  "statekFightNotification": {
+    "attacked": "Twój statek został zaatakowany",
+    "attackedContent": "Statek {{attackerShip}} zaatakował Twój statek. {{result}}",
+    "attacking": "Twój statek zaatakował",
+    "attackingContent": "Twój kapitan zaatakował statek {{defenderShip}}. {{result}}",
+    "resultWon": "Wygraliście.",
+    "resultLost": "Przegraliście.",
+    "resultUnknown": "Wynik walki jest niedostępny.",
+    "viewFightInfo": "Aby zobaczyć walkę, wejdź na statek i w zakładce \"Walki\" zobacz historię walk."
+  },
+  "user": "Użytkownik",
+  "alreadyMember": "Użytkownik jest już członkiem załogi tego statku",
+  "loadingNotifications": "Ładowanie powiadomień...",
+  "new": "Nowe",
+  "players": "Gracze",
+  "stateki": "Statki",
+  "you": "Ty",
+  "yourStatek": "Twój statek",
+  "totalFamePoints": "Suma punktów sławy",
+  "noPlayersInRanking": "Brak graczy w rankingu",
+  "noStatekiInRanking": "Brak statków w rankingu",
+  "errorLoadingRanking": "Błąd podczas ładowania rankingu",
+  "rankingPage": {
+    "subtitle": "Zobacz, kto rządzi archipelagiem - kapitanowie według sławy, poziomu i legend, które zostawiają na każdej fali.",
+    "colRank": "#",
+    "colPlayer": "Gracz",
+    "colShip": "Statek",
+    "colCaptain": "Kapitan",
+    "colCrew": "Załoga",
+    "colLevel": "Poziom",
+    "colFame": "Sława",
+    "noShip": " - ",
+    "unknownCaptain": " - ",
+    "searchPlayerPlaceholder": "Szukaj po nicku gracza…",
+    "searchShipPlaceholder": "Szukaj po nazwie statku…",
+    "clearSearch": "Wyczyść wyszukiwanie",
+    "noSearchResults": "Brak wyników dla „{{query}}”"
+  },
+  "loadingPlayers": "Ładowanie graczy...",
+  "loadingStateki": "Ładowanie statków...",
+  "position": "Pozycja",
+  "booster": {
+    "ENERGY": {
+      "1": {
+        "name": "Mały wspomagacz energii",
+        "description": "Zwiększa maksymalną pojemność energii o 20 punktów"
+      },
+      "2": {
+        "name": "Średni wspomagacz energii",
+        "description": "Zwiększa maksymalną pojemność energii o 50 punktów"
+      },
+      "3": {
+        "name": "Duży wspomagacz energii",
+        "description": "Zwiększa maksymalną pojemność energii o 100 punktów"
+      }
+    },
+    "TRAINING_POINTS": {
+      "1": {
+        "name": "Mały wspomagacz punktów treningowych",
+        "description": "Zwiększa maksymalną pojemność punktów treningowych o 5 punktów"
+      },
+      "2": {
+        "name": "Średni wspomagacz punktów treningowych",
+        "description": "Zwiększa maksymalną pojemność punktów treningowych o 15 punktów"
+      },
+      "3": {
+        "name": "Duży wspomagacz punktów treningowych",
+        "description": "Zwiększa maksymalną pojemność punktów treningowych o 30 punktów"
+      }
+    },
+    "DUEL_POINTS": {
+      "1": {
+        "name": "Mały wspomagacz punktów walki",
+        "description": "Zwiększa maksymalną pojemność punktów walki o 5 punktów"
+      },
+      "2": {
+        "name": "Średni wspomagacz punktów walki",
+        "description": "Zwiększa maksymalną pojemność punktów walki o 15 punktów"
+      },
+      "3": {
+        "name": "Duży wspomagacz punktów walki",
+        "description": "Zwiększa maksymalną pojemność punktów walki o 30 punktów"
+      }
+    },
+    "SKILLS": {
+      "1": {
+        "name": "Mały wspomagacz umiejętności",
+        "description": "Zwiększa wszystkie umiejętności o 10%"
+      },
+      "2": {
+        "name": "Średni wspomagacz umiejętności",
+        "description": "Zwiększa wszystkie umiejętności o 20%"
+      },
+      "3": {
+        "name": "Duży wspomagacz umiejętności",
+        "description": "Zwiększa wszystkie umiejętności o 50%"
+      }
+    }
+  },
+  "questTasksPage": {
+    "seoTitle": "Zadania | Pirate Hero",
+    "seoDescription": "Śledź aktywne zadania, odbieraj nagrody w złocie i ekwipunku oraz ścigaj endgame cele kolekcjonerskie, walk i poziomów w całym archipelagu Pirate Hero.",
+    "pageAriaLabel": "Zadania",
+    "title": "Zadania",
+    "tabActive": "Aktywne",
+    "tabHistory": "Historia",
+    "claim": "Odbierz",
+    "inProgress": "W toku",
+    "claimModalTitle": "Nagroda odebrana!",
+    "claimModalSubtitle": "Twoje zadanie zostało odhaczone - oto nagroda.",
+    "rewardTitleLine": "Tytuł: {{titles}}",
+    "claimModalQuest": "Zadanie",
+    "claimModalGold": "Złoto",
+    "claimModalPremium": "Diamenty",
+    "claimModalExperience": "Doświadczenie",
+    "claimModalItemLoading": "Losujemy przedmiot…",
+    "claiming": "Odbieranie nagrody",
+    "claimModalButton": "Super!",
+    "rarity": {
+      "common": "Pospolity",
+      "rare": "Rzadki",
+      "epic": "Epicki",
+      "legendary": "Legendarny"
+    },
+    "allDone": "Wszystkie zadania ukończone!",
+    "noHistory": "Brak ukończonych zadań.",
+    "historyTitle": "Wykonane zadania",
+    "rewards": {
+      "lootChest": "Skrzynia łupów",
+      "randomItem": "Losowy przedmiot",
+      "rareOrEpicItem": "Rzadki lub Epicki przedmiot"
+    },
+    "mock": {
+      "q1": {
+        "title": "Wydaj 200 złota",
+        "desc": "Wydaj 200 sztuk złota w sklepie lub na ulepszeniach."
+      },
+      "q2": {
+        "title": "Stocz 10 walk na arenie",
+        "desc": "Wygraj lub przegraj - liczy się każda walka."
+      },
+      "q3": {
+        "title": "Ukończ 5 misji",
+        "desc": "Wykonaj dowolne 5 przygód piratskich."
+      },
+      "q4": {
+        "title": "Wykop 3 skarby",
+        "desc": "Zagraj 3 razy w skarbiec."
+      },
+      "q5": {
+        "title": "Odgadnij 10 kart",
+        "desc": "Wygraj 10 razy w grze 3 kart."
+      },
+      "q6": {
+        "title": "Wygraj 3 walki statków",
+        "desc": "Wygraj 3 morskie potyczki swoim statkiem."
+      }
+    }
+  },
+  "questTasks": "Zadania",
+  "claimReward": "Odbierz nagrodę",
+  "rewardClaimed": "Nagroda odebrana",
+  "progress": "Postęp",
+  "errorLoadingQuests": "Błąd ładowania zadań",
+  "errorClaimingReward": "Błąd odbierania nagrody",
+  "noQuestsAvailable": "Brak dostępnych zadań",
+  "noQuestsInCategory": "Brak zadań w wybranej kategorii",
+  "loadingQuests": "Ładowanie zadań...",
+  "experience": "EXP",
+  "experienceShort": "PD",
+  "randomItem": "Losowy przedmiot",
+  "rareItem": "Rzadki przedmiot",
+  "questItemRewardModal": {
+    "title": "Otrzymałeś przedmiot!",
+    "description": "Otrzymałeś przedmiot.",
+    "itemValue": "Wartość",
+    "button": "Super!"
+  },
+  "unclaimedRewards": "Masz nieodebrane nagrody!",
+  "unclaimedReward": "Nieodebrana nagroda",
+  "sortBy": "Sortuj według",
+  "filterByCategory": "Filtruj według kategorii",
+  "all": "Wszystkie",
+  "activeQuests": "Aktywne",
+  "completedQuests": "Wykonane",
+  "noActiveQuests": "Brak aktywnych zadań",
+  "noCompletedQuests": "Brak wykonanych zadań",
+  "completedOn": "Ukończono",
+  "questCategory": {
+    "storeVisits": "Odwiedzenia sklepu",
+    "goldSpent": "Wydane złoto",
+    "levelUp": "Wbicie poziomu",
+    "fightsWon": "Wygrane walki",
+    "fightsLost": "Przegrane walki",
+    "trainingsCompleted": "Ukończone treningi",
+    "worksCompleted": "Ukończone prace",
+    "itemsBought": "Kupione przedmioty",
+    "boostersUsed": "Użyte boostery",
+    "itemsCollected": "Zdobyte przedmioty",
+    "rareItemCollected": "Rzadkie przedmioty",
+    "equipmentFull": "Pełny ekwipunek",
+    "rareEquipmentFull": "Pełny zestaw Rare",
+    "allDungeonsCompleted": "Mistrz lochów",
+    "allDungeonsAndLevel": "Legenda Mórz",
+    "legendaryItemCollected": "Legendarne przedmioty",
+    "dungeonCompleted": "Ukończenie lochu",
+    "bestiaryEntriesDiscovered": "Bestiariusz",
+    "epicItemCollected": "Epickie przedmioty",
+    "epicEquipmentFull": "Pełny zestaw Epicki",
+    "legendaryEquipmentFull": "Pełny zestaw Legendarny",
+    "allDungeonTitlesUnlocked": "Tytuły lochowe"
+  },
+  "statekFights": "Walki",
+  "statekFights.title": "Walki statków",
+  "statekFights.onlyOwnerCanFight": "Tylko kapitan statku może wyzywać inne statki do walki.",
+  "statekFights.checking": "Sprawdzanie...",
+  "statekFights.canFightToday": "✅ Możesz wyzwać statek dziś!",
+  "statekFights.alreadyFoughtToday": "❌ Walczyłeś już dzisiaj. Wróć jutro!",
+  "statekFights.opponentsHiddenNoDailyFight": "Dzisiejszy atak został już wykorzystany - jutro znów pojawi się lista statków do wyzwania.",
+  "statekFights.availableOpponents": "Dostępni Przeciwnicy",
+  "statekFights.fightHistory": "Historia Walk",
+  "statekFights.showHistory": "Pokaż Historię",
+  "statekFights.showFight": "Pokaż walkę",
+  "statekFights.hideHistory": "Ukryj Historię",
+  "statekFights.loadingHistory": "Ładowanie historii...",
+  "statekFights.noHistory": "Brak historii walk.",
+  "statekFights.loadingOpponents": "Ładowanie przeciwników...",
+  "statekFights.noOpponents": "Brak dostępnych przeciwników.",
+  "statekFights.totalFamePoints": "Łączne Punkty Sławy",
+  "statekFights.members": "Członkowie",
+  "statekFights.fighting": "Walka...",
+  "statekFights.challenge": "Wyzwij",
+  "statekFights.fightResult": "Wynik Walki",
+  "statekFights.victory": "ZWYCIĘSTWO!",
+  "statekFights.defeat": "PORAŻKA",
+  "statekFights.earned": "Zarobiono",
+  "statekFights.lost": "Stracono",
+  "statekFights.famePoints": "Punktów Sławy",
+  "statekFights.startingFight": "Rozpoczynanie walki...",
+  "statekFights.loadingFight": "Ładowanie walki...",
+  "statekFights.fightInProgress": "Walka w toku",
+  "statekFights.attackerStatek": "Statek atakujący",
+  "statekFights.defenderStatek": "Statek broniący",
+  "statekFights.fightBetween": "Walka między",
+  "vs": "vs",
+  "famePointsChange": "{{points}} punktów sławy",
+  "famePointsChangePositive": "+{{points}} punktów sławy",
+  "famePointsChangeNegative": "-{{points}} punktów sławy",
+  "statekFights.fightDetails": "Szczegóły walki",
+  "statekFights.attackLog": "Log ataków",
+  "win": "WYGRANA",
+  "loss": "PORAŻKA",
+  "system": {
+    "join": "{{username}} dołączył na statek.",
+    "removed": "{{username}} został wyrzucony ze statku przez {{remover}}.",
+    "leave": "{{username}} opuścił statek.",
+    "deposit": {
+      "gold": "{{username}} wpłacił {{gold}} złota na statek.",
+      "fameCoins": "{{username}} wpłacił {{fameCoins}} fame coins na statek.",
+      "both": "{{username}} wpłacił {{gold}} złota i {{fameCoins}} fame coins na statek."
+    }
+  },
+  "avatars": {
+    "pirate": "Pirat",
+    "captain": "Kapitan",
+    "boatswain": "Bosman",
+    "navigator": "Nawigator",
+    "rogue": "Łotrzyk",
+    "buccaneer": "Bukanier",
+    "admiral": "Admirał",
+    "captainess": "Kapitanka",
+    "sorceress": "Czarodziejka",
+    "scout": "Zwiadowczyni",
+    "warrior": "Wojowniczka"
+  },
+  "coupons": "Kupony",
+  "rzutMoneta": "Rzut monetą",
+  "settings": "Ustawienia",
+  "sidebarCollapse": "Zwiń menu",
+  "sidebarExpand": "Przypnij menu",
+  "redeemCoupon": "Zrealizuj Kupon",
+  "enterCouponCode": "Wprowadź kod kuponu",
+  "redeem": "Zrealizuj",
+  "redeeming": "Realizowanie...",
+  "couponHistory": "Historia Kuponów",
+  "noCouponsUsed": "Nie użyto jeszcze żadnych kuponów",
+  "code": "Kod",
+  "usedAt": "Użyto",
+  "couponCodeRequired": "Proszę wprowadzić kod kuponu",
+  "couponRedeemedSuccessfully": "Kupon zrealizowany pomyślnie!",
+  "couponRedeemedSuccessfullyWithReward": "Kupon zrealizowany pomyślnie! Otrzymałeś: {{reward}}",
+  "couponRedeemFailed": "Nie udało się zrealizować kuponu",
+  "couponCodeNotFound": "Nie znaleziono kodu kuponu",
+  "couponExpired": "Kupon wygasł",
+  "couponAlreadyUsed": "Ten kupon został już użyty",
+  "couponAlreadyUsedByYou": "Już użyłeś tego kuponu",
+  "premiumShopPage": {
+    "title": "Handlarz diamentów",
+    "pageAriaLabel": "Sklep z diamentami",
+    "seoTitle": "Diamenty | Pirate Hero",
+    "seoDescription": "Kup pakiety diamentów i wspieraj rozwój swojego kapitana w Pirate Hero.",
+    "subtitle": "Brakuje diamentów? Zamów u handlarza - im większy pakiet, tym więcej bonusu!",
+    "dealerLabel": "Handlarz premium",
+    "yourBalance": "Twoje diamenty",
+    "sectionFeatured": "Oferta specjalna",
+    "sectionPacks": "Pakiety diamentów",
+    "oneTimeOffer": "Jednorazowo",
+    "badgePopular": "HIT",
+    "badgeBestValue": "Najlepsza oferta",
+    "bonusFree": "+{{percent}}% gratis",
+    "buyFor": "{{price}} zł",
+    "comingSoon": "Płatności wkrótce",
+    "comingSoonHint": "Pakiet {{diamonds}} diamentów - integracja płatności w przygotowaniu.",
+    "disclaimer": "To podgląd sklepu premium. Płatności rzeczywiste i dostawa diamentów zostaną dodane w kolejnej wersji.",
+    "featured": {
+      "title": "Pakiet startowy",
+      "subtitle": "Idealny na początek przygody - tylko raz na konto.",
+      "bonusItem": "Bonus: eliksir doświadczenia i tydzień najlepszego wierzchowca",
+      "levelHint": "Dla kapitanów do 20. poziomu"
+    },
+    "confirm": {
+      "subtitle": "Potwierdź zakup pakietu diamentów.",
+      "button": "Kup teraz"
+    },
+    "historyTitle": "Historia transakcji",
+    "historyLoading": "Ładowanie historii transakcji…",
+    "noTransactions": "Brak zakupów diamentów.",
+    "transactionDiamonds": "+{{count}} diamentów",
+    "purchaseFailed": "Nie udało się dokończyć zakupu. Diamenty zostały przywrócone.",
+    "catalogLoadFailed": "Nie udało się załadować pakietów diamentów. Spróbuj ponownie.",
+    "catalogRetry": "Spróbuj ponownie",
+    "catalogLoading": "Ładowanie pakietów diamentów…",
+    "packs": {
+      "handful": {
+        "name": "Garść diamentów"
+      },
+      "pouch": {
+        "name": "Sakiewka diamentów"
+      },
+      "sack": {
+        "name": "Worek diamentów"
+      },
+      "chest": {
+        "name": "Skrzynia diamentów"
+      },
+      "vault": {
+        "name": "Skarbiec diamentów"
+      },
+      "treasure": {
+        "name": "Skarb pirata"
+      }
+    }
+  },
+  "couponPage": {
+    "title": "Kupony",
+    "pageAriaLabel": "Kupony",
+    "skeletonAria": "Ładowanie strony kuponów",
+    "seoTitle": "Kupony | Pirate Hero",
+    "seoDescription": "Realizuj kody kuponów i zdobądź złoto, diamenty, boostery i wyjątkowe przedmioty w Pirate Hero.",
+    "subtitle": "Wpisz kod poniżej, aby odebrać nagrodę.",
+    "received": "Otrzymano"
+  },
+  "settingsPage": {
+    "seoTitle": "Ustawienia | Pirate Hero",
+    "seoDescription": "Serwer i hasło do konta.",
+    "pageAriaLabel": "Ustawienia gry",
+    "title": "Ustawienia",
+    "server": {
+      "title": "Serwer"
+    },
+    "servers": {
+      "PL1": "PL1 - Tortuga",
+      "PL2": "PL2 - Nassau",
+      "DE1": "DE1 - Kiel",
+      "EN1": "EN1 - Port Royal",
+      "FR1": "FR1 - Marseille"
+    },
+    "password": {
+      "title": "Zmień hasło",
+      "current": "Aktualne hasło",
+      "new": "Nowe hasło",
+      "newPlaceholder": "Min. 6 znaków",
+      "confirm": "Potwierdź nowe hasło",
+      "confirmPlaceholder": "Powtórz hasło",
+      "submit": "Zmień hasło",
+      "fillAll": "Wypełnij wszystkie pola",
+      "mismatch": "Hasła nie są identyczne",
+      "tooShort": "Hasło musi mieć min. 6 znaków",
+      "changedSuccess": "Hasło zostało zmienione.",
+      "submitting": "Zapisywanie…",
+      "changeFailed": "Nie udało się zmienić hasła. Spróbuj ponownie."
+    }
+  },
+  "changePasswordInvalidPayload": "Nieprawidłowe dane żądania (hasło).",
+  "changePasswordCurrentRequired": "Podaj aktualne hasło.",
+  "changePasswordNewRequired": "Podaj nowe hasło.",
+  "changePasswordNewTooShort": "Nowe hasło musi mieć co najmniej 6 znaków.",
+  "changePasswordNewMismatch": "Powtórzenie nowego hasła jest inne.",
+  "changePasswordCurrentWrong": "Aktualne hasło jest nieprawidłowe.",
+  "changePasswordSameAsCurrent": "Nowe hasło musi różnić się od obecnego.",
+  "changePasswordSessionInvalid": "Sesja jest nieaktualna - zaloguj się ponownie.",
+  "passwordResetIntro": "Podaj adres e-mail konta. Wyślemy link do ustawienia nowego hasła.",
+  "passwordResetSendLink": "Wyślij link resetujący",
+  "passwordResetSendingLink": "Wysyłanie linku…",
+  "passwordResetSaving": "Zapisywanie hasła…",
+  "passwordResetBackToLogin": "Wróć do logowania",
+  "passwordResetRequestSent": "Jeśli konto z tym adresem istnieje, wysłaliśmy link do resetu hasła. Sprawdź skrzynkę (także spam).",
+  "passwordResetRequestFailed": "Nie udało się wysłać linku. Spróbuj ponownie.",
+  "passwordResetSuccessTitle": "Sprawdź e-mail",
+  "passwordResetErrorTitle": "Reset hasła",
+  "passwordResetPage": {
+    "seoTitle": "Nowe hasło | Pirate Hero",
+    "seoDescription": "Ustaw nowe hasło do konta Pirate Hero.",
+    "title": "Ustaw nowe hasło",
+    "subtitle": "Wpisz nowe hasło dla swojego konta."
+  },
+  "passwordResetSavePassword": "Zapisz nowe hasło",
+  "passwordResetCompleted": "Hasło zostało zmienione. Możesz się zalogować.",
+  "passwordResetFailed": "Nie udało się zmienić hasła. Spróbuj ponownie lub poproś o nowy link.",
+  "passwordResetInvalidPayload": "Nieprawidłowe dane żądania.",
+  "passwordResetEmailRequired": "Podaj adres e-mail.",
+  "passwordResetEmailInvalid": "Podaj prawidłowy adres e-mail.",
+  "passwordResetTokenInvalid": "Link resetu hasła jest nieprawidłowy lub wygasł.",
+  "passwordResetTokenExpired": "Link resetu hasła wygasł. Poproś o nowy.",
+  "passwordResetNewRequired": "Podaj nowe hasło.",
+  "passwordResetNewTooShort": "Nowe hasło musi mieć co najmniej 6 znaków.",
+  "passwordResetNewMismatch": "Hasła nie są identyczne.",
+  "repeatPasswordRequired": "Powtórz hasło.",
+  "coinFlipStakeInvalid": "Stawka musi być liczbą całkowitą od 1 do 10 diamentów",
+  "coinFlipChoiceInvalid": "Wybierz orła lub reszkę",
+  "coinFlipPage": {
+    "title": "Rzut monetą",
+    "pageAriaLabel": "Minigra rzut monetą",
+    "seoTitle": "Rzut monetą | Pirate Hero",
+    "seoDescription": "Piracki rzut monetą - stawka w diamentach, trafienie podwaja postawione.",
+    "stakeLabel": "Stawka (diamenty)",
+    "sideLabel": "Twoja strona",
+    "heads": "Orzeł",
+    "tails": "Reszka",
+    "flip": "Rzuć",
+    "flipping": "Losowanie…",
+    "pickSideHint": "Wybierz orła lub reszkę przed rzutem.",
+    "resultWin": "Wygrałeś {{payout}} diamentów!",
+    "resultLose": "Tym razem bez wygranej. Wypadło: {{outcome}}.",
+    "outcomeHeads": "orzeł",
+    "outcomeTails": "reszka",
+    "lastOutcome": "Ostatni wynik",
+    "playFailed": "Nie udało się dokończyć rzutu. Spróbuj ponownie."
+  },
+  "invalidGoldRewardAmount": "Nieprawidłowa ilość nagrody w złocie",
+  "invalidFameCoinsRewardAmount": "Nieprawidłowa ilość nagrody w fame coins",
+  "invalidBoosterRewardData": "Nieprawidłowe dane nagrody booster",
+  "invalidItemCouponRewardData": "Ten kupon przedmiotowy ma błędną konfigurację (brak typu lub rzadkości)",
+  "boosterTemplateNotFound": "Nie znaleziono szablonu boostera",
+  "userStorageNotFound": "Nie znaleziono schowka użytkownika",
+  "noFreeStorageSlot": "Brak wolnego miejsca w schowku na nagrodę przedmiot",
+  "itemLabel": "Przedmiot",
+  "contact": {
+    "title": "Skontaktuj się z nami",
+    "description": "Masz pytania lub potrzebujesz pomocy? Napisz do nas!",
+    "name": "Imię i nazwisko",
+    "namePlaceholder": "Wprowadź swoje imię i nazwisko",
+    "nameRequired": "Imię i nazwisko jest wymagane",
+    "email": "Email",
+    "emailPlaceholder": "twoj@email.com",
+    "emailRequired": "Email jest wymagany",
+    "emailInvalid": "Podaj poprawny adres email",
+    "subject": "Temat",
+    "subjectPlaceholder": "Wprowadź temat wiadomości",
+    "subjectRequired": "Temat jest wymagany",
+    "message": "Wiadomość",
+    "messagePlaceholder": "Wprowadź swoją wiadomość...",
+    "messageHint": "Minimum 10 znaków.",
+    "messageRequired": "Wiadomość jest wymagana",
+    "messageMinLength": "Wiadomość musi mieć co najmniej 10 znaków",
+    "send": "Wyślij wiadomość",
+    "sending": "Wysyłanie...",
+    "successTitle": "Wiadomość wysłana!",
+    "successMessage": "Dziękujemy za kontakt! Odpowiemy tak szybko, jak to możliwe.",
+    "errorTitle": "Błąd",
+    "errorMessage": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.",
+    "otherWays": "Inne sposoby kontaktu",
+    "emailLabel": "Email",
+    "responseTime": "Zwykle odpowiadamy w ciągu 24-48 godzin."
+  }
+}

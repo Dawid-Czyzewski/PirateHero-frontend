@@ -1,0 +1,904 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Pirate Hero / shadcn-style tokens - Tailwind v4 (@theme); see :root for raw HSL triples */
+@theme {
+  --font-display: "Cinzel", serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-border: hsl(220 15% 22%);
+  --color-input: hsl(220 15% 22%);
+  --color-ring: hsl(42 80% 50%);
+  --color-background: hsl(220 25% 10%);
+  --color-foreground: hsl(42 30% 88%);
+
+  --color-card: hsl(220 20% 14%);
+  --color-card-foreground: hsl(42 30% 88%);
+
+  --color-popover: hsl(220 20% 14%);
+  --color-popover-foreground: hsl(42 30% 88%);
+
+  --color-primary: hsl(42 80% 50%);
+  --color-primary-foreground: hsl(220 25% 8%);
+
+  --color-secondary: hsl(200 60% 25%);
+  --color-secondary-foreground: hsl(42 30% 88%);
+
+  --color-muted: hsl(220 18% 18%);
+  --color-muted-foreground: hsl(220 10% 55%);
+
+  --color-accent: hsl(0 65% 45%);
+  --color-accent-foreground: hsl(42 30% 95%);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+
+  --color-gold: hsl(42 80% 50%);
+  --color-gold-light: hsl(42 90% 65%);
+  --color-ocean: hsl(200 60% 25%);
+  --color-ocean-deep: hsl(210 50% 15%);
+  --color-wood: hsl(25 40% 20%);
+  --color-blood: hsl(0 65% 45%);
+
+  --color-sidebar: hsl(220 25% 8%);
+  --color-sidebar-foreground: hsl(42 30% 80%);
+  --color-sidebar-primary: hsl(42 80% 50%);
+  --color-sidebar-primary-foreground: hsl(220 25% 8%);
+  --color-sidebar-accent: hsl(220 20% 15%);
+  --color-sidebar-accent-foreground: hsl(42 30% 88%);
+  --color-sidebar-border: hsl(220 15% 18%);
+  --color-sidebar-ring: hsl(42 80% 50%);
+
+  --radius-sm: calc(0.5rem - 4px);
+  --radius-md: calc(0.5rem - 2px);
+  --radius-lg: 0.5rem;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-shimmer-sweep: shimmer-sweep 3s ease-in-out infinite;
+  --animate-hero-ken-burns: heroKenBurns 24s ease-in-out infinite alternate;
+  --animate-hero-ember: heroEmberDrift 5s ease-in-out infinite;
+  --animate-hero-frame-shimmer: heroFrameShimmer 7s linear infinite;
+  --animate-hero-idle-nudge: heroIdleNudge 4.5s ease-in-out infinite;
+  --animate-hero-scan: heroScan 12s linear infinite;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.14) translate(-1.5%, -1%);
+  }
+}
+
+@keyframes heroEmberDrift {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate(4px, -18px) scale(1.35);
+  }
+}
+
+@keyframes heroFrameShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes heroIdleNudge {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  15% {
+    transform: translate3d(1px, -1px, 0) rotate(-0.15deg);
+  }
+  30% {
+    transform: translate3d(-1.5px, 1px, 0) rotate(0.2deg);
+  }
+  45% {
+    transform: translate3d(1px, 0.5px, 0) rotate(-0.1deg);
+  }
+  60% {
+    transform: translate3d(-0.5px, -1px, 0) rotate(0.12deg);
+  }
+  75% {
+    transform: translate3d(0.5px, 0.5px, 0) rotate(-0.08deg);
+  }
+}
+
+@keyframes heroScan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.06;
+  }
+  92% {
+    opacity: 0.06;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 220 25% 10%;
+    --foreground: 42 30% 88%;
+
+    --card: 220 20% 14%;
+    --card-foreground: 42 30% 88%;
+
+    --popover: 220 20% 14%;
+    --popover-foreground: 42 30% 88%;
+
+    --primary: 42 80% 50%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 200 60% 25%;
+    --secondary-foreground: 42 30% 88%;
+
+    --muted: 220 18% 18%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 0 65% 45%;
+    --accent-foreground: 42 30% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 42 80% 50%;
+
+    --radius: 0.5rem;
+
+    --gold: 42 80% 50%;
+    --gold-light: 42 90% 65%;
+    --ocean: 200 60% 25%;
+    --ocean-deep: 210 50% 15%;
+    --wood: 25 40% 20%;
+    --blood: 0 65% 45%;
+
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 42 30% 80%;
+    --sidebar-primary: 42 80% 50%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 42 30% 88%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 42 80% 50%;
+
+    --font-display: "Cinzel", serif;
+    --font-body: "Inter", sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(42 90% 65%), hsl(42 80% 50%), hsl(35 70% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-ocean-gradient {
+    background: linear-gradient(180deg, hsl(210 50% 15%), hsl(220 25% 10%));
+  }
+
+  .border-gold {
+    border-color: hsl(42 80% 50% / 0.3);
+  }
+
+  .glow-gold {
+    box-shadow:
+      0 0 20px hsl(42 80% 50% / 0.2),
+      0 0 40px hsl(42 80% 50% / 0.1);
+  }
+
+  .card-pirate {
+    @apply bg-card border border-border rounded-lg;
+    background: linear-gradient(135deg, hsl(220 20% 14%), hsl(220 25% 11%));
+    box-shadow:
+      0 4px 20px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(42 80% 50% / 0.05);
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes fadeInGlow {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+      text-shadow: 0 0 0px currentColor;
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.1);
+      text-shadow: 0 0 10px currentColor;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      text-shadow: 0 0 5px currentColor;
+    }
+  }
+
+  @keyframes heroZeroFlicker {
+    0%,
+    100% {
+      opacity: 1;
+      text-shadow: 0 0 5px currentColor;
+    }
+    25% {
+      opacity: 0.8;
+      text-shadow:
+        0 0 15px currentColor,
+        0 0 25px currentColor;
+    }
+    50% {
+      opacity: 0.6;
+      text-shadow:
+        0 0 20px currentColor,
+        0 0 30px currentColor;
+    }
+    75% {
+      opacity: 0.9;
+      text-shadow: 0 0 10px currentColor;
+    }
+  }
+
+  .animate-blink {
+    animation: blink 0.5s infinite;
+  }
+
+  .animate-fade-in-glow {
+    animation: fadeInGlow 0.3s ease-in forwards;
+  }
+
+  @keyframes arenaPageFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: arenaPageFadeIn 0.45s ease-out both;
+  }
+
+  @keyframes arenaFloatUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-2.5rem);
+    }
+  }
+
+  .animate-arena-float-up {
+    animation: arenaFloatUp 0.75s ease-out forwards;
+  }
+
+  @keyframes arenaScaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-arena-scale-in {
+    animation: arenaScaleIn 0.35s ease-out forwards;
+  }
+
+  .animate-hero-zero {
+    animation: heroZeroFlicker 2s infinite;
+  }
+
+  @keyframes attackSwing {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    20% {
+      transform: rotate(-20deg) scale(1.2);
+    }
+    40% {
+      transform: rotate(25deg) scale(1.4);
+    }
+    60% {
+      transform: rotate(-10deg) scale(1.3);
+    }
+    80% {
+      transform: rotate(5deg) scale(1.1);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  @keyframes damageShake {
+    0%,
+    100% {
+      transform: translateX(0) scale(1);
+    }
+    10% {
+      transform: translateX(-10px) scale(0.9);
+    }
+    20% {
+      transform: translateX(10px) scale(0.8);
+    }
+    30% {
+      transform: translateX(-8px) scale(0.9);
+    }
+    40% {
+      transform: translateX(8px) scale(0.8);
+    }
+    50% {
+      transform: translateX(-6px) scale(0.9);
+    }
+    60% {
+      transform: translateX(6px) scale(0.8);
+    }
+    70% {
+      transform: translateX(-4px) scale(0.9);
+    }
+    80% {
+      transform: translateX(4px) scale(0.8);
+    }
+    90% {
+      transform: translateX(-2px) scale(0.9);
+    }
+  }
+
+  @keyframes dodgeSlide {
+    0% {
+      transform: translateX(0) scale(1) rotate(0deg);
+    }
+    25% {
+      transform: translateX(-15px) scale(1.1) rotate(-5deg);
+    }
+    50% {
+      transform: translateX(30px) scale(1.2) rotate(10deg);
+    }
+    75% {
+      transform: translateX(15px) scale(1.1) rotate(-3deg);
+    }
+    100% {
+      transform: translateX(0) scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes criticalGlow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 5px currentColor);
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      filter: drop-shadow(0 0 15px #ffd700) drop-shadow(0 0 25px #ffd700);
+      transform: scale(1.2) rotate(5deg);
+    }
+    50% {
+      filter: drop-shadow(0 0 25px #ffd700) drop-shadow(0 0 40px #ffd700)
+        drop-shadow(0 0 60px #ffd700);
+      transform: scale(1.3) rotate(-5deg);
+    }
+    75% {
+      filter: drop-shadow(0 0 20px #ffd700) drop-shadow(0 0 35px #ffd700);
+      transform: scale(1.1) rotate(3deg);
+    }
+  }
+
+  .animate-attack-swing {
+    animation: attackSwing 1.2s ease-in-out;
+  }
+
+  .animate-damage-shake {
+    animation: damageShake 1s ease-in-out;
+  }
+
+  .animate-dodge-slide {
+    animation: dodgeSlide 1s ease-in-out;
+  }
+
+  .animate-critical-glow {
+    animation: criticalGlow 1.5s ease-in-out;
+  }
+
+  @keyframes ship-rock {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(2deg);
+    }
+  }
+
+  .animate-ship-rock {
+    animation: ship-rock 4s ease-in-out infinite;
+  }
+
+  @keyframes ship-cannon-ltr {
+    0% {
+      opacity: 0;
+      transform: translate(-8%, 0) scale(0.65);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(108%, 0) scale(1);
+    }
+  }
+
+  @keyframes ship-cannon-rtl {
+    0% {
+      opacity: 0;
+      transform: translate(8%, 0) scale(0.65);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-108%, 0) scale(1);
+    }
+  }
+
+  .animate-ship-cannon-ltr {
+    animation: ship-cannon-ltr 0.65s ease-out forwards;
+  }
+
+  .animate-ship-cannon-rtl {
+    animation: ship-cannon-rtl 0.65s ease-out forwards;
+  }
+
+  @keyframes flip {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+
+  .animate-flip {
+    animation: flip 0.1s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3) translateY(20px);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05) translateY(-5px);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 10px rgba(251, 191, 36, 0.5),
+        0 0 20px rgba(251, 191, 36, 0.3),
+        inset 0 0 10px rgba(251, 191, 36, 0.2);
+    }
+    50% {
+      box-shadow:
+        0 0 20px rgba(251, 191, 36, 0.8),
+        0 0 40px rgba(251, 191, 36, 0.5),
+        inset 0 0 15px rgba(251, 191, 36, 0.3);
+    }
+  }
+
+  @keyframes cardBounce {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-8px) scale(1.02);
+    }
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-card-bounce {
+    animation: cardBounce 3s ease-in-out infinite;
+  }
+
+  .hero-zero-card {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba(251, 191, 36, 0.15) 0%,
+      rgba(234, 179, 8, 0.1) 100%
+    );
+    border: 3px solid rgba(251, 191, 36, 0.4);
+    box-shadow:
+      0 4px 15px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(251, 191, 36, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-zero-button {
+    position: relative;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 3px solid;
+    box-shadow:
+      0 4px 0 rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-zero-button:active {
+    transform: translateY(2px);
+    box-shadow:
+      0 2px 0 rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .landing-page-shell {
+    background-color: hsl(220 25% 9%);
+    background-image:
+      radial-gradient(ellipse 100% 80% at 50% -30%, hsl(42 75% 48% / 0.14), transparent 55%),
+      linear-gradient(180deg, hsl(210 42% 13%) 0%, hsl(220 26% 9%) 38%, hsl(220 28% 7%) 100%);
+  }
+
+  .landing-arcade-noise {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(0 0% 0% / 0.03) 2px,
+      hsl(0 0% 0% / 0.03) 3px
+    );
+  }
+
+  .landing-arcade-rivet {
+    box-shadow:
+      inset 0 1px 0 hsl(42 80% 55% / 0.1),
+      inset 0 -1px 0 hsl(0 0% 0% / 0.35),
+      0 0 0 1px hsl(0 0% 0% / 0.55),
+      0 14px 36px hsl(0 0% 0% / 0.5);
+  }
+
+  .landing-slot-card {
+    background: linear-gradient(145deg, hsl(220 22% 14%) 0%, hsl(220 26% 9%) 100%);
+    box-shadow:
+      inset 0 1px 0 hsl(42 80% 50% / 0.07),
+      inset 0 -2px 6px hsl(0 0% 0% / 0.35),
+      0 2px 0 hsl(0 0% 0% / 0.25);
+  }
+
+  .landing-cta-3d-primary {
+    box-shadow:
+      0 6px 0 hsl(32 65% 22%),
+      0 10px 28px hsl(0 0% 0% / 0.45),
+      inset 0 1px 0 hsl(42 90% 70% / 0.35);
+  }
+
+  .landing-cta-3d-primary:active {
+    transform: translateY(4px);
+    box-shadow:
+      0 2px 0 hsl(32 65% 22%),
+      0 4px 12px hsl(0 0% 0% / 0.4),
+      inset 0 1px 0 hsl(42 90% 70% / 0.25);
+  }
+
+  .landing-cta-3d-secondary {
+    box-shadow:
+      0 5px 0 hsl(220 20% 4%),
+      0 8px 20px hsl(0 0% 0% / 0.4),
+      inset 0 1px 0 hsl(220 15% 30% / 0.5);
+  }
+
+  .landing-cta-3d-secondary:active {
+    transform: translateY(3px);
+    box-shadow:
+      0 2px 0 hsl(220 20% 4%),
+      0 3px 10px hsl(0 0% 0% / 0.35),
+      inset 0 1px 0 hsl(220 15% 30% / 0.35);
+  }
+
+  @keyframes ph-wave-shift {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-4%);
+    }
+  }
+
+  .ph-wave {
+    animation: ph-wave-shift 10s ease-in-out infinite;
+  }
+
+  @keyframes ph-float-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
+  .ph-float-slow {
+    animation: ph-float-slow 5s ease-in-out infinite;
+  }
+
+  @keyframes ph-hero-lightning {
+    0%,
+    85%,
+    100% {
+      opacity: 0;
+    }
+    86% {
+      opacity: 0.22;
+    }
+    86.4% {
+      opacity: 0;
+    }
+    89% {
+      opacity: 0.32;
+    }
+    89.6% {
+      opacity: 0;
+    }
+    91.2% {
+      opacity: 0.14;
+    }
+    91.6% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes ph-hero-lightning-sky {
+    0%,
+    87%,
+    100% {
+      opacity: 0;
+    }
+    88% {
+      opacity: 0.4;
+    }
+    88.5% {
+      opacity: 0;
+    }
+    93% {
+      opacity: 0.18;
+    }
+    93.3% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes ph-hero-content-in {
+    from {
+      opacity: 0;
+      transform: translateY(1.15rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ph-hero-fog {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translate(-14px, -10px) scale(1.08);
+      opacity: 0.42;
+    }
+  }
+
+  .ph-hero-lightning {
+    animation: ph-hero-lightning 8.5s ease-in-out infinite;
+  }
+
+  .ph-hero-lightning-sky {
+    animation: ph-hero-lightning-sky 10.5s ease-in-out infinite 1.75s;
+  }
+
+  .ph-hero-content-in {
+    animation: ph-hero-content-in 1.05s ease-out both;
+  }
+
+  .ph-hero-fog-blob {
+    animation: ph-hero-fog 14s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ph-hero-lightning,
+    .ph-hero-lightning-sky,
+    .ph-hero-content-in,
+    .ph-hero-fog-blob {
+      animation: none !important;
+    }
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 25% 10%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(220 15% 25%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(42 80% 50% / 0.5);
+}
+
+/* Coin toss - rotateY tumble while waiting for API (real coin flip axis) */
+@keyframes fg-coin-y-tumble {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.fg-coin-y-tumble {
+  transform-style: preserve-3d;
+  animation: fg-coin-y-tumble 0.48s linear infinite;
+}
+
+.fg-coin-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.fg-coin-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fg-coin-y-tumble {
+    animation-duration: 1s;
+  }
+}

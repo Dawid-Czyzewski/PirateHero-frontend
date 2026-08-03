@@ -1,1 +1,1 @@
-# PirateHero-frontend
+# FameGame Frontend

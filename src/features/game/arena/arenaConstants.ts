@@ -1,0 +1,7 @@
+export const ARENA_FIGHT_DUEL_COST = 2;
+export const ARENA_DUEL_HP_MULTIPLIER = 2;
+export const ARENA_BATTLE_BACKGROUND_SRC = '';
+export const ARENA_BATTLE_LOG_TICK_MS = 1150;
+export const ARENA_BATTLE_ATTACK_MS = 500;
+export const ARENA_BATTLE_HIT_CLEAR_MS = 600;
+export const ARENA_BATTLE_RESULT_DELAY_MS = 1000;

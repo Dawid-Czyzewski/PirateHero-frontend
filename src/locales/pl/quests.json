@@ -1,0 +1,417 @@
+{
+  "gold_spent_100": {
+    "title": "Pierwszy zakup",
+    "description": "Każdy kapitan zaczyna od pierwszego wydatek w tawernie lub u handlarza. Wydaj 100 sztuk złota, by udowodnić, że nie boisz się inwestować w własny rozwój.",
+    "rewardDescription": "Pakiet doświadczenia za pierwszy krok w świat handlu."
+  },
+  "gold_spent_1000": {
+    "title": "Hojny kupiec",
+    "description": "Twoja sakiewka coraz częściej chlupie w portowych sklepach. Wydaj łącznie 1000 złota i zyskaj reputację kapitana, który nie liczy każdej monety.",
+    "rewardDescription": "Solidna porcja złota wraca do skarbców za hojność."
+  },
+  "gold_spent_10000": {
+    "title": "Milioner",
+    "description": "Złoto płynie przez twoje ręce jak morskie fale. Wydaj 10 000 sztuk i dołącz do elity kapitanów, którzy kształtują gospodarkę archipelagu.",
+    "rewardDescription": "Błyszczące diamenty - waluta prawdziwych magnatów mórz."
+  },
+  "gold_spent_5000": {
+    "title": "Skarbiec Kupca",
+    "description": "Handlarze na całym wybrzeżu znają twoje imię. Wydaj 5000 złota i pokaż, że finansujesz ekspedycje bez wahania.",
+    "rewardDescription": "Złoto i wpływy w portowych kręgach kupieckich."
+  },
+  "level_2": {
+    "title": "Pierwszy poziom",
+    "description": "Każda legenda zaczyna od jednego kroku na drabinie sławy. Wbij poziom 2 i odczuj pierwszy prawdziwy wzrost mocy.",
+    "rewardDescription": "Doświadczenie na start kolejnej przygody."
+  },
+  "level_5": {
+    "title": "Doświadczony wojownik",
+    "description": "Pięć poziomów to już nie przypadek - to świadoma droga wojownika. Morze zaczyna cię traktować poważnie.",
+    "rewardDescription": "Złoto za udowodnioną sprawność w walce."
+  },
+  "level_10": {
+    "title": "Mistrz",
+    "description": "Dziesiąty poziom otwiera drzwi do elitarnych lokacji i niebezpieczniejszych wód. Jesteś już kapitanem, którego się słucha.",
+    "rewardDescription": "Losowy przedmiot - trofeum mistrza."
+  },
+  "level_20": {
+    "title": "Kapitan Doświadczony",
+    "description": "Dwie dekady wspinaczki po szczeblach sławy uczyniły z ciebie postać rozpoznawalną w każdym porcie.",
+    "rewardDescription": "Złoto za wieloletnią wierność morzu."
+  },
+  "level_35": {
+    "title": "Weteran Poziomów",
+    "description": "Poziom 35 to dowód, że przetrwałeś burze, mutiny i starcia z legendami. Twoja załoga patrzy na ciebie z szacunkiem.",
+    "rewardDescription": "Doświadczenie i złoto - podwójna nagroda weterana."
+  },
+  "level_50": {
+    "title": "Elitarny Kapitan",
+    "description": "Pięćdziesiąty poziom stawia cię w jednym rzędzie z admirałami flot pirackich. Atlantyda słucha twoich kroków.",
+    "rewardDescription": "Potężna dawka PD i złota elitarnego kapitana."
+  },
+  "level_75": {
+    "title": "Lord Mórz",
+    "description": "Siedemdziesiąty piąty poziom to rzadkość nawet wśród legend. Twoje imię wymawiają z trwogą i podziwem.",
+    "rewardDescription": "Ogromne doświadczenie godne lorda oceanów."
+  },
+  "level_100": {
+    "title": "Władca Oceanu",
+    "description": "Sto poziomów - granica, o której śpiewają szanty w każdej tawernie. Stałeś się żywą legendą mórz.",
+    "rewardDescription": "Diamenty - korona prawdziwego władcy oceanu."
+  },
+  "fight_won_1": {
+    "title": "Pierwsza wygrana",
+    "description": "Pierwsza wygrana na arenie to moment, w którym kapitan przestaje być rekrutem. Krew, pot i triumf.",
+    "rewardDescription": "Doświadczenie za pierwsze zwycięstwo."
+  },
+  "fight_won_10": {
+    "title": "Zwycięzca",
+    "description": "Dziesięć wygranych walk buduje reputację. Przeciwnicy zaczynają szeptać twoje imię przed starciem.",
+    "rewardDescription": "Złoto za serię zwycięstw."
+  },
+  "fight_won_50": {
+    "title": "Niepokonany",
+    "description": "Pięćdziesiąt wygranych to dowód żelaznej woli. Arena drży, gdy wchodzisz na pokład.",
+    "rewardDescription": "Losowy przedmiot - trofeum niepokonanego."
+  },
+  "fight_veteran_100": {
+    "title": "Weteran walk",
+    "description": "Sto pokonanych przeciwników. Twoje ruchy są już legendą wśród gladiatorów portowych.",
+    "rewardDescription": "Losowy przedmiot weterana aren."
+  },
+  "fight_veteran_250": {
+    "title": "Weteran Areny II",
+    "description": "Dwieście pięćdziesiąt wygranych - arena nie jest już miejscem prób, lecz twoim królestwem.",
+    "rewardDescription": "Złoto i doświadczenie za dominację na arenie."
+  },
+  "fight_veteran_500": {
+    "title": "Pogromca Piratów",
+    "description": "Pięćset zwycięstw. Piraci unikają twojego okrętu jak klątwy. Jesteś pogromcą, o którym straszą młodych marynarzy.",
+    "rewardDescription": "Rzadki lub epicki przedmiot - łup pogromcy."
+  },
+  "fight_veteran_1000": {
+    "title": "Pogromca Potworów",
+    "description": "Tysiąc wygranych walk. Nawet morskie potwory ustępują przed twoją determinacją.",
+    "rewardDescription": "Legendarny losowy przedmiot pogromcy."
+  },
+  "fight_lost_1": {
+    "title": "Pierwsza porażka",
+    "description": "Upadek na piachu areny uczy pokory. Każdy wielki kapitan zna smak porażki.",
+    "rewardDescription": "Doświadczenie za naukę przez klęskę."
+  },
+  "fight_lost_10": {
+    "title": "Nauka przez porażki",
+    "description": "Dziesięć porażek to dziesięć lekcji. Analizujesz błędy i wracasz silniejszy.",
+    "rewardDescription": "Złoto za wytrwałość mimo klęsk."
+  },
+  "fight_lost_50": {
+    "title": "Wytrwałość",
+    "description": "Pięćdziesiąt porażek nie złamało twojego ducha. To właśnie czyni cię niebezpiecznym.",
+    "rewardDescription": "Diamenty za żelazną wytrwałość."
+  },
+  "collector_10": {
+    "title": "Pierwsze 10 Zdobytych Przedmiotów",
+    "description": "Każdy skarb opowiada historię. Zbierz dziesięć unikalnych przedmiotów i rozpocznij swoją kolekcję.",
+    "rewardDescription": "Złoto za pierwsze kroki kolekcjonera."
+  },
+  "collector_25": {
+    "title": "Kolekcjoner II",
+    "description": "Dwadzieścia pięć przedmiotów w twojej skrzyni - już widać pasję prawdziwego łowcy skarbów.",
+    "rewardDescription": "Złoto za rosnącą kolekcję."
+  },
+  "collector_50": {
+    "title": "Kolekcjoner III",
+    "description": "Pięćdziesiąt unikalnych trofeów. Twoja skrzynia wygląda jak muzeum pirackich reliktów.",
+    "rewardDescription": "Złoto i doświadczenie za kolekcję III."
+  },
+  "collector_75": {
+    "title": "Kolekcjoner IV",
+    "description": "Siedemdziesiąt pięć przedmiotów - kolekcja godna admirała. Rzadko ktoś dorównuje twojej pasji.",
+    "rewardDescription": "Złoto i PD za mistrzowską kolekcję."
+  },
+  "collector_100": {
+    "title": "Kolekcjoner V",
+    "description": "Sto przedmiotów w twoim rejestrze. Każdy port chciałby zobaczyć twoją skrzynię skarbów.",
+    "rewardDescription": "Złoto i doświadczenie za kolekcję V."
+  },
+  "collector_150": {
+    "title": "Kolekcjoner Mistrz",
+    "description": "Sto pięćdziesiąt unikalnych trofeów - granica, którą przekraczają tylko legendy archipelagu.",
+    "rewardDescription": "Złoto i diamenty za mistrzowską kolekcję."
+  },
+  "rare_item_1": {
+    "title": "Pierwszy Rare Item",
+    "description": "Pierwszy rzadki przedmiot lśni inaczej w świetle latarni. Początek drogi do elitarnego ekwipunku.",
+    "rewardDescription": "Doświadczenie za pierwszy rzadki łup."
+  },
+  "epic_collector_10": {
+    "title": "Łowca Epickich Skarbów",
+    "description": "Dziesięć epickich przedmiotów - każdy nosi echo morskich legend i przeklętych bitew.",
+    "rewardDescription": "Doświadczenie za polowanie na epickie relikty."
+  },
+  "legendary_collector_5": {
+    "title": "Zdobywca Legend",
+    "description": "Pięć legendarnych przedmiotów. Morze oddaje ci swoje najcenniejsze sekrety.",
+    "rewardDescription": "Diamenty za zdobycie legend."
+  },
+  "legendary_collector_10": {
+    "title": "Łowca Legend I",
+    "description": "Dziesięć legendarnych trofeów - twoja skrzynia świeci jak skarb Atlantydy.",
+    "rewardDescription": "Losowy legendarny przedmiot."
+  },
+  "legendary_collector_15": {
+    "title": "Łowca Legend II",
+    "description": "Piętnaście legendarnych przedmiotów. Jesteś kolekcjonerem, o którym szepczą w każdej knieji.",
+    "rewardDescription": "Diamenty za kolekcję legend II."
+  },
+  "equipment_full": {
+    "title": "Pierwszy Pełny Ekwipunek",
+    "description": "Każdy slot wypełniony - pierwszy raz czujesz, że jesteś gotów na prawdziwe wyzwania.",
+    "rewardDescription": "Złoto za kompletny zestaw."
+  },
+  "rare_equipment_full": {
+    "title": "Pełny zestaw Rare",
+    "description": "Cały ekwipunek w rzadkiej jakości - twój sylwetka przestrasza przeciwników jeszcze przed walką.",
+    "rewardDescription": "Diamenty za pełny zestaw Rare."
+  },
+  "epic_equipment_full": {
+    "title": "Pełny zestaw Epicki",
+    "description": "Epicki blask na każdym elemencie wyposażenia. Wyglądasz jak awatar morskiej burzy.",
+    "rewardDescription": "Doświadczenie za epicki komplet."
+  },
+  "legendary_equipment_full": {
+    "title": "Pełny zestaw Legendarny",
+    "description": "Legendarny ekwipunek od stóp do głów - Posejdon patrzy z zainteresowaniem.",
+    "rewardDescription": "Diamenty za legendarny komplet."
+  },
+  "all_dungeons": {
+    "title": "Mistrz lochów",
+    "description": "Wszystkie lochy pokonane. Każda komnata, każdy boss, każda klątwa - za tobą.",
+    "rewardDescription": "Ogromne doświadczenie mistrza lochów."
+  },
+  "dungeon_krypta": {
+    "title": "Ukończ Kryptę",
+    "description": "Przejdź przez mgliste korytarze Krypt i staw czoła nieumarłym admirałom.",
+    "rewardDescription": "Doświadczenie za oczyszczenie Krypt."
+  },
+  "dungeon_kraken": {
+    "title": "Ukończ Krakena",
+    "description": "Dotrzyj do serca morskiego potwora i przeżyj fale, które pochłonęły setki okrętów.",
+    "rewardDescription": "Złoto za pokonanie Krakena."
+  },
+  "dungeon_forteca": {
+    "title": "Ukończ Fortecę Czarnobrodego",
+    "description": "Zdobądź twierdzę najsłynniejszego korsarza. Każda ściana opowiada historię krwi i złota.",
+    "rewardDescription": "Doświadczenie za zdobycie Fortecy."
+  },
+  "dungeon_wulkan": {
+    "title": "Ukończ Wulkan Davy'ego Jonesa",
+    "description": "Przejdź przez wulkaniczne głębiny, gdzie dusze tonących czekają na swój los.",
+    "rewardDescription": "Złoto za przetrwanie Wulkanu."
+  },
+  "dungeon_palac": {
+    "title": "Ukończ Pałac Posejdona",
+    "description": "Dotrzyj do tronu w sercu Atlantydy. Woda sama ustępuje przed twoją wolą.",
+    "rewardDescription": "Diamenty za ukończenie Pałacu."
+  },
+  "dungeon_all_bosses": {
+    "title": "Pogromca Bossów Lochów",
+    "description": "Każdy boss lochów leży pokonany. Od Admiral Lichów po Awatar Posejdona.",
+    "rewardDescription": "Losowy przedmiot pogromcy bossów."
+  },
+  "bestiary_complete": {
+    "title": "Wielki Odkrywca Bestiariusza",
+    "description": "Odkryj wszystkie wpisy bestiariusza. Każde stworzenie, każda legenda - udokumentowane.",
+    "rewardDescription": "Doświadczenie za komplet bestiariusza."
+  },
+  "dungeon_titles_all": {
+    "title": "Kolekcjoner Tytułów Lochowych",
+    "description": "Odblokuj wszystkie pięć tytułów za ukończenie lochów. Twoja ściana trofeów jest kompletna.",
+    "rewardDescription": "Diamenty za komplet tytułów lochowych."
+  },
+  "sea_legend": {
+    "title": "Legenda Mórz",
+    "description": "Wszystkie lochy ukończone i poziom 50 osiągnięty. Morza śpiewają o twoim imieniu.",
+    "rewardDescription": "Diamenty - znak prawdziwej legendy mórz."
+  },
+  "collector_200": {
+    "title": "Kolekcjoner VI",
+    "description": "Dwieście unikalnych trofeów w twoim rejestrze. Każdy port marzy o takiej skrzyni skarbów.",
+    "rewardDescription": "Złoto i doświadczenie za kolekcję VI."
+  },
+  "collector_250": {
+    "title": "Kolekcjoner VII",
+    "description": "Dwieście pięćdziesiąt przedmiotów - granica, którą przekraczają tylko arcymistrzowie kolekcjonowania.",
+    "rewardDescription": "Złoto i PD za kolekcję VII."
+  },
+  "collector_300": {
+    "title": "Kolekcjoner VIII",
+    "description": "Trzysta unikalnych reliktów. Twoja kolekcja dorównuje skarbcom admirałów i lordów Atlantydy.",
+    "rewardDescription": "Złoto i diamenty za kolekcję VIII."
+  },
+  "epic_collector_25": {
+    "title": "Arcymistrz Epickich Reliktów",
+    "description": "Dwadzieścia pięć epickich przedmiotów - każdy nosi echo morskich bitew i przeklętych legend.",
+    "rewardDescription": "Doświadczenie i złoto za polowanie na epickie skarby."
+  },
+  "legendary_collector_20": {
+    "title": "Łowca Legend III",
+    "description": "Dwadzieścia legendarnych trofeów. Morze zaczyna traktować cię jak żywego strażnika swoich sekretów.",
+    "rewardDescription": "Diamenty za Łowcę Legend III."
+  },
+  "legendary_collector_25": {
+    "title": "Łowca Legend IV",
+    "description": "Dwadzieścia pięć przedmiotów legendarnych. Twoja skrzynia świeci jak skarbiec Atlantydy.",
+    "rewardDescription": "Losowy legendarny przedmiot."
+  },
+  "legendary_collector_30": {
+    "title": "Łowca Legend V",
+    "description": "Trzydzieści legendarnych reliktów - granica, o której szepczą w każdej knieji archipelagu.",
+    "rewardDescription": "Diamenty za Łowcę Legend V."
+  },
+  "level_125": {
+    "title": "Kapitan Legend",
+    "description": "Poziom 125 - twoje imię brzmi jak szanta w tawernach trzech kontynentów.",
+    "rewardDescription": "Doświadczenie i złoto za wspinaczkę legend."
+  },
+  "level_150": {
+    "title": "Władca Fal",
+    "description": "Sto pięćdziesiąty poziom - fale same ustępują przed twoją wolą.",
+    "rewardDescription": "Doświadczenie i diamenty władcy fal."
+  },
+  "level_175": {
+    "title": "Strażnik Głębin",
+    "description": "Poziom 175 to dowód, że przetrwałeś otchłań i wróciłeś z nią w oczach.",
+    "rewardDescription": "Doświadczenie i złoto strażnika głębin."
+  },
+  "level_200": {
+    "title": "Nieśmiertelny Kapitan",
+    "description": "Dwusetny poziom - granica, o której śpiewają nawet duchy admirałów.",
+    "rewardDescription": "Diamenty nieśmiertelnego kapitana."
+  },
+  "fight_veteran_2000": {
+    "title": "Weteran Walk III",
+    "description": "Dwie tysiące wygranych walk. Arena nie jest już miejscem prób - to twój dom.",
+    "rewardDescription": "Złoto i doświadczenie weterana aren."
+  },
+  "fight_veteran_5000": {
+    "title": "Weteran Walk IV",
+    "description": "Pięć tysięcy zwycięstw. Przeciwnicy unikają twojego cienia jak klątwy.",
+    "rewardDescription": "Losowy przedmiot i diamenty pogromcy."
+  },
+  "gold_spent_25000": {
+    "title": "Magnat Portów",
+    "description": "Dwadzieścia pięć tysięcy wydanego złota - gospodarka archipelagu nosi twój ślad.",
+    "rewardDescription": "Diamenty magnata portów."
+  },
+  "titles_all_unlocked": {
+    "title": "Pan Tytułów",
+    "description": "Odblokuj wszystkie tytuły w grze. Twoja ściana trofeów jest kompletna.",
+    "rewardDescription": "Diamenty za komplet tytułów."
+  },
+  "fight_quests_complete": {
+    "title": "Mistrz Areny",
+    "description": "Ukończ wszystkie questy z kategorii walki - od pierwszej wygranej po tysiące triumfów.",
+    "rewardDescription": "Ogromne doświadczenie mistrza areny."
+  },
+  "collector_350": {
+    "title": "Kolekcjoner IX",
+    "description": "Trzysta pięćdziesiąt unikalnych trofeów - twoja skrzynia rywalizuje ze skarbcami cesarzy Atlantydy.",
+    "rewardDescription": "Złoto i doświadczenie za kolekcję IX."
+  },
+  "collector_400": {
+    "title": "Kolekcjoner X",
+    "description": "Cztery setki przedmiotów. Archipelag zna cię jako żywy katalog skarbów.",
+    "rewardDescription": "Złoto i diamenty za kolekcję X."
+  },
+  "collector_500": {
+    "title": "Kolekcjoner XII",
+    "description": "Pięćset unikalnych reliktów - granica, o której śpiewają szanty w każdej tawernie.",
+    "rewardDescription": "Złoto i diamenty za kolekcję XII."
+  },
+  "epic_collector_50": {
+    "title": "Łowca Epickich III",
+    "description": "Pięćdziesiąt epickich przedmiotów - każdy nosi echo burz i przeklętych bitew.",
+    "rewardDescription": "Doświadczenie i złoto za epickie polowanie III."
+  },
+  "epic_collector_75": {
+    "title": "Łowca Epickich IV",
+    "description": "Siedemdziesiąt pięć epickich reliktów. Twoja skrzynia świeci jak latarnia Atlantydy.",
+    "rewardDescription": "Doświadczenie i diamenty za Łowcę Epickich IV."
+  },
+  "epic_collector_100": {
+    "title": "Łowca Epickich V",
+    "description": "Sto epickich przedmiotów - mistrzostwo, którego zazdroszczą nawet admirałowie.",
+    "rewardDescription": "Diamenty za Łowcę Epickich V."
+  },
+  "legendary_collector_40": {
+    "title": "Łowca Legend VI",
+    "description": "Czterdzieści legendarnych trofeów. Morze oddaje ci swoje najstarsze sekrety.",
+    "rewardDescription": "Diamenty za Łowcę Legend VI."
+  },
+  "legendary_collector_50": {
+    "title": "Łowca Legend VII",
+    "description": "Pięćdziesiąt legend w twojej skrzyni - lewiatany szeptają twoje imię z lękiem.",
+    "rewardDescription": "Losowy przedmiot i diamenty."
+  },
+  "legendary_collector_75": {
+    "title": "Łowca Legend VIII",
+    "description": "Siedemdziesiąt pięć legendarnych reliktów - panujesz nad skarbami, o których śnią królowie.",
+    "rewardDescription": "Diamenty za Łowcę Legend VIII."
+  },
+  "fight_veteran_7500": {
+    "title": "Weteran Walk V",
+    "description": "Siedem i pół tysiąca wygranych. Arena drży, gdy słyszy twoje kroki.",
+    "rewardDescription": "Złoto i doświadczenie weterana V."
+  },
+  "fight_veteran_10000": {
+    "title": "Weteran Walk VI",
+    "description": "Dziesięć tysięcy zwycięstw - arcymistrzostwo walki uznane na wszystkich morzach.",
+    "rewardDescription": "Losowy przedmiot i diamenty."
+  },
+  "fight_veteran_15000": {
+    "title": "Weteran Walk VII",
+    "description": "Piętnaście tysięcy triumfów. Oceany rozstępują się przed twoim ostrzem.",
+    "rewardDescription": "Diamenty pogromcy oceanów."
+  },
+  "level_225": {
+    "title": "Niepokonany Korsarz",
+    "description": "Poziom 225 - korsarscy królowie salutują twojej fladze.",
+    "rewardDescription": "Doświadczenie i złoto niepokonanego korsarza."
+  },
+  "level_250": {
+    "title": "Cesarz Atlantydy",
+    "description": "Poziom 250 - zatopiony tron Atlantydy rozpoznaje swego dziedzica.",
+    "rewardDescription": "Doświadczenie i diamenty cesarza."
+  },
+  "level_300": {
+    "title": "Wieczny Kapitan",
+    "description": "Poziom 300 - nawet czas nie może zdjąć cię z dowództwa.",
+    "rewardDescription": "Diamenty wiecznego kapitana."
+  },
+  "gold_spent_50000": {
+    "title": "Król Kupców",
+    "description": "Pięćdziesiąt tysięcy wydanego złota - handel archipelagu kręci się wokół ciebie.",
+    "rewardDescription": "Diamenty króla kupców."
+  },
+  "gold_spent_100000": {
+    "title": "Władca Skarbców",
+    "description": "Sto tysięcy złota przepłynęło przez twoje ręce jak przypływ.",
+    "rewardDescription": "Diamenty władcy skarbców."
+  },
+  "collector_quests_complete": {
+    "title": "Mistrz Kolekcji",
+    "description": "Ukończ wszystkie questy kolekcjonerskie - od pierwszych dziesięciu po pięćset trofeów.",
+    "rewardDescription": "Diamenty mistrza kolekcji."
+  },
+  "level_quests_complete": {
+    "title": "Mistrz Poziomów",
+    "description": "Ukończ wszystkie questy z serii poziomów - od pierwszego kroku po wieczne dowództwo.",
+    "rewardDescription": "Diamenty mistrza poziomów."
+  },
+  "epic_quests_complete": {
+    "title": "Pan Epickich Reliktów",
+    "description": "Ukończ wszystkie questy epickich przedmiotów i stań się panem epickich skarbów.",
+    "rewardDescription": "Ogromne doświadczenie pana epickich reliktów."
+  }
+}

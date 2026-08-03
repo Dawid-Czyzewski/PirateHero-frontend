@@ -1,0 +1,417 @@
+{
+  "gold_spent_100": {
+    "title": "First Purchase",
+    "description": "Every captain starts with a first coin spent at the tavern or trader. Spend 100 gold to prove you invest in your own growth.",
+    "rewardDescription": "Experience bundle for your first step into trade."
+  },
+  "gold_spent_1000": {
+    "title": "Generous Merchant",
+    "description": "Your purse splashes often in port shops. Spend 1000 gold total and earn a reputation as a captain who does not count every coin.",
+    "rewardDescription": "A solid gold payout returns to your treasury."
+  },
+  "gold_spent_10000": {
+    "title": "Tycoon",
+    "description": "Gold flows through your hands like ocean waves. Spend 10,000 total and join captains who shape the archipelago economy.",
+    "rewardDescription": "Sparkling diamonds - currency of true sea magnates."
+  },
+  "gold_spent_5000": {
+    "title": "Merchant's Vault",
+    "description": "Traders along the coast know your name. Spend 5000 gold and show you fund expeditions without hesitation.",
+    "rewardDescription": "Gold and influence in port merchant circles."
+  },
+  "level_2": {
+    "title": "First Level",
+    "description": "Every legend begins with one step on the ladder of fame. Reach level 2 and feel your first real power surge.",
+    "rewardDescription": "Experience to kick off your next adventure."
+  },
+  "level_5": {
+    "title": "Seasoned Warrior",
+    "description": "Five levels is no accident - it is a warrior path. The sea begins to take you seriously.",
+    "rewardDescription": "Gold for proven combat skill."
+  },
+  "level_10": {
+    "title": "Master",
+    "description": "Level ten opens elite locations and deadlier waters. You are a captain others listen to.",
+    "rewardDescription": "Random item - a master trophy."
+  },
+  "level_20": {
+    "title": "Veteran Captain",
+    "description": "Two decades climbing the fame ladder made you recognizable in every port.",
+    "rewardDescription": "Gold for long loyalty to the sea."
+  },
+  "level_35": {
+    "title": "Level Veteran",
+    "description": "Level 35 proves you survived storms, mutinies, and clashes with legends. Your crew respects you.",
+    "rewardDescription": "Experience and gold - a veteran double reward."
+  },
+  "level_50": {
+    "title": "Elite Captain",
+    "description": "Level fifty puts you among pirate fleet admirals. Atlantis hears your footsteps.",
+    "rewardDescription": "Massive XP and gold for an elite captain."
+  },
+  "level_75": {
+    "title": "Sea Lord",
+    "description": "Level seventy-five is rare even among legends. Your name is spoken with awe and fear.",
+    "rewardDescription": "Huge experience worthy of a sea lord."
+  },
+  "level_100": {
+    "title": "Ocean Ruler",
+    "description": "One hundred levels - a boundary shanties sing about in every tavern. You became a living sea legend.",
+    "rewardDescription": "Diamonds - crown of a true ocean ruler."
+  },
+  "fight_won_1": {
+    "title": "First Victory",
+    "description": "Your first arena win is when a captain stops being a recruit. Blood, sweat, and triumph.",
+    "rewardDescription": "Experience for your first victory."
+  },
+  "fight_won_10": {
+    "title": "Champion",
+    "description": "Ten wins build reputation. Opponents whisper your name before the clash.",
+    "rewardDescription": "Gold for your winning streak."
+  },
+  "fight_won_50": {
+    "title": "Unbeaten",
+    "description": "Fifty wins prove iron will. The arena trembles when you step in.",
+    "rewardDescription": "Random item - trophy of the unbeaten."
+  },
+  "fight_veteran_100": {
+    "title": "Fight Veteran",
+    "description": "One hundred defeated opponents. Your moves are legend among port gladiators.",
+    "rewardDescription": "Random item from the arena veteran."
+  },
+  "fight_veteran_250": {
+    "title": "Arena Veteran II",
+    "description": "Two hundred fifty wins - the arena is no longer a trial but your kingdom.",
+    "rewardDescription": "Gold and XP for arena dominance."
+  },
+  "fight_veteran_500": {
+    "title": "Pirate Slayer",
+    "description": "Five hundred victories. Pirates avoid your ship like a curse. You are the slayer young sailors fear.",
+    "rewardDescription": "Rare or epic item - slayer loot."
+  },
+  "fight_veteran_1000": {
+    "title": "Monster Slayer",
+    "description": "One thousand wins. Even sea monsters yield to your determination.",
+    "rewardDescription": "Legendary random item for the slayer."
+  },
+  "fight_lost_1": {
+    "title": "First Defeat",
+    "description": "Falling on arena sand teaches humility. Every great captain knows defeat.",
+    "rewardDescription": "Experience for learning through loss."
+  },
+  "fight_lost_10": {
+    "title": "Learning Through Defeat",
+    "description": "Ten losses are ten lessons. You analyze mistakes and return stronger.",
+    "rewardDescription": "Gold for persistence despite losses."
+  },
+  "fight_lost_50": {
+    "title": "Perseverance",
+    "description": "Fifty losses did not break your spirit. That makes you dangerous.",
+    "rewardDescription": "Diamonds for iron perseverance."
+  },
+  "collector_10": {
+    "title": "First 10 Items Collected",
+    "description": "Every treasure tells a story. Collect ten unique items and begin your collection.",
+    "rewardDescription": "Gold for first collector steps."
+  },
+  "collector_25": {
+    "title": "Collector II",
+    "description": "Twenty-five items in your chest - the passion of a true treasure hunter shows.",
+    "rewardDescription": "Gold for a growing collection."
+  },
+  "collector_50": {
+    "title": "Collector III",
+    "description": "Fifty unique trophies. Your chest looks like a pirate relic museum.",
+    "rewardDescription": "Gold and XP for Collector III."
+  },
+  "collector_75": {
+    "title": "Collector IV",
+    "description": "Seventy-five items - a collection worthy of an admiral. Few match your passion.",
+    "rewardDescription": "Gold and XP for a master collection."
+  },
+  "collector_100": {
+    "title": "Collector V",
+    "description": "One hundred items in your registry. Every port wants to see your treasure chest.",
+    "rewardDescription": "Gold and XP for Collector V."
+  },
+  "collector_150": {
+    "title": "Master Collector",
+    "description": "One hundred fifty unique trophies - a boundary only archipelago legends cross.",
+    "rewardDescription": "Gold and diamonds for a master collection."
+  },
+  "rare_item_1": {
+    "title": "First Rare Item",
+    "description": "Your first rare item shines differently in lantern light. The start of elite gear.",
+    "rewardDescription": "Experience for your first rare loot."
+  },
+  "epic_collector_10": {
+    "title": "Epic Treasure Hunter",
+    "description": "Ten epic items - each carries echoes of sea legends and cursed battles.",
+    "rewardDescription": "Experience for hunting epic relics."
+  },
+  "legendary_collector_5": {
+    "title": "Legend Seeker",
+    "description": "Five legendary items. The sea yields its most precious secrets.",
+    "rewardDescription": "Diamonds for acquiring legends."
+  },
+  "legendary_collector_10": {
+    "title": "Legend Hunter I",
+    "description": "Ten legendary trophies - your chest glows like Atlantis treasure.",
+    "rewardDescription": "Random legendary item."
+  },
+  "legendary_collector_15": {
+    "title": "Legend Hunter II",
+    "description": "Fifteen legendary items. You are the collector whispered about in every cove.",
+    "rewardDescription": "Diamonds for Legend Hunter II."
+  },
+  "equipment_full": {
+    "title": "First Full Equipment",
+    "description": "Every slot filled - for the first time you feel ready for real challenges.",
+    "rewardDescription": "Gold for a complete loadout."
+  },
+  "rare_equipment_full": {
+    "title": "Full Rare Set",
+    "description": "All gear at rare quality - your silhouette scares foes before the fight.",
+    "rewardDescription": "Diamonds for a full rare set."
+  },
+  "epic_equipment_full": {
+    "title": "Full Epic Set",
+    "description": "Epic glow on every gear piece. You look like an avatar of the sea storm.",
+    "rewardDescription": "Experience for a full epic set."
+  },
+  "legendary_equipment_full": {
+    "title": "Full Legendary Set",
+    "description": "Legendary gear head to toe - Poseidon watches with interest.",
+    "rewardDescription": "Diamonds for a legendary full set."
+  },
+  "all_dungeons": {
+    "title": "Dungeon Master",
+    "description": "All dungeons cleared. Every chamber, boss, and curse - behind you.",
+    "rewardDescription": "Massive XP for the dungeon master."
+  },
+  "dungeon_krypta": {
+    "title": "Complete the Crypt",
+    "description": "Pass through the Crypt misty corridors and face undead admirals.",
+    "rewardDescription": "Experience for clearing the Crypt."
+  },
+  "dungeon_kraken": {
+    "title": "Complete the Kraken",
+    "description": "Reach the sea monster heart and survive waves that swallowed hundreds of ships.",
+    "rewardDescription": "Gold for defeating the Kraken."
+  },
+  "dungeon_forteca": {
+    "title": "Complete Blackbeard Fortress",
+    "description": "Conquer the most famous corsair fortress. Every wall tells of blood and gold.",
+    "rewardDescription": "Experience for taking the Fortress."
+  },
+  "dungeon_wulkan": {
+    "title": "Complete Davy Jones Volcano",
+    "description": "Cross volcanic depths where drowned souls await their fate.",
+    "rewardDescription": "Gold for surviving the Volcano."
+  },
+  "dungeon_palac": {
+    "title": "Complete Poseidon's Palace",
+    "description": "Reach the throne at Atlantis heart. The water itself yields to your will.",
+    "rewardDescription": "Diamonds for completing the Palace."
+  },
+  "dungeon_all_bosses": {
+    "title": "Dungeon Boss Slayer",
+    "description": "Every dungeon boss lies defeated. From the Lich Admiral to Poseidon Avatar.",
+    "rewardDescription": "Random item for the boss slayer."
+  },
+  "bestiary_complete": {
+    "title": "Great Bestiary Explorer",
+    "description": "Discover every bestiary entry. Every creature, every legend - documented.",
+    "rewardDescription": "Experience for a complete bestiary."
+  },
+  "dungeon_titles_all": {
+    "title": "Dungeon Title Collector",
+    "description": "Unlock all five dungeon completion titles. Your trophy wall is complete.",
+    "rewardDescription": "Diamonds for all dungeon titles."
+  },
+  "sea_legend": {
+    "title": "Sea Legend",
+    "description": "All dungeons done and level 50 reached. The seas sing your name.",
+    "rewardDescription": "Diamonds - mark of a true sea legend."
+  },
+  "collector_200": {
+    "title": "Collector VI",
+    "description": "Two hundred unique trophies in your registry. Every port dreams of such a treasure chest.",
+    "rewardDescription": "Gold and XP for Collector VI."
+  },
+  "collector_250": {
+    "title": "Collector VII",
+    "description": "Two hundred fifty items - a boundary only grand master collectors cross.",
+    "rewardDescription": "Gold and XP for Collector VII."
+  },
+  "collector_300": {
+    "title": "Collector VIII",
+    "description": "Three hundred unique relics. Your collection rivals the vaults of admirals and lords of Atlantis.",
+    "rewardDescription": "Gold and diamonds for Collector VIII."
+  },
+  "epic_collector_25": {
+    "title": "Epic Relic Grandmaster",
+    "description": "Twenty-five epic items - each carries echoes of sea battles and cursed legends.",
+    "rewardDescription": "Experience and gold for hunting epic treasures."
+  },
+  "legendary_collector_20": {
+    "title": "Legend Hunter III",
+    "description": "Twenty legendary trophies. The sea begins to treat you as a living keeper of its secrets.",
+    "rewardDescription": "Diamonds for Legend Hunter III."
+  },
+  "legendary_collector_25": {
+    "title": "Legend Hunter IV",
+    "description": "Twenty-five legendary items. Your chest glows like an Atlantis vault.",
+    "rewardDescription": "Random legendary item."
+  },
+  "legendary_collector_30": {
+    "title": "Legend Hunter V",
+    "description": "Thirty legendary relics - a boundary whispered in every cove of the archipelago.",
+    "rewardDescription": "Diamonds for Legend Hunter V."
+  },
+  "level_125": {
+    "title": "Legend Captain",
+    "description": "Level 125 - your name sounds like a shanty in taverns across three continents.",
+    "rewardDescription": "Experience and gold for the legend climb."
+  },
+  "level_150": {
+    "title": "Wave Ruler",
+    "description": "Level one hundred fifty - the waves themselves yield to your will.",
+    "rewardDescription": "Experience and diamonds for the wave ruler."
+  },
+  "level_175": {
+    "title": "Depths Guardian",
+    "description": "Level 175 proves you survived the abyss and returned with it in your eyes.",
+    "rewardDescription": "Experience and gold for the depths guardian."
+  },
+  "level_200": {
+    "title": "Immortal Captain",
+    "description": "Level two hundred - a boundary even the ghosts of admirals sing about.",
+    "rewardDescription": "Diamonds of the immortal captain."
+  },
+  "fight_veteran_2000": {
+    "title": "Fight Veteran III",
+    "description": "Two thousand wins. The arena is no longer a trial - it is your home.",
+    "rewardDescription": "Gold and XP for the arena veteran."
+  },
+  "fight_veteran_5000": {
+    "title": "Fight Veteran IV",
+    "description": "Five thousand victories. Opponents avoid your shadow like a curse.",
+    "rewardDescription": "Random item and diamonds for the slayer."
+  },
+  "gold_spent_25000": {
+    "title": "Port Magnate",
+    "description": "Twenty-five thousand gold spent - the archipelago economy bears your mark.",
+    "rewardDescription": "Diamonds for the port magnate."
+  },
+  "titles_all_unlocked": {
+    "title": "Lord of Titles",
+    "description": "Unlock every title in the game. Your trophy wall is complete.",
+    "rewardDescription": "Diamonds for the complete title set."
+  },
+  "fight_quests_complete": {
+    "title": "Arena Master",
+    "description": "Complete every fight-category quest - from first victory to thousands of triumphs.",
+    "rewardDescription": "Massive XP for the arena master."
+  },
+  "collector_350": {
+    "title": "Collector IX",
+    "description": "Three hundred fifty unique trophies - your chest rivals the vaults of Atlantis emperors.",
+    "rewardDescription": "Gold and XP for Collector IX."
+  },
+  "collector_400": {
+    "title": "Collector X",
+    "description": "Four hundred items. The archipelago knows you as a living treasure catalog.",
+    "rewardDescription": "Gold and diamonds for Collector X."
+  },
+  "collector_500": {
+    "title": "Collector XII",
+    "description": "Five hundred unique relics - a boundary shanties sing about in every tavern.",
+    "rewardDescription": "Gold and diamonds for Collector XII."
+  },
+  "epic_collector_50": {
+    "title": "Epic Hunter III",
+    "description": "Fifty epic items - each carries echoes of storms and cursed battles.",
+    "rewardDescription": "Experience and gold for Epic Hunter III."
+  },
+  "epic_collector_75": {
+    "title": "Epic Hunter IV",
+    "description": "Seventy-five epic relics. Your chest glows like an Atlantis lighthouse.",
+    "rewardDescription": "Experience and diamonds for Epic Hunter IV."
+  },
+  "epic_collector_100": {
+    "title": "Epic Hunter V",
+    "description": "One hundred epic items - mastery even admirals envy.",
+    "rewardDescription": "Diamonds for Epic Hunter V."
+  },
+  "legendary_collector_40": {
+    "title": "Legend Hunter VI",
+    "description": "Forty legendary trophies. The sea yields its oldest secrets.",
+    "rewardDescription": "Diamonds for Legend Hunter VI."
+  },
+  "legendary_collector_50": {
+    "title": "Legend Hunter VII",
+    "description": "Fifty legends in your chest - leviathans whisper your name in fear.",
+    "rewardDescription": "Random item and diamonds."
+  },
+  "legendary_collector_75": {
+    "title": "Legend Hunter VIII",
+    "description": "Seventy-five legendary relics - you rule treasures kings only dream of.",
+    "rewardDescription": "Diamonds for Legend Hunter VIII."
+  },
+  "fight_veteran_7500": {
+    "title": "Fight Veteran V",
+    "description": "Seven thousand five hundred wins. The arena trembles at your footsteps.",
+    "rewardDescription": "Gold and XP for Fight Veteran V."
+  },
+  "fight_veteran_10000": {
+    "title": "Fight Veteran VI",
+    "description": "Ten thousand victories - fight archmastery recognized across every sea.",
+    "rewardDescription": "Random item and diamonds."
+  },
+  "fight_veteran_15000": {
+    "title": "Fight Veteran VII",
+    "description": "Fifteen thousand triumphs. Oceans part before your blade.",
+    "rewardDescription": "Diamonds for the ocean slayer."
+  },
+  "level_225": {
+    "title": "Unbeaten Corsair",
+    "description": "Level 225 - corsair kings salute your flag.",
+    "rewardDescription": "Experience and gold for the unbeaten corsair."
+  },
+  "level_250": {
+    "title": "Emperor of Atlantis",
+    "description": "Level 250 - the drowned throne of Atlantis recognizes its heir.",
+    "rewardDescription": "Experience and diamonds for the emperor."
+  },
+  "level_300": {
+    "title": "Eternal Captain",
+    "description": "Level 300 - even time cannot retire your command.",
+    "rewardDescription": "Diamonds of the eternal captain."
+  },
+  "gold_spent_50000": {
+    "title": "Merchant King",
+    "description": "Fifty thousand gold spent - archipelago trade revolves around you.",
+    "rewardDescription": "Diamonds for the merchant king."
+  },
+  "gold_spent_100000": {
+    "title": "Treasury Lord",
+    "description": "One hundred thousand gold has flowed through your hands like the tide.",
+    "rewardDescription": "Diamonds for the treasury lord."
+  },
+  "collector_quests_complete": {
+    "title": "Collection Master",
+    "description": "Complete every collector quest - from the first ten to five hundred trophies.",
+    "rewardDescription": "Diamonds for the collection master."
+  },
+  "level_quests_complete": {
+    "title": "Level Master",
+    "description": "Complete every level-series quest - from the first step to eternal command.",
+    "rewardDescription": "Diamonds for the level master."
+  },
+  "epic_quests_complete": {
+    "title": "Lord of Epic Relics",
+    "description": "Complete every epic-item quest and become lord of epic treasures.",
+    "rewardDescription": "Massive XP for the lord of epic relics."
+  }
+}
