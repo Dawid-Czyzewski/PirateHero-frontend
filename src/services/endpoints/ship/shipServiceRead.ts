@@ -1,6 +1,5 @@
 import { requestJson } from '@/lib/api/requestJson';
 import type {
-  ShipChatTokenDto,
   ShipMessageDto,
   ShipSearchUserDto,
   MyShipPayload,
@@ -24,20 +23,6 @@ export async function getMessages(): Promise<ShipMessageDto[] | null> {
     return data.messages ?? [];
   } catch (err) {
     console.error('Get messages error', err);
-    return null;
-  }
-}
-
-export async function getShipChatToken(
-  shipId: string | number | null
-): Promise<ShipChatTokenDto | null> {
-  try {
-    const query = shipId ? `?shipId=${encodeURIComponent(String(shipId))}` : '';
-    return await requestJson<ShipChatTokenDto>(`/ships/chat/token${query}`, {
-      method: 'GET',
-    });
-  } catch (err) {
-    console.error('Get WebSocket token error', err);
     return null;
   }
 }

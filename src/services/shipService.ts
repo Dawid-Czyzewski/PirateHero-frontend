@@ -1,7 +1,6 @@
 export {
   getMyShip,
   getMessages,
-  getShipChatToken,
   searchUsers,
 } from './endpoints/ship/shipServiceRead';
 export { sendMessage } from './endpoints/ship/shipServiceMessages';
