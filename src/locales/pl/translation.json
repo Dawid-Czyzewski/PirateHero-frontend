@@ -2594,6 +2594,11 @@
     "server": {
       "title": "Serwer"
     },
+    "language": {
+      "title": "Język",
+      "pl": "Polski",
+      "en": "Angielski"
+    },
     "servers": {
       "PL1": "PL1 - Tortuga",
       "PL2": "PL2 - Nassau",

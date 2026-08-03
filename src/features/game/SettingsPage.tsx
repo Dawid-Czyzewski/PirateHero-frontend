@@ -2,7 +2,7 @@ import { useCallback, useState, useSyncExternalStore } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 import { toast } from 'sonner';
-import { Lock, Server } from 'lucide-react';
+import { Globe, Lock, Server } from 'lucide-react';
 import { ApiHttpError } from '@/lib/api/ApiHttpError';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { gamePageTitleH1Class } from '@/features/game/layout/gamePageTitleClasses';
@@ -18,8 +18,12 @@ function translateApiDetail(t: TFunction, detail: string): string {
   return msg !== detail ? msg : t('settingsPage.password.changeFailed');
 }
 
+function languageCode(lng: string): 'pl' | 'en' {
+  return lng.split('-')[0]?.toLowerCase() === 'pl' ? 'pl' : 'en';
+}
+
 export default function SettingsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   usePageMeta({
     title: t('settingsPage.seoTitle'),
@@ -38,6 +42,15 @@ export default function SettingsPage() {
   const [savingPassword, setSavingPassword] = useState(false);
 
   const serverIdLabel = storedServerId !== '' ? storedServerId : DEFAULT_GAME_SERVER_ID;
+  const activeLang = languageCode(i18n.language);
+
+  const handleLanguageChange = useCallback(
+    (lng: 'pl' | 'en') => {
+      void i18n.changeLanguage(lng);
+      localStorage.setItem('language', lng);
+    },
+    [i18n]
+  );
 
   const handleChangePassword = useCallback(
     async (e: React.FormEvent) => {
@@ -78,6 +91,24 @@ export default function SettingsPage() {
     },
     [confirmPassword, currentPassword, newPassword, t]
   );
+
+  const langChip = (lng: 'pl' | 'en', label: string) => {
+    const active = activeLang === lng;
+    return (
+      <button
+        type="button"
+        aria-pressed={active}
+        onClick={() => handleLanguageChange(lng)}
+        className={`min-h-11 flex-1 cursor-pointer rounded-lg border px-3 py-2.5 text-center text-sm font-bold uppercase tracking-wide transition-colors ${
+          active
+            ? 'border-primary bg-primary/15 text-primary'
+            : 'border-border/60 bg-background/40 text-foreground/80 hover:border-primary/40'
+        }`}
+      >
+        {label}
+      </button>
+    );
+  };
 
   return (
     <section className="w-full space-y-6" aria-label={t('settingsPage.pageAriaLabel')}>
@@ -141,17 +172,32 @@ export default function SettingsPage() {
               className="inline-flex cursor-pointer items-center gap-2 rounded-lg border-2 border-primary bg-primary px-4 py-2.5 text-sm font-black uppercase tracking-wide text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
             >
               <Lock className="h-4 w-4" aria-hidden />
-              {savingPassword ? t('settingsPage.password.submitting') : t('settingsPage.password.submit')}
+              {savingPassword
+                ? t('settingsPage.password.submitting')
+                : t('settingsPage.password.submit')}
             </button>
           </form>
         </div>
 
-        <div className="rounded-lg border border-border/40 bg-card/25 p-5 shadow-sm sm:p-6">
-          <h2 className="mb-4 flex items-center gap-2 font-heading text-lg font-bold uppercase tracking-wide text-primary">
-            <Server className="h-5 w-5" aria-hidden />
-            {t('settingsPage.server.title')}
-          </h2>
-          <p className="text-sm font-medium text-foreground">{serverIdLabel}</p>
+        <div className="space-y-6">
+          <div className="rounded-lg border border-border/40 bg-card/25 p-5 shadow-sm sm:p-6">
+            <h2 className="mb-4 flex items-center gap-2 font-heading text-lg font-bold uppercase tracking-wide text-primary">
+              <Globe className="h-5 w-5" aria-hidden />
+              {t('settingsPage.language.title')}
+            </h2>
+            <div className="flex gap-2" role="group" aria-label={t('settingsPage.language.title')}>
+              {langChip('pl', t('settingsPage.language.pl'))}
+              {langChip('en', t('settingsPage.language.en'))}
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-border/40 bg-card/25 p-5 shadow-sm sm:p-6">
+            <h2 className="mb-4 flex items-center gap-2 font-heading text-lg font-bold uppercase tracking-wide text-primary">
+              <Server className="h-5 w-5" aria-hidden />
+              {t('settingsPage.server.title')}
+            </h2>
+            <p className="text-sm font-medium text-foreground">{serverIdLabel}</p>
+          </div>
         </div>
       </div>
     </section>

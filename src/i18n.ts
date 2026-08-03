@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
 
 import translationEN from "./locales/en/translation.json";
 import translationPL from "./locales/pl/translation.json";
@@ -20,7 +19,6 @@ if (typeof window !== "undefined") {
 
 const savedLanguage = localStorage.getItem("language");
 const fallbackLanguage = "en";
-
 
 const translationEnBundle = {
   ...translationEN,
@@ -43,32 +41,26 @@ const resources = {
   pl: { translation: translationPlBundle },
 };
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources,
-    lng: savedLanguage || fallbackLanguage,
-    fallbackLng: fallbackLanguage,
-    supportedLngs: ["en", "pl"],
-    interpolation: {
-      escapeValue: false,
-    },
-    detection: {
-      order: ['navigator', 'htmlTag'],
-      caches: [],
-    },
-    returnObjects: false,
-    returnEmptyString: false,
-    returnNull: false,
-    keySeparator: '.',
-    nsSeparator: false,
-    missingKeyHandler: (lng, _ns, key) => {
-      if (import.meta.env.DEV) {
-        console.warn(`[i18n] missing key "${key}" (lng=${lng})`);
-      }
-      return key;
-    },
-  });
+// No LanguageDetector — mobile Safari navigator.language was fighting manual PL/EN picks.
+i18n.use(initReactI18next).init({
+  resources,
+  lng: savedLanguage || fallbackLanguage,
+  fallbackLng: fallbackLanguage,
+  supportedLngs: ["en", "pl"],
+  interpolation: {
+    escapeValue: false,
+  },
+  returnObjects: false,
+  returnEmptyString: false,
+  returnNull: false,
+  keySeparator: ".",
+  nsSeparator: false,
+  missingKeyHandler: (lng, _ns, key) => {
+    if (import.meta.env.DEV) {
+      console.warn(`[i18n] missing key "${key}" (lng=${lng})`);
+    }
+    return key;
+  },
+});
 
 export default i18n;

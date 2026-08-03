@@ -21,7 +21,7 @@ export default function Header() {
   const [language, setLanguage] = useState(
     () => localStorage.getItem('language') || i18n.language.split('-')[0] || 'en'
   );
-  const [openPicker, setOpenPicker] = useState<'lang' | 'server' | null>(null);
+  const [openPicker, setOpenPicker] = useState<'server' | null>(null);
 
   useEffect(() => {
     i18n.changeLanguage(language);
@@ -43,44 +43,34 @@ export default function Header() {
   const aboutNavAuth =
     'shrink-0 cursor-pointer text-yellow-400 no-underline transition hover:text-amber-300';
 
-  const langOptions = [...LANGUAGE_OPTIONS];
-  const serverOptions = [...SERVER_OPTIONS];
+  const languagePicker = (
+    <HeaderMenuPicker
+      guestChrome={guestChrome}
+      variant="language"
+      ariaLabel={t('language') || 'Language'}
+      icon={Globe}
+      value={language}
+      options={[...LANGUAGE_OPTIONS]}
+      onSelect={handleLanguageChange}
+      isOpen={false}
+      onOpenToggle={() => {}}
+      onClose={() => {}}
+    />
+  );
 
-  const pickerGroup = (compact?: boolean) => (
-    <div
-      className={
-        compact
-          ? 'flex flex-col gap-2'
-          : 'flex shrink-0 flex-wrap items-center justify-end gap-2 md:gap-3'
-      }
-    >
-      <HeaderMenuPicker
-        guestChrome={guestChrome}
-        variant="language"
-        ariaLabel={t('language') || 'Language'}
-        icon={Globe}
-        value={language}
-        options={langOptions}
-        onSelect={handleLanguageChange}
-        isOpen={openPicker === 'lang'}
-        onOpenToggle={() => setOpenPicker((p) => (p === 'lang' ? null : 'lang'))}
-        onClose={() => setOpenPicker(null)}
-      />
-      {!isAuthenticated && (
-        <HeaderMenuPicker
-          guestChrome={guestChrome}
-          variant="server"
-          ariaLabel={t('server') || 'Server'}
-          icon={Server}
-          value={server}
-          options={serverOptions}
-          onSelect={handleServerChange}
-          isOpen={openPicker === 'server'}
-          onOpenToggle={() => setOpenPicker((p) => (p === 'server' ? null : 'server'))}
-          onClose={() => setOpenPicker(null)}
-        />
-      )}
-    </div>
+  const serverPicker = (
+    <HeaderMenuPicker
+      guestChrome={guestChrome}
+      variant="server"
+      ariaLabel={t('server') || 'Server'}
+      icon={Server}
+      value={server}
+      options={[...SERVER_OPTIONS]}
+      onSelect={handleServerChange}
+      isOpen={openPicker === 'server'}
+      onOpenToggle={() => setOpenPicker((p) => (p === 'server' ? null : 'server'))}
+      onClose={() => setOpenPicker(null)}
+    />
   );
 
   return (
@@ -101,7 +91,7 @@ export default function Header() {
       >
         {t('skipToContent')}
       </a>
-      <div className="flex w-full items-center justify-between py-4 px-6 md:px-8">
+      <div className="flex w-full items-center justify-between gap-3 py-4 px-6 md:px-8">
         <div
           className={
             guestChrome
@@ -146,7 +136,10 @@ export default function Header() {
           >
             {t('play')}
           </a>
-          {pickerGroup(false)}
+          <div className="flex shrink-0 items-center gap-2 md:gap-3">
+            {languagePicker}
+            {serverPicker}
+          </div>
         </nav>
 
         <button
@@ -193,7 +186,10 @@ export default function Header() {
             >
               {t('play')}
             </a>
-            {pickerGroup(true)}
+            <div className="flex flex-wrap items-center gap-2">
+              {languagePicker}
+              {serverPicker}
+            </div>
           </nav>
         </div>
       )}
