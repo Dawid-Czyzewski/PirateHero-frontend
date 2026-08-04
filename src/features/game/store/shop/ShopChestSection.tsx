@@ -22,6 +22,7 @@ type Props = {
   onDragStart: (e: DragEvent, item: ShopItem, source: ShopSelectionSource) => void;
   onDragEnd: () => void;
   onDoubleClickEquip?: (item: ShopItem) => void;
+  onSellInventoryItem?: (item: ShopItem) => void;
 };
 
 export function ShopChestSection({
@@ -38,6 +39,7 @@ export function ShopChestSection({
   onDragStart,
   onDragEnd,
   onDoubleClickEquip,
+  onSellInventoryItem,
 }: Props) {
   const { t } = useTranslation();
   const isPhone = useIsPhoneLayout();
@@ -110,6 +112,7 @@ export function ShopChestSection({
               onDragEnd={onDragEnd}
               onHoverChange={onHoverChestItem}
               onDoubleClickEquip={onDoubleClickEquip}
+              onSell={onSellInventoryItem}
             />
           );
         })}

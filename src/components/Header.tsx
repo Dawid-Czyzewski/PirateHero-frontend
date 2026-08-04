@@ -58,7 +58,7 @@ export default function Header() {
     />
   );
 
-  const serverPicker = (
+  const serverPicker = !isAuthenticated ? (
     <HeaderMenuPicker
       guestChrome={guestChrome}
       variant="server"
@@ -71,7 +71,7 @@ export default function Header() {
       onOpenToggle={() => setOpenPicker((p) => (p === 'server' ? null : 'server'))}
       onClose={() => setOpenPicker(null)}
     />
-  );
+  ) : null;
 
   return (
     <header

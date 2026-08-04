@@ -500,9 +500,14 @@
     "seoDescription": "Odblokuj i aktywuj prestiżowe tytuły kapitańskie - od weteranów areny po cesarzy Atlantydy. Kamienie milowe endgame odblokowują korony, które rozpozna cały archipelag.",
     "subtitle": "Zdobywaj prestiżowe tytuły kapitańskie za ukończone lochy, sławę na arenie, kolekcje i poziomy endgame - potem pokaż wybrany tytuł przy nicku, by cała załoga go widziała.",
     "loading": "Ładowanie tytułów…",
+    "empty": "Brak tytułów w katalogu. Uruchom seed lub odśwież stronę.",
     "loadError": "Nie udało się załadować tytułów.",
     "equipSuccess": "Tytuł został aktywowany.",
     "equipError": "Nie udało się aktywować tytułu.",
+    "unequip": "Ściągnij tytuł",
+    "unequipHint": "Możesz grać bez tytułu przy nicku.",
+    "unequipSuccess": "Tytuł został ściągnięty.",
+    "unequipError": "Nie udało się ściągnąć tytułu.",
     "unlocked": "Odblokowany",
     "active": "Aktywny",
     "activate": "Aktywuj",
@@ -1242,7 +1247,10 @@
     "chestTitle": "Skrzynia ({{count}})",
     "attributesPreviewHint": "Podgląd po założeniu",
     "dragHint": "Przeciągnij na slot ekwipunku lub skrzynię, aby kupić; na sklep, aby sprzedać.",
-    "phoneTapHint": "Kliknij 2x ofertę, aby kupić • 2x przedmiot w skrzyni, aby założyć • 2x założony, aby zdjąć",
+    "phoneTapHint": "Kliknij 2x ofertę, aby kupić • 2x przedmiot w skrzyni, aby założyć • 2x założony, aby zdjąć • przytrzymaj przedmiot, aby sprzedać",
+    "phoneActionSell": "Sprzedaj",
+    "phoneActionEquip": "Załóż",
+    "phoneActionUnequip": "Zdejmij",
     "dropToSell": "Upuść tutaj, aby sprzedać",
     "chestOverflow": "+{{count}} więcej (poza siatką)",
     "tooltipBuy": "Cena",
@@ -2600,11 +2608,7 @@
       "en": "Angielski"
     },
     "servers": {
-      "PL1": "PL1 - Tortuga",
-      "PL2": "PL2 - Nassau",
-      "DE1": "DE1 - Kiel",
-      "EN1": "EN1 - Port Royal",
-      "FR1": "FR1 - Marseille"
+      "PL1": "PL1"
     },
     "password": {
       "title": "Zmień hasło",

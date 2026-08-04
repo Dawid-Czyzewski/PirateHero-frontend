@@ -19,5 +19,5 @@ export type PlayerTitlesResponse = {
 
 export type EquipTitleResponse = {
   equipped: boolean;
-  equippedTitleCode: string;
+  equippedTitleCode: string | null;
 };

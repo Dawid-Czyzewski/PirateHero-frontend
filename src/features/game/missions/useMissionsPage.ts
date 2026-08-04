@@ -29,6 +29,7 @@ import {
   completeGameMission,
   startGameMission,
 } from '@/services/missionService';
+import { calculateLevelUp } from '@/services/levelCalculationService';
 import type { AvailableMissionDto } from '@/types/gameActivities';
 
 export function useMissionsPage({ onQuestsUpdated }: Pick<MissionsPageProps, 'onQuestsUpdated'>) {
@@ -295,13 +296,27 @@ export function useMissionsPage({ onQuestsUpdated }: Pick<MissionsPageProps, 'on
         })
       );
 
-      if (SHOW_LEVEL_UP_MODAL_ON_MISSION_CLAIM && result.data.newLevel?.name != null) {
-        const nl = result.data.newLevel;
-        setLevelUpInfo({
-          name: String(nl.name),
-          expToNextLevel: Number(nl.expToNextLevel ?? preSnapshot.level?.expToNextLevel ?? 100),
-        });
-        setLevelUpModalOpen(true);
+      const apiLevel = result.data.newLevel;
+      const optimisticLevelUp = calculateLevelUp(
+        preSnapshot.level,
+        preSnapshot.experiencePoints || 0,
+        apiExp > 0 ? apiExp : missionBoosterRewards.boostedExp
+      );
+      const leveledUp =
+        (apiLevel != null && apiLevel.name != null) || Boolean(optimisticLevelUp);
+
+      if (SHOW_LEVEL_UP_MODAL_ON_MISSION_CLAIM && leveledUp) {
+        const name = String(apiLevel?.name ?? optimisticLevelUp?.name ?? '');
+        const expToNext = Number(
+          apiLevel?.expToNextLevel ??
+            optimisticLevelUp?.expToNextLevel ??
+            preSnapshot.level?.expToNextLevel ??
+            100
+        );
+        if (name) {
+          setLevelUpInfo({ name, expToNextLevel: expToNext });
+          setLevelUpModalOpen(true);
+        }
       }
 
       const uid = preSnapshot.id;

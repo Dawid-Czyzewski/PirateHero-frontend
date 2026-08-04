@@ -129,6 +129,7 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
   const [levelUpInfo, setLevelUpInfo] = useState<LevelUpInfo | null>(null);
   const claimInFlightRef = useRef(false);
   const pendingLevelUpRef = useRef<LevelUpInfo | null>(null);
+  const claimModalOpenRef = useRef(false);
 
   const activeRows = useMemo(() => {
     return sortActiveUserQuestsForDisplay(apiQuests.filter((q) => !q.isRewardClaimed)).map((q) => {
@@ -162,6 +163,7 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
   });
 
   const closeClaimModal = useCallback(() => {
+    claimModalOpenRef.current = false;
     setClaimModal(initialClaimModal);
     const pending = pendingLevelUpRef.current;
     if (pending) {
@@ -169,6 +171,16 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
       setLevelUpInfo(pending);
       setLevelUpModalOpen(true);
     }
+  }, []);
+
+  const openLevelUpAfterClaim = useCallback((info: LevelUpInfo) => {
+    if (claimModalOpenRef.current) {
+      pendingLevelUpRef.current = info;
+      return;
+    }
+    pendingLevelUpRef.current = null;
+    setLevelUpInfo(info);
+    setLevelUpModalOpen(true);
   }, []);
 
   const closeLevelUpModal = useCallback(() => {
@@ -213,10 +225,10 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
         );
 
         if (levelUpResolved) {
-          pendingLevelUpRef.current = {
+          openLevelUpAfterClaim({
             name: levelUpResolved.name,
             expToNextLevel: levelUpResolved.expToNextLevel,
-          };
+          });
           await fetchUserData();
         }
 
@@ -233,6 +245,7 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
 
       const rollbackClaim = async (err: unknown) => {
         pendingLevelUpRef.current = null;
+        claimModalOpenRef.current = false;
         setClaimModal(initialClaimModal);
         setLevelUpInfo(null);
         setLevelUpModalOpen(false);
@@ -279,6 +292,7 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
             void onRewardClaimed(nextUnclaimed);
           }
 
+          claimModalOpenRef.current = true;
           setClaimModal({
             open: true,
             questTitle: row.title,
@@ -299,6 +313,7 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
           return;
         }
 
+        claimModalOpenRef.current = true;
         setClaimModal({
           open: true,
           questTitle: row.title,
@@ -338,6 +353,7 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
           await onRewardClaimed();
         }
 
+        claimModalOpenRef.current = true;
         setClaimModal({
           open: true,
           questTitle: row.title,
@@ -361,6 +377,7 @@ export default function QuestTasksPage({ goBack: _goBack, onRewardClaimed }: Que
       fetchUserData,
       loadQuests,
       onRewardClaimed,
+      openLevelUpAfterClaim,
       queryClient,
       t,
       updateQuestStatus,

@@ -5,11 +5,11 @@ import type { PlayerTitleDto } from '@/types/playerTitle';
 type Props = {
   title: PlayerTitleDto;
   isEquipped: boolean;
-  isEquipping: boolean;
   onEquip: (code: string) => void;
+  onUnequip: () => void;
 };
 
-export function TitleCard({ title, isEquipped, isEquipping, onEquip }: Props) {
+export function TitleCard({ title, isEquipped, onEquip, onUnequip }: Props) {
   const { t } = useTranslation();
 
   if (title.unlocked) {
@@ -28,14 +28,22 @@ export function TitleCard({ title, isEquipped, isEquipping, onEquip }: Props) {
           </div>
         </div>
         {isEquipped ? (
-          <span className="inline-flex w-fit rounded-md border border-primary/40 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary">
-            {t('titlesPage.active')}
-          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex w-fit rounded-md border border-primary/40 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary">
+              {t('titlesPage.active')}
+            </span>
+            <button
+              type="button"
+              className="inline-flex w-fit cursor-pointer rounded-md border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary/50 hover:text-primary"
+              onClick={onUnequip}
+            >
+              {t('titlesPage.unequip')}
+            </button>
+          </div>
         ) : (
           <button
             type="button"
-            className="inline-flex w-fit rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:opacity-50"
-            disabled={isEquipping}
+            className="inline-flex w-fit cursor-pointer rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
             onClick={() => onEquip(title.code)}
           >
             {t('titlesPage.activate')}

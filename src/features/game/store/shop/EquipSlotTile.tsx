@@ -1,11 +1,13 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RARITY_BG, RARITY_BORDER, RARITY_COLOR, RARITY_GLOW } from '@/data/gameItems';
 import { useIsPhoneLayout } from '@/hooks/useIsPhoneLayout';
+import { ShopItemPhoneMenu } from './ShopItemPhoneMenu';
 import { ShopItemTooltipPortal } from './ShopItemTooltip';
 import { shopRarityToItemRarity } from './shopRarityMap';
 import { shopItemImageSrc } from './shopItemImage';
 import { SHOP_SLOT_ICONS } from './slotIcons';
+import { useLongPress } from './useLongPress';
 import type { ShopItem, ShopSlotId } from './types';
 
 type Props = {
@@ -19,6 +21,7 @@ type Props = {
   onDrop: (e: React.DragEvent) => void;
   dropHighlight: boolean;
   onDoubleClickUnequip?: (item: ShopItem) => void;
+  onSell?: (item: ShopItem) => void;
 };
 
 export function EquipSlotTile({
@@ -32,13 +35,25 @@ export function EquipSlotTile({
   onDrop,
   dropHighlight,
   onDoubleClickUnequip,
+  onSell,
 }: Props) {
   const { t } = useTranslation();
   const isPhone = useIsPhoneLayout();
   const anchorRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const slotLabel = t(`characterPage.slots.${slotId}`);
   const SlotIcon = SHOP_SLOT_ICONS[slotId];
+
+  const openMenu = useCallback(() => {
+    setHovered(false);
+    setMenuOpen(true);
+  }, []);
+
+  const longPress = useLongPress(
+    openMenu,
+    isPhone && Boolean(item) && Boolean(onSell || onDoubleClickUnequip)
+  );
 
   if (!item) {
     return (
@@ -59,7 +74,7 @@ export function EquipSlotTile({
   }
 
   const ir = shopRarityToItemRarity(item.rarity);
-  const showTooltip = hovered && !suppressTooltip;
+  const showHoverTooltip = !isPhone && hovered && !suppressTooltip && !menuOpen;
 
   return (
     <div
@@ -81,13 +96,55 @@ export function EquipSlotTile({
         if (!isPhone) return;
         onDoubleClickUnequip?.(item);
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={`relative z-0 flex min-h-[64px] items-center gap-3 rounded-md border-2 p-2 transition-all ${
+      onMouseEnter={() => {
+        if (isPhone) return;
+        setHovered(true);
+      }}
+      onMouseLeave={() => {
+        if (isPhone) return;
+        setHovered(false);
+      }}
+      {...(isPhone ? longPress : {})}
+      className={`relative z-0 flex min-h-[64px] items-center gap-3 rounded-md border-2 p-2 transition-all select-none touch-manipulation ${
         isPhone ? 'cursor-pointer' : 'cursor-grab active:cursor-grabbing'
-      } ${RARITY_BORDER[ir]} ${RARITY_BG[ir]} ${RARITY_GLOW[ir]} ${dropHighlight ? 'ring-2 ring-primary/70' : ''} ${categoryHighlight && !dropHighlight ? 'ring-2 ring-amber-400/70 ring-offset-2 ring-offset-background' : ''}`}
+      } ${RARITY_BORDER[ir]} ${RARITY_BG[ir]} ${RARITY_GLOW[ir]} ${dropHighlight ? 'ring-2 ring-primary/70' : ''} ${
+        categoryHighlight && !dropHighlight ? 'ring-2 ring-amber-400/70 ring-offset-2 ring-offset-background' : ''
+      } ${menuOpen ? 'ring-2 ring-primary/80' : ''}`}
     >
-      <ShopItemTooltipPortal show={showTooltip} anchorRef={anchorRef} item={item} comparedItem={null} priceMode="sell" />
+      <ShopItemTooltipPortal
+        show={showHoverTooltip}
+        anchorRef={anchorRef}
+        item={item}
+        comparedItem={null}
+        priceMode="sell"
+      />
+      <ShopItemPhoneMenu
+        open={menuOpen}
+        anchorRef={anchorRef}
+        item={item}
+        onClose={() => setMenuOpen(false)}
+        actions={[
+          ...(onDoubleClickUnequip
+            ? [
+                {
+                  id: 'unequip',
+                  label: String(t('storePage.phoneActionUnequip')),
+                  onClick: () => onDoubleClickUnequip(item),
+                },
+              ]
+            : []),
+          ...(onSell
+            ? [
+                {
+                  id: 'sell',
+                  label: String(t('storePage.phoneActionSell')),
+                  variant: 'sell' as const,
+                  onClick: () => onSell(item),
+                },
+              ]
+            : []),
+        ]}
+      />
       <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded bg-secondary/30 p-0.5">
         <img
           src={shopItemImageSrc(item)}

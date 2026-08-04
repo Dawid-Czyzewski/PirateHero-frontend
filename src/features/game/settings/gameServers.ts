@@ -32,11 +32,7 @@ export type GameServerOption = {
 
 export const GAME_SERVER_OPTIONS: GameServerOption[] = [
   { id: 'PL1', nameKey: 'settingsPage.servers.PL1', flag: '🇵🇱', players: 1243 },
-  { id: 'PL2', nameKey: 'settingsPage.servers.PL2', flag: '🇵🇱', players: 892 },
-  { id: 'DE1', nameKey: 'settingsPage.servers.DE1', flag: '🇩🇪', players: 2105 },
-  { id: 'EN1', nameKey: 'settingsPage.servers.EN1', flag: '🇬🇧', players: 3401 },
-  { id: 'FR1', nameKey: 'settingsPage.servers.FR1', flag: '🇫🇷', players: 756 },
-].sort((a, b) => a.id.localeCompare(b.id));
+];
 
 export function getStoredGameServerId(): string {
   if (typeof window === 'undefined') {

@@ -1,19 +1,32 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { useUser } from '@/hooks/useUser';
 import { ApiHttpError } from '@/lib/api/ApiHttpError';
-import { equipPlayerTitle, fetchPlayerTitles } from '@/services/playerTitleService';
-import type { PlayerTitleDto } from '@/types/playerTitle';
+import {
+  equipPlayerTitle,
+  fetchPlayerTitles,
+  unequipPlayerTitle,
+} from '@/services/playerTitleService';
+import type { EquippedTitleDto, PlayerTitleDto } from '@/types/playerTitle';
 import { TitleCard } from '@/features/game/titles/TitleCard';
 
 export function PlayerTitlesSection() {
   const { t } = useTranslation();
-  const { fetchUserData } = useUser();
+  const { updateUser } = useUser();
   const [titles, setTitles] = useState<PlayerTitleDto[]>([]);
   const [equippedTitleCode, setEquippedTitleCode] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [equippingCode, setEquippingCode] = useState<string | null>(null);
+  const actionIdRef = useRef(0);
+
+  const titleDto = useCallback(
+    (code: string | null): EquippedTitleDto | null => {
+      if (!code) return null;
+      const title = titles.find((row) => row.code === code);
+      return title ? { code: title.code, nameKey: title.nameKey } : null;
+    },
+    [titles]
+  );
 
   const loadTitles = useCallback(async () => {
     setLoading(true);
@@ -34,23 +47,41 @@ export function PlayerTitlesSection() {
     void loadTitles();
   }, [loadTitles]);
 
-  const handleEquip = async (code: string) => {
-    setEquippingCode(code);
-    try {
-      const result = await equipPlayerTitle(code);
-      setEquippedTitleCode(result.equippedTitleCode);
-      await fetchUserData();
-      toast.success(t('titlesPage.equipSuccess'));
-    } catch (error) {
+  const handleEquip = (code: string) => {
+    const actionId = ++actionIdRef.current;
+    const previous = equippedTitleCode;
+    setEquippedTitleCode(code);
+    void updateUser({ equippedTitle: titleDto(code) });
+
+    void equipPlayerTitle(code).catch((error) => {
+      if (actionId !== actionIdRef.current) return;
+      setEquippedTitleCode(previous);
+      void updateUser({ equippedTitle: titleDto(previous) });
       const key = error instanceof ApiHttpError ? error.message : 'titlesPage.equipError';
       toast.error(t(key, { defaultValue: t('titlesPage.equipError') }));
-    } finally {
-      setEquippingCode(null);
-    }
+    });
+  };
+
+  const handleUnequip = () => {
+    const actionId = ++actionIdRef.current;
+    const previous = equippedTitleCode;
+    setEquippedTitleCode(null);
+    void updateUser({ equippedTitle: null });
+
+    void unequipPlayerTitle().catch(() => {
+      if (actionId !== actionIdRef.current) return;
+      setEquippedTitleCode(previous);
+      void updateUser({ equippedTitle: titleDto(previous) });
+      toast.error(t('titlesPage.unequipError'));
+    });
   };
 
   if (loading) {
     return <p className="text-sm text-muted-foreground">{t('titlesPage.loading')}</p>;
+  }
+
+  if (titles.length === 0) {
+    return <p className="text-sm text-muted-foreground">{t('titlesPage.empty')}</p>;
   }
 
   return (
@@ -60,8 +91,8 @@ export function PlayerTitlesSection() {
           key={title.code}
           title={title}
           isEquipped={equippedTitleCode === title.code}
-          isEquipping={equippingCode === title.code}
           onEquip={handleEquip}
+          onUnequip={handleUnequip}
         />
       ))}
     </div>

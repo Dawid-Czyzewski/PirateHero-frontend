@@ -26,6 +26,7 @@ type Props = {
   onDragOverBase: (e: React.DragEvent) => void;
   onDropOnEquipSlot: (e: React.DragEvent, slot: ShopSlotId) => void;
   onDoubleClickUnequip?: (item: ShopItem) => void;
+  onSellEquippedItem?: (item: ShopItem) => void;
 };
 
 export function ShopEquipmentPanel({
@@ -47,6 +48,7 @@ export function ShopEquipmentPanel({
   onDragOverBase,
   onDropOnEquipSlot,
   onDoubleClickUnequip,
+  onSellEquippedItem,
 }: Props) {
   const { t } = useTranslation();
 
@@ -78,6 +80,7 @@ export function ShopEquipmentPanel({
                 dropHighlight={dragOverZone === `equip-${slotId}`}
                 categoryHighlight={highlightSlotId === slotId}
                 onDoubleClickUnequip={onDoubleClickUnequip}
+                onSell={onSellEquippedItem}
               />
             ))}
           </div>
@@ -101,6 +104,7 @@ export function ShopEquipmentPanel({
                 onDrop={(e) => onDropOnEquipSlot(e, slotId)}
                 dropHighlight={dragOverZone === `equip-${slotId}`}
                 onDoubleClickUnequip={onDoubleClickUnequip}
+                onSell={onSellEquippedItem}
               />
             ))}
           </div>

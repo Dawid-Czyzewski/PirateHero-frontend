@@ -233,9 +233,14 @@
     "seoDescription": "Unlock and equip prestigious captain titles - from arena veterans to emperors of Atlantis. Endgame milestones unlock crowns the whole archipelago will recognize.",
     "subtitle": "Earn prestigious captain titles through dungeon clears, arena fame, collector milestones, and endgame levels - then display your chosen title beside your name for every crew to see.",
     "loading": "Loading titles…",
+    "empty": "No titles in catalog. Run the seed or refresh the page.",
     "loadError": "Could not load titles.",
     "equipSuccess": "Title equipped.",
     "equipError": "Could not equip title.",
+    "unequip": "Remove title",
+    "unequipHint": "You can play without a title next to your name.",
+    "unequipSuccess": "Title removed.",
+    "unequipError": "Could not remove title.",
     "unlocked": "Unlocked",
     "active": "Active",
     "activate": "Activate",
@@ -1235,7 +1240,10 @@
     "chestTitle": "Chest ({{count}})",
     "attributesPreviewHint": "Preview if equipped",
     "dragHint": "Drag onto an equipment slot or the chest to buy; onto the shop to sell.",
-    "phoneTapHint": "Double-tap an offer to buy • chest item to equip • equipped item to unequip",
+    "phoneTapHint": "Double-tap an offer to buy • chest item to equip • equipped item to unequip • long-press an item to sell",
+    "phoneActionSell": "Sell",
+    "phoneActionEquip": "Equip",
+    "phoneActionUnequip": "Unequip",
     "dropToSell": "Drop here to sell",
     "chestOverflow": "+{{count}} more (not shown in grid)",
     "tooltipBuy": "Price",
@@ -2592,11 +2600,7 @@
       "en": "English"
     },
     "servers": {
-      "PL1": "PL1 - Tortuga",
-      "PL2": "PL2 - Nassau",
-      "DE1": "DE1 - Kiel",
-      "EN1": "EN1 - Port Royal",
-      "FR1": "FR1 - Marseille"
+      "PL1": "PL1"
     },
     "password": {
       "title": "Change password",

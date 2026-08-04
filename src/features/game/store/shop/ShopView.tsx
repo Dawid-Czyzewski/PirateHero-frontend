@@ -50,6 +50,7 @@ export function ShopView({ shop }: Props) {
     buyItem,
     equipItem,
     unequipToChest,
+    sellItem,
   } = shop;
 
   const suppressTooltip = activeDragSource !== null;
@@ -156,6 +157,7 @@ export function ShopView({ shop }: Props) {
           onDragOverBase={handleDragOver}
           onDropOnEquipSlot={handleDropOnEquipSlot}
           onDoubleClickUnequip={(item) => void unequipToChest(item, null)}
+          onSellEquippedItem={(item) => void sellItem(item, 'equipped')}
         />
 
         <div className="flex min-h-0 flex-col overflow-visible">
@@ -193,6 +195,7 @@ export function ShopView({ shop }: Props) {
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
             onDoubleClickEquip={(item) => void equipItem(item)}
+            onSellInventoryItem={(item) => void sellItem(item, 'inventory')}
           />
         </div>
       </div>

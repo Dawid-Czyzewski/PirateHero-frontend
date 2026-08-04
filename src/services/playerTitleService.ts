@@ -14,3 +14,9 @@ export async function equipPlayerTitle(titleCode: string): Promise<EquipTitleRes
     body: { titleCode },
   });
 }
+
+export async function unequipPlayerTitle(): Promise<EquipTitleResponse> {
+  return requestJson<EquipTitleResponse>('/user_titles/unequip', {
+    method: 'POST',
+  });
+}
