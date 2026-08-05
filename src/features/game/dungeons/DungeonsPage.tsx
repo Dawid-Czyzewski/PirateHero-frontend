@@ -19,7 +19,7 @@ export default function DungeonsPage() {
   const { user } = useUser();
   const playerLevel = parsePlayerLevel(user?.level?.name);
   const playerName = user?.username?.trim() || 'Kapitan';
-  const { progress, setProgress, playerStats, loading, error, reload } = useDungeonsState(user?.id);
+  const { progress, setProgress, playerStats, loading, error, reload, cooldownSecondsRemaining, applyCooldownFromFight, clearCooldown } = useDungeonsState(user?.id);
   const [view, setView] = useState<DungeonView>('list');
   const [activeDungeon, setActiveDungeon] = useState<DungeonDefinition | null>(null);
   const [activeStage, setActiveStage] = useState(1);
@@ -82,6 +82,7 @@ export default function DungeonsPage() {
           cleared={progress[activeDungeon.id] ?? 0}
           onBack={() => setView('list')}
           onStart={startStage}
+          cooldownSecondsRemaining={cooldownSecondsRemaining}
         />
       ) : null}
       {view === 'battle' && activeDungeon ? (
@@ -93,6 +94,9 @@ export default function DungeonsPage() {
           playerAvatarId={String(user?.avatarName ?? 'captain')}
           onBack={() => setView('stages')}
           onWin={onWin}
+          cooldownSecondsRemaining={cooldownSecondsRemaining}
+          onCooldownUpdate={applyCooldownFromFight}
+          onCooldownClear={clearCooldown}
         />
       ) : null}
     </div>

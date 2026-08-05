@@ -52,12 +52,36 @@ export async function completeGameMission(
   }
 }
 
+export async function skipGameMission(
+  missionId: number
+): Promise<
+  | Ok<{ diamondsSpent: number; diamonds: number; startTime: string; readyToClaim: boolean }>
+  | Fail
+> {
+  try {
+    const data = await requestJson<{
+      diamondsSpent: number;
+      diamonds: number;
+      startTime: string;
+      readyToClaim: boolean;
+    }>(`/missions/${missionId}/skip`, { method: 'POST' });
+    return { ok: true, data };
+  } catch (error) {
+    console.error('skipGameMission:', error);
+    return {
+      ok: false,
+      message: getServiceApiErrorMessage(error, 'Unexpected error skipping mission.'),
+    };
+  }
+}
+
 export function applyMissionCompleteToUser(
   user: GameUser,
   payload: MissionCompleteApiPayload
 ): Partial<GameUser> {
   const earnedGold = Number(payload.earnedGold ?? 0);
   const earnedExp = Number(payload.earnedExp ?? 0);
+  const diamondsSpent = Number(payload.diamondsSpent ?? 0);
   const totalExp = (user.experiencePoints ?? 0) + earnedExp;
   const nl = payload.newLevel;
 
@@ -65,6 +89,7 @@ export function applyMissionCompleteToUser(
     currentActivity: undefined,
     missions: payload.missions ?? user.missions,
     gold: (user.gold ?? 0) + earnedGold,
+    diamonds: Math.max(0, (user.diamonds ?? 0) - diamondsSpent),
   };
 
   if (nl != null && nl.name != null) {

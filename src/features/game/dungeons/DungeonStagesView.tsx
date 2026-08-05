@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { STAGES_PER_DUNGEON } from './dungeonData';
+import { formatDungeonCooldown } from './formatDungeonCooldown';
 import type { DungeonDefinition } from './dungeonTypes';
 
 type Props = {
@@ -8,10 +9,18 @@ type Props = {
   cleared: number;
   onBack: () => void;
   onStart: (stage: number) => void;
+  cooldownSecondsRemaining?: number;
 };
 
-export function DungeonStagesView({ dungeon, cleared, onBack, onStart }: Props) {
+export function DungeonStagesView({
+  dungeon,
+  cleared,
+  onBack,
+  onStart,
+  cooldownSecondsRemaining = 0,
+}: Props) {
   const { t } = useTranslation();
+  const onCooldown = cooldownSecondsRemaining > 0;
 
   return (
     <div className="space-y-5">
@@ -47,19 +56,35 @@ export function DungeonStagesView({ dungeon, cleared, onBack, onStart }: Props) 
         </div>
       </div>
 
+      {onCooldown ? (
+        <p className="rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+          {t('dungeonsPage.cooldownActive', {
+            time: formatDungeonCooldown(cooldownSecondsRemaining),
+          })}
+        </p>
+      ) : null}
+
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-5 sm:gap-5">
         {Array.from({ length: STAGES_PER_DUNGEON }, (_, i) => {
           const stage = i + 1;
           const isCleared = stage <= cleared;
           const isCurrent = stage === cleared + 1;
-          const isLocked = !isCurrent;
+          const isLocked = !isCurrent || onCooldown;
 
           return (
             <button
               key={stage}
               type="button"
               disabled={isLocked}
-              title={isCleared ? t('dungeonsPage.completedLocked') : undefined}
+              title={
+                onCooldown && isCurrent
+                  ? t('dungeonsPage.cooldownActive', {
+                      time: formatDungeonCooldown(cooldownSecondsRemaining),
+                    })
+                  : isCleared
+                    ? t('dungeonsPage.completedLocked')
+                    : undefined
+              }
               onClick={() => onStart(stage)}
               className={`relative min-h-[6.5rem] rounded-xl border px-4 py-6 text-center transition-all sm:min-h-[7.5rem] sm:py-8 ${
                 isLocked

@@ -35,6 +35,9 @@ export default function MissionsPage({ goBack: _goBack, onQuestsUpdated }: Missi
     startMission,
     confirmCancelMission,
     claimMissionReward,
+    skipMissionWithDiamonds,
+    skipDiamondCost,
+    canAffordSkip,
     closeLevelUpModal,
     handleLevelUpDistributePoints,
     openCancelModal,
@@ -77,6 +80,10 @@ export default function MissionsPage({ goBack: _goBack, onQuestsUpdated }: Missi
         progress={progress}
         remainingMs={remainingMs}
         onCancelPress={openCancelModal}
+        onSkipPress={() => void skipMissionWithDiamonds()}
+        skipDiamondCost={skipDiamondCost}
+        canAffordSkip={canAffordSkip}
+        isSkipInProgress={isLoadingNewMissions}
         onClaim={() => void claimMissionReward()}
         isClaimInProgress={isLoadingNewMissions}
         t={t}

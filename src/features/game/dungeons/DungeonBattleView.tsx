@@ -22,6 +22,7 @@ import { CHARACTER_STAT_KEYS } from '@/features/game/character/characterSkillPoi
 import { STAGES_PER_DUNGEON } from './dungeonData';
 import { dungeonToArenaOpponent, dungeonEnemyPortrait, dungeonEnemyNameKey } from './dungeonArenaMap';
 import { DungeonPrepPortrait } from './DungeonPrepPortrait';
+import { formatDungeonCooldown } from './formatDungeonCooldown';
 import type { DungeonDefinition, DungeonProgress } from './dungeonTypes';
 
 type Props = {
@@ -32,6 +33,9 @@ type Props = {
   playerAvatarId: string;
   onBack: () => void;
   onWin: (progress: DungeonProgress) => void;
+  cooldownSecondsRemaining?: number;
+  onCooldownUpdate?: (secondsRemaining: number, until: string | null | undefined) => void;
+  onCooldownClear?: () => void;
 };
 
 export function DungeonBattleView({
@@ -42,6 +46,9 @@ export function DungeonBattleView({
   playerAvatarId,
   onBack,
   onWin,
+  cooldownSecondsRemaining = 0,
+  onCooldownUpdate,
+  onCooldownClear,
 }: Props) {
   const { t } = useTranslation();
   const { updateUser } = useUser();
@@ -60,6 +67,14 @@ export function DungeonBattleView({
   const playerPortrait = useMemo(() => resolveArenaAvatar(playerAvatarId), [playerAvatarId]);
 
   const startBattle = async () => {
+    if (cooldownSecondsRemaining > 0) {
+      setStartError(
+        t('dungeonsPage.cooldownActive', {
+          time: formatDungeonCooldown(cooldownSecondsRemaining),
+        })
+      );
+      return;
+    }
     setIsStarting(true);
     setStartError(null);
     try {
@@ -71,6 +86,14 @@ export function DungeonBattleView({
       );
       pendingProgressRef.current = payload.progress;
       fightPayloadRef.current = payload;
+      if (payload.won) {
+        onCooldownClear?.();
+      } else {
+        onCooldownUpdate?.(
+          Number(payload.cooldownSecondsRemaining ?? 0),
+          payload.cooldownUntil
+        );
+      }
       battle.playBattle(opponent, mapFightToArenaResult(payload), false);
       setHasStarted(true);
     } catch (err) {
@@ -211,11 +234,18 @@ export function DungeonBattleView({
           </div>
 
           <div className="flex flex-col items-end gap-2 border-t border-border px-4 py-3 sm:px-5">
+            {cooldownSecondsRemaining > 0 ? (
+              <p className="w-full text-sm text-destructive">
+                {t('dungeonsPage.cooldownActive', {
+                  time: formatDungeonCooldown(cooldownSecondsRemaining),
+                })}
+              </p>
+            ) : null}
             {startError ? <p className="w-full text-sm text-destructive">{startError}</p> : null}
             <button
               type="button"
               onClick={() => void startBattle()}
-              disabled={isStarting}
+              disabled={isStarting || cooldownSecondsRemaining > 0}
               className="cursor-pointer rounded-lg bg-primary px-5 py-2.5 font-heading text-xs uppercase tracking-wide text-primary-foreground transition hover:bg-primary/90 disabled:opacity-60"
             >
               {isStarting ? t('dungeonsPage.startingBattle') : t('dungeonsPage.startBattle')}

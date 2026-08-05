@@ -5,6 +5,8 @@ import type { DungeonProgress } from '@/features/game/dungeons/dungeonTypes';
 export type DungeonProgressPayload = {
   progress: DungeonProgress;
   playerStats: ArenaPlayerStats;
+  cooldownUntil?: string | null;
+  cooldownSecondsRemaining?: number;
 };
 
 type ApiOpponent = ArenaOpponent & { enemyNameKey?: string };
@@ -54,6 +56,8 @@ export type DungeonFightPayload = {
   dungeonCompleted?: boolean;
   rewardItem?: DungeonCompletionReward['item'];
   updatedUser: DungeonFightUpdatedUser | null;
+  cooldownUntil?: string | null;
+  cooldownSecondsRemaining?: number;
 };
 
 export async function fetchDungeonProgress(): Promise<DungeonProgressPayload> {

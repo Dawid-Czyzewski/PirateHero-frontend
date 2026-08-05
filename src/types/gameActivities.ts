@@ -45,6 +45,7 @@ export type MissionCompleteApiPayload = {
   earnedGold?: number;
   earnedExp?: number;
   bonusPercent?: number;
+  diamondsSpent?: number;
   newLevel?: MissionCompleteNewLevelDto | null;
   unclaimedCount?: number;
   quests?: UserQuest[];

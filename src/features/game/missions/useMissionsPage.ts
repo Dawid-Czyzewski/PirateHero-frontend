@@ -27,9 +27,11 @@ import {
   applyMissionCompleteToUser,
   cancelGameMission,
   completeGameMission,
+  skipGameMission,
   startGameMission,
 } from '@/services/missionService';
 import { calculateLevelUp } from '@/services/levelCalculationService';
+import { missionSkipDiamondCost } from '@/features/game/missions/missionSkipCost';
 import type { AvailableMissionDto } from '@/types/gameActivities';
 
 export function useMissionsPage({ onQuestsUpdated }: Pick<MissionsPageProps, 'onQuestsUpdated'>) {
@@ -279,6 +281,7 @@ export function useMissionsPage({ onQuestsUpdated }: Pick<MissionsPageProps, 'on
           experiencePoints: preSnapshot.experiencePoints,
           level: preSnapshot.level,
           freeSkillPointsAvailable: preSnapshot.freeSkillPointsAvailable,
+          diamonds: preSnapshot.diamonds,
         });
         setMissionError(result.message);
         return;
@@ -340,6 +343,70 @@ export function useMissionsPage({ onQuestsUpdated }: Pick<MissionsPageProps, 'on
     updateUser,
     user,
   ]);
+
+  const skipMissionWithDiamonds = useCallback(async () => {
+    if (!activeMission || !user || isLoadingNewMissions || isCompleted) return;
+    const cost = missionSkipDiamondCost(remainingMs);
+    if (cost <= 0 || (user.diamonds ?? 0) < cost) {
+      setMissionError(t('notEnoughDiamonds'));
+      return;
+    }
+
+    setMissionError(null);
+    const id = Number(activeMission.mission.id);
+    const preDiamonds = user.diamonds ?? 0;
+    const preActivity = user.currentActivity;
+
+    setIsLoadingNewMissions(true);
+    try {
+      const completedStartIso = new Date(
+        Date.now() - (activeMission.mission.durationMs || 0)
+      ).toISOString();
+
+      await updateUser({
+        diamonds: Math.max(0, preDiamonds - cost),
+        currentActivity: preActivity
+          ? { ...preActivity, startTime: completedStartIso }
+          : preActivity,
+      });
+
+      const result = await skipGameMission(id);
+      if (result.ok === false) {
+        await updateUser({
+          diamonds: preDiamonds,
+          currentActivity: preActivity,
+        });
+        setMissionError(result.message);
+        return;
+      }
+
+      await updateUser({
+        diamonds: Number(result.data.diamonds ?? Math.max(0, preDiamonds - cost)),
+        currentActivity: preActivity
+          ? {
+              ...preActivity,
+              startTime: result.data.startTime || completedStartIso,
+            }
+          : preActivity,
+      });
+      setNowMs(Date.now());
+      void fetchUserData();
+    } finally {
+      setIsLoadingNewMissions(false);
+    }
+  }, [
+    activeMission,
+    fetchUserData,
+    isCompleted,
+    isLoadingNewMissions,
+    remainingMs,
+    t,
+    updateUser,
+    user,
+  ]);
+
+  const skipDiamondCost = missionSkipDiamondCost(remainingMs);
+  const canAffordSkip = (user?.diamonds ?? 0) >= skipDiamondCost && skipDiamondCost > 0;
 
   const closeLevelUpModal = useCallback(() => {
     setLevelUpModalOpen(false);
@@ -406,6 +473,9 @@ export function useMissionsPage({ onQuestsUpdated }: Pick<MissionsPageProps, 'on
     startMission,
     confirmCancelMission,
     claimMissionReward,
+    skipMissionWithDiamonds,
+    skipDiamondCost,
+    canAffordSkip,
     closeLevelUpModal,
     handleLevelUpDistributePoints,
     openCancelModal,

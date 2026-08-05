@@ -9,6 +9,10 @@ type Props = {
   progress: number;
   remainingMs: number;
   onCancelPress: () => void;
+  onSkipPress: () => void;
+  skipDiamondCost: number;
+  canAffordSkip: boolean;
+  isSkipInProgress?: boolean;
   onClaim: () => void;
   isClaimInProgress?: boolean;
   t: TFunction;
@@ -26,6 +30,10 @@ export function MissionsActiveMissionSection({
   progress,
   remainingMs,
   onCancelPress,
+  onSkipPress,
+  skipDiamondCost,
+  canAffordSkip,
+  isSkipInProgress = false,
   onClaim,
   isClaimInProgress = false,
   t,
@@ -45,6 +53,10 @@ export function MissionsActiveMissionSection({
         progressPercent={progress}
         remainingMs={remainingMs}
         onCancelPress={onCancelPress}
+        onSkipPress={onSkipPress}
+        skipDiamondCost={skipDiamondCost}
+        canAffordSkip={canAffordSkip}
+        isSkipInProgress={isSkipInProgress}
         t={t}
         missionShipGoldExtra={missionShipGoldExtra}
         missionShipExpExtra={missionShipExpExtra}

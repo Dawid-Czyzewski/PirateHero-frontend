@@ -1,3 +1,4 @@
+import { Gem } from 'lucide-react';
 import { ActiveMissionIconBadge } from '@/features/game/missions/ActiveMissionIconBadge';
 import { ActiveMissionRewardsFooter } from '@/features/game/missions/ActiveMissionRewardsFooter';
 import { formatMissionTimeShort } from '@/features/game/missions/formatMissionTime';
@@ -9,7 +10,11 @@ type Props = {
   progressPercent: number;
   remainingMs: number;
   onCancelPress: () => void;
-  t: (key: string) => string;
+  onSkipPress: () => void;
+  skipDiamondCost: number;
+  canAffordSkip: boolean;
+  isSkipInProgress?: boolean;
+  t: (key: string, options?: Record<string, unknown>) => string;
   missionShipGoldExtra?: number;
   missionShipExpExtra?: number;
   missionBoosterGoldExtra?: number;
@@ -25,6 +30,10 @@ export function ActiveMissionCard({
   progressPercent,
   remainingMs,
   onCancelPress,
+  onSkipPress,
+  skipDiamondCost,
+  canAffordSkip,
+  isSkipInProgress = false,
   t,
   missionShipGoldExtra,
   missionShipExpExtra,
@@ -47,11 +56,26 @@ export function ActiveMissionCard({
               </h3>
             </div>
           </div>
-          <MissionCancelButton
-            onCancel={onCancelPress}
-            label={t('missionsPage.cancelMission')}
-            ariaLabel={t('missionsPage.cancelMissionAria')}
-          />
+          <div className="flex shrink-0 flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={onSkipPress}
+              disabled={!canAffordSkip || isSkipInProgress || skipDiamondCost <= 0}
+              aria-label={t('missionsPage.skipMissionAria', { count: skipDiamondCost })}
+              className="inline-flex cursor-pointer items-center gap-1 rounded-md border border-[hsl(43,55%,38%)]/80 bg-[hsl(43,55%,28%)] px-3 py-1.5 font-heading text-xs font-bold uppercase tracking-wide text-white shadow-md transition-shadow hover:bg-[hsl(43,55%,34%)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(43,72%,48%)] disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <span>{t('missionsPage.skipMissionPrefix')}</span>
+              <span className="inline-flex items-center gap-1">
+                ({skipDiamondCost}
+                <Gem className="h-3.5 w-3.5 shrink-0 text-blue-400" aria-hidden />)
+              </span>
+            </button>
+            <MissionCancelButton
+              onCancel={onCancelPress}
+              label={t('missionsPage.cancelMission')}
+              ariaLabel={t('missionsPage.cancelMissionAria')}
+            />
+          </div>
         </div>
 
         <div className="mt-5">
