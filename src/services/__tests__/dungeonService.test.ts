@@ -13,7 +13,7 @@ function basePayload(overrides: Partial<DungeonFightPayload> = {}): DungeonFight
     opponentMaxHp: 80,
     fameEarned: 0,
     famePointsChange: 0,
-    progress: { krypta: 1 },
+    progress: { normal: { krypta: 1 }, hard: {} },
     opponent: {
       id: 'dungeon-krypta-s1',
       name: 'Enemy',
