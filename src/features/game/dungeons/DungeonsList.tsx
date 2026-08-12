@@ -1,10 +1,12 @@
 import { CheckCircle2, Skull, Trophy } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { DUNGEONS, STAGES_PER_DUNGEON } from './dungeonData';
-import type { DungeonDefinition, DungeonProgress } from './dungeonTypes';
+import type { DungeonDefinition, DungeonDifficulty, DungeonProgressMap } from './dungeonTypes';
 
 type Props = {
-  progress: DungeonProgress;
+  progress: DungeonProgressMap;
+  normalProgress: DungeonProgressMap;
+  difficulty: DungeonDifficulty;
   playerLevel: number;
   onOpen: (dungeon: DungeonDefinition) => void;
 };
@@ -28,17 +30,29 @@ function CompletedDungeonOverlay({ label }: { label: string }) {
   );
 }
 
-export function DungeonsList({ progress, playerLevel, onOpen }: Props) {
+export function DungeonsList({
+  progress,
+  normalProgress,
+  difficulty,
+  playerLevel,
+  onOpen,
+}: Props) {
   const { t } = useTranslation();
-  const completedLabel = t('dungeonsPage.dungeonCompleted');
+  const completedLabel =
+    difficulty === 'hard'
+      ? t('dungeonsPage.hardCompletedReplay')
+      : t('dungeonsPage.dungeonCompleted');
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
       {DUNGEONS.map((d, idx) => {
         const cleared = progress[d.id] ?? 0;
+        const normalCleared = normalProgress[d.id] ?? 0;
         const locked = playerLevel < d.reqLevel;
+        const hardLocked = difficulty === 'hard' && normalCleared < STAGES_PER_DUNGEON;
         const completed = cleared >= STAGES_PER_DUNGEON;
-        const disabled = locked || completed;
+        const disabled =
+          locked || hardLocked || (difficulty === 'normal' && completed);
 
         return (
           <button
@@ -47,11 +61,13 @@ export function DungeonsList({ progress, playerLevel, onOpen }: Props) {
             disabled={disabled}
             onClick={() => onOpen(d)}
             className={`group relative overflow-hidden rounded-xl border bg-card text-left transition-all ${
-              completed
+              completed && difficulty === 'normal'
                 ? 'cursor-not-allowed border-emerald-500/30 shadow-[0_0_0_1px_hsl(152_45%_42%_/0.12),0_8px_28px_-8px_rgba(16,185,129,0.22)]'
-                : locked
-                  ? 'cursor-not-allowed border-border opacity-60'
-                  : 'cursor-pointer border-border hover:border-primary/60 hover:shadow-[0_0_30px_hsl(42,90%,50%,0.15)]'
+                : completed && difficulty === 'hard'
+                  ? 'cursor-pointer border-amber-500/40 hover:border-amber-400/70'
+                  : locked || hardLocked
+                    ? 'cursor-not-allowed border-border opacity-60'
+                    : 'cursor-pointer border-border hover:border-primary/60 hover:shadow-[0_0_30px_hsl(42,90%,50%,0.15)]'
             }`}
           >
             <div className="relative h-36 overflow-hidden sm:h-44 lg:h-52 xl:h-56">
@@ -62,32 +78,39 @@ export function DungeonsList({ progress, playerLevel, onOpen }: Props) {
                 width={1024}
                 height={576}
                 className={`h-full w-full object-cover transition-transform duration-500 ${
-                  completed
+                  completed && difficulty === 'normal'
                     ? 'scale-[1.02] brightness-[0.88] saturate-[0.8]'
-                    : locked
+                    : locked || hardLocked
                       ? 'grayscale'
                       : 'group-hover:scale-105'
                 }`}
               />
-              {completed ? <CompletedDungeonOverlay label={completedLabel} /> : null}
+              {completed && difficulty === 'normal' ? (
+                <CompletedDungeonOverlay label={completedLabel} />
+              ) : null}
+              {difficulty === 'hard' ? (
+                <span className="absolute right-3 bottom-3 z-10 rounded-full border border-amber-400/40 bg-black/60 px-2.5 py-0.5 font-heading text-[10px] font-black uppercase tracking-wider text-amber-200">
+                  {t('dungeonsPage.difficultyHard')}
+                </span>
+              ) : null}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 to-transparent" aria-hidden />
               <span
                 className={`absolute left-3 top-3 rounded-full px-3 py-1 font-heading text-[11px] font-black uppercase tracking-wider shadow-lg sm:text-xs ${
-                  completed
+                  completed && difficulty === 'normal'
                     ? 'border border-emerald-400/30 bg-emerald-950/75 text-emerald-100'
                     : 'bg-primary text-primary-foreground'
                 }`}
               >
                 {t('dungeonsPage.dungeonBadge', { number: idx + 1 })}
               </span>
-              {locked ? (
+              {locked || hardLocked ? (
                 <span className="absolute right-3 top-3 rounded-full border border-border bg-black/70 px-2.5 py-0.5 text-[11px] font-bold uppercase text-muted-foreground sm:text-xs">
-                  {t('dungeonsPage.locked')}
+                  {hardLocked ? t('dungeonsPage.hardLocked') : t('dungeonsPage.locked')}
                 </span>
               ) : null}
               <div
                 className={`absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5 ${
-                  completed ? 'opacity-80' : ''
+                  completed && difficulty === 'normal' ? 'opacity-80' : ''
                 }`}
               >
                 <h3 className="font-heading text-base font-bold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] sm:text-lg lg:text-xl">
@@ -100,7 +123,7 @@ export function DungeonsList({ progress, playerLevel, onOpen }: Props) {
             </div>
             <div
               className={`border-t px-4 py-3.5 sm:px-5 sm:py-4 ${
-                completed
+                completed && difficulty === 'normal'
                   ? 'border-emerald-500/20 bg-gradient-to-r from-emerald-950/25 via-card to-emerald-950/25'
                   : 'border-border/50 bg-card'
               }`}

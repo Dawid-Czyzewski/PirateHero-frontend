@@ -15,6 +15,7 @@ export type GameNavKey =
   | 'coupons'
   | 'rzut-moneta'
   | 'questTasks'
+  | 'dailyChallenges'
   | 'notifications'
   | 'settings';
 

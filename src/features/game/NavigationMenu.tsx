@@ -50,6 +50,7 @@ export default function NavigationMenu({
     { key: 'missions', label: t('missions') },
     { key: 'training', label: t('training') },
     { key: 'questTasks', label: t('questTasks') },
+    { key: 'dailyChallenges', label: t('dailyChallenges') },
     { key: 'works', label: t('works') },
     { key: 'store', label: t('store') },
     { key: 'fights', label: t('fights') },

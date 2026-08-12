@@ -1,5 +1,7 @@
 export type DungeonId = 'krypta' | 'kraken' | 'forteca' | 'wulkan' | 'palac';
 
+export type DungeonDifficulty = 'normal' | 'hard';
+
 export type DungeonDefinition = {
   id: DungeonId;
   nameKey: string;
@@ -18,5 +20,16 @@ export type DungeonDefinition = {
   completionGrantsItem: boolean;
 };
 
-export type DungeonProgress = Record<string, number>;
+export type DungeonProgressMap = Record<string, number>;
+
+export type DungeonProgressByDifficulty = {
+  normal: DungeonProgressMap;
+  hard: DungeonProgressMap;
+};
+
 export type DungeonView = 'list' | 'stages' | 'battle';
+
+export const EMPTY_DUNGEON_PROGRESS: DungeonProgressByDifficulty = {
+  normal: {},
+  hard: {},
+};

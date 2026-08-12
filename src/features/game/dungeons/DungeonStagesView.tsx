@@ -2,11 +2,12 @@ import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { STAGES_PER_DUNGEON } from './dungeonData';
 import { formatDungeonCooldown } from './formatDungeonCooldown';
-import type { DungeonDefinition } from './dungeonTypes';
+import type { DungeonDefinition, DungeonDifficulty } from './dungeonTypes';
 
 type Props = {
   dungeon: DungeonDefinition;
   cleared: number;
+  difficulty: DungeonDifficulty;
   onBack: () => void;
   onStart: (stage: number) => void;
   cooldownSecondsRemaining?: number;
@@ -15,12 +16,14 @@ type Props = {
 export function DungeonStagesView({
   dungeon,
   cleared,
+  difficulty,
   onBack,
   onStart,
   cooldownSecondsRemaining = 0,
 }: Props) {
   const { t } = useTranslation();
   const onCooldown = cooldownSecondsRemaining > 0;
+  const replayMode = difficulty === 'hard' && cleared >= STAGES_PER_DUNGEON;
 
   return (
     <div className="space-y-5">
@@ -46,6 +49,7 @@ export function DungeonStagesView({
         <div className="absolute inset-0 flex flex-col justify-end px-8 pb-8">
           <p className="font-heading text-xs uppercase tracking-[0.2em] text-primary/80">
             {t('dungeonsPage.pickStage')}
+            {difficulty === 'hard' ? ` · ${t('dungeonsPage.difficultyHard')}` : ''}
           </p>
           <h2 className="mt-1 font-heading text-3xl font-black text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             {t(dungeon.nameKey)}
@@ -55,6 +59,12 @@ export function DungeonStagesView({
           </p>
         </div>
       </div>
+
+      {replayMode ? (
+        <p className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
+          {t('dungeonsPage.hardReplayHint')}
+        </p>
+      ) : null}
 
       {onCooldown ? (
         <p className="rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
@@ -69,7 +79,8 @@ export function DungeonStagesView({
           const stage = i + 1;
           const isCleared = stage <= cleared;
           const isCurrent = stage === cleared + 1;
-          const isLocked = !isCurrent || onCooldown;
+          const canFight = replayMode ? !onCooldown : isCurrent && !onCooldown;
+          const isLocked = !canFight;
 
           return (
             <button
@@ -77,11 +88,11 @@ export function DungeonStagesView({
               type="button"
               disabled={isLocked}
               title={
-                onCooldown && isCurrent
+                onCooldown && (isCurrent || replayMode)
                   ? t('dungeonsPage.cooldownActive', {
                       time: formatDungeonCooldown(cooldownSecondsRemaining),
                     })
-                  : isCleared
+                  : isCleared && !replayMode
                     ? t('dungeonsPage.completedLocked')
                     : undefined
               }
@@ -92,7 +103,7 @@ export function DungeonStagesView({
                     ? 'cursor-not-allowed border-green-500/40 bg-green-500/5 opacity-70'
                     : 'cursor-not-allowed border-border bg-card/50 opacity-50'
                   : 'cursor-pointer border-primary/60 bg-primary/10 shadow-[0_0_20px_hsl(42,90%,50%,0.2)] hover:bg-primary/20'
-              } ${isCurrent && !isLocked ? 'animate-pulse' : ''}`}
+              } ${isCurrent && !isLocked && !replayMode ? 'animate-pulse' : ''}`}
             >
               <p className="font-heading text-xs uppercase tracking-wider text-muted-foreground sm:text-sm">
                 {t('dungeonsPage.stage')}

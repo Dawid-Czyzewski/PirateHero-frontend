@@ -1,9 +1,9 @@
 import { requestJson } from '@/lib/api/requestJson';
 import type { ArenaBattleResult, ArenaDungeonVictoryRewards, ArenaOpponent, ArenaPlayerStats } from '@/features/game/arena/arenaTypes';
-import type { DungeonProgress } from '@/features/game/dungeons/dungeonTypes';
+import type { DungeonDifficulty, DungeonProgressByDifficulty } from '@/features/game/dungeons/dungeonTypes';
 
 export type DungeonProgressPayload = {
-  progress: DungeonProgress;
+  progress: DungeonProgressByDifficulty;
   playerStats: ArenaPlayerStats;
   cooldownUntil?: string | null;
   cooldownSecondsRemaining?: number;
@@ -49,7 +49,7 @@ export type DungeonFightPayload = {
   opponentMaxHp: number;
   fameEarned: number;
   famePointsChange: number;
-  progress: DungeonProgress;
+  progress: DungeonProgressByDifficulty;
   opponent: ApiOpponent;
   rewards: DungeonStageRewards;
   completionReward?: DungeonCompletionReward | null;
@@ -66,11 +66,12 @@ export async function fetchDungeonProgress(): Promise<DungeonProgressPayload> {
 
 export async function fightDungeonStage(
   dungeonId: string,
-  stage: number
+  stage: number,
+  difficulty: DungeonDifficulty = 'normal'
 ): Promise<DungeonFightPayload> {
   return requestJson<DungeonFightPayload>('/users/dungeons/fight', {
     method: 'POST',
-    body: { dungeonId, stage },
+    body: { dungeonId, stage, difficulty },
   });
 }
 

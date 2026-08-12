@@ -33,6 +33,7 @@ import TrainingPage from '@/features/game/TrainingPage';
 import {
   MissionsOutlet,
   QuestTasksOutlet,
+  DailyChallengesOutlet,
   StoreOutlet,
   FightsOutlet,
   DungeonsOutlet,
@@ -124,6 +125,7 @@ function AppLayout() {
                       <Route index element={<Navigate to="character" replace />} />
                       <Route path="missions" element={<MissionsOutlet />} />
                       <Route path="questTasks" element={<QuestTasksOutlet />} />
+                      <Route path="dailyChallenges" element={<DailyChallengesOutlet />} />
                       <Route path="works" element={<WorksPage />} />
                       <Route path="training" element={<TrainingPage />} />
                       <Route path="character" element={<CharacterOutlet />} />

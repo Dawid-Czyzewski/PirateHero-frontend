@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchUserQuests } from '@/services/questTaskService';
+import { fetchDailyChallenges } from '@/services/dailyChallengeService';
 import { getUnreadNotificationsCount } from '@/services/notificationsService';
 import { queryKeys } from '@/lib/query/queryKeys';
 import type { GameUser } from '@/types/gameUser';
@@ -17,6 +18,13 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     staleTime: 60_000,
   });
 
+  const dailyChallengesQuery = useQuery({
+    queryKey: queryKeys.dailyChallenges(),
+    queryFn: fetchDailyChallenges,
+    enabled: Boolean(userId),
+    staleTime: 30_000,
+  });
+
   const notificationsQuery = useQuery({
     queryKey: queryKeys.unreadNotificationsCount(),
     queryFn: getUnreadNotificationsCount,
@@ -29,6 +37,8 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     ? questsQuery.data.quests.filter((quest) => Boolean(quest.isCompleted) && !quest.isRewardClaimed)
         .length
     : 0;
+
+  const dailyChallengesUnclaimedCount = dailyChallengesQuery.data?.unclaimedCount ?? 0;
 
   const unreadNotificationsCount = user ? (notificationsQuery.data ?? 0) : 0;
 
@@ -60,6 +70,11 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     [queryClient, userId]
   );
 
+  const checkDailyChallenges = useCallback(async () => {
+    if (!userId) return;
+    await queryClient.invalidateQueries({ queryKey: queryKeys.dailyChallenges() });
+  }, [queryClient, userId]);
+
   const checkUnreadNotifications = useCallback(async () => {
     if (!user) return;
     await queryClient.invalidateQueries({ queryKey: queryKeys.unreadNotificationsCount() });
@@ -67,8 +82,10 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
 
   return {
     unclaimedRewardsCount,
+    dailyChallengesUnclaimedCount,
     unreadNotificationsCount,
     checkUnclaimedRewards,
+    checkDailyChallenges,
     checkUnreadNotifications,
   };
 }

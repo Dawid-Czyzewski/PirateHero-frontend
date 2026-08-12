@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { ApiHttpError } from '@/lib/api/ApiHttpError';
 import { queryKeys } from '@/lib/query/queryKeys';
 import { fetchDungeonProgress, type DungeonProgressPayload } from '@/services/dungeonService';
-import type { DungeonProgress } from './dungeonTypes';
+import { EMPTY_DUNGEON_PROGRESS, type DungeonProgressByDifficulty } from './dungeonTypes';
 
 function secondsFromCooldownFields(
   secondsRemaining: number | undefined,
@@ -58,7 +58,7 @@ export function useDungeonsState(userId: string | null | undefined) {
   }, [cooldownUntil, cooldownSecondsRemaining > 0]);
 
   const setProgress = useCallback(
-    (progress: DungeonProgress) => {
+    (progress: DungeonProgressByDifficulty) => {
       queryClient.setQueryData<DungeonProgressPayload>(queryKeys.dungeonProgress(), (old) => {
         if (!old) {
           return old;
@@ -118,7 +118,7 @@ export function useDungeonsState(userId: string | null | undefined) {
       : null;
 
   return {
-    progress: q.data?.progress ?? {},
+    progress: q.data?.progress ?? EMPTY_DUNGEON_PROGRESS,
     setProgress,
     playerStats: q.data?.playerStats ?? null,
     cooldownSecondsRemaining,

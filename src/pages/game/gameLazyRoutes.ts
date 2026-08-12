@@ -1,6 +1,7 @@
 export const gameRouteImports = {
   missions: () => import('@/features/game/MissionsPage'),
   questTasks: () => import('@/features/game/QuestTasksPage'),
+  dailyChallenges: () => import('@/features/game/DailyChallengesPage'),
   store: () => import('@/features/game/StorePage'),
   character: () => import('@/features/game/CharacterPage'),
   fights: () => import('@/features/game/FightsPage'),
@@ -25,6 +26,7 @@ export const eagerGameRouteImports: Array<
 > = [
   gameRouteImports.missions,
   gameRouteImports.questTasks,
+  gameRouteImports.dailyChallenges,
   gameRouteImports.store,
   gameRouteImports.character,
   gameRouteImports.dungeons,

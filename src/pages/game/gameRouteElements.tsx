@@ -7,6 +7,7 @@ import type { GameOutletContext } from './GameOutletContext';
 
 const MissionsPage = lazy(gameRouteImports.missions);
 const QuestTasksPage = lazy(gameRouteImports.questTasks);
+const DailyChallengesPage = lazy(gameRouteImports.dailyChallenges);
 const StorePage = lazy(gameRouteImports.store);
 const CharacterPage = lazy(gameRouteImports.character);
 const FightsPage = lazy(gameRouteImports.fights);
@@ -35,6 +36,10 @@ export function MissionsOutlet() {
 export function QuestTasksOutlet() {
   const ctx = useOutletContext<GameOutletContext>();
   return <QuestTasksPage goBack={ctx.goBackToMenu} onRewardClaimed={ctx.onRewardClaimed} />;
+}
+
+export function DailyChallengesOutlet() {
+  return <DailyChallengesPage />;
 }
 
 export function StoreOutlet() {

@@ -5,6 +5,7 @@ export const queryKeys = {
   userQuests: (userId: string | null | undefined) =>
     ['userQuests', userId ?? 'none'] as const,
   dailyReward: () => ['dailyRewardStatus'] as const,
+  dailyChallenges: () => ['dailyChallenges'] as const,
   unreadNotificationsCount: () => ['unreadNotificationsCount'] as const,
   dungeonProgress: () => ['dungeonProgress'] as const,
   shipNotifications: () => ['shipNotifications'] as const,

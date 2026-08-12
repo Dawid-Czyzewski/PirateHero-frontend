@@ -7,7 +7,7 @@ import { DungeonStagesView } from './DungeonStagesView';
 import { DungeonBattleView } from './DungeonBattleView';
 import { useDungeonsState } from './useDungeonsState';
 import { STAGES_PER_DUNGEON } from './dungeonData';
-import type { DungeonDefinition, DungeonView } from './dungeonTypes';
+import type { DungeonDefinition, DungeonDifficulty, DungeonView } from './dungeonTypes';
 
 function parsePlayerLevel(levelName: string | undefined): number {
   const n = parseInt(String(levelName ?? '1'), 10);
@@ -21,13 +21,19 @@ export default function DungeonsPage() {
   const playerName = user?.username?.trim() || 'Kapitan';
   const { progress, setProgress, playerStats, loading, error, reload, cooldownSecondsRemaining, applyCooldownFromFight, clearCooldown } = useDungeonsState(user?.id);
   const [view, setView] = useState<DungeonView>('list');
+  const [difficulty, setDifficulty] = useState<DungeonDifficulty>('normal');
   const [activeDungeon, setActiveDungeon] = useState<DungeonDefinition | null>(null);
   const [activeStage, setActiveStage] = useState(1);
 
+  const modeProgress = progress[difficulty] ?? {};
+  const normalProgress = progress.normal ?? {};
+
   const openDungeon = (dungeon: DungeonDefinition) => {
     if (playerLevel < dungeon.reqLevel) return;
-    const cleared = progress[dungeon.id] ?? 0;
-    if (cleared >= STAGES_PER_DUNGEON) return;
+    const normalCleared = normalProgress[dungeon.id] ?? 0;
+    if (difficulty === 'hard' && normalCleared < STAGES_PER_DUNGEON) return;
+    const cleared = modeProgress[dungeon.id] ?? 0;
+    if (difficulty === 'normal' && cleared >= STAGES_PER_DUNGEON) return;
     setActiveDungeon(dungeon);
     setView('stages');
   };
@@ -74,12 +80,45 @@ export default function DungeonsPage() {
       <DungeonsHeader />
 
       {view === 'list' ? (
-        <DungeonsList progress={progress} playerLevel={playerLevel} onOpen={openDungeon} />
+        <>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setDifficulty('normal')}
+              className={`cursor-pointer rounded-lg px-4 py-2 font-heading text-xs uppercase tracking-wide ${
+                difficulty === 'normal'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'border border-border bg-card text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              {t('dungeonsPage.difficultyNormal')}
+            </button>
+            <button
+              type="button"
+              onClick={() => setDifficulty('hard')}
+              className={`cursor-pointer rounded-lg px-4 py-2 font-heading text-xs uppercase tracking-wide ${
+                difficulty === 'hard'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'border border-border bg-card text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              {t('dungeonsPage.difficultyHard')}
+            </button>
+          </div>
+          <DungeonsList
+            progress={modeProgress}
+            normalProgress={normalProgress}
+            difficulty={difficulty}
+            playerLevel={playerLevel}
+            onOpen={openDungeon}
+          />
+        </>
       ) : null}
       {view === 'stages' && activeDungeon ? (
         <DungeonStagesView
           dungeon={activeDungeon}
-          cleared={progress[activeDungeon.id] ?? 0}
+          cleared={modeProgress[activeDungeon.id] ?? 0}
+          difficulty={difficulty}
           onBack={() => setView('list')}
           onStart={startStage}
           cooldownSecondsRemaining={cooldownSecondsRemaining}
@@ -89,6 +128,7 @@ export default function DungeonsPage() {
         <DungeonBattleView
           dungeon={activeDungeon}
           stage={activeStage}
+          difficulty={difficulty}
           playerName={playerName}
           playerStats={playerStats}
           playerAvatarId={String(user?.avatarName ?? 'captain')}

@@ -23,16 +23,17 @@ import { STAGES_PER_DUNGEON } from './dungeonData';
 import { dungeonToArenaOpponent, dungeonEnemyPortrait, dungeonEnemyNameKey } from './dungeonArenaMap';
 import { DungeonPrepPortrait } from './DungeonPrepPortrait';
 import { formatDungeonCooldown } from './formatDungeonCooldown';
-import type { DungeonDefinition, DungeonProgress } from './dungeonTypes';
+import type { DungeonDefinition, DungeonDifficulty, DungeonProgressByDifficulty } from './dungeonTypes';
 
 type Props = {
   dungeon: DungeonDefinition;
   stage: number;
+  difficulty: DungeonDifficulty;
   playerName: string;
   playerStats: ArenaPlayerStats;
   playerAvatarId: string;
   onBack: () => void;
-  onWin: (progress: DungeonProgress) => void;
+  onWin: (progress: DungeonProgressByDifficulty) => void;
   cooldownSecondsRemaining?: number;
   onCooldownUpdate?: (secondsRemaining: number, until: string | null | undefined) => void;
   onCooldownClear?: () => void;
@@ -41,6 +42,7 @@ type Props = {
 export function DungeonBattleView({
   dungeon,
   stage,
+  difficulty,
   playerName,
   playerStats,
   playerAvatarId,
@@ -54,7 +56,7 @@ export function DungeonBattleView({
   const { updateUser } = useUser();
   const queryClient = useQueryClient();
   const battle = useArenaBattlePlayback();
-  const pendingProgressRef = useRef<DungeonProgress | null>(null);
+  const pendingProgressRef = useRef<DungeonProgressByDifficulty | null>(null);
   const fightPayloadRef = useRef<DungeonFightPayload | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [isStarting, setIsStarting] = useState(false);
@@ -78,7 +80,7 @@ export function DungeonBattleView({
     setIsStarting(true);
     setStartError(null);
     try {
-      const payload = await fightDungeonStage(dungeon.id, stage);
+      const payload = await fightDungeonStage(dungeon.id, stage, difficulty);
       const opponent = mapApiOpponent(
         payload.opponent,
         enemyName,

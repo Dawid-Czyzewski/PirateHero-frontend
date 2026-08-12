@@ -13,6 +13,7 @@ type Props = {
   onLogout: () => void;
   currentActivity: CurrentActivityDto | undefined;
   unclaimedRewardsCount: number;
+  dailyChallengesUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -22,6 +23,7 @@ export default function GameLayoutSidebar({
   onLogout,
   currentActivity,
   unclaimedRewardsCount,
+  dailyChallengesUnclaimedCount,
   unreadNotificationsCount,
 }: Props) {
   const { t } = useTranslation();
@@ -49,6 +51,7 @@ export default function GameLayoutSidebar({
     isInWork,
     isInTraining,
     unclaimedRewardsCount,
+    dailyChallengesUnclaimedCount,
     unreadNotificationsCount,
   });
 

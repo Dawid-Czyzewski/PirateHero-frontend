@@ -10,6 +10,7 @@ import {
   ShoppingBag,
   Sparkles,
   Swords,
+  Target,
   TicketPercent,
   Trophy,
   User,
@@ -25,6 +26,7 @@ type BuildItemsArgs = {
   isInWork: boolean;
   isInTraining: boolean;
   unclaimedRewardsCount: number;
+  dailyChallengesUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -64,6 +66,7 @@ const ROWS: {
   { key: 'notifications', icon: Bell, notify: ({ unreadNotificationsCount }) => unreadNotificationsCount },
   { key: 'dungeons', icon: Skull, notify: () => 0 },
   { key: 'questTasks', icon: ScrollText, notify: ({ unclaimedRewardsCount }) => unclaimedRewardsCount },
+  { key: 'dailyChallenges', icon: Target, notify: ({ dailyChallengesUnclaimedCount }) => dailyChallengesUnclaimedCount },
   { key: 'premium-shop', icon: Gem, notify: () => 0 },
 ];
 
