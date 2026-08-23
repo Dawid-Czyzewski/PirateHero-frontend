@@ -14,6 +14,7 @@ import {
   TicketPercent,
   Trophy,
   User,
+  CalendarRange,
 } from 'lucide-react';
 import type { TFunction } from 'i18next';
 import type { GameNavKey } from '@/features/game/navigation/gameNavActivityPolicy';
@@ -27,6 +28,7 @@ type BuildItemsArgs = {
   isInTraining: boolean;
   unclaimedRewardsCount: number;
   dailyChallengesUnclaimedCount: number;
+  weeklyContractUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -67,6 +69,7 @@ const ROWS: {
   { key: 'dungeons', icon: Skull, notify: () => 0 },
   { key: 'questTasks', icon: ScrollText, notify: ({ unclaimedRewardsCount }) => unclaimedRewardsCount },
   { key: 'dailyChallenges', icon: Target, notify: ({ dailyChallengesUnclaimedCount }) => dailyChallengesUnclaimedCount },
+  { key: 'weeklyContract', icon: CalendarRange, notify: ({ weeklyContractUnclaimedCount }) => weeklyContractUnclaimedCount },
   { key: 'premium-shop', icon: Gem, notify: () => 0 },
 ];
 

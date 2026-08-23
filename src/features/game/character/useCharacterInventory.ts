@@ -13,9 +13,10 @@ import { useClearChestDragOnWindow } from './useClearChestDragOnWindow';
 import { useInventoryEquipmentActions } from './useInventoryEquipmentActions';
 import { useInventoryChestActions } from './useInventoryChestActions';
 import { useInventoryAttributeAllocation } from './useInventoryAttributeAllocation';
+import { useWearableUpgrade } from './useWearableUpgrade';
 
 export function useCharacterInventory() {
-  const { user, fetchUserData, setUser } = useUser();
+  const { user, fetchUserData, setUser, updateUser } = useUser();
   const [activeChestDragSlot, setActiveChestDragSlot] = useState<SlotType | null>(null);
 
   const catalog = useMemo(() => (user ? buildCatalog(user) : new Map<string, GameItem>()), [user]);
@@ -67,6 +68,12 @@ export function useCharacterInventory() {
     fetchUserData,
   });
 
+  const { upgradeItem, upgradingId } = useWearableUpgrade({
+    user,
+    fetchUserData,
+    updateUser,
+  });
+
   return {
     user,
     catalog,
@@ -81,5 +88,7 @@ export function useCharacterInventory() {
     unequipItemToChestSlot,
     moveChestItem,
     allocateAttributePoint,
+    upgradeItem,
+    upgradingId,
   };
 }

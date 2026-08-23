@@ -255,6 +255,10 @@
       "name": "Rookie",
       "unlockHint": "Available from the start"
     },
+    "weekly_corsair": {
+      "name": "Weekly Corsair",
+      "unlockHint": "Claim a weekly pirate contract for the first time"
+    },
     "crypt_hunter": {
       "name": "Crypt Hunter",
       "unlockHint": "Complete the Crypt dungeon - pass through misty sunken graveyard ruins"
@@ -1012,7 +1016,16 @@
       "epic": "Epic",
       "legendary": "Legendary"
     },
-    "equipmentTitle": "Equipment"
+    "equipmentTitle": "Equipment",
+    "workshop": {
+      "upgrade": "Upgrade",
+      "upgrading": "Upgrading…",
+      "maxLevel": "Maximum upgrade reached",
+      "levelLine": "Upgrade +{{level}} / {{max}}",
+      "cost": "{{gold}} gold",
+      "upgradeSuccess": "Item upgraded to +{{level}}",
+      "upgradeFailed": "Could not upgrade item"
+    }
   },
   "items": {
     "captainTricorn": "Captain's Tricorn",
@@ -2202,12 +2215,40 @@
     "loadFailed": "Could not load challenges",
     "retry": "Try again"
   },
+  "weeklyContractPage": {
+    "seoTitle": "Weekly pirate contract",
+    "seoDescription": "One weekly goal for captains.",
+    "pageAriaLabel": "Weekly pirate contract",
+    "title": "Weekly contract",
+    "subtitle": "One goal from {{start}} to {{end}}. Claim gold, diamonds, and a unique title the first time.",
+    "doMissions": "Complete {{count}} missions",
+    "winFights": "Win {{count}} fights",
+    "spendGold": "Spend {{amount}} gold",
+    "claim": "Claim",
+    "claiming": "Claiming...",
+    "claimed": "Claimed",
+    "inProgress": "In progress",
+    "rewardLine": "+{{gold}} gold · +{{diamonds}} diamonds",
+    "titleRewardHint": "First claim unlocks the Weekly Corsair title",
+    "claimSuccess": "Claimed +{{gold}} gold and +{{diamonds}} diamonds",
+    "titleUnlocked": "Title unlocked: Weekly Corsair",
+    "claimFailed": "Could not claim contract reward",
+    "loadFailed": "Could not load weekly contract",
+    "retry": "Try again"
+  },
   "dailyChallengeInvalidSlot": "Invalid challenge slot",
   "dailyChallengeNotFound": "Challenge not found",
   "dailyChallengeNotComplete": "Challenge is not complete yet",
   "dailyChallengeAlreadyClaimed": "Reward already claimed",
   "dailyChallengeBonusLocked": "Claim all challenge rewards first",
   "dailyChallengeBonusAlreadyClaimed": "Daily bonus already claimed",
+  "weeklyContractNotComplete": "Weekly contract is not complete yet",
+  "weeklyContractAlreadyClaimed": "Weekly contract reward already claimed",
+  "itemNotOwned": "You do not own this item",
+  "itemUpgradeMaxReached": "Item is already at max upgrade",
+  "wearableItemNotFound": "Item not found",
+  "itemUpgraded": "Item upgraded",
+  "weeklyContractClaimed": "Weekly contract claimed",
   "missionNotActive": "That mission is not your active mission.",
   "missionAlreadyComplete": "This mission is already finished — claim the reward.",
   "skillsUpgrade": "Skills Upgrade",
@@ -2428,6 +2469,7 @@
   },
   "questTasks": "Quests",
   "dailyChallenges": "Daily challenges",
+  "weeklyContract": "Weekly contract",
   "claimReward": "Claim Reward",
   "rewardClaimed": "Reward Claimed",
   "progress": "Progress",

@@ -234,6 +234,15 @@
       "rare": "Rzadki",
       "epic": "Epicki",
       "legendary": "Legendarny"
+    },
+    "workshop": {
+      "upgrade": "Ulepsz",
+      "upgrading": "Ulepszanie…",
+      "maxLevel": "Osiągnięto maksymalny poziom ulepszenia",
+      "levelLine": "Ulepszenie +{{level}} / {{max}}",
+      "cost": "{{gold}} złota",
+      "upgradeSuccess": "Przedmiot ulepszony do +{{level}}",
+      "upgradeFailed": "Nie udało się ulepszyć przedmiotu"
     }
   },
   "items": {
@@ -521,6 +530,10 @@
     "rookie": {
       "name": "Rekrut",
       "unlockHint": "Dostępny od startu gry"
+    },
+    "weekly_corsair": {
+      "name": "Korsarz tygodnia",
+      "unlockHint": "Odbierz nagrodę z tygodniowego kontraktu po raz pierwszy"
     },
     "crypt_hunter": {
       "name": "Łowca Krypt",
@@ -2224,12 +2237,40 @@
     "loadFailed": "Nie udało się wczytać wyzwań",
     "retry": "Spróbuj ponownie"
   },
+  "weeklyContractPage": {
+    "seoTitle": "Tygodniowy kontrakt pirata",
+    "seoDescription": "Jeden cel tygodnia dla kapitanów.",
+    "pageAriaLabel": "Tygodniowy kontrakt pirata",
+    "title": "Kontrakt tygodniowy",
+    "subtitle": "Jeden cel od {{start}} do {{end}}. Odbierz złoto, diamenty i jednorazowy tytuł.",
+    "doMissions": "Zrób {{count}} misji",
+    "winFights": "Wygraj {{count}} walk",
+    "spendGold": "Wydaj {{amount}} złota",
+    "claim": "Odbierz",
+    "claiming": "Odbieranie...",
+    "claimed": "Odebrane",
+    "inProgress": "W toku",
+    "rewardLine": "+{{gold}} złota · +{{diamonds}} diamentów",
+    "titleRewardHint": "Pierwsze odebranie odblokowuje tytuł Korsarz tygodnia",
+    "claimSuccess": "Odebrano +{{gold}} złota i +{{diamonds}} diamentów",
+    "titleUnlocked": "Odblokowano tytuł: Korsarz tygodnia",
+    "claimFailed": "Nie udało się odebrać nagrody kontraktu",
+    "loadFailed": "Nie udało się wczytać kontraktu",
+    "retry": "Spróbuj ponownie"
+  },
   "dailyChallengeInvalidSlot": "Nieprawidłowy numer wyzwania",
   "dailyChallengeNotFound": "Nie znaleziono wyzwania",
   "dailyChallengeNotComplete": "Wyzwanie nie jest jeszcze ukończone",
   "dailyChallengeAlreadyClaimed": "Nagroda już odebrana",
   "dailyChallengeBonusLocked": "Najpierw odbierz nagrody za wszystkie wyzwania",
   "dailyChallengeBonusAlreadyClaimed": "Bonus dnia już odebrany",
+  "weeklyContractNotComplete": "Kontrakt tygodniowy nie jest jeszcze ukończony",
+  "weeklyContractAlreadyClaimed": "Nagroda kontraktu tygodniowego już odebrana",
+  "itemNotOwned": "Nie posiadasz tego przedmiotu",
+  "itemUpgradeMaxReached": "Przedmiot osiągnął maksymalny poziom ulepszenia",
+  "wearableItemNotFound": "Nie znaleziono przedmiotu",
+  "itemUpgraded": "Przedmiot ulepszony",
+  "weeklyContractClaimed": "Odebrano nagrodę kontraktu tygodniowego",
   "missionNotActive": "Ta misja nie jest Twoją aktywną misją.",
   "missionAlreadyComplete": "Ta misja jest już ukończona — odbierz nagrodę.",
   "boosterPurchasedSuccessfully": "Udało się kupić wspomagacz",
@@ -2437,6 +2478,7 @@
   },
   "questTasks": "Zadania",
   "dailyChallenges": "Wyzwania dnia",
+  "weeklyContract": "Kontrakt tygodniowy",
   "claimReward": "Odbierz nagrodę",
   "rewardClaimed": "Nagroda odebrana",
   "progress": "Postęp",

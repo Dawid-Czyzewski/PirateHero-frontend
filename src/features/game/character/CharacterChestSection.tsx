@@ -8,6 +8,9 @@ type Props = {
   chestSlots: Array<string | null>;
   equipped: Partial<Record<SlotType, string>>;
   catalog: Map<string, GameItem>;
+  gold?: number;
+  upgradingId?: string | null;
+  onUpgrade?: (itemId: string) => void | Promise<void>;
   onDragCategoryChange?: (slot: SlotType | null) => void;
   onEquip: (itemId: string) => void | Promise<void>;
   onMove: (fromIndex: number, toIndex: number) => void | Promise<void>;
@@ -18,6 +21,9 @@ export function CharacterChestSection({
   chestSlots,
   equipped,
   catalog,
+  gold = 0,
+  upgradingId = null,
+  onUpgrade,
   onDragCategoryChange,
   onEquip,
   onMove,
@@ -69,6 +75,9 @@ export function CharacterChestSection({
               index={index}
               item={item}
               equippedInSlot={equippedInSlot}
+              gold={gold}
+              upgrading={upgradingId === item.id}
+              onUpgrade={onUpgrade}
               onDragCategoryChange={onDragCategoryChange}
               onEquip={onEquip}
               onMove={onMove}

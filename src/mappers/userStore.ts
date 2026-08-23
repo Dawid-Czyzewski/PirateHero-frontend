@@ -33,6 +33,17 @@ export function mapWearableItemFromApi(raw: unknown): GameUserWearableItem | nul
   if (typeof raw.price === 'number' && Number.isFinite(raw.price)) {
     item.price = raw.price;
   }
+  if (typeof raw.upgradeLevel === 'number' && Number.isFinite(raw.upgradeLevel)) {
+    item.upgradeLevel = raw.upgradeLevel;
+  }
+  if (typeof raw.maxUpgradeLevel === 'number' && Number.isFinite(raw.maxUpgradeLevel)) {
+    item.maxUpgradeLevel = raw.maxUpgradeLevel;
+  }
+  if (raw.nextUpgradeCost === null) {
+    item.nextUpgradeCost = null;
+  } else if (typeof raw.nextUpgradeCost === 'number' && Number.isFinite(raw.nextUpgradeCost)) {
+    item.nextUpgradeCost = raw.nextUpgradeCost;
+  }
   const stats = mapWearableStatisticsFromApi(raw.statistics);
   if (stats) item.statistics = stats;
   return item;

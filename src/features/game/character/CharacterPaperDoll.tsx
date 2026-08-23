@@ -26,6 +26,8 @@ type Props = {
   activeChestDragSlot?: SlotType | null;
   onDrop: (itemId: string, slot: SlotType) => void | Promise<void>;
   onUnequip: (slot: SlotType) => void | Promise<void>;
+  upgradingId?: string | null;
+  onUpgrade?: (itemId: string) => void | Promise<void>;
   readOnly?: boolean;
   heroStatsMode?: 'default' | 'fameOnly';
 };
@@ -56,6 +58,8 @@ export function CharacterPaperDoll({
   activeChestDragSlot = null,
   onDrop,
   onUnequip,
+  upgradingId = null,
+  onUpgrade,
   readOnly = false,
   heroStatsMode = 'default',
 }: Props) {
@@ -92,6 +96,11 @@ export function CharacterPaperDoll({
       onDrop={onDrop}
       onUnequip={onUnequip}
       tooltipSide={tooltipSide}
+      gold={gold}
+      upgrading={
+        equipped[slot] ? upgradingId === equipped[slot] : false
+      }
+      onUpgrade={onUpgrade}
       readOnly={readOnly}
       layout={layout}
     />

@@ -8,4 +8,7 @@ export type WearableItemSummaryDto = {
   publicCode?: string;
   level?: number;
   imageKey?: string;
+  upgradeLevel?: number;
+  maxUpgradeLevel?: number;
+  nextUpgradeCost?: number | null;
 };

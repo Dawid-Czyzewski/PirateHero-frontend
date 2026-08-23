@@ -5,11 +5,15 @@ import type { GameItem } from '@/features/game/character/characterTypes';
 import { translateWearableItemName } from '@/features/game/character/wearableItemDisplayName';
 import type { SlotType } from '@/data/gameItems';
 import { CharacterItemTooltipPortal } from './CharacterItemTooltip';
+import { useTooltipHoverBridge } from './useTooltipHoverBridge';
 
 type FilledProps = {
   index: number;
   item: GameItem;
   equippedInSlot?: GameItem | null;
+  gold?: number;
+  upgrading?: boolean;
+  onUpgrade?: (itemId: string) => void | Promise<void>;
   onDragCategoryChange?: (slot: SlotType | null) => void;
   onEquip: (itemId: string) => void | Promise<void>;
   onMove: (fromIndex: number, toIndex: number) => void | Promise<void>;
@@ -20,6 +24,9 @@ export function CharacterChestFilledSlot({
   index,
   item,
   equippedInSlot,
+  gold = 0,
+  upgrading = false,
+  onUpgrade,
   onDragCategoryChange,
   onEquip,
   onMove,
@@ -27,7 +34,7 @@ export function CharacterChestFilledSlot({
 }: FilledProps) {
   const { t } = useTranslation();
   const anchorRef = useRef<HTMLDivElement>(null);
-  const [hovered, setHovered] = useState(false);
+  const { hovered, onSlotEnter, onSlotLeave, onTooltipEnter, onTooltipLeave } = useTooltipHoverBridge();
   const [dragOver, setDragOver] = useState(false);
 
   return (
@@ -63,9 +70,14 @@ export function CharacterChestFilledSlot({
         }
       }}
       onDoubleClick={() => void onEquip(item.id)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={onSlotEnter}
+      onMouseLeave={onSlotLeave}
     >
+      {item.upgradeLevel > 0 ? (
+        <span className="absolute right-0.5 top-0.5 z-10 rounded bg-primary/90 px-1 text-[9px] font-black text-primary-foreground">
+          +{item.upgradeLevel}
+        </span>
+      ) : null}
       <img
         src={item.image}
         alt={translateWearableItemName(t, item)}
@@ -82,6 +94,11 @@ export function CharacterChestFilledSlot({
         position="top"
         item={item}
         comparedItem={equippedInSlot}
+        gold={gold}
+        upgrading={upgrading}
+        onUpgrade={onUpgrade}
+        onTooltipEnter={onTooltipEnter}
+        onTooltipLeave={onTooltipLeave}
       />
     </div>
   );

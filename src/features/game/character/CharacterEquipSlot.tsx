@@ -5,12 +5,16 @@ import type { GameItem } from '@/features/game/character/characterTypes';
 import { translateWearableItemName } from '@/features/game/character/wearableItemDisplayName';
 import type { SlotType } from '@/data/gameItems';
 import { CharacterItemTooltipPortal } from './CharacterItemTooltip';
+import { useTooltipHoverBridge } from './useTooltipHoverBridge';
 
 type Props = {
   slotType: SlotType;
   item: GameItem | null;
   activeChestDragSlot?: SlotType | null;
   tooltipSide: 'left' | 'right' | 'bottom' | 'top';
+  gold?: number;
+  upgrading?: boolean;
+  onUpgrade?: (itemId: string) => void | Promise<void>;
   onDrop: (itemId: string, slot: SlotType) => void | Promise<void>;
   onUnequip: (slot: SlotType) => void | Promise<void>;
   readOnly?: boolean;
@@ -22,6 +26,9 @@ export function CharacterEquipSlot({
   item,
   activeChestDragSlot = null,
   tooltipSide,
+  gold = 0,
+  upgrading = false,
+  onUpgrade,
   onDrop,
   onUnequip,
   readOnly = false,
@@ -29,8 +36,8 @@ export function CharacterEquipSlot({
 }: Props) {
   const { t } = useTranslation();
   const anchorRef = useRef<HTMLDivElement>(null);
+  const { hovered, onSlotEnter, onSlotLeave, onTooltipEnter, onTooltipLeave } = useTooltipHoverBridge();
   const [dragOver, setDragOver] = useState(false);
-  const [hovered, setHovered] = useState(false);
   const isTile = layout === 'tile';
   const itemName = item ? translateWearableItemName(t, item) : '';
   const slotLabel = t(`characterPage.slots.${slotType}`);
@@ -76,8 +83,8 @@ export function CharacterEquipSlot({
       onDragOver={readOnly ? undefined : handleDragOver}
       onDragLeave={readOnly ? undefined : () => setDragOver(false)}
       onDrop={readOnly ? undefined : handleDrop}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={onSlotEnter}
+      onMouseLeave={onSlotLeave}
       draggable={!readOnly && !!item}
       onDragStart={
         readOnly
@@ -91,6 +98,11 @@ export function CharacterEquipSlot({
       }
       onDoubleClick={readOnly ? undefined : () => item && void onUnequip(slotType)}
     >
+      {item && item.upgradeLevel > 0 ? (
+        <span className="absolute right-0.5 top-0.5 z-10 rounded bg-primary/90 px-1 text-[9px] font-black text-primary-foreground">
+          +{item.upgradeLevel}
+        </span>
+      ) : null}
       {item ? (
         isTile ? (
           <>
@@ -147,6 +159,11 @@ export function CharacterEquipSlot({
           position={isTile ? 'top' : tooltipSide}
           item={item}
           comparedItem={null}
+          gold={gold}
+          upgrading={upgrading}
+          onUpgrade={readOnly ? undefined : onUpgrade}
+          onTooltipEnter={onTooltipEnter}
+          onTooltipLeave={onTooltipLeave}
         />
       ) : null}
     </div>

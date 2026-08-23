@@ -25,6 +25,8 @@ export default function CharacterPage({ onPreviewProfile: _onPreviewProfile }: C
       onUnequipToChest={inv.unequipItemToChestSlot}
       onMoveChestItem={inv.moveChestItem}
       onAllocateAttributePoint={inv.allocateAttributePoint}
+      upgradingId={inv.upgradingId}
+      onUpgradeItem={inv.upgradeItem}
     />
   );
 }

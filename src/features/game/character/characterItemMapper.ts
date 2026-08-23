@@ -79,5 +79,13 @@ export function mapWearableToGameItem(w: GameUserWearableItem): GameItem | null 
     sellPrice: typeof w.price === 'number' ? w.price : 0,
     image: resolveItemImageUrl(w.imageKey),
     stats: buildStatsFromWearable(w),
+    upgradeLevel: typeof w.upgradeLevel === 'number' ? w.upgradeLevel : 0,
+    maxUpgradeLevel: typeof w.maxUpgradeLevel === 'number' ? w.maxUpgradeLevel : 3,
+    nextUpgradeCost:
+      typeof w.nextUpgradeCost === 'number'
+        ? w.nextUpgradeCost
+        : w.nextUpgradeCost === null
+          ? null
+          : null,
   };
 }

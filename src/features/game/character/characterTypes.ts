@@ -19,4 +19,7 @@ export type GameItem = {
   sellPrice: number;
   image: string;
   stats: ItemStats;
+  upgradeLevel: number;
+  maxUpgradeLevel: number;
+  nextUpgradeCost: number | null;
 };

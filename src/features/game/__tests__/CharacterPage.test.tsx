@@ -1,7 +1,27 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import CharacterPage from '@/features/game/CharacterPage';
+
+function stubMatchMedia() {
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn().mockImplementation((query: string) => ({
+      matches: true,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }))
+  );
+}
+
+beforeEach(() => {
+  stubMatchMedia();
+});
 
 vi.mock('@/hooks/usePageMeta', () => ({
   usePageMeta: vi.fn(),
@@ -145,6 +165,7 @@ vi.mock('@/hooks/useUser', () => ({
     user: mockUser,
     fetchUserData: vi.fn(),
     setUser: vi.fn(),
+    updateUser: vi.fn(),
   }),
 }));
 
@@ -193,6 +214,13 @@ vi.mock('react-i18next', () => ({
         'characterPage.rarity.rare': 'Rzadki',
         'characterPage.rarity.epic': 'Epicki',
         'characterPage.rarity.legendary': 'Legendarny',
+        'characterPage.workshop.upgrade': 'Ulepsz',
+        'characterPage.workshop.upgrading': 'Ulepszanie…',
+        'characterPage.workshop.maxLevel': 'Max',
+        'characterPage.workshop.levelLine': 'Ulepszenie +{{level}} / {{max}}',
+        'characterPage.workshop.cost': '{{gold}} złota',
+        'titlesPage.title': 'Tytuły',
+        'character': 'Postać',
         'items.pirate-hat': 'Piracki Kapelusz',
         'items.captain-cutlass': 'Kordelas Kapitana',
         'items.leather-jerkin': 'Skórzany Kaftan',

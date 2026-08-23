@@ -37,7 +37,7 @@ export type DailyChallengeClaimResult = {
 };
 
 export async function fetchDailyChallenges(): Promise<DailyChallengeStatus> {
-  return requestJson<DailyChallengeStatus>('/users/daily-challenges', { method: 'GET' });
+  return requestJson<DailyChallengeStatus>('/users/daily-challenges/status', { method: 'GET' });
 }
 
 export async function claimDailyChallengeSlot(slot: number): Promise<DailyChallengeClaimResult> {

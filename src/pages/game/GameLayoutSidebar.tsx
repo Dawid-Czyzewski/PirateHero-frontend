@@ -14,6 +14,7 @@ type Props = {
   currentActivity: CurrentActivityDto | undefined;
   unclaimedRewardsCount: number;
   dailyChallengesUnclaimedCount: number;
+  weeklyContractUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -24,6 +25,7 @@ export default function GameLayoutSidebar({
   currentActivity,
   unclaimedRewardsCount,
   dailyChallengesUnclaimedCount,
+  weeklyContractUnclaimedCount,
   unreadNotificationsCount,
 }: Props) {
   const { t } = useTranslation();
@@ -52,6 +54,7 @@ export default function GameLayoutSidebar({
     isInTraining,
     unclaimedRewardsCount,
     dailyChallengesUnclaimedCount,
+    weeklyContractUnclaimedCount,
     unreadNotificationsCount,
   });
 

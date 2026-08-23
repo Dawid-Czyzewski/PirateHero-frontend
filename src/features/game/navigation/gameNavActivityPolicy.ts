@@ -16,6 +16,7 @@ export type GameNavKey =
   | 'rzut-moneta'
   | 'questTasks'
   | 'dailyChallenges'
+  | 'weeklyContract'
   | 'notifications'
   | 'settings';
 

@@ -106,4 +106,44 @@ describe('mapWearableItemFromApi', () => {
   it('returns empty object for empty record', () => {
     expect(mapWearableItemFromApi({})).toEqual({});
   });
+
+  it('maps upgrade workshop fields when present', () => {
+    expect(
+      mapWearableItemFromApi({
+        name: 'Helm',
+        type: 'HELMET',
+        price: 50,
+        upgradeLevel: 2,
+        maxUpgradeLevel: 3,
+        nextUpgradeCost: 300,
+      })
+    ).toEqual({
+      name: 'Helm',
+      type: 'HELMET',
+      price: 50,
+      upgradeLevel: 2,
+      maxUpgradeLevel: 3,
+      nextUpgradeCost: 300,
+    });
+  });
+
+  it('maps null nextUpgradeCost at max level', () => {
+    expect(
+      mapWearableItemFromApi({
+        name: 'Helm',
+        type: 'HELMET',
+        price: 50,
+        upgradeLevel: 3,
+        maxUpgradeLevel: 3,
+        nextUpgradeCost: null,
+      })
+    ).toEqual({
+      name: 'Helm',
+      type: 'HELMET',
+      price: 50,
+      upgradeLevel: 3,
+      maxUpgradeLevel: 3,
+      nextUpgradeCost: null,
+    });
+  });
 });

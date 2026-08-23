@@ -31,6 +31,8 @@ export type CharacterPageViewProps = {
   onUnequipToChest: (slot: SlotType, chestIndex: number) => void | Promise<void>;
   onMoveChestItem: (fromIndex: number, toIndex: number) => void | Promise<void>;
   onAllocateAttributePoint: (stat: CharacterStatKey) => void | Promise<void>;
+  upgradingId?: string | null;
+  onUpgradeItem?: (itemId: string) => void | Promise<void>;
   variant?: 'self' | 'userPreview';
 };
 
@@ -48,6 +50,8 @@ export function CharacterPageView({
   onUnequipToChest,
   onMoveChestItem,
   onAllocateAttributePoint,
+  upgradingId = null,
+  onUpgradeItem,
   variant = 'self',
 }: CharacterPageViewProps) {
   const { t } = useTranslation();
@@ -147,6 +151,8 @@ export function CharacterPageView({
             activeChestDragSlot={activeChestDragSlot}
             onDrop={onEquipItem}
             onUnequip={onUnequipItem}
+            upgradingId={upgradingId}
+            onUpgrade={onUpgradeItem}
             readOnly={isUserPreview}
             heroStatsMode={isUserPreview ? 'fameOnly' : 'default'}
           />
@@ -158,6 +164,9 @@ export function CharacterPageView({
           chestSlots={chestSlots}
           equipped={equipped}
           catalog={catalog}
+          gold={user?.gold ?? 0}
+          upgradingId={upgradingId}
+          onUpgrade={onUpgradeItem}
           onDragCategoryChange={onActiveChestDragSlotChange}
           onEquip={(itemId) => void onEquipItem(itemId)}
           onMove={onMoveChestItem}

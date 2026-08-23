@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp, Coins } from 'lucide-react';
+import { ArrowDown, ArrowUp, Coins, Hammer } from 'lucide-react';
 import { useLayoutEffect, useState, type RefObject } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
@@ -12,12 +12,20 @@ export type CharacterTooltipPosition = 'left' | 'right' | 'bottom' | 'top';
 type CardProps = {
   item: GameItem;
   comparedItem?: GameItem | null;
+  gold?: number;
+  upgrading?: boolean;
+  onUpgrade?: (itemId: string) => void | Promise<void>;
 };
 
-function CharacterItemTooltipCard({ item, comparedItem }: CardProps) {
+function CharacterItemTooltipCard({ item, comparedItem, gold = 0, upgrading = false, onUpgrade }: CardProps) {
   const { t } = useTranslation();
   const statKeys = Object.keys(statIcons) as (keyof ItemStats)[];
   const flavor = translateWearableItemFlavor(t, item.nameKey);
+  const canUpgrade =
+    !!onUpgrade &&
+    item.upgradeLevel < item.maxUpgradeLevel &&
+    item.nextUpgradeCost != null &&
+    gold >= item.nextUpgradeCost;
 
   return (
     <div
@@ -26,7 +34,14 @@ function CharacterItemTooltipCard({ item, comparedItem }: CardProps) {
     >
       <div className="absolute inset-0 z-0 bg-[#151b26]" />
       <div className="relative z-10">
-        <p className={`text-sm font-bold ${RARITY_COLOR[item.rarity]}`}>{translateWearableItemName(t, item)}</p>
+        <div className="flex items-start justify-between gap-2">
+          <p className={`text-sm font-bold ${RARITY_COLOR[item.rarity]}`}>{translateWearableItemName(t, item)}</p>
+          {item.upgradeLevel > 0 ? (
+            <span className="shrink-0 rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-bold text-primary">
+              +{item.upgradeLevel}
+            </span>
+          ) : null}
+        </div>
         <p className="text-[10px] text-muted-foreground">
           {t(`characterPage.slots.${item.slot}`)} • {t(`characterPage.rarity.${item.rarity}`)}
         </p>
@@ -74,6 +89,40 @@ function CharacterItemTooltipCard({ item, comparedItem }: CardProps) {
           <Coins className="h-3 w-3 text-primary/60" /> {t('characterPage.sellFor')}:{' '}
           <span className="font-bold text-primary">{item.sellPrice}</span>
         </div>
+        {onUpgrade ? (
+          <div className="mt-2 border-t border-border/30 pt-2">
+            {item.upgradeLevel >= item.maxUpgradeLevel ? (
+              <p className="text-[10px] text-muted-foreground">{t('characterPage.workshop.maxLevel')}</p>
+            ) : (
+              <>
+                <p className="mb-1.5 text-[10px] text-muted-foreground">
+                  {t('characterPage.workshop.levelLine', {
+                    level: item.upgradeLevel,
+                    max: item.maxUpgradeLevel,
+                  })}
+                  {item.nextUpgradeCost != null
+                    ? ` · ${t('characterPage.workshop.cost', { gold: item.nextUpgradeCost })}`
+                    : ''}
+                </p>
+                <button
+                  type="button"
+                  className="pointer-events-auto inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-primary/90 px-2 py-1.5 text-[11px] font-bold text-primary-foreground transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-50"
+                  disabled={!canUpgrade || upgrading}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    void onUpgrade(item.id);
+                  }}
+                >
+                  <Hammer className="h-3 w-3" aria-hidden />
+                  {upgrading
+                    ? t('characterPage.workshop.upgrading')
+                    : t('characterPage.workshop.upgrade')}
+                </button>
+              </>
+            )}
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -131,6 +180,8 @@ type PortalProps = CardProps & {
   show: boolean;
   anchorRef: RefObject<HTMLElement | null>;
   position: CharacterTooltipPosition;
+  onTooltipEnter?: () => void;
+  onTooltipLeave?: () => void;
 };
 
 export function CharacterItemTooltipPortal({
@@ -139,6 +190,11 @@ export function CharacterItemTooltipPortal({
   position,
   item,
   comparedItem,
+  gold,
+  upgrading,
+  onUpgrade,
+  onTooltipEnter,
+  onTooltipLeave,
 }: PortalProps) {
   const [style, setStyle] = useState({ left: 0, top: 0, transform: 'none', width: TOOLTIP_WIDTH });
 
@@ -161,7 +217,7 @@ export function CharacterItemTooltipPortal({
 
   return createPortal(
     <div
-      className="pointer-events-none relative"
+      className={onUpgrade ? 'pointer-events-auto relative' : 'pointer-events-none relative'}
       style={{
         position: 'fixed',
         left: style.left,
@@ -170,8 +226,16 @@ export function CharacterItemTooltipPortal({
         zIndex: 250000,
         transform: style.transform,
       }}
+      onMouseEnter={onTooltipEnter}
+      onMouseLeave={onTooltipLeave}
     >
-      <CharacterItemTooltipCard item={item} comparedItem={comparedItem} />
+      <CharacterItemTooltipCard
+        item={item}
+        comparedItem={comparedItem}
+        gold={gold}
+        upgrading={upgrading}
+        onUpgrade={onUpgrade}
+      />
     </div>,
     document.body
   );
@@ -181,6 +245,9 @@ export function CharacterItemTooltip({
   item,
   comparedItem,
   position,
+  gold,
+  upgrading,
+  onUpgrade,
 }: CardProps & { position: CharacterTooltipPosition }) {
   const positionClass =
     position === 'top'
@@ -193,9 +260,15 @@ export function CharacterItemTooltip({
 
   return (
     <div
-      className={`absolute z-[9999] w-56 max-w-[calc(100vw-1rem)] pointer-events-none ${positionClass}`}
+      className={`absolute z-[9999] w-56 max-w-[calc(100vw-1rem)] ${onUpgrade ? 'pointer-events-auto' : 'pointer-events-none'} ${positionClass}`}
     >
-      <CharacterItemTooltipCard item={item} comparedItem={comparedItem} />
+      <CharacterItemTooltipCard
+        item={item}
+        comparedItem={comparedItem}
+        gold={gold}
+        upgrading={upgrading}
+        onUpgrade={onUpgrade}
+      />
     </div>
   );
 }
