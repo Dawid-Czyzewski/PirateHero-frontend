@@ -26,11 +26,6 @@ export function useWearableUpgrade({ user, fetchUserData, updateUser }: Params) 
           await updateUser({ gold });
         }
         await fetchUserData();
-        toast.success(
-          t('characterPage.workshop.upgradeSuccess', {
-            level: result.upgrade?.upgradeLevel ?? '',
-          })
-        );
       } catch (e) {
         const msg =
           e instanceof ApiHttpError && e.message

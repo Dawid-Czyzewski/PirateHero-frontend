@@ -106,7 +106,7 @@ function CharacterItemTooltipCard({ item, comparedItem, gold = 0, upgrading = fa
                 </p>
                 <button
                   type="button"
-                  className="pointer-events-auto inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-primary/90 px-2 py-1.5 text-[11px] font-bold text-primary-foreground transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-50"
+                  className="pointer-events-auto inline-flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-md bg-primary/90 px-2 py-1.5 text-[11px] font-bold text-primary-foreground transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-50"
                   disabled={!canUpgrade || upgrading}
                   onClick={(e) => {
                     e.preventDefault();
