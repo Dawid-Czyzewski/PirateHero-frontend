@@ -28,6 +28,7 @@ type Props = {
   onUnequip: (slot: SlotType) => void | Promise<void>;
   upgradingId?: string | null;
   onUpgrade?: (itemId: string) => void | Promise<void>;
+  onSpecialize?: (itemId: string, specialization: string) => void | Promise<void>;
   readOnly?: boolean;
   heroStatsMode?: 'default' | 'fameOnly';
 };
@@ -60,6 +61,7 @@ export function CharacterPaperDoll({
   onUnequip,
   upgradingId = null,
   onUpgrade,
+  onSpecialize,
   readOnly = false,
   heroStatsMode = 'default',
 }: Props) {
@@ -101,6 +103,7 @@ export function CharacterPaperDoll({
         equipped[slot] ? upgradingId === equipped[slot] : false
       }
       onUpgrade={onUpgrade}
+      onSpecialize={onSpecialize}
       readOnly={readOnly}
       layout={layout}
     />

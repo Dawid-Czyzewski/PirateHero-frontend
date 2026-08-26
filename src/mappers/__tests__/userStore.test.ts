@@ -127,7 +127,7 @@ describe('mapWearableItemFromApi', () => {
     });
   });
 
-  it('maps null nextUpgradeCost at max level', () => {
+  it('maps specialization fields when present', () => {
     expect(
       mapWearableItemFromApi({
         name: 'Helm',
@@ -136,6 +136,9 @@ describe('mapWearableItemFromApi', () => {
         upgradeLevel: 3,
         maxUpgradeLevel: 3,
         nextUpgradeCost: null,
+        specialization: 'health',
+        canSpecialize: false,
+        specializationCost: null,
       })
     ).toEqual({
       name: 'Helm',
@@ -144,6 +147,9 @@ describe('mapWearableItemFromApi', () => {
       upgradeLevel: 3,
       maxUpgradeLevel: 3,
       nextUpgradeCost: null,
+      specialization: 'health',
+      canSpecialize: false,
+      specializationCost: null,
     });
   });
 });

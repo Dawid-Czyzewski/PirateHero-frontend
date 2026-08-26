@@ -15,6 +15,7 @@ type Props = {
   gold?: number;
   upgrading?: boolean;
   onUpgrade?: (itemId: string) => void | Promise<void>;
+  onSpecialize?: (itemId: string, specialization: string) => void | Promise<void>;
   onDrop: (itemId: string, slot: SlotType) => void | Promise<void>;
   onUnequip: (slot: SlotType) => void | Promise<void>;
   readOnly?: boolean;
@@ -29,6 +30,7 @@ export function CharacterEquipSlot({
   gold = 0,
   upgrading = false,
   onUpgrade,
+  onSpecialize,
   onDrop,
   onUnequip,
   readOnly = false,
@@ -103,6 +105,11 @@ export function CharacterEquipSlot({
           +{item.upgradeLevel}
         </span>
       ) : null}
+      {item?.specialization ? (
+        <span className="absolute bottom-0.5 left-0.5 z-10 rounded bg-amber-600/90 px-1 text-[8px] font-black uppercase text-white">
+          {item.specialization === 'mission_gold' ? 'G%' : item.specialization === 'crit' ? 'CR' : 'HP'}
+        </span>
+      ) : null}
       {item ? (
         isTile ? (
           <>
@@ -162,6 +169,7 @@ export function CharacterEquipSlot({
           gold={gold}
           upgrading={upgrading}
           onUpgrade={readOnly ? undefined : onUpgrade}
+          onSpecialize={readOnly ? undefined : onSpecialize}
           onTooltipEnter={onTooltipEnter}
           onTooltipLeave={onTooltipLeave}
         />

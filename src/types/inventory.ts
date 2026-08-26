@@ -11,4 +11,7 @@ export type WearableItemSummaryDto = {
   upgradeLevel?: number;
   maxUpgradeLevel?: number;
   nextUpgradeCost?: number | null;
+  specialization?: string | null;
+  canSpecialize?: boolean;
+  specializationCost?: number | null;
 };

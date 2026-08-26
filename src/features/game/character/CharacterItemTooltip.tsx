@@ -15,9 +15,23 @@ type CardProps = {
   gold?: number;
   upgrading?: boolean;
   onUpgrade?: (itemId: string) => void | Promise<void>;
+  onSpecialize?: (itemId: string, specialization: string) => void | Promise<void>;
 };
 
-function CharacterItemTooltipCard({ item, comparedItem, gold = 0, upgrading = false, onUpgrade }: CardProps) {
+const SPEC_OPTIONS = [
+  { key: 'health' as const, bonusKey: 'health', n: 5 },
+  { key: 'crit' as const, bonusKey: 'crit', n: 3 },
+  { key: 'mission_gold' as const, bonusKey: 'mission_gold', n: 5 },
+];
+
+function CharacterItemTooltipCard({
+  item,
+  comparedItem,
+  gold = 0,
+  upgrading = false,
+  onUpgrade,
+  onSpecialize,
+}: CardProps) {
   const { t } = useTranslation();
   const statKeys = Object.keys(statIcons) as (keyof ItemStats)[];
   const flavor = translateWearableItemFlavor(t, item.nameKey);
@@ -26,6 +40,12 @@ function CharacterItemTooltipCard({ item, comparedItem, gold = 0, upgrading = fa
     item.upgradeLevel < item.maxUpgradeLevel &&
     item.nextUpgradeCost != null &&
     gold >= item.nextUpgradeCost;
+  const canSpecialize =
+    !!onSpecialize &&
+    item.canSpecialize &&
+    item.specializationCost != null &&
+    gold >= item.specializationCost;
+  const interactive = !!(onUpgrade || onSpecialize);
 
   return (
     <div
@@ -45,6 +65,13 @@ function CharacterItemTooltipCard({ item, comparedItem, gold = 0, upgrading = fa
         <p className="text-[10px] text-muted-foreground">
           {t(`characterPage.slots.${item.slot}`)} • {t(`characterPage.rarity.${item.rarity}`)}
         </p>
+        {item.specialization ? (
+          <p className="mt-1 text-[10px] font-semibold text-primary">
+            {t('characterPage.workshop.specialize.active', {
+              name: t(`characterPage.workshop.specialize.labels.${item.specialization}`),
+            })}
+          </p>
+        ) : null}
         {flavor ? <p className="mt-1 text-[10px] italic leading-snug text-muted-foreground/90">{flavor}</p> : null}
         <div className="mt-2 space-y-1 border-t border-border/30 pt-2">
           {statKeys
@@ -89,10 +116,46 @@ function CharacterItemTooltipCard({ item, comparedItem, gold = 0, upgrading = fa
           <Coins className="h-3 w-3 text-primary/60" /> {t('characterPage.sellFor')}:{' '}
           <span className="font-bold text-primary">{item.sellPrice}</span>
         </div>
-        {onUpgrade ? (
+        {interactive ? (
           <div className="mt-2 border-t border-border/30 pt-2">
             {item.upgradeLevel >= item.maxUpgradeLevel ? (
-              <p className="text-[10px] text-muted-foreground">{t('characterPage.workshop.maxLevel')}</p>
+              item.specialization ? (
+                <p className="text-[10px] text-muted-foreground">{t('characterPage.workshop.maxLevel')}</p>
+              ) : (
+                <>
+                  <p className="mb-1 text-[10px] font-semibold text-foreground">
+                    {t('characterPage.workshop.specialize.title')}
+                  </p>
+                  <p className="mb-1.5 text-[10px] text-muted-foreground">
+                    {t('characterPage.workshop.specialize.hint')}
+                    {item.specializationCost != null
+                      ? ` · ${t('characterPage.workshop.specialize.cost', { gold: item.specializationCost })}`
+                      : ''}
+                  </p>
+                  <div className="space-y-1">
+                    {SPEC_OPTIONS.map((opt) => (
+                      <button
+                        key={opt.key}
+                        type="button"
+                        className="pointer-events-auto inline-flex w-full cursor-pointer items-center justify-center rounded-md bg-primary/90 px-2 py-1.5 text-[11px] font-bold text-primary-foreground transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-50"
+                        disabled={!canSpecialize || upgrading}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          void onSpecialize?.(item.id, opt.key);
+                        }}
+                      >
+                        {upgrading
+                          ? t('characterPage.workshop.specialize.applying')
+                          : `${t(`characterPage.workshop.specialize.labels.${opt.key}`)} (${t(
+                              `characterPage.workshop.specialize.${opt.bonusKey}`,
+                              { n: opt.n }
+                            )})`}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )
             ) : (
               <>
                 <p className="mb-1.5 text-[10px] text-muted-foreground">
@@ -111,7 +174,7 @@ function CharacterItemTooltipCard({ item, comparedItem, gold = 0, upgrading = fa
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    void onUpgrade(item.id);
+                    void onUpgrade?.(item.id);
                   }}
                 >
                   <Hammer className="h-3 w-3" aria-hidden />
@@ -193,10 +256,12 @@ export function CharacterItemTooltipPortal({
   gold,
   upgrading,
   onUpgrade,
+  onSpecialize,
   onTooltipEnter,
   onTooltipLeave,
 }: PortalProps) {
   const [style, setStyle] = useState({ left: 0, top: 0, transform: 'none', width: TOOLTIP_WIDTH });
+  const interactive = !!(onUpgrade || onSpecialize);
 
   useLayoutEffect(() => {
     if (!show) return;
@@ -217,7 +282,7 @@ export function CharacterItemTooltipPortal({
 
   return createPortal(
     <div
-      className={onUpgrade ? 'pointer-events-auto relative' : 'pointer-events-none relative'}
+      className={interactive ? 'pointer-events-auto relative' : 'pointer-events-none relative'}
       style={{
         position: 'fixed',
         left: style.left,
@@ -235,6 +300,7 @@ export function CharacterItemTooltipPortal({
         gold={gold}
         upgrading={upgrading}
         onUpgrade={onUpgrade}
+        onSpecialize={onSpecialize}
       />
     </div>,
     document.body
@@ -248,7 +314,9 @@ export function CharacterItemTooltip({
   gold,
   upgrading,
   onUpgrade,
+  onSpecialize,
 }: CardProps & { position: CharacterTooltipPosition }) {
+  const interactive = !!(onUpgrade || onSpecialize);
   const positionClass =
     position === 'top'
       ? 'bottom-full left-1/2 mb-2 -translate-x-1/2'
@@ -260,7 +328,7 @@ export function CharacterItemTooltip({
 
   return (
     <div
-      className={`absolute z-[9999] w-56 max-w-[calc(100vw-1rem)] ${onUpgrade ? 'pointer-events-auto' : 'pointer-events-none'} ${positionClass}`}
+      className={`absolute z-[9999] w-56 max-w-[calc(100vw-1rem)] ${interactive ? 'pointer-events-auto' : 'pointer-events-none'} ${positionClass}`}
     >
       <CharacterItemTooltipCard
         item={item}
@@ -268,6 +336,7 @@ export function CharacterItemTooltip({
         gold={gold}
         upgrading={upgrading}
         onUpgrade={onUpgrade}
+        onSpecialize={onSpecialize}
       />
     </div>
   );

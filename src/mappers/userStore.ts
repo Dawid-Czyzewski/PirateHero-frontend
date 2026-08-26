@@ -44,6 +44,19 @@ export function mapWearableItemFromApi(raw: unknown): GameUserWearableItem | nul
   } else if (typeof raw.nextUpgradeCost === 'number' && Number.isFinite(raw.nextUpgradeCost)) {
     item.nextUpgradeCost = raw.nextUpgradeCost;
   }
+  if (typeof raw.specialization === 'string') {
+    item.specialization = raw.specialization;
+  } else if (raw.specialization === null) {
+    item.specialization = null;
+  }
+  if (typeof raw.canSpecialize === 'boolean') {
+    item.canSpecialize = raw.canSpecialize;
+  }
+  if (raw.specializationCost === null) {
+    item.specializationCost = null;
+  } else if (typeof raw.specializationCost === 'number' && Number.isFinite(raw.specializationCost)) {
+    item.specializationCost = raw.specializationCost;
+  }
   const stats = mapWearableStatisticsFromApi(raw.statistics);
   if (stats) item.statistics = stats;
   return item;

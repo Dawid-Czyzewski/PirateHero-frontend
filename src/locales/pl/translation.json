@@ -242,7 +242,23 @@
       "levelLine": "Ulepszenie +{{level}} / {{max}}",
       "cost": "{{gold}} złota",
       "upgradeSuccess": "Przedmiot ulepszony do +{{level}}",
-      "upgradeFailed": "Nie udało się ulepszyć przedmiotu"
+      "upgradeFailed": "Nie udało się ulepszyć przedmiotu",
+      "specialize": {
+        "title": "Specjalizacja",
+        "hint": "Wybierz jedną specjalizację (nieodwracalne).",
+        "cost": "Koszt: {{gold}} złota",
+        "applying": "Specjalizowanie…",
+        "failed": "Nie udało się ustawić specjalizacji",
+        "active": "Specjalizacja: {{name}}",
+        "health": "+{{n}} HP",
+        "crit": "+{{n}} szansa na kryt",
+        "mission_gold": "+{{n}}% złota z misji",
+        "labels": {
+          "health": "Wytrzymałość",
+          "crit": "Krytyk",
+          "mission_gold": "Łup misji"
+        }
+      }
     }
   },
   "items": {
@@ -534,6 +550,22 @@
     "weekly_corsair": {
       "name": "Korsarz tygodnia",
       "unlockHint": "Odbierz nagrodę z tygodniowego kontraktu po raz pierwszy"
+    },
+    "bestiary_scout": {
+      "name": "Zwiadowca bestii",
+      "unlockHint": "Odkryj 13 wpisów w bestiariuszu"
+    },
+    "bestiary_tracker": {
+      "name": "Tropiciel bestii",
+      "unlockHint": "Odkryj 25 wpisów w bestiariuszu"
+    },
+    "bestiary_naturalist": {
+      "name": "Przyrodnik morski",
+      "unlockHint": "Odkryj 38 wpisów w bestiariuszu"
+    },
+    "bestiary_archivist": {
+      "name": "Archivista bestiariusza",
+      "unlockHint": "Odbierz trofeum za kompletny bestiariusz"
     },
     "crypt_hunter": {
       "name": "Łowca Krypt",
@@ -1657,6 +1689,26 @@
     "discoveredCount": "Odkryto {{count}} / {{total}}",
     "loadFailed": "Nie udało się załadować bestiariusza.",
     "detailDescription": "Szczegóły wpisu bestiariusza: {{name}}",
+    "trophies": {
+      "title": "Trofea",
+      "hint": "Odkrywaj wpisy bestiariusza, by odblokować trofea i odebrać nagrody.",
+      "target": "{{count}} wpisów",
+      "reward": "{{gold}} złota · {{diamonds}} diamentów",
+      "claim": "Odbierz",
+      "claiming": "Odbieranie…",
+      "claimed": "Odebrane",
+      "claimSuccess": "Odebrano {{gold}} złota i {{diamonds}} diamentów",
+      "claimFailed": "Nie udało się odebrać trofeum",
+      "titleUnlocked": "Odblokowano nowy tytuł!",
+      "next": "Następne: {{current}} / {{target}} (łącznie {{total}})",
+      "complete": "Wszystkie trofea odblokowane",
+      "codes": {
+        "bestiary_trophy_25": "Tropiciel 25%",
+        "bestiary_trophy_50": "Kronikarz 50%",
+        "bestiary_trophy_75": "Kartograf 75%",
+        "bestiary_trophy_100": "Archivista 100%"
+      }
+    },
     "enemies": {
       "krypta": {
         "stage01": {
@@ -2270,6 +2322,15 @@
   "itemUpgradeMaxReached": "Przedmiot osiągnął maksymalny poziom ulepszenia",
   "wearableItemNotFound": "Nie znaleziono przedmiotu",
   "itemUpgraded": "Przedmiot ulepszony",
+  "itemSpecialized": "Specjalizacja ustawiona",
+  "invalidSpecialization": "Nieprawidłowa specjalizacja",
+  "itemSpecializationRequiresMaxUpgrade": "Najpierw osiągnij maksymalny poziom ulepszenia",
+  "itemSpecializationAlreadySet": "Ten przedmiot ma już specjalizację",
+  "bestiaryTrophyNotFound": "Nie znaleziono trofeum",
+  "bestiaryTrophyNotUnlocked": "Trofeum nie jest jeszcze odblokowane",
+  "bestiaryTrophyAlreadyClaimed": "Nagroda za trofeum została już odebrana",
+  "bestiaryTrophyClaimed": "Trofeum odebrane",
+  "specializationRequired": "Wybierz specjalizację",
   "weeklyContractClaimed": "Odebrano nagrodę kontraktu tygodniowego",
   "missionNotActive": "Ta misja nie jest Twoją aktywną misją.",
   "missionAlreadyComplete": "Ta misja jest już ukończona — odbierz nagrodę.",

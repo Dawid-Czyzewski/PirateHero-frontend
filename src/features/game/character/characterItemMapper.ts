@@ -87,5 +87,13 @@ export function mapWearableToGameItem(w: GameUserWearableItem): GameItem | null 
         : w.nextUpgradeCost === null
           ? null
           : null,
+    specialization: typeof w.specialization === 'string' ? w.specialization : null,
+    canSpecialize: w.canSpecialize === true,
+    specializationCost:
+      typeof w.specializationCost === 'number'
+        ? w.specializationCost
+        : w.specializationCost === null
+          ? null
+          : null,
   };
 }

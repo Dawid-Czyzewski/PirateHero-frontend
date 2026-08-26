@@ -33,6 +33,7 @@ export type CharacterPageViewProps = {
   onAllocateAttributePoint: (stat: CharacterStatKey) => void | Promise<void>;
   upgradingId?: string | null;
   onUpgradeItem?: (itemId: string) => void | Promise<void>;
+  onSpecializeItem?: (itemId: string, specialization: string) => void | Promise<void>;
   variant?: 'self' | 'userPreview';
 };
 
@@ -52,6 +53,7 @@ export function CharacterPageView({
   onAllocateAttributePoint,
   upgradingId = null,
   onUpgradeItem,
+  onSpecializeItem,
   variant = 'self',
 }: CharacterPageViewProps) {
   const { t } = useTranslation();
@@ -153,6 +155,7 @@ export function CharacterPageView({
             onUnequip={onUnequipItem}
             upgradingId={upgradingId}
             onUpgrade={onUpgradeItem}
+            onSpecialize={onSpecializeItem}
             readOnly={isUserPreview}
             heroStatsMode={isUserPreview ? 'fameOnly' : 'default'}
           />
@@ -167,6 +170,7 @@ export function CharacterPageView({
           gold={user?.gold ?? 0}
           upgradingId={upgradingId}
           onUpgrade={onUpgradeItem}
+          onSpecialize={onSpecializeItem}
           onDragCategoryChange={onActiveChestDragSlotChange}
           onEquip={(itemId) => void onEquipItem(itemId)}
           onMove={onMoveChestItem}

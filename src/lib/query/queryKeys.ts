@@ -13,4 +13,5 @@ export const queryKeys = {
   bestiaryRoot: () => ['bestiary'] as const,
   bestiary: (userId: string | null | undefined) =>
     [...queryKeys.bestiaryRoot(), userId ?? 'none'] as const,
+  bestiaryTrophies: () => ['bestiaryTrophies'] as const,
 };

@@ -119,6 +119,7 @@ export function DungeonBattleView({
     }
     if (won && nextProgress) {
       void queryClient.invalidateQueries({ queryKey: queryKeys.bestiaryRoot() });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.bestiaryTrophies() });
       onWin(nextProgress);
     } else {
       onBack();

@@ -68,7 +68,7 @@ export function useCharacterInventory() {
     fetchUserData,
   });
 
-  const { upgradeItem, upgradingId } = useWearableUpgrade({
+  const { upgradeItem, specializeItem, upgradingId } = useWearableUpgrade({
     user,
     fetchUserData,
     updateUser,
@@ -89,6 +89,7 @@ export function useCharacterInventory() {
     moveChestItem,
     allocateAttributePoint,
     upgradeItem,
+    specializeItem,
     upgradingId,
   };
 }

@@ -10,6 +10,15 @@ export type WearableUpgradeResult = {
   gold: number;
 };
 
+export type WearableSpecializeResult = {
+  itemId: number;
+  specialization: string;
+  goldSpent: number;
+  price: number;
+  statistics: Record<string, number>;
+  gold: number;
+};
+
 export async function upgradeWearableItem(itemId: number): Promise<{
   gold?: number;
   upgrade?: WearableUpgradeResult;
@@ -17,5 +26,18 @@ export async function upgradeWearableItem(itemId: number): Promise<{
   return requestJson('/game-shop/upgrade', {
     method: 'POST',
     body: { itemId },
+  });
+}
+
+export async function specializeWearableItem(
+  itemId: number,
+  specialization: string
+): Promise<{
+  gold?: number;
+  specialize?: WearableSpecializeResult;
+}> {
+  return requestJson('/game-shop/specialize', {
+    method: 'POST',
+    body: { itemId, specialization },
   });
 }

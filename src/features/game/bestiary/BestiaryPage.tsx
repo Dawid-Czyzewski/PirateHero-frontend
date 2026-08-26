@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useUser } from '@/hooks/useUser';
 import { gamePageTitleH1Class } from '@/features/game/layout/gamePageTitleClasses';
+import { BestiaryTrophyShelf } from './BestiaryTrophyShelf';
 import { BestiaryEntryCardPlaceholder } from './BestiaryEntryCard';
 import { BestiaryGrid } from './BestiaryGrid';
 import { useBestiaryState, type BestiaryEntryView } from './useBestiaryState';
@@ -48,6 +49,8 @@ export default function BestiaryPage() {
           </p>
         </div>
       ) : null}
+
+      {!loading && !error ? <BestiaryTrophyShelf /> : null}
 
       {loading ? (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">

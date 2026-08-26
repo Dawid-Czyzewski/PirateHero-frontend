@@ -11,6 +11,7 @@ type Props = {
   gold?: number;
   upgradingId?: string | null;
   onUpgrade?: (itemId: string) => void | Promise<void>;
+  onSpecialize?: (itemId: string, specialization: string) => void | Promise<void>;
   onDragCategoryChange?: (slot: SlotType | null) => void;
   onEquip: (itemId: string) => void | Promise<void>;
   onMove: (fromIndex: number, toIndex: number) => void | Promise<void>;
@@ -24,6 +25,7 @@ export function CharacterChestSection({
   gold = 0,
   upgradingId = null,
   onUpgrade,
+  onSpecialize,
   onDragCategoryChange,
   onEquip,
   onMove,
@@ -78,6 +80,7 @@ export function CharacterChestSection({
               gold={gold}
               upgrading={upgradingId === item.id}
               onUpgrade={onUpgrade}
+              onSpecialize={onSpecialize}
               onDragCategoryChange={onDragCategoryChange}
               onEquip={onEquip}
               onMove={onMove}

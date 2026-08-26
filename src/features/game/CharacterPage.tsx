@@ -27,6 +27,7 @@ export default function CharacterPage({ onPreviewProfile: _onPreviewProfile }: C
       onAllocateAttributePoint={inv.allocateAttributePoint}
       upgradingId={inv.upgradingId}
       onUpgradeItem={inv.upgradeItem}
+      onSpecializeItem={inv.specializeItem}
     />
   );
 }

@@ -14,6 +14,7 @@ type FilledProps = {
   gold?: number;
   upgrading?: boolean;
   onUpgrade?: (itemId: string) => void | Promise<void>;
+  onSpecialize?: (itemId: string, specialization: string) => void | Promise<void>;
   onDragCategoryChange?: (slot: SlotType | null) => void;
   onEquip: (itemId: string) => void | Promise<void>;
   onMove: (fromIndex: number, toIndex: number) => void | Promise<void>;
@@ -27,6 +28,7 @@ export function CharacterChestFilledSlot({
   gold = 0,
   upgrading = false,
   onUpgrade,
+  onSpecialize,
   onDragCategoryChange,
   onEquip,
   onMove,
@@ -78,6 +80,11 @@ export function CharacterChestFilledSlot({
           +{item.upgradeLevel}
         </span>
       ) : null}
+      {item.specialization ? (
+        <span className="absolute bottom-0.5 left-0.5 z-10 rounded bg-amber-600/90 px-1 text-[8px] font-black uppercase text-white">
+          {item.specialization === 'mission_gold' ? 'G%' : item.specialization === 'crit' ? 'CR' : 'HP'}
+        </span>
+      ) : null}
       <img
         src={item.image}
         alt={translateWearableItemName(t, item)}
@@ -97,6 +104,7 @@ export function CharacterChestFilledSlot({
         gold={gold}
         upgrading={upgrading}
         onUpgrade={onUpgrade}
+        onSpecialize={onSpecialize}
         onTooltipEnter={onTooltipEnter}
         onTooltipLeave={onTooltipLeave}
       />

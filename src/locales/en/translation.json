@@ -259,6 +259,22 @@
       "name": "Weekly Corsair",
       "unlockHint": "Claim a weekly pirate contract for the first time"
     },
+    "bestiary_scout": {
+      "name": "Beast Scout",
+      "unlockHint": "Discover 13 bestiary entries"
+    },
+    "bestiary_tracker": {
+      "name": "Beast Tracker",
+      "unlockHint": "Discover 25 bestiary entries"
+    },
+    "bestiary_naturalist": {
+      "name": "Sea Naturalist",
+      "unlockHint": "Discover 38 bestiary entries"
+    },
+    "bestiary_archivist": {
+      "name": "Bestiary Archivist",
+      "unlockHint": "Claim the trophy for a complete bestiary"
+    },
     "crypt_hunter": {
       "name": "Crypt Hunter",
       "unlockHint": "Complete the Crypt dungeon - pass through misty sunken graveyard ruins"
@@ -1024,7 +1040,23 @@
       "levelLine": "Upgrade +{{level}} / {{max}}",
       "cost": "{{gold}} gold",
       "upgradeSuccess": "Item upgraded to +{{level}}",
-      "upgradeFailed": "Could not upgrade item"
+      "upgradeFailed": "Could not upgrade item",
+      "specialize": {
+        "title": "Specialization",
+        "hint": "Choose one specialization (permanent).",
+        "cost": "Cost: {{gold}} gold",
+        "applying": "Specializing…",
+        "failed": "Could not set specialization",
+        "active": "Specialization: {{name}}",
+        "health": "+{{n}} HP",
+        "crit": "+{{n}} crit chance",
+        "mission_gold": "+{{n}}% mission gold",
+        "labels": {
+          "health": "Endurance",
+          "crit": "Crit",
+          "mission_gold": "Mission loot"
+        }
+      }
     }
   },
   "items": {
@@ -1651,6 +1683,26 @@
     "discoveredCount": "Discovered {{count}} / {{total}}",
     "loadFailed": "Could not load the bestiary.",
     "detailDescription": "Bestiary entry details: {{name}}",
+    "trophies": {
+      "title": "Trophies",
+      "hint": "Discover bestiary entries to unlock trophies and claim rewards.",
+      "target": "{{count}} entries",
+      "reward": "{{gold}} gold · {{diamonds}} diamonds",
+      "claim": "Claim",
+      "claiming": "Claiming…",
+      "claimed": "Claimed",
+      "claimSuccess": "Claimed {{gold}} gold and {{diamonds}} diamonds",
+      "claimFailed": "Could not claim trophy",
+      "titleUnlocked": "New title unlocked!",
+      "next": "Next: {{current}} / {{target}} ({{total}} total)",
+      "complete": "All trophies unlocked",
+      "codes": {
+        "bestiary_trophy_25": "Tracker 25%",
+        "bestiary_trophy_50": "Chronicler 50%",
+        "bestiary_trophy_75": "Cartographer 75%",
+        "bestiary_trophy_100": "Archivist 100%"
+      }
+    },
     "enemies": {
       "krypta": {
         "stage01": {
@@ -2248,6 +2300,15 @@
   "itemUpgradeMaxReached": "Item is already at max upgrade",
   "wearableItemNotFound": "Item not found",
   "itemUpgraded": "Item upgraded",
+  "itemSpecialized": "Specialization set",
+  "invalidSpecialization": "Invalid specialization",
+  "itemSpecializationRequiresMaxUpgrade": "Reach maximum upgrade level first",
+  "itemSpecializationAlreadySet": "This item already has a specialization",
+  "bestiaryTrophyNotFound": "Trophy not found",
+  "bestiaryTrophyNotUnlocked": "Trophy is not unlocked yet",
+  "bestiaryTrophyAlreadyClaimed": "Trophy reward already claimed",
+  "bestiaryTrophyClaimed": "Trophy claimed",
+  "specializationRequired": "Choose a specialization",
   "weeklyContractClaimed": "Weekly contract claimed",
   "missionNotActive": "That mission is not your active mission.",
   "missionAlreadyComplete": "This mission is already finished — claim the reward.",
