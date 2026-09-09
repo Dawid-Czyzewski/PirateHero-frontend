@@ -8,6 +8,7 @@ import { ShipViewHeader } from '@/features/game/ship/ShipViewHeader';
 import { ShipViewNotesTab } from '@/features/game/ship/ShipViewNotesTab';
 import { ShipViewTabsStrip } from '@/features/game/ship/ShipViewTabsStrip';
 import { ShipViewUpgradesTab } from '@/features/game/ship/ShipViewUpgradesTab';
+import { ShipViewVoyagesTab } from '@/features/game/ship/ShipViewVoyagesTab';
 
 export { buildShipTabs };
 export type { ShipViewProps };
@@ -83,6 +84,15 @@ export default function ShipView({
           />
         ) : null}
         {tab === 'battles' ? <ShipViewBattlesTab t={t} i18n={i18n} battles={battles} /> : null}
+        {tab === 'voyages' ? (
+          <ShipViewVoyagesTab
+            isCaptain={isCaptain}
+            onShipGoldChange={(gold, fame) => {
+              ship.gold = gold;
+              if (typeof fame === 'number') ship.fame = fame;
+            }}
+          />
+        ) : null}
         {tab === 'notes' ? (
           <ShipViewNotesTab
             ship={ship}

@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchUserQuests } from '@/services/questTaskService';
 import { fetchDailyChallenges } from '@/services/dailyChallengeService';
+import { fetchWeeklyArenaFame } from '@/services/weeklyArenaFameService';
 import { fetchWeeklyContract } from '@/services/weeklyContractService';
 import { getUnreadNotificationsCount } from '@/services/notificationsService';
 import { queryKeys } from '@/lib/query/queryKeys';
@@ -33,6 +34,13 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     staleTime: 30_000,
   });
 
+  const weeklyArenaFameQuery = useQuery({
+    queryKey: queryKeys.weeklyArenaFame(),
+    queryFn: fetchWeeklyArenaFame,
+    enabled: Boolean(userId),
+    staleTime: 30_000,
+  });
+
   const notificationsQuery = useQuery({
     queryKey: queryKeys.unreadNotificationsCount(),
     queryFn: getUnreadNotificationsCount,
@@ -48,6 +56,7 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
 
   const dailyChallengesUnclaimedCount = dailyChallengesQuery.data?.unclaimedCount ?? 0;
   const weeklyContractUnclaimedCount = weeklyContractQuery.data?.unclaimedCount ?? 0;
+  const weeklyArenaFameUnclaimedCount = weeklyArenaFameQuery.data?.unclaimedCount ?? 0;
 
   const unreadNotificationsCount = user ? (notificationsQuery.data ?? 0) : 0;
 
@@ -89,6 +98,11 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     await queryClient.invalidateQueries({ queryKey: queryKeys.weeklyContract() });
   }, [queryClient, userId]);
 
+  const checkWeeklyArenaFame = useCallback(async () => {
+    if (!userId) return;
+    await queryClient.invalidateQueries({ queryKey: queryKeys.weeklyArenaFame() });
+  }, [queryClient, userId]);
+
   const checkUnreadNotifications = useCallback(async () => {
     if (!user) return;
     await queryClient.invalidateQueries({ queryKey: queryKeys.unreadNotificationsCount() });
@@ -98,10 +112,12 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     unclaimedRewardsCount,
     dailyChallengesUnclaimedCount,
     weeklyContractUnclaimedCount,
+    weeklyArenaFameUnclaimedCount,
     unreadNotificationsCount,
     checkUnclaimedRewards,
     checkDailyChallenges,
     checkWeeklyContract,
+    checkWeeklyArenaFame,
     checkUnreadNotifications,
   };
 }

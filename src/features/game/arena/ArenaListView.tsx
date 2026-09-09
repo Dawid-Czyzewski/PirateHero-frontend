@@ -6,6 +6,7 @@ import { ArenaListHeaderActions } from './ArenaListHeaderActions';
 import { ArenaOpponentCard } from './ArenaOpponentCard';
 import { ArenaOpponentSkeleton } from './ArenaOpponentSkeleton';
 import { ArenaPageHeader, type ArenaFightPointsStrip } from './ArenaPageHeader';
+import { WeeklyArenaFamePanel } from './WeeklyArenaFamePanel';
 
 type ListSlice = UseArenaGameReturn['list'];
 type PlayerStats = UseArenaGameReturn['playerStats'];
@@ -65,6 +66,8 @@ export function ArenaListView({
           />
         }
       />
+
+      <WeeklyArenaFamePanel />
 
       <MissionErrorAlert
         message={arenaError}

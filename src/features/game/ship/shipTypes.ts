@@ -56,5 +56,5 @@ export interface ShipBattleHistoryEntry {
   fameDelta: number;
 }
 
-export type ShipTab = 'crew' | 'upgrades' | 'description' | 'battles' | 'notes' | 'chat';
+export type ShipTab = 'crew' | 'upgrades' | 'description' | 'battles' | 'voyages' | 'notes' | 'chat';
 export type ShipTabItem = { id: ShipTab; label: string; icon: LucideIcon };

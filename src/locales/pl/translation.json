@@ -551,6 +551,18 @@
       "name": "Korsarz tygodnia",
       "unlockHint": "Odbierz nagrodę z tygodniowego kontraktu po raz pierwszy"
     },
+    "weekly_arena_fighter": {
+      "name": "Wojownik areny tygodnia",
+      "unlockHint": "Odbierz pierwszy próg tygodniowej sławy areny"
+    },
+    "weekly_arena_champion": {
+      "name": "Mistrz areny tygodnia",
+      "unlockHint": "Odbierz drugi próg tygodniowej sławy areny"
+    },
+    "weekly_arena_legend": {
+      "name": "Legenda areny tygodnia",
+      "unlockHint": "Odbierz najwyższy próg tygodniowej sławy areny"
+    },
     "bestiary_scout": {
       "name": "Zwiadowca bestii",
       "unlockHint": "Odkryj 13 wpisów w bestiariuszu"
@@ -879,6 +891,7 @@
       "upgrades": "Ulepszenia",
       "description": "Opis",
       "battles": "Bitwy",
+      "voyages": "Rejsy",
       "notes": "Notatki / opis",
       "chat": "Czat"
     },
@@ -1460,6 +1473,7 @@
   "cancelTrainingModal.cancel": "Wróć",
   "cancelTrainingModal.confirm": "Tak, anuluj trening",
   "finishTrainingFirst": "Najpierw zakończ trening",
+  "finishVoyageFirst": "Najpierw zakończ rejs okrętu",
   "notEnoughTrainingEnergy": "Nie masz wystarczającej ilości punktów treningowych, aby rozpocząć ten trening.",
   "fights": "Walki",
   "defeatPreviousOpponent": "Pokonaj poprzedniego przeciwnika",
@@ -2310,6 +2324,39 @@
     "loadFailed": "Nie udało się wczytać kontraktu",
     "retry": "Spróbuj ponownie"
   },
+  "weeklyArenaFame": {
+    "title": "Tygodniowa sława areny",
+    "fameThisWeek": "{{fame}} sławy w tym tygodniu",
+    "tierLabel": "Próg {{tier}} · {{threshold}} sławy",
+    "claim": "Odbierz",
+    "claimed": "Odebrane",
+    "claimSuccess": "Odebrano +{{gold}} złota i +{{diamonds}} diamentów",
+    "titleUnlocked": "Odblokowano tytuł sławy areny",
+    "claimFailed": "Nie udało się odebrać nagrody sławy areny"
+  },
+  "shipVoyages": {
+    "title": "Rejsy załogi",
+    "subtitle": "Kapitan wysyła wolną załogę na timed rejs. Nagrody skalują się z ulepszeniem Misji.",
+    "hoursOffer": "Rejs {{hours}}h",
+    "cost": "Koszt skarbca {{gold}}",
+    "estGold": "Szac. pula złota {{gold}}",
+    "estExp": "Szac. pula exp {{exp}}",
+    "estFame": "Sława okrętu +{{fame}}",
+    "start": "Wypłyń",
+    "needTreasury": "Za mało złota w skarbcu",
+    "captainOnly": "Tylko kapitan może rozpocząć rejs",
+    "inProgress": "Na morzu · zostało {{time}}",
+    "ready": "Rejs zakończony — odbierz nagrody",
+    "enrolled": "{{count}} marynarzy na pokładzie",
+    "youAreSailing": "Jesteś na rejsie",
+    "complete": "Odbierz rejs",
+    "cancel": "Anuluj i zwróć",
+    "started": "Rejs rozpoczęty",
+    "completed": "Odebrano rejs: +{{gold}} złota, +{{exp}} exp",
+    "cancelled": "Rejs anulowany · +{{gold}} wróciło do skarbca",
+    "loadFailed": "Nie udało się wczytać rejsów",
+    "actionFailed": "Operacja rejsu nie powiodła się"
+  },
   "dailyChallengeInvalidSlot": "Nieprawidłowy numer wyzwania",
   "dailyChallengeNotFound": "Nie znaleziono wyzwania",
   "dailyChallengeNotComplete": "Wyzwanie nie jest jeszcze ukończone",
@@ -2318,6 +2365,16 @@
   "dailyChallengeBonusAlreadyClaimed": "Bonus dnia już odebrany",
   "weeklyContractNotComplete": "Kontrakt tygodniowy nie jest jeszcze ukończony",
   "weeklyContractAlreadyClaimed": "Nagroda kontraktu tygodniowego już odebrana",
+  "weeklyArenaFameInvalidTier": "Nieprawidłowy próg sławy areny",
+  "weeklyArenaFameTierNotReached": "Próg sławy areny nie został jeszcze osiągnięty",
+  "weeklyArenaFameTierAlreadyClaimed": "Próg sławy areny już odebrany",
+  "shipVoyageInvalidDuration": "Nieprawidłowy czas rejsu",
+  "shipVoyageAlreadyActive": "Rejs już trwa",
+  "shipVoyageNoFreeCrew": "Brak wolnych członków załogi na rejs",
+  "shipVoyageNotActive": "Brak aktywnego rejsu",
+  "shipVoyageNotComplete": "Rejs jeszcze się nie skończył",
+  "shipVoyageAlreadyComplete": "Rejs już zakończony — odbierz nagrody",
+  "notEnoughShipGold": "Za mało złota w skarbcu okrętu",
   "itemNotOwned": "Nie posiadasz tego przedmiotu",
   "itemUpgradeMaxReached": "Przedmiot osiągnął maksymalny poziom ulepszenia",
   "wearableItemNotFound": "Nie znaleziono przedmiotu",

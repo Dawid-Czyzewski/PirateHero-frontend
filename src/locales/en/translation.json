@@ -259,6 +259,18 @@
       "name": "Weekly Corsair",
       "unlockHint": "Claim a weekly pirate contract for the first time"
     },
+    "weekly_arena_fighter": {
+      "name": "Weekly Arena Fighter",
+      "unlockHint": "Claim the first weekly arena fame tier"
+    },
+    "weekly_arena_champion": {
+      "name": "Weekly Arena Champion",
+      "unlockHint": "Claim the second weekly arena fame tier"
+    },
+    "weekly_arena_legend": {
+      "name": "Weekly Arena Legend",
+      "unlockHint": "Claim the top weekly arena fame tier"
+    },
     "bestiary_scout": {
       "name": "Beast Scout",
       "unlockHint": "Discover 13 bestiary entries"
@@ -587,6 +599,7 @@
       "upgrades": "Upgrades",
       "description": "Description",
       "battles": "Battles",
+      "voyages": "Voyages",
       "notes": "Notes / description",
       "chat": "Chat"
     },
@@ -1453,6 +1466,7 @@
   "cancelTrainingModal.title": "Cancel Training",
   "cancelTrainingModal.description": "Are you sure you want to cancel this training?",
   "finishTrainingFirst": "Finish training first",
+  "finishVoyageFirst": "Finish the ship voyage first",
   "notEnoughTrainingEnergy": "Not enough training points to start this training.",
   "fights": "Fights",
   "defeatPreviousOpponent": "Defeat previous opponent",
@@ -2288,6 +2302,39 @@
     "loadFailed": "Could not load weekly contract",
     "retry": "Try again"
   },
+  "weeklyArenaFame": {
+    "title": "Weekly arena fame",
+    "fameThisWeek": "{{fame}} fame this week",
+    "tierLabel": "Tier {{tier}} · {{threshold}} fame",
+    "claim": "Claim",
+    "claimed": "Claimed",
+    "claimSuccess": "Claimed +{{gold}} gold and +{{diamonds}} diamonds",
+    "titleUnlocked": "Arena fame title unlocked",
+    "claimFailed": "Could not claim arena fame reward"
+  },
+  "shipVoyages": {
+    "title": "Crew voyages",
+    "subtitle": "Captain sends free crew on a timed voyage. Rewards scale with Quests upgrade.",
+    "hoursOffer": "{{hours}}h voyage",
+    "cost": "Treasury cost {{gold}}",
+    "estGold": "Est. gold pool {{gold}}",
+    "estExp": "Est. exp pool {{exp}}",
+    "estFame": "Ship fame +{{fame}}",
+    "start": "Set sail",
+    "needTreasury": "Not enough treasury gold",
+    "captainOnly": "Only the captain can start a voyage",
+    "inProgress": "At sea · {{time}} left",
+    "ready": "Voyage complete — claim rewards",
+    "enrolled": "{{count}} sailors enrolled",
+    "youAreSailing": "You are aboard",
+    "complete": "Claim voyage",
+    "cancel": "Cancel & refund",
+    "started": "Voyage started",
+    "completed": "Voyage claimed: +{{gold}} gold, +{{exp}} exp",
+    "cancelled": "Voyage cancelled · +{{gold}} returned to treasury",
+    "loadFailed": "Could not load voyages",
+    "actionFailed": "Voyage action failed"
+  },
   "dailyChallengeInvalidSlot": "Invalid challenge slot",
   "dailyChallengeNotFound": "Challenge not found",
   "dailyChallengeNotComplete": "Challenge is not complete yet",
@@ -2296,6 +2343,16 @@
   "dailyChallengeBonusAlreadyClaimed": "Daily bonus already claimed",
   "weeklyContractNotComplete": "Weekly contract is not complete yet",
   "weeklyContractAlreadyClaimed": "Weekly contract reward already claimed",
+  "weeklyArenaFameInvalidTier": "Invalid arena fame tier",
+  "weeklyArenaFameTierNotReached": "Arena fame tier not reached yet",
+  "weeklyArenaFameTierAlreadyClaimed": "Arena fame tier already claimed",
+  "shipVoyageInvalidDuration": "Invalid voyage duration",
+  "shipVoyageAlreadyActive": "A voyage is already in progress",
+  "shipVoyageNoFreeCrew": "No free crew members available for voyage",
+  "shipVoyageNotActive": "No active voyage",
+  "shipVoyageNotComplete": "Voyage is not finished yet",
+  "shipVoyageAlreadyComplete": "Voyage already finished — claim rewards",
+  "notEnoughShipGold": "Not enough gold in ship treasury",
   "itemNotOwned": "You do not own this item",
   "itemUpgradeMaxReached": "Item is already at max upgrade",
   "wearableItemNotFound": "Item not found",

@@ -55,7 +55,7 @@ export default function GameLayout() {
   const { user, isError, fetchUserData, progress, isReady } = useGameLoadProgress(storedUserId);
   const { logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { unclaimedRewardsCount, dailyChallengesUnclaimedCount, weeklyContractUnclaimedCount, unreadNotificationsCount, checkUnclaimedRewards, checkUnreadNotifications } =
+  const { unclaimedRewardsCount, dailyChallengesUnclaimedCount, weeklyContractUnclaimedCount, weeklyArenaFameUnclaimedCount, unreadNotificationsCount, checkUnclaimedRewards, checkUnreadNotifications } =
     useGameLayoutNotifications(user);
   const dailyReward = useDailyReward(Boolean(user));
 
@@ -93,6 +93,7 @@ export default function GameLayout() {
               unclaimedRewardsCount={unclaimedRewardsCount}
               dailyChallengesUnclaimedCount={dailyChallengesUnclaimedCount}
               weeklyContractUnclaimedCount={weeklyContractUnclaimedCount}
+              weeklyArenaFameUnclaimedCount={weeklyArenaFameUnclaimedCount}
               unreadNotificationsCount={unreadNotificationsCount}
             />
 

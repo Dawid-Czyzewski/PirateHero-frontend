@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useQueryClient } from '@tanstack/react-query';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { useUser } from '@/hooks/useUser';
+import { queryKeys } from '@/lib/query/queryKeys';
 import type { FightsPageProps } from '@/features/game/gamePageTypes';
 import type { FightStartSuccessData } from '@/types/fight';
 import { getFightRefillInfo } from '@/services/refillService';
@@ -33,6 +35,7 @@ import { useArenaGame } from './useArenaGame';
 export default function ArenaPage({ onQuestsUpdated }: FightsPageProps) {
   const { t } = useTranslation();
   const { user, fetchUserData, updateUser } = useUser();
+  const queryClient = useQueryClient();
   const { entries: shopBoosterEntries, nowMs: shopBoosterNowMs } = useSessionShopBoostersOptional();
   const [fightRefillOpen, setFightRefillOpen] = useState(false);
   const [fightRefillInfo, setFightRefillInfo] = useState<FightRefillInfoData | null>(null);
@@ -149,6 +152,7 @@ export default function ArenaPage({ onQuestsUpdated }: FightsPageProps) {
         if (typeof data.unclaimedCount === 'number') {
           void onQuestsUpdated?.(data.unclaimedCount);
         }
+        void queryClient.invalidateQueries({ queryKey: queryKeys.weeklyArenaFame() });
         void fetchUserData();
         return data;
       } catch (e) {
@@ -156,7 +160,7 @@ export default function ArenaPage({ onQuestsUpdated }: FightsPageProps) {
         throw e;
       }
     },
-    [user, startFightRaw, t, onQuestsUpdated, fetchUserData, updateUser]
+    [user, startFightRaw, t, onQuestsUpdated, fetchUserData, updateUser, queryClient]
   );
 
   const listForView = useMemo(

@@ -7,6 +7,7 @@ export const queryKeys = {
   dailyReward: () => ['dailyRewardStatus'] as const,
   dailyChallenges: () => ['dailyChallenges'] as const,
   weeklyContract: () => ['weeklyContract'] as const,
+  weeklyArenaFame: () => ['weeklyArenaFame'] as const,
   unreadNotificationsCount: () => ['unreadNotificationsCount'] as const,
   dungeonProgress: () => ['dungeonProgress'] as const,
   shipNotifications: () => ['shipNotifications'] as const,
@@ -14,4 +15,5 @@ export const queryKeys = {
   bestiary: (userId: string | null | undefined) =>
     [...queryKeys.bestiaryRoot(), userId ?? 'none'] as const,
   bestiaryTrophies: () => ['bestiaryTrophies'] as const,
+  shipVoyages: () => ['shipVoyages'] as const,
 };

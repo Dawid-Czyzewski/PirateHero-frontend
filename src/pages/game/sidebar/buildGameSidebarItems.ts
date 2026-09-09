@@ -26,9 +26,11 @@ type BuildItemsArgs = {
   isInMission: boolean;
   isInWork: boolean;
   isInTraining: boolean;
+  isInVoyage: boolean;
   unclaimedRewardsCount: number;
   dailyChallengesUnclaimedCount: number;
   weeklyContractUnclaimedCount: number;
+  weeklyArenaFameUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -59,7 +61,7 @@ const ROWS: {
   { key: 'training', icon: Dumbbell, notify: () => 0 },
   { key: 'works', icon: Coins, notify: () => 0 },
   { key: 'store', icon: ShoppingBag, notify: () => 0 },
-  { key: 'fights', icon: Swords, notify: () => 0 },
+  { key: 'fights', icon: Swords, notify: ({ weeklyArenaFameUnclaimedCount }) => weeklyArenaFameUnclaimedCount },
   { key: 'boosters', icon: Sparkles, notify: () => 0 },
   { key: 'statek', icon: Shield, notify: () => 0 },
   { key: 'coupons', icon: TicketPercent, notify: () => 0 },
@@ -78,6 +80,7 @@ export function buildGameSidebarItems(args: BuildItemsArgs): GameSidebarItem[] {
     isInMission: args.isInMission,
     isInWork: args.isInWork,
     isInTraining: args.isInTraining,
+    isInVoyage: args.isInVoyage,
   };
 
   return ROWS.map((row) => {

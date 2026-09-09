@@ -18,7 +18,7 @@ describe('gameNavActivityPolicy', () => {
   });
 
   it('getNavItemActivityState blocks work, training and dungeons during mission', () => {
-    const flags = { isInMission: true, isInWork: false, isInTraining: false };
+    const flags = { isInMission: true, isInWork: false, isInTraining: false, isInVoyage: false };
     expect(getNavItemActivityState('missions', flags).disabled).toBe(false);
     expect(getNavItemActivityState('character', flags).disabled).toBe(false);
     expect(getNavItemActivityState('statek', flags).disabled).toBe(false);
@@ -30,7 +30,7 @@ describe('gameNavActivityPolicy', () => {
   });
 
   it('getNavItemActivityState blocks missions, training and dungeons during work', () => {
-    const flags = { isInMission: false, isInWork: true, isInTraining: false };
+    const flags = { isInMission: false, isInWork: true, isInTraining: false, isInVoyage: false };
     expect(getNavItemActivityState('works', flags).disabled).toBe(false);
     expect(getNavItemActivityState('missions', flags).reasonKey).toBe('finishWorkFirst');
     expect(getNavItemActivityState('training', flags).reasonKey).toBe('finishWorkFirst');
@@ -42,7 +42,7 @@ describe('gameNavActivityPolicy', () => {
   });
 
   it('getNavItemActivityState blocks missions, works and dungeons during training', () => {
-    const flags = { isInMission: false, isInWork: false, isInTraining: true };
+    const flags = { isInMission: false, isInWork: false, isInTraining: true, isInVoyage: false };
     expect(getNavItemActivityState('training', flags).disabled).toBe(false);
     expect(getNavItemActivityState('missions', flags).reasonKey).toBe('finishTrainingFirst');
     expect(getNavItemActivityState('works', flags).reasonKey).toBe('finishTrainingFirst');
@@ -57,7 +57,14 @@ describe('gameNavActivityPolicy', () => {
         mission: { id: 1 },
         startTime: '',
       })
-    ).toEqual({ isInMission: true, isInWork: false, isInTraining: false });
+    ).toEqual({ isInMission: true, isInWork: false, isInTraining: false, isInVoyage: false });
+  });
+
+  it('getNavItemActivityState blocks missions during voyage', () => {
+    const flags = { isInMission: false, isInWork: false, isInTraining: false, isInVoyage: true };
+    expect(getNavItemActivityState('statek', flags).disabled).toBe(false);
+    expect(getNavItemActivityState('missions', flags).reasonKey).toBe('finishVoyageFirst');
+    expect(getNavItemActivityState('dungeons', flags).reasonKey).toBe('finishVoyageFirst');
   });
 
   it('getActivityBlockRedirect when on works during mission, not on statek', () => {
@@ -70,10 +77,13 @@ describe('gameNavActivityPolicy', () => {
 
   it('getSafeRouteForActivity', () => {
     expect(
-      getSafeRouteForActivity({ isInMission: true, isInWork: false, isInTraining: false })
+      getSafeRouteForActivity({ isInMission: true, isInWork: false, isInTraining: false, isInVoyage: false })
     ).toBe('/game/missions');
     expect(
-      getSafeRouteForActivity({ isInMission: false, isInWork: true, isInTraining: false })
+      getSafeRouteForActivity({ isInMission: false, isInWork: true, isInTraining: false, isInVoyage: false })
     ).toBe('/game/works');
+    expect(
+      getSafeRouteForActivity({ isInMission: false, isInWork: false, isInTraining: false, isInVoyage: true })
+    ).toBe('/game/statek');
   });
 });

@@ -28,4 +28,5 @@ export type CurrentActivityDto = {
   mission?: ActiveMissionDto;
   work?: ActiveWorkDto;
   training?: ActiveTrainingDto;
+  shipVoyage?: { id?: number; durationSeconds?: number };
 };

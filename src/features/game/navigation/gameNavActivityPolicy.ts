@@ -24,6 +24,7 @@ export type ActivityFlags = {
   isInMission: boolean;
   isInWork: boolean;
   isInTraining: boolean;
+  isInVoyage: boolean;
 };
 
 export function activityFlagsFromUser(currentActivity?: CurrentActivityDto | null): ActivityFlags {
@@ -31,6 +32,7 @@ export function activityFlagsFromUser(currentActivity?: CurrentActivityDto | nul
     isInMission: Boolean(currentActivity?.mission),
     isInWork: Boolean(currentActivity?.work),
     isInTraining: Boolean(currentActivity?.training),
+    isInVoyage: Boolean(currentActivity?.shipVoyage),
   };
 }
 
@@ -38,7 +40,7 @@ export function getNavItemActivityState(
   key: GameNavKey,
   flags: ActivityFlags
 ): { disabled: boolean; reasonKey: string | null } {
-  const { isInMission, isInWork, isInTraining } = flags;
+  const { isInMission, isInWork, isInTraining, isInVoyage } = flags;
 
   
   if (isInMission) {
@@ -63,6 +65,13 @@ export function getNavItemActivityState(
     return { disabled: false, reasonKey: null };
   }
 
+  if (isInVoyage) {
+    if (key === 'missions' || key === 'works' || key === 'training' || key === 'dungeons') {
+      return { disabled: true, reasonKey: 'finishVoyageFirst' };
+    }
+    return { disabled: false, reasonKey: null };
+  }
+
   return { disabled: false, reasonKey: null };
 }
 
@@ -80,6 +89,7 @@ export function getSafeRouteForActivity(flags: ActivityFlags): string | null {
   if (flags.isInMission) return '/game/missions';
   if (flags.isInWork) return '/game/works';
   if (flags.isInTraining) return '/game/training';
+  if (flags.isInVoyage) return '/game/statek';
   return null;
 }
 
@@ -88,7 +98,7 @@ export function getActivityBlockRedirect(
   currentActivity?: CurrentActivityDto | null
 ): string | null {
   const flags = activityFlagsFromUser(currentActivity);
-  if (!flags.isInMission && !flags.isInWork && !flags.isInTraining) {
+  if (!flags.isInMission && !flags.isInWork && !flags.isInTraining && !flags.isInVoyage) {
     return null;
   }
 

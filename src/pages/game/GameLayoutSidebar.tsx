@@ -15,6 +15,7 @@ type Props = {
   unclaimedRewardsCount: number;
   dailyChallengesUnclaimedCount: number;
   weeklyContractUnclaimedCount: number;
+  weeklyArenaFameUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -26,12 +27,14 @@ export default function GameLayoutSidebar({
   unclaimedRewardsCount,
   dailyChallengesUnclaimedCount,
   weeklyContractUnclaimedCount,
+  weeklyArenaFameUnclaimedCount,
   unreadNotificationsCount,
 }: Props) {
   const { t } = useTranslation();
   const isInMission = !!currentActivity?.mission;
   const isInWork = !!currentActivity?.work;
   const isInTraining = !!currentActivity?.training;
+  const isInVoyage = !!currentActivity?.shipVoyage;
   const [isLgUp, setIsLgUp] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
   );
@@ -52,9 +55,11 @@ export default function GameLayoutSidebar({
     isInMission,
     isInWork,
     isInTraining,
+    isInVoyage,
     unclaimedRewardsCount,
     dailyChallengesUnclaimedCount,
     weeklyContractUnclaimedCount,
+    weeklyArenaFameUnclaimedCount,
     unreadNotificationsCount,
   });
 
