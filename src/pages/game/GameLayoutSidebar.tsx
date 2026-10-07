@@ -15,7 +15,8 @@ type Props = {
   unclaimedRewardsCount: number;
   dailyChallengesUnclaimedCount: number;
   weeklyContractUnclaimedCount: number;
-  weeklyArenaFameUnclaimedCount: number;
+  fightsUnclaimedCount: number;
+  treasureMapUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -27,7 +28,8 @@ export default function GameLayoutSidebar({
   unclaimedRewardsCount,
   dailyChallengesUnclaimedCount,
   weeklyContractUnclaimedCount,
-  weeklyArenaFameUnclaimedCount,
+  fightsUnclaimedCount,
+  treasureMapUnclaimedCount,
   unreadNotificationsCount,
 }: Props) {
   const { t } = useTranslation();
@@ -59,7 +61,8 @@ export default function GameLayoutSidebar({
     unclaimedRewardsCount,
     dailyChallengesUnclaimedCount,
     weeklyContractUnclaimedCount,
-    weeklyArenaFameUnclaimedCount,
+    fightsUnclaimedCount,
+    treasureMapUnclaimedCount,
     unreadNotificationsCount,
   });
 

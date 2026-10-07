@@ -17,6 +17,7 @@ export type GameNavKey =
   | 'questTasks'
   | 'dailyChallenges'
   | 'weeklyContract'
+  | 'treasureMap'
   | 'notifications'
   | 'settings';
 

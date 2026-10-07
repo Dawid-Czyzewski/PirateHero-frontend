@@ -35,6 +35,7 @@ import {
   QuestTasksOutlet,
   DailyChallengesOutlet,
   WeeklyContractOutlet,
+  TreasureMapOutlet,
   StoreOutlet,
   FightsOutlet,
   DungeonsOutlet,
@@ -128,6 +129,7 @@ function AppLayout() {
                       <Route path="questTasks" element={<QuestTasksOutlet />} />
                       <Route path="dailyChallenges" element={<DailyChallengesOutlet />} />
                       <Route path="weeklyContract" element={<WeeklyContractOutlet />} />
+                      <Route path="treasureMap" element={<TreasureMapOutlet />} />
                       <Route path="works" element={<WorksPage />} />
                       <Route path="training" element={<TrainingPage />} />
                       <Route path="character" element={<CharacterOutlet />} />

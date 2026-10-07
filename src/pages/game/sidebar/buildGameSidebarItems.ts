@@ -15,6 +15,7 @@ import {
   Trophy,
   User,
   CalendarRange,
+  Map,
 } from 'lucide-react';
 import type { TFunction } from 'i18next';
 import type { GameNavKey } from '@/features/game/navigation/gameNavActivityPolicy';
@@ -30,7 +31,8 @@ type BuildItemsArgs = {
   unclaimedRewardsCount: number;
   dailyChallengesUnclaimedCount: number;
   weeklyContractUnclaimedCount: number;
-  weeklyArenaFameUnclaimedCount: number;
+  fightsUnclaimedCount: number;
+  treasureMapUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -61,7 +63,7 @@ const ROWS: {
   { key: 'training', icon: Dumbbell, notify: () => 0 },
   { key: 'works', icon: Coins, notify: () => 0 },
   { key: 'store', icon: ShoppingBag, notify: () => 0 },
-  { key: 'fights', icon: Swords, notify: ({ weeklyArenaFameUnclaimedCount }) => weeklyArenaFameUnclaimedCount },
+  { key: 'fights', icon: Swords, notify: ({ fightsUnclaimedCount }) => fightsUnclaimedCount },
   { key: 'boosters', icon: Sparkles, notify: () => 0 },
   { key: 'statek', icon: Shield, notify: () => 0 },
   { key: 'coupons', icon: TicketPercent, notify: () => 0 },
@@ -72,6 +74,7 @@ const ROWS: {
   { key: 'questTasks', icon: ScrollText, notify: ({ unclaimedRewardsCount }) => unclaimedRewardsCount },
   { key: 'dailyChallenges', icon: Target, notify: ({ dailyChallengesUnclaimedCount }) => dailyChallengesUnclaimedCount },
   { key: 'weeklyContract', icon: CalendarRange, notify: ({ weeklyContractUnclaimedCount }) => weeklyContractUnclaimedCount },
+  { key: 'treasureMap', icon: Map, notify: ({ treasureMapUnclaimedCount }) => treasureMapUnclaimedCount },
   { key: 'premium-shop', icon: Gem, notify: () => 0 },
 ];
 

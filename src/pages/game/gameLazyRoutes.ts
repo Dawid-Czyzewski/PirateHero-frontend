@@ -3,6 +3,7 @@ export const gameRouteImports = {
   questTasks: () => import('@/features/game/QuestTasksPage'),
   dailyChallenges: () => import('@/features/game/DailyChallengesPage'),
   weeklyContract: () => import('@/features/game/WeeklyContractPage'),
+  treasureMap: () => import('@/features/game/TreasureMapPage'),
   store: () => import('@/features/game/StorePage'),
   character: () => import('@/features/game/CharacterPage'),
   fights: () => import('@/features/game/FightsPage'),

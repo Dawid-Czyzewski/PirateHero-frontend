@@ -563,6 +563,14 @@
       "name": "Legenda areny tygodnia",
       "unlockHint": "Odbierz najwyższy próg tygodniowej sławy areny"
     },
+    "weekend_arena_champion": {
+      "name": "Mistrz areny weekendu",
+      "unlockHint": "Zajmij 1. miejsce w weekendowym turnieju areny"
+    },
+    "weekend_gladiator": {
+      "name": "Gladiator weekendu",
+      "unlockHint": "Odbierz nagrodę frekwencji z turnieju weekendowego"
+    },
     "bestiary_scout": {
       "name": "Zwiadowca bestii",
       "unlockHint": "Odkryj 13 wpisów w bestiariuszu"
@@ -2334,6 +2342,39 @@
     "titleUnlocked": "Odblokowano tytuł sławy areny",
     "claimFailed": "Nie udało się odebrać nagrody sławy areny"
   },
+  "weekendTournament": {
+    "title": "Weekendowy turniej areny",
+    "live": "Trwa",
+    "closed": "Zakończony — odbierz nagrody",
+    "window": "{{start}} – {{end}}",
+    "points": "{{points}} pkt",
+    "rank": "Miejsce #{{rank}}",
+    "emptyBoard": "Na liście jeszcze nikogo nie ma",
+    "claim": "Odbierz",
+    "claimed": "Odebrane",
+    "claimSuccess": "Odebrano +{{gold}} złota i +{{diamonds}} diamentów",
+    "titleUnlocked": "Odblokowano tytuł turnieju",
+    "claimFailed": "Nie udało się odebrać nagrody turnieju"
+  },
+  "treasureMapPage": {
+    "seoTitle": "Mapa skarbu",
+    "seoDescription": "Ukończ kroki mapy i otwórz skrzynię.",
+    "title": "Mapa skarbu",
+    "subtitle": "Wykonuj kroki po kolei, potem otwórz skrzynię.",
+    "stepLocked": "Zablokowane",
+    "stepDone": "Gotowe",
+    "claimChest": "Otwórz skrzynię",
+    "claimed": "Skrzynia odebrana",
+    "claimSuccess": "Otworzono skrzynię: +{{gold}} złota, +{{diamonds}} diamentów",
+    "claimFailed": "Nie udało się otworzyć skrzyni",
+    "loadFailed": "Nie udało się wczytać mapy skarbu",
+    "step_missions": "Ukończ {{count}} misji",
+    "step_arena_wins": "Wygraj {{count}} walk(i) na arenie",
+    "step_dungeon_stage_win": "Wygraj {{count}} etap(y) lochu",
+    "step_gold_spent": "Wydaj {{count}} złota",
+    "step_ship_voyage_complete": "Ukończ {{count}} rejs(y)"
+  },
+  "treasureMap": "Mapa skarbu",
   "shipVoyages": {
     "title": "Rejsy załogi",
     "subtitle": "Kapitan wysyła wolną załogę na timed rejs. Nagrody skalują się z ulepszeniem Misji.",
@@ -2368,6 +2409,11 @@
   "weeklyArenaFameInvalidTier": "Nieprawidłowy próg sławy areny",
   "weeklyArenaFameTierNotReached": "Próg sławy areny nie został jeszcze osiągnięty",
   "weeklyArenaFameTierAlreadyClaimed": "Próg sławy areny już odebrany",
+  "weekendTournamentStillActive": "Turniej jeszcze trwa — odbierz po niedzieli",
+  "weekendTournamentNotEnoughPoints": "Potrzeba co najmniej 3 punktów turniejowych",
+  "weekendTournamentAlreadyClaimed": "Nagroda turnieju weekendowego już odebrana",
+  "treasureMapNotComplete": "Mapa skarbu nie jest jeszcze ukończona",
+  "treasureMapAlreadyClaimed": "Skrzynia już odebrana",
   "shipVoyageInvalidDuration": "Nieprawidłowy czas rejsu",
   "shipVoyageAlreadyActive": "Rejs już trwa",
   "shipVoyageNoFreeCrew": "Brak wolnych członków załogi na rejs",

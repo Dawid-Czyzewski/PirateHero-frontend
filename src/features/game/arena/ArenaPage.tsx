@@ -153,6 +153,7 @@ export default function ArenaPage({ onQuestsUpdated }: FightsPageProps) {
           void onQuestsUpdated?.(data.unclaimedCount);
         }
         void queryClient.invalidateQueries({ queryKey: queryKeys.weeklyArenaFame() });
+        void queryClient.invalidateQueries({ queryKey: queryKeys.weekendTournament() });
         void fetchUserData();
         return data;
       } catch (e) {

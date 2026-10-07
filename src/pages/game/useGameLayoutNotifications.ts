@@ -2,6 +2,8 @@ import { useCallback } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchUserQuests } from '@/services/questTaskService';
 import { fetchDailyChallenges } from '@/services/dailyChallengeService';
+import { fetchTreasureMap, type TreasureMapStatus } from '../../services/treasureMapService';
+import { fetchWeekendTournament } from '@/services/weekendTournamentService';
 import { fetchWeeklyArenaFame } from '@/services/weeklyArenaFameService';
 import { fetchWeeklyContract } from '@/services/weeklyContractService';
 import { getUnreadNotificationsCount } from '@/services/notificationsService';
@@ -41,6 +43,20 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     staleTime: 30_000,
   });
 
+  const weekendTournamentQuery = useQuery({
+    queryKey: queryKeys.weekendTournament(),
+    queryFn: fetchWeekendTournament,
+    enabled: Boolean(userId),
+    staleTime: 30_000,
+  });
+
+  const treasureMapQuery = useQuery<TreasureMapStatus>({
+    queryKey: queryKeys.treasureMap(),
+    queryFn: fetchTreasureMap,
+    enabled: Boolean(userId),
+    staleTime: 30_000,
+  });
+
   const notificationsQuery = useQuery({
     queryKey: queryKeys.unreadNotificationsCount(),
     queryFn: getUnreadNotificationsCount,
@@ -57,6 +73,9 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
   const dailyChallengesUnclaimedCount = dailyChallengesQuery.data?.unclaimedCount ?? 0;
   const weeklyContractUnclaimedCount = weeklyContractQuery.data?.unclaimedCount ?? 0;
   const weeklyArenaFameUnclaimedCount = weeklyArenaFameQuery.data?.unclaimedCount ?? 0;
+  const weekendTournamentUnclaimedCount = weekendTournamentQuery.data?.unclaimedCount ?? 0;
+  const fightsUnclaimedCount = weeklyArenaFameUnclaimedCount + weekendTournamentUnclaimedCount;
+  const treasureMapUnclaimedCount = treasureMapQuery.data?.unclaimedCount ?? 0;
 
   const unreadNotificationsCount = user ? (notificationsQuery.data ?? 0) : 0;
 
@@ -113,6 +132,9 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     dailyChallengesUnclaimedCount,
     weeklyContractUnclaimedCount,
     weeklyArenaFameUnclaimedCount,
+    weekendTournamentUnclaimedCount,
+    fightsUnclaimedCount,
+    treasureMapUnclaimedCount,
     unreadNotificationsCount,
     checkUnclaimedRewards,
     checkDailyChallenges,

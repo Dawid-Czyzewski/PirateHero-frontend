@@ -52,6 +52,7 @@ export default function NavigationMenu({
     { key: 'questTasks', label: t('questTasks') },
     { key: 'dailyChallenges', label: t('dailyChallenges') },
     { key: 'weeklyContract', label: t('weeklyContract') },
+    { key: 'treasureMap', label: t('treasureMap') },
     { key: 'works', label: t('works') },
     { key: 'store', label: t('store') },
     { key: 'fights', label: t('fights') },

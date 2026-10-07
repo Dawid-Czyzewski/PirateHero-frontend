@@ -271,6 +271,14 @@
       "name": "Weekly Arena Legend",
       "unlockHint": "Claim the top weekly arena fame tier"
     },
+    "weekend_arena_champion": {
+      "name": "Weekend Arena Champion",
+      "unlockHint": "Finish #1 in a weekend arena tournament"
+    },
+    "weekend_gladiator": {
+      "name": "Weekend Gladiator",
+      "unlockHint": "Claim a weekend tournament participation reward"
+    },
     "bestiary_scout": {
       "name": "Beast Scout",
       "unlockHint": "Discover 13 bestiary entries"
@@ -2312,6 +2320,39 @@
     "titleUnlocked": "Arena fame title unlocked",
     "claimFailed": "Could not claim arena fame reward"
   },
+  "weekendTournament": {
+    "title": "Weekend arena tournament",
+    "live": "Live",
+    "closed": "Ended — claim rewards",
+    "window": "{{start}} – {{end}}",
+    "points": "{{points}} points",
+    "rank": "Rank #{{rank}}",
+    "emptyBoard": "No fighters on the board yet",
+    "claim": "Claim",
+    "claimed": "Claimed",
+    "claimSuccess": "Claimed +{{gold}} gold and +{{diamonds}} diamonds",
+    "titleUnlocked": "Weekend tournament title unlocked",
+    "claimFailed": "Could not claim tournament reward"
+  },
+  "treasureMapPage": {
+    "seoTitle": "Treasure map",
+    "seoDescription": "Complete map steps and claim the chest.",
+    "title": "Treasure map",
+    "subtitle": "Finish steps in order, then open the chest.",
+    "stepLocked": "Locked",
+    "stepDone": "Done",
+    "claimChest": "Open chest",
+    "claimed": "Chest claimed",
+    "claimSuccess": "Chest opened: +{{gold}} gold, +{{diamonds}} diamonds",
+    "claimFailed": "Could not open chest",
+    "loadFailed": "Could not load treasure map",
+    "step_missions": "Complete {{count}} missions",
+    "step_arena_wins": "Win {{count}} arena fight(s)",
+    "step_dungeon_stage_win": "Win {{count}} dungeon stage(s)",
+    "step_gold_spent": "Spend {{count}} gold",
+    "step_ship_voyage_complete": "Complete {{count}} ship voyage(s)"
+  },
+  "treasureMap": "Treasure map",
   "shipVoyages": {
     "title": "Crew voyages",
     "subtitle": "Captain sends free crew on a timed voyage. Rewards scale with Quests upgrade.",
@@ -2346,6 +2387,11 @@
   "weeklyArenaFameInvalidTier": "Invalid arena fame tier",
   "weeklyArenaFameTierNotReached": "Arena fame tier not reached yet",
   "weeklyArenaFameTierAlreadyClaimed": "Arena fame tier already claimed",
+  "weekendTournamentStillActive": "Tournament is still live — claim after Sunday",
+  "weekendTournamentNotEnoughPoints": "Need at least 3 tournament points to claim",
+  "weekendTournamentAlreadyClaimed": "Weekend tournament reward already claimed",
+  "treasureMapNotComplete": "Treasure map is not complete yet",
+  "treasureMapAlreadyClaimed": "Treasure chest already claimed",
   "shipVoyageInvalidDuration": "Invalid voyage duration",
   "shipVoyageAlreadyActive": "A voyage is already in progress",
   "shipVoyageNoFreeCrew": "No free crew members available for voyage",
