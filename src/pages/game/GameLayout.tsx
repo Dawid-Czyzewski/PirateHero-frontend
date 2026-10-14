@@ -1,7 +1,7 @@
 import { Suspense, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Toaster } from 'sonner';
 import { Coins, Gem } from 'lucide-react';
+import { GameToaster } from '@/components/ui/GameToaster';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '@/hooks/useUser';
 import { useAuth } from '@/hooks/useAuth';
@@ -133,7 +133,7 @@ export default function GameLayout() {
             </div>
           </div>
         </div>
-        <Toaster richColors position="top-center" closeButton />
+        <GameToaster />
         {dailyReward.status?.canClaim && dailyReward.isModalOpen ? (
           <DailyRewardModal
             status={dailyReward.status}

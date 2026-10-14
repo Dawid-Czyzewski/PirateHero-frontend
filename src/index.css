@@ -902,3 +902,102 @@
     animation-duration: 1s;
   }
 }
+
+/* Game toasts (Sonner) — match Pirate Hero dark / gold UI */
+[data-sonner-toaster].game-toaster {
+  --normal-bg: hsl(220 20% 14%);
+  --normal-border: hsl(220 15% 22%);
+  --normal-text: hsl(42 30% 88%);
+  --success-bg: hsl(220 20% 14%);
+  --success-border: hsl(42 80% 50% / 0.4);
+  --success-text: hsl(42 30% 88%);
+  --error-bg: hsl(220 20% 14%);
+  --error-border: hsl(0 65% 45% / 0.55);
+  --error-text: hsl(42 30% 88%);
+  --warning-bg: hsl(220 20% 14%);
+  --warning-border: hsl(42 70% 45% / 0.45);
+  --warning-text: hsl(42 30% 88%);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+[data-sonner-toast].game-toast {
+  background: hsl(220 20% 14%) !important;
+  border: 1px solid hsl(220 15% 22%) !important;
+  border-radius: 0.75rem !important;
+  color: hsl(42 30% 88%) !important;
+  box-shadow:
+    0 10px 28px hsl(220 25% 4% / 0.55),
+    inset 0 1px 0 hsl(220 15% 30% / 0.25) !important;
+  padding: 0.85rem 1rem !important;
+  gap: 0.65rem !important;
+}
+
+[data-sonner-toast].game-toast--success {
+  border-color: hsl(42 80% 50% / 0.42) !important;
+}
+
+[data-sonner-toast].game-toast--error {
+  border-color: hsl(0 65% 45% / 0.55) !important;
+}
+
+[data-sonner-toast].game-toast--warning {
+  border-color: hsl(42 70% 45% / 0.45) !important;
+}
+
+[data-sonner-toast].game-toast--info {
+  border-color: hsl(200 50% 40% / 0.4) !important;
+}
+
+[data-sonner-toast].game-toast [data-title],
+.game-toast__title {
+  font-family: var(--font-display), Cinzel, serif !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.02em !important;
+  color: hsl(42 30% 92%) !important;
+}
+
+[data-sonner-toast].game-toast [data-description],
+.game-toast__description {
+  color: hsl(220 10% 55%) !important;
+  font-size: 0.75rem !important;
+}
+
+[data-sonner-toast].game-toast [data-icon] {
+  color: hsl(42 80% 50%);
+}
+
+[data-sonner-toast].game-toast--error [data-icon] {
+  color: hsl(0 70% 58%);
+}
+
+[data-sonner-toast].game-toast [data-close-button],
+.game-toast__close {
+  background: hsl(220 18% 18%) !important;
+  border: 1px solid hsl(220 15% 22%) !important;
+  color: hsl(220 10% 55%) !important;
+}
+
+[data-sonner-toast].game-toast [data-close-button]:hover,
+.game-toast__close:hover {
+  background: hsl(220 18% 22%) !important;
+  color: hsl(42 30% 88%) !important;
+}
+
+[data-sonner-toast].game-toast [data-button],
+.game-toast__action {
+  background: hsl(42 80% 50%) !important;
+  color: hsl(220 25% 8%) !important;
+  font-family: var(--font-display), Cinzel, serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  border-radius: 0.5rem !important;
+}
+
+.game-toast__cancel {
+  background: hsl(220 18% 18%) !important;
+  color: hsl(220 10% 55%) !important;
+  border: 1px solid hsl(220 15% 22%) !important;
+}

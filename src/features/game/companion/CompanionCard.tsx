@@ -39,11 +39,7 @@ export function CompanionCard({
   const atMaxLevel = companion.level >= COMPANION_MAX_LEVEL;
   const canAffordFeed = gold >= COMPANION_FEED_GOLD_COST;
   const feedDisabled =
-    locked ||
-    !companion.canFeed ||
-    atMaxLevel ||
-    !canAffordFeed ||
-    busy !== null;
+    locked || !companion.canFeed || atMaxLevel || !canAffordFeed || busy !== null;
   const equipDisabled = locked || busy !== null;
   const abilityDisabled = locked || !isEquipped || !abilityReady || busy !== null;
 
@@ -54,30 +50,32 @@ export function CompanionCard({
 
   return (
     <article
-      className={`rounded-xl border px-4 py-4 ${
-        locked
-          ? 'border-border/50 bg-muted/10 opacity-90'
-          : 'border-border/60 bg-card/30'
+      className={`rounded-xl border px-4 py-4 sm:px-5 ${
+        locked ? 'border-border bg-card/60' : 'border-border bg-card'
       }`}
       aria-label={name}
     >
       <div className="flex items-start gap-3">
         <div
-          className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-3xl"
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 sm:h-16 sm:w-16"
           aria-hidden
         >
-          {locked ? <Lock className="h-7 w-7 text-muted-foreground" /> : '🦜'}
+          {locked ? (
+            <Lock className="h-6 w-6 text-muted-foreground" />
+          ) : (
+            <Bird className="h-7 w-7 text-primary" />
+          )}
         </div>
         <div className="min-w-0 flex-1 space-y-1">
           <div className="flex flex-wrap items-center gap-2">
-            <h2 className="font-heading text-lg font-bold text-foreground">{name}</h2>
+            <h2 className="font-heading text-sm font-bold text-foreground sm:text-base">{name}</h2>
             {isEquipped ? (
-              <span className="rounded bg-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary">
+              <span className="rounded bg-primary/15 px-2 py-0.5 font-heading text-[10px] font-bold uppercase tracking-wide text-primary">
                 {t('companionPage.equipped')}
               </span>
             ) : null}
           </div>
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p className="text-xs text-muted-foreground sm:text-sm">{description}</p>
         </div>
       </div>
 
@@ -89,8 +87,8 @@ export function CompanionCard({
             : t('companionPage.locked')}
         </p>
       ) : (
-        <div className="mt-4 space-y-3">
-          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+        <div className="mt-4 space-y-4">
+          <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs sm:text-sm">
             <p>
               <span className="text-muted-foreground">{t('companionPage.levelLabel')}: </span>
               <span className="font-semibold text-foreground">
@@ -99,18 +97,20 @@ export function CompanionCard({
             </p>
             <p>
               <span className="text-muted-foreground">{t('companionPage.workBonusLabel')}: </span>
-              <span className="font-semibold text-emerald-400">
-                +{companion.workGoldBonusPercent}%
-              </span>
+              <span className="font-semibold text-primary">+{companion.workGoldBonusPercent}%</span>
             </p>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
             <button
               type="button"
               disabled={feedDisabled}
               onClick={onFeed}
-              className="w-full rounded-lg border border-primary/40 bg-primary/15 px-3 py-2.5 text-sm font-bold text-primary transition hover:bg-primary/25 disabled:cursor-not-allowed disabled:opacity-50"
+              className={`cursor-pointer rounded-lg px-3 py-2.5 font-heading text-[11px] uppercase tracking-wide sm:min-w-[8.5rem] ${
+                !feedDisabled
+                  ? 'bg-primary text-primary-foreground'
+                  : 'cursor-not-allowed border border-border bg-muted/40 text-muted-foreground'
+              }`}
             >
               {atMaxLevel
                 ? t('companionPage.maxLevel')
@@ -122,7 +122,7 @@ export function CompanionCard({
                 type="button"
                 disabled={equipDisabled}
                 onClick={onUnequip}
-                className="w-full rounded-lg border border-border bg-muted/20 px-3 py-2.5 text-sm font-bold text-foreground transition hover:bg-muted/35 disabled:cursor-not-allowed disabled:opacity-50"
+                className="cursor-pointer rounded-lg border border-border bg-muted/40 px-3 py-2.5 font-heading text-[11px] uppercase tracking-wide text-muted-foreground hover:bg-muted/60 disabled:cursor-not-allowed disabled:opacity-50 sm:min-w-[8.5rem]"
               >
                 {t('companionPage.unequip')}
               </button>
@@ -131,7 +131,7 @@ export function CompanionCard({
                 type="button"
                 disabled={equipDisabled}
                 onClick={onEquip}
-                className="w-full rounded-lg border border-border bg-muted/20 px-3 py-2.5 text-sm font-bold text-foreground transition hover:bg-muted/35 disabled:cursor-not-allowed disabled:opacity-50"
+                className="cursor-pointer rounded-lg border border-border bg-muted/40 px-3 py-2.5 font-heading text-[11px] uppercase tracking-wide text-foreground hover:bg-muted/60 disabled:cursor-not-allowed disabled:opacity-50 sm:min-w-[8.5rem]"
               >
                 {t('companionPage.equip')}
               </button>
@@ -141,13 +141,17 @@ export function CompanionCard({
               type="button"
               disabled={abilityDisabled}
               onClick={onAbility}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-500/35 bg-amber-500/10 px-3 py-2.5 text-sm font-bold text-amber-200 transition hover:bg-amber-500/20 disabled:cursor-not-allowed disabled:opacity-50"
+              className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-3 py-2.5 font-heading text-[11px] uppercase tracking-wide sm:min-w-[10rem] ${
+                !abilityDisabled
+                  ? 'border border-primary/35 bg-primary/10 text-primary'
+                  : 'cursor-not-allowed border border-border bg-muted/40 text-muted-foreground'
+              }`}
             >
-              <Bird className="h-4 w-4 shrink-0" aria-hidden />
+              <Bird className="h-3.5 w-3.5 shrink-0" aria-hidden />
               {t('companionPage.useAbility')}
             </button>
-            <p className="text-xs text-muted-foreground">{t('companionPage.abilityHint')}</p>
           </div>
+          <p className="text-xs text-muted-foreground">{t('companionPage.abilityHint')}</p>
         </div>
       )}
     </article>

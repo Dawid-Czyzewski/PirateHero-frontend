@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Dices } from 'lucide-react';
 import { ApiHttpError } from '@/lib/api/ApiHttpError';
 import { useUser } from '@/hooks/useUser';
 import { playTavernDice, type TavernDicePlayResult } from '@/services/tavernService';
@@ -48,41 +49,46 @@ export function TavernDicePanel() {
   }, [fetchUserData, setUser, stake, t]);
 
   return (
-    <div className="space-y-5" aria-label={t('tavernPage.dice.ariaLabel')}>
-      <p className="text-sm text-muted-foreground">{t('tavernPage.dice.subtitle')}</p>
-
-      <div className="space-y-2">
-        <div className="flex items-center justify-between gap-3">
-          <label htmlFor="tavern-dice-stake" className="text-sm font-semibold text-foreground">
-            {t('tavernPage.dice.stakeLabel')}
-          </label>
-          <span className="tabular-nums text-sm font-bold text-amber-300">{stake}</span>
+    <div className="space-y-4" aria-label={t('tavernPage.dice.ariaLabel')}>
+      <div className="rounded-xl border border-border bg-card px-4 py-4 sm:px-5">
+        <div className="flex items-start gap-3">
+          <Dices className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+          <p className="text-sm text-muted-foreground">{t('tavernPage.dice.subtitle')}</p>
         </div>
-        <input
-          id="tavern-dice-stake"
-          type="range"
-          min={MIN_STAKE}
-          max={MAX_STAKE}
-          step={10}
-          value={stake}
+
+        <div className="mt-5 space-y-2">
+          <div className="flex items-center justify-between gap-3">
+            <label htmlFor="tavern-dice-stake" className="font-heading text-xs font-bold uppercase tracking-wide text-foreground">
+              {t('tavernPage.dice.stakeLabel')}
+            </label>
+            <span className="font-heading text-sm font-black tabular-nums text-primary">{stake}</span>
+          </div>
+          <input
+            id="tavern-dice-stake"
+            type="range"
+            min={MIN_STAKE}
+            max={MAX_STAKE}
+            step={10}
+            value={stake}
+            disabled={playing}
+            onChange={(e) => setStake(Number(e.target.value))}
+            className="h-2 w-full cursor-pointer accent-[hsl(42,80%,50%)] disabled:cursor-not-allowed disabled:opacity-50"
+          />
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>{MIN_STAKE}</span>
+            <span>{MAX_STAKE}</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => void handlePlay()}
           disabled={playing}
-          onChange={(e) => setStake(Number(e.target.value))}
-          className="h-2 w-full cursor-pointer accent-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
-        />
-        <div className="flex justify-between text-xs text-muted-foreground">
-          <span>{MIN_STAKE}</span>
-          <span>{MAX_STAKE}</span>
-        </div>
+          className="mt-5 w-full cursor-pointer rounded-lg bg-primary px-4 py-3 font-heading text-xs uppercase tracking-wide text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {playing ? t('tavernPage.dice.rolling') : t('tavernPage.dice.roll')}
+        </button>
       </div>
-
-      <button
-        type="button"
-        onClick={() => void handlePlay()}
-        disabled={playing}
-        className="w-full cursor-pointer rounded-lg border-2 border-primary bg-primary px-4 py-3.5 text-sm font-black uppercase tracking-wide text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
-      >
-        {playing ? t('tavernPage.dice.rolling') : t('tavernPage.dice.roll')}
-      </button>
 
       {errorKey ? (
         <p role="alert" className="text-sm text-destructive">
@@ -92,22 +98,26 @@ export function TavernDicePanel() {
 
       {lastResult && !playing ? (
         <output
-          className={`block space-y-2 rounded-lg border px-4 py-4 text-center ${
+          className={`block space-y-2 rounded-xl border px-4 py-4 text-center sm:px-5 ${
             lastResult.won
-              ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200'
+              ? 'border-primary/35 bg-primary/5'
               : lastResult.tied
-                ? 'border-amber-500/40 bg-amber-500/10 text-amber-100'
-                : 'border-border bg-muted/20 text-muted-foreground'
+                ? 'border-border bg-muted/30'
+                : 'border-border bg-card'
           }`}
           aria-label={t('tavernPage.dice.lastOutcome')}
         >
-          <p className="text-base font-semibold tabular-nums">
+          <p className="font-heading text-sm font-bold tabular-nums text-foreground">
             {t('tavernPage.dice.rolls', {
               player: lastResult.playerRoll,
               dealer: lastResult.dealerRoll,
             })}
           </p>
-          <p className="text-sm font-semibold">
+          <p
+            className={`text-sm font-semibold ${
+              lastResult.won ? 'text-primary' : 'text-muted-foreground'
+            }`}
+          >
             {lastResult.won
               ? t('tavernPage.dice.resultWin', { payout: lastResult.payoutGold })
               : lastResult.tied

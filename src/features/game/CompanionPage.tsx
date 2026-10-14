@@ -136,62 +136,65 @@ export default function CompanionPage() {
   const gold = user?.gold ?? 0;
   const playerLevel = Number(user?.level?.name ?? 0);
 
+  if (q.isPending) {
+    return (
+      <section className="w-full space-y-4">
+        <h1 className={gamePageTitleH1Class}>{t('companionPage.title')}</h1>
+        <p className="text-sm text-muted-foreground">{t('loading')}</p>
+      </section>
+    );
+  }
+
+  if (q.isError || !q.data) {
+    return (
+      <section className="w-full space-y-4">
+        <h1 className={gamePageTitleH1Class}>{t('companionPage.title')}</h1>
+        <p className="text-sm text-destructive">{t('companionPage.loadFailed')}</p>
+        <button
+          type="button"
+          onClick={() => void q.refetch()}
+          className="cursor-pointer rounded-lg bg-primary px-4 py-2 font-heading text-xs uppercase tracking-wide text-primary-foreground"
+        >
+          {t('companionPage.retry')}
+        </button>
+      </section>
+    );
+  }
+
   return (
-    <section
-      className="mx-auto w-full max-w-lg space-y-4 px-2 py-4 sm:px-4"
-      aria-label={t('companionPage.pageAriaLabel')}
-    >
-      <header className="flex flex-col items-start gap-2">
+    <section className="w-full space-y-6" aria-label={t('companionPage.pageAriaLabel')}>
+      <div>
         <Link
           to="/game/character"
-          className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-muted-foreground transition hover:text-primary"
+          className="mb-3 inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-muted-foreground transition hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden />
           {t('character')}
         </Link>
         <div className="flex items-center gap-2">
-          <Bird className="h-5 w-5 text-primary" aria-hidden />
+          <Bird className="h-5 w-5 shrink-0 text-primary" aria-hidden />
           <h1 className={gamePageTitleH1Class}>{t('companionPage.title')}</h1>
         </div>
-        <p className="text-sm text-muted-foreground">{t('companionPage.subtitle')}</p>
-      </header>
+        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{t('companionPage.subtitle')}</p>
+      </div>
 
-      {q.isPending ? (
-        <p className="text-sm text-muted-foreground">{t('loading')}</p>
-      ) : null}
-
-      {q.isError || (!q.isPending && !q.data) ? (
-        <div className="space-y-2">
-          <p className="text-sm text-destructive">{t('companionPage.loadFailed')}</p>
-          <button
-            type="button"
-            className="text-sm font-semibold text-primary underline"
-            onClick={() => void q.refetch()}
-          >
-            {t('companionPage.retry')}
-          </button>
-        </div>
-      ) : null}
-
-      {q.data ? (
-        <div className="flex flex-col gap-4 md:gap-5">
-          {q.data.companions.map((companion) => (
-            <CompanionCard
-              key={companion.code}
-              companion={companion}
-              equippedCode={q.data.equippedCode}
-              abilityReady={q.data.abilityReady}
-              gold={gold}
-              playerLevel={playerLevel}
-              busy={busy}
-              onFeed={() => onFeed(companion.code)}
-              onEquip={() => onEquip(companion.code)}
-              onUnequip={onUnequip}
-              onAbility={onAbility}
-            />
-          ))}
-        </div>
-      ) : null}
+      <div className="space-y-3">
+        {q.data.companions.map((companion) => (
+          <CompanionCard
+            key={companion.code}
+            companion={companion}
+            equippedCode={q.data.equippedCode}
+            abilityReady={q.data.abilityReady}
+            gold={gold}
+            playerLevel={playerLevel}
+            busy={busy}
+            onFeed={() => onFeed(companion.code)}
+            onEquip={() => onEquip(companion.code)}
+            onUnequip={onUnequip}
+            onAbility={onAbility}
+          />
+        ))}
+      </div>
     </section>
   );
 }
