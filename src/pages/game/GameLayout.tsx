@@ -61,6 +61,8 @@ export default function GameLayout() {
     weeklyContractUnclaimedCount,
     fightsUnclaimedCount,
     treasureMapUnclaimedCount,
+    tavernUnclaimedCount,
+    companionUnclaimedCount,
     unreadNotificationsCount,
     checkUnclaimedRewards,
     checkUnreadNotifications,
@@ -103,6 +105,8 @@ export default function GameLayout() {
               weeklyContractUnclaimedCount={weeklyContractUnclaimedCount}
               fightsUnclaimedCount={fightsUnclaimedCount}
               treasureMapUnclaimedCount={treasureMapUnclaimedCount}
+              tavernUnclaimedCount={tavernUnclaimedCount}
+              companionUnclaimedCount={companionUnclaimedCount}
               unreadNotificationsCount={unreadNotificationsCount}
             />
 

@@ -29,4 +29,5 @@ export type CurrentActivityDto = {
   work?: ActiveWorkDto;
   training?: ActiveTrainingDto;
   shipVoyage?: { id?: number; durationSeconds?: number };
+  tavernJob?: { id?: number; durationMinutes?: number };
 };

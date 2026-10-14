@@ -7,18 +7,28 @@ import {
   pathnameToGameNavKey,
 } from '@/features/game/navigation/gameNavActivityPolicy';
 
+const idleFlags = {
+  isInMission: false,
+  isInWork: false,
+  isInTraining: false,
+  isInVoyage: false,
+  isInTavernJob: false,
+};
+
 describe('gameNavActivityPolicy', () => {
   it('pathnameToGameNavKey parses /game segment', () => {
     expect(pathnameToGameNavKey('/game/statek')).toBe('statek');
     expect(pathnameToGameNavKey('/game/dungeons')).toBe('dungeons');
     expect(pathnameToGameNavKey('/game/rzut-moneta')).toBe('rzut-moneta');
+    expect(pathnameToGameNavKey('/game/tavern')).toBe('tavern');
+    expect(pathnameToGameNavKey('/game/companion')).toBe('companion');
     expect(pathnameToGameNavKey('/game/settings')).toBe('settings');
     expect(pathnameToGameNavKey('/game/user/x')).toBeNull();
     expect(pathnameToGameNavKey('/game/ship/y')).toBeNull();
   });
 
   it('getNavItemActivityState blocks work, training and dungeons during mission', () => {
-    const flags = { isInMission: true, isInWork: false, isInTraining: false, isInVoyage: false };
+    const flags = { ...idleFlags, isInMission: true };
     expect(getNavItemActivityState('missions', flags).disabled).toBe(false);
     expect(getNavItemActivityState('character', flags).disabled).toBe(false);
     expect(getNavItemActivityState('statek', flags).disabled).toBe(false);
@@ -30,7 +40,7 @@ describe('gameNavActivityPolicy', () => {
   });
 
   it('getNavItemActivityState blocks missions, training and dungeons during work', () => {
-    const flags = { isInMission: false, isInWork: true, isInTraining: false, isInVoyage: false };
+    const flags = { ...idleFlags, isInWork: true };
     expect(getNavItemActivityState('works', flags).disabled).toBe(false);
     expect(getNavItemActivityState('missions', flags).reasonKey).toBe('finishWorkFirst');
     expect(getNavItemActivityState('training', flags).reasonKey).toBe('finishWorkFirst');
@@ -42,7 +52,7 @@ describe('gameNavActivityPolicy', () => {
   });
 
   it('getNavItemActivityState blocks missions, works and dungeons during training', () => {
-    const flags = { isInMission: false, isInWork: false, isInTraining: true, isInVoyage: false };
+    const flags = { ...idleFlags, isInTraining: true };
     expect(getNavItemActivityState('training', flags).disabled).toBe(false);
     expect(getNavItemActivityState('missions', flags).reasonKey).toBe('finishTrainingFirst');
     expect(getNavItemActivityState('works', flags).reasonKey).toBe('finishTrainingFirst');
@@ -57,14 +67,45 @@ describe('gameNavActivityPolicy', () => {
         mission: { id: 1 },
         startTime: '',
       })
-    ).toEqual({ isInMission: true, isInWork: false, isInTraining: false, isInVoyage: false });
+    ).toEqual({
+      isInMission: true,
+      isInWork: false,
+      isInTraining: false,
+      isInVoyage: false,
+      isInTavernJob: false,
+    });
+  });
+
+  it('activityFlagsFromUser reads tavernJob from DTO', () => {
+    expect(
+      activityFlagsFromUser({
+        tavernJob: { id: 2, durationMinutes: 15 },
+        startTime: '',
+      })
+    ).toEqual({
+      isInMission: false,
+      isInWork: false,
+      isInTraining: false,
+      isInVoyage: false,
+      isInTavernJob: true,
+    });
   });
 
   it('getNavItemActivityState blocks missions during voyage', () => {
-    const flags = { isInMission: false, isInWork: false, isInTraining: false, isInVoyage: true };
+    const flags = { ...idleFlags, isInVoyage: true };
     expect(getNavItemActivityState('statek', flags).disabled).toBe(false);
     expect(getNavItemActivityState('missions', flags).reasonKey).toBe('finishVoyageFirst');
     expect(getNavItemActivityState('dungeons', flags).reasonKey).toBe('finishVoyageFirst');
+  });
+
+  it('getNavItemActivityState blocks missions, works, training and dungeons during tavern job', () => {
+    const flags = { ...idleFlags, isInTavernJob: true };
+    expect(getNavItemActivityState('tavern', flags).disabled).toBe(false);
+    expect(getNavItemActivityState('missions', flags).reasonKey).toBe('finishTavernJobFirst');
+    expect(getNavItemActivityState('works', flags).reasonKey).toBe('finishTavernJobFirst');
+    expect(getNavItemActivityState('training', flags).reasonKey).toBe('finishTavernJobFirst');
+    expect(getNavItemActivityState('dungeons', flags).reasonKey).toBe('finishTavernJobFirst');
+    expect(getNavItemActivityState('store', flags).disabled).toBe(false);
   });
 
   it('getActivityBlockRedirect when on works during mission, not on statek', () => {
@@ -75,15 +116,17 @@ describe('gameNavActivityPolicy', () => {
     expect(getActivityBlockRedirect('/game/missions', ca)).toBeNull();
   });
 
+  it('getActivityBlockRedirect during tavern job', () => {
+    const ca = { tavernJob: { id: 1 }, startTime: '' };
+    expect(getActivityBlockRedirect('/game/missions', ca)).toBe('/game/tavern');
+    expect(getActivityBlockRedirect('/game/works', ca)).toBe('/game/tavern');
+    expect(getActivityBlockRedirect('/game/tavern', ca)).toBeNull();
+  });
+
   it('getSafeRouteForActivity', () => {
-    expect(
-      getSafeRouteForActivity({ isInMission: true, isInWork: false, isInTraining: false, isInVoyage: false })
-    ).toBe('/game/missions');
-    expect(
-      getSafeRouteForActivity({ isInMission: false, isInWork: true, isInTraining: false, isInVoyage: false })
-    ).toBe('/game/works');
-    expect(
-      getSafeRouteForActivity({ isInMission: false, isInWork: false, isInTraining: false, isInVoyage: true })
-    ).toBe('/game/statek');
+    expect(getSafeRouteForActivity({ ...idleFlags, isInMission: true })).toBe('/game/missions');
+    expect(getSafeRouteForActivity({ ...idleFlags, isInWork: true })).toBe('/game/works');
+    expect(getSafeRouteForActivity({ ...idleFlags, isInVoyage: true })).toBe('/game/statek');
+    expect(getSafeRouteForActivity({ ...idleFlags, isInTavernJob: true })).toBe('/game/tavern');
   });
 });

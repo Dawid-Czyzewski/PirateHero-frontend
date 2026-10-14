@@ -10,6 +10,7 @@ import { gamePagePlayerTypedHeroClass } from '@/features/game/layout/gamePageTit
 import { PlayerTitleBadge } from '@/features/game/player/PlayerTitleBadge';
 import type { EquippedTitleDto } from '@/types/playerTitle';
 import { CharacterEquipSlot } from './CharacterEquipSlot';
+import { CompanionShoulderBadge } from './CompanionShoulderBadge';
 
 type Props = {
   username?: string;
@@ -31,6 +32,7 @@ type Props = {
   onSpecialize?: (itemId: string, specialization: string) => void | Promise<void>;
   readOnly?: boolean;
   heroStatsMode?: 'default' | 'fameOnly';
+  equippedCompanionCode?: string | null;
 };
 
 const LEFT_SLOTS: SlotType[] = ['helmet', 'weapon', 'armor'];
@@ -64,6 +66,7 @@ export function CharacterPaperDoll({
   onSpecialize,
   readOnly = false,
   heroStatsMode = 'default',
+  equippedCompanionCode = null,
 }: Props) {
   const { t } = useTranslation();
   const [isSmUp, setIsSmUp] = useState(
@@ -120,6 +123,7 @@ export function CharacterPaperDoll({
           width={224}
           height={224}
         />
+        <CompanionShoulderBadge equippedCompanionCode={equippedCompanionCode} />
         <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 shadow-lg">
           <span className="font-heading text-xs font-black text-primary-foreground">
             LVL {levelName || '1'}

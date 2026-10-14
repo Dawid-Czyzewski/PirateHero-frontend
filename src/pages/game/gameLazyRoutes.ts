@@ -4,6 +4,8 @@ export const gameRouteImports = {
   dailyChallenges: () => import('@/features/game/DailyChallengesPage'),
   weeklyContract: () => import('@/features/game/WeeklyContractPage'),
   treasureMap: () => import('@/features/game/TreasureMapPage'),
+  tavern: () => import('@/features/game/TavernPage'),
+  companion: () => import('@/features/game/CompanionPage'),
   store: () => import('@/features/game/StorePage'),
   character: () => import('@/features/game/CharacterPage'),
   fights: () => import('@/features/game/FightsPage'),
@@ -44,6 +46,7 @@ export const eagerGameRouteImports: Array<
   gameRouteImports.coinFlip,
   gameRouteImports.settings,
   gameRouteImports.titles,
+  gameRouteImports.companion,
 ];
 
 export const deferredGameRouteImports = {

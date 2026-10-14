@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Award, ChevronRight } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { Award, Bird, ChevronRight } from 'lucide-react';
 import type { ItemStats, SlotType } from '@/data/gameItems';
 import type { GameItem } from '@/features/game/character/characterTypes';
 import { useSessionShopBoostersOptional } from '@/features/game/boosters/SessionShopBoostersContext';
@@ -16,6 +17,8 @@ import { CharacterChestSection } from './CharacterChestSection';
 import type { GameUser } from '@/types/gameUser';
 import type { CharacterStatKey } from '@/features/game/character/characterSkillPoints';
 import { gamePageTitleH1Class } from '@/features/game/layout/gamePageTitleClasses';
+import { queryKeys } from '@/lib/query/queryKeys';
+import { fetchCompanionStatus } from '@/services/companionService';
 
 export type CharacterPageViewProps = {
   user: GameUser | null | undefined;
@@ -61,6 +64,14 @@ export function CharacterPageView({
   const { entries: contextShopBoosterEntries, nowMs: contextShopBoosterNowMs } =
     useSessionShopBoostersOptional();
 
+  const companionQuery = useQuery({
+    queryKey: queryKeys.companion(),
+    queryFn: fetchCompanionStatus,
+    enabled: !isUserPreview && Boolean(user?.id),
+    staleTime: 30_000,
+  });
+  const equippedCompanionCode = companionQuery.data?.equippedCode ?? null;
+
   const shopBoosterEntries = useMemo(() => {
     if (isUserPreview) {
       if (!Array.isArray(user?.sessionShopBoosters)) return [];
@@ -105,14 +116,24 @@ export function CharacterPageView({
       {!isUserPreview ? (
         <header className="flex w-full flex-col items-start gap-3">
           <h1 className={`${gamePageTitleH1Class} min-w-0`}>{t('character')}</h1>
-          <Link
-            to="/game/titles"
-            className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card/40 px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary/35 hover:bg-primary/10 hover:text-primary"
-          >
-            <Award className="h-4 w-4 shrink-0" aria-hidden />
-            {t('titlesPage.title')}
-            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              to="/game/titles"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card/40 px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary/35 hover:bg-primary/10 hover:text-primary"
+            >
+              <Award className="h-4 w-4 shrink-0" aria-hidden />
+              {t('titlesPage.title')}
+              <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+            </Link>
+            <Link
+              to="/game/companion"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card/40 px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary/35 hover:bg-primary/10 hover:text-primary"
+            >
+              <Bird className="h-4 w-4 shrink-0" aria-hidden />
+              {t('companion')}
+              <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+            </Link>
+          </div>
         </header>
       ) : null}
 
@@ -158,6 +179,7 @@ export function CharacterPageView({
             onSpecialize={onSpecializeItem}
             readOnly={isUserPreview}
             heroStatsMode={isUserPreview ? 'fameOnly' : 'default'}
+            equippedCompanionCode={isUserPreview ? null : equippedCompanionCode}
           />
         </div>
       </div>

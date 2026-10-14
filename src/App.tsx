@@ -36,6 +36,8 @@ import {
   DailyChallengesOutlet,
   WeeklyContractOutlet,
   TreasureMapOutlet,
+  TavernOutlet,
+  CompanionOutlet,
   StoreOutlet,
   FightsOutlet,
   DungeonsOutlet,
@@ -130,6 +132,8 @@ function AppLayout() {
                       <Route path="dailyChallenges" element={<DailyChallengesOutlet />} />
                       <Route path="weeklyContract" element={<WeeklyContractOutlet />} />
                       <Route path="treasureMap" element={<TreasureMapOutlet />} />
+                      <Route path="tavern" element={<TavernOutlet />} />
+                      <Route path="companion" element={<CompanionOutlet />} />
                       <Route path="works" element={<WorksPage />} />
                       <Route path="training" element={<TrainingPage />} />
                       <Route path="character" element={<CharacterOutlet />} />

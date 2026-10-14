@@ -14,6 +14,8 @@ export type GameNavKey =
   | 'premium-shop'
   | 'coupons'
   | 'rzut-moneta'
+  | 'tavern'
+  | 'companion'
   | 'questTasks'
   | 'dailyChallenges'
   | 'weeklyContract'
@@ -26,6 +28,7 @@ export type ActivityFlags = {
   isInWork: boolean;
   isInTraining: boolean;
   isInVoyage: boolean;
+  isInTavernJob: boolean;
 };
 
 export function activityFlagsFromUser(currentActivity?: CurrentActivityDto | null): ActivityFlags {
@@ -34,6 +37,7 @@ export function activityFlagsFromUser(currentActivity?: CurrentActivityDto | nul
     isInWork: Boolean(currentActivity?.work),
     isInTraining: Boolean(currentActivity?.training),
     isInVoyage: Boolean(currentActivity?.shipVoyage),
+    isInTavernJob: Boolean(currentActivity?.tavernJob),
   };
 }
 
@@ -41,7 +45,7 @@ export function getNavItemActivityState(
   key: GameNavKey,
   flags: ActivityFlags
 ): { disabled: boolean; reasonKey: string | null } {
-  const { isInMission, isInWork, isInTraining, isInVoyage } = flags;
+  const { isInMission, isInWork, isInTraining, isInVoyage, isInTavernJob } = flags;
 
   
   if (isInMission) {
@@ -73,6 +77,13 @@ export function getNavItemActivityState(
     return { disabled: false, reasonKey: null };
   }
 
+  if (isInTavernJob) {
+    if (key === 'missions' || key === 'works' || key === 'training' || key === 'dungeons') {
+      return { disabled: true, reasonKey: 'finishTavernJobFirst' };
+    }
+    return { disabled: false, reasonKey: null };
+  }
+
   return { disabled: false, reasonKey: null };
 }
 
@@ -91,6 +102,7 @@ export function getSafeRouteForActivity(flags: ActivityFlags): string | null {
   if (flags.isInWork) return '/game/works';
   if (flags.isInTraining) return '/game/training';
   if (flags.isInVoyage) return '/game/statek';
+  if (flags.isInTavernJob) return '/game/tavern';
   return null;
 }
 
@@ -99,7 +111,13 @@ export function getActivityBlockRedirect(
   currentActivity?: CurrentActivityDto | null
 ): string | null {
   const flags = activityFlagsFromUser(currentActivity);
-  if (!flags.isInMission && !flags.isInWork && !flags.isInTraining && !flags.isInVoyage) {
+  if (
+    !flags.isInMission &&
+    !flags.isInWork &&
+    !flags.isInTraining &&
+    !flags.isInVoyage &&
+    !flags.isInTavernJob
+  ) {
     return null;
   }
 

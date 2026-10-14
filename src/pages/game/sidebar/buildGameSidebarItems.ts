@@ -1,5 +1,7 @@
 import {
+  Beer,
   Bell,
+  Bird,
   CircleDot,
   Coins,
   Dumbbell,
@@ -28,11 +30,14 @@ type BuildItemsArgs = {
   isInWork: boolean;
   isInTraining: boolean;
   isInVoyage: boolean;
+  isInTavernJob: boolean;
   unclaimedRewardsCount: number;
   dailyChallengesUnclaimedCount: number;
   weeklyContractUnclaimedCount: number;
   fightsUnclaimedCount: number;
   treasureMapUnclaimedCount: number;
+  tavernUnclaimedCount: number;
+  companionUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -68,6 +73,8 @@ const ROWS: {
   { key: 'statek', icon: Shield, notify: () => 0 },
   { key: 'coupons', icon: TicketPercent, notify: () => 0 },
   { key: 'rzut-moneta', icon: CircleDot, notify: () => 0 },
+  { key: 'tavern', icon: Beer, notify: ({ tavernUnclaimedCount }) => tavernUnclaimedCount },
+  { key: 'companion', icon: Bird, notify: ({ companionUnclaimedCount }) => companionUnclaimedCount },
   { key: 'ranking', icon: Trophy, notify: () => 0 },
   { key: 'notifications', icon: Bell, notify: ({ unreadNotificationsCount }) => unreadNotificationsCount },
   { key: 'dungeons', icon: Skull, notify: () => 0 },
@@ -84,6 +91,7 @@ export function buildGameSidebarItems(args: BuildItemsArgs): GameSidebarItem[] {
     isInWork: args.isInWork,
     isInTraining: args.isInTraining,
     isInVoyage: args.isInVoyage,
+    isInTavernJob: args.isInTavernJob,
   };
 
   return ROWS.map((row) => {

@@ -3,6 +3,8 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchUserQuests } from '@/services/questTaskService';
 import { fetchDailyChallenges } from '@/services/dailyChallengeService';
 import { fetchTreasureMap, type TreasureMapStatus } from '../../services/treasureMapService';
+import { fetchTavernStatus, type TavernStatus } from '@/services/tavernService';
+import { fetchCompanionStatus, type CompanionStatus } from '@/services/companionService';
 import { fetchWeekendTournament } from '@/services/weekendTournamentService';
 import { fetchWeeklyArenaFame } from '@/services/weeklyArenaFameService';
 import { fetchWeeklyContract } from '@/services/weeklyContractService';
@@ -57,6 +59,20 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     staleTime: 30_000,
   });
 
+  const tavernQuery = useQuery<TavernStatus>({
+    queryKey: queryKeys.tavern(),
+    queryFn: fetchTavernStatus,
+    enabled: Boolean(userId),
+    staleTime: 30_000,
+  });
+
+  const companionQuery = useQuery<CompanionStatus>({
+    queryKey: queryKeys.companion(),
+    queryFn: fetchCompanionStatus,
+    enabled: Boolean(userId),
+    staleTime: 30_000,
+  });
+
   const notificationsQuery = useQuery({
     queryKey: queryKeys.unreadNotificationsCount(),
     queryFn: getUnreadNotificationsCount,
@@ -76,6 +92,8 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
   const weekendTournamentUnclaimedCount = weekendTournamentQuery.data?.unclaimedCount ?? 0;
   const fightsUnclaimedCount = weeklyArenaFameUnclaimedCount + weekendTournamentUnclaimedCount;
   const treasureMapUnclaimedCount = treasureMapQuery.data?.unclaimedCount ?? 0;
+  const tavernUnclaimedCount = tavernQuery.data?.unclaimedCount ?? 0;
+  const companionUnclaimedCount = companionQuery.data?.unclaimedCount ?? 0;
 
   const unreadNotificationsCount = user ? (notificationsQuery.data ?? 0) : 0;
 
@@ -135,6 +153,8 @@ export function useGameLayoutNotifications(user: GameUser | null | undefined) {
     weekendTournamentUnclaimedCount,
     fightsUnclaimedCount,
     treasureMapUnclaimedCount,
+    tavernUnclaimedCount,
+    companionUnclaimedCount,
     unreadNotificationsCount,
     checkUnclaimedRewards,
     checkDailyChallenges,

@@ -1,7 +1,19 @@
 import { render, screen } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import CharacterPage from '@/features/game/CharacterPage';
+
+vi.mock('@/services/companionService', () => ({
+  fetchCompanionStatus: () =>
+    Promise.resolve({
+      companions: [],
+      equippedCode: null,
+      abilityReady: false,
+      canFeed: false,
+      unclaimedCount: 0,
+    }),
+}));
 
 function stubMatchMedia() {
   vi.stubGlobal(
@@ -28,6 +40,7 @@ vi.mock('@/hooks/usePageMeta', () => ({
 }));
 
 const mockUser = {
+  id: 'user-1',
   username: 'TestowyGracz',
   avatarName: 'Boatswain',
   storage: {
@@ -170,10 +183,15 @@ vi.mock('@/hooks/useUser', () => ({
 }));
 
 function renderCharacterPage() {
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  });
   return render(
-    <MemoryRouter>
-      <CharacterPage onPreviewProfile={vi.fn()} />
-    </MemoryRouter>
+    <QueryClientProvider client={queryClient}>
+      <MemoryRouter>
+        <CharacterPage onPreviewProfile={vi.fn()} />
+      </MemoryRouter>
+    </QueryClientProvider>
   );
 }
 
@@ -232,6 +250,7 @@ vi.mock('react-i18next', () => ({
         'characterPage.workshop.specialize.labels.crit': 'Kryt',
         'characterPage.workshop.specialize.labels.mission_gold': 'Misje',
         'titlesPage.title': 'Tytuły',
+        companion: 'Towarzysz',
         'character': 'Postać',
         'items.pirate-hat': 'Piracki Kapelusz',
         'items.captain-cutlass': 'Kordelas Kapitana',

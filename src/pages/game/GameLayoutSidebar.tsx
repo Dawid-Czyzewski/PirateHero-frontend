@@ -17,6 +17,8 @@ type Props = {
   weeklyContractUnclaimedCount: number;
   fightsUnclaimedCount: number;
   treasureMapUnclaimedCount: number;
+  tavernUnclaimedCount: number;
+  companionUnclaimedCount: number;
   unreadNotificationsCount: number;
 };
 
@@ -30,6 +32,8 @@ export default function GameLayoutSidebar({
   weeklyContractUnclaimedCount,
   fightsUnclaimedCount,
   treasureMapUnclaimedCount,
+  tavernUnclaimedCount,
+  companionUnclaimedCount,
   unreadNotificationsCount,
 }: Props) {
   const { t } = useTranslation();
@@ -37,6 +41,7 @@ export default function GameLayoutSidebar({
   const isInWork = !!currentActivity?.work;
   const isInTraining = !!currentActivity?.training;
   const isInVoyage = !!currentActivity?.shipVoyage;
+  const isInTavernJob = !!currentActivity?.tavernJob;
   const [isLgUp, setIsLgUp] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
   );
@@ -58,11 +63,14 @@ export default function GameLayoutSidebar({
     isInWork,
     isInTraining,
     isInVoyage,
+    isInTavernJob,
     unclaimedRewardsCount,
     dailyChallengesUnclaimedCount,
     weeklyContractUnclaimedCount,
     fightsUnclaimedCount,
     treasureMapUnclaimedCount,
+    tavernUnclaimedCount,
+    companionUnclaimedCount,
     unreadNotificationsCount,
   });
 

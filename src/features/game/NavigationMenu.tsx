@@ -60,6 +60,8 @@ export default function NavigationMenu({
     { key: 'statek', label: t('statek') },
     { key: 'coupons', label: t('coupons') },
     { key: 'rzut-moneta', label: t('rzutMoneta') },
+    { key: 'tavern', label: t('tavern') },
+    { key: 'companion', label: t('companion') },
     { key: 'ranking', label: t('ranking') },
     { key: 'notifications', label: t('notifications') },
     { key: 'dungeons', label: t('dungeons') },

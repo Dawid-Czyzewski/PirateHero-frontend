@@ -10,6 +10,8 @@ const QuestTasksPage = lazy(gameRouteImports.questTasks);
 const DailyChallengesPage = lazy(gameRouteImports.dailyChallenges);
 const WeeklyContractPage = lazy(gameRouteImports.weeklyContract);
 const TreasureMapPage = lazy(gameRouteImports.treasureMap);
+const TavernPage = lazy(gameRouteImports.tavern);
+const CompanionPage = lazy(gameRouteImports.companion);
 const StorePage = lazy(gameRouteImports.store);
 const CharacterPage = lazy(gameRouteImports.character);
 const FightsPage = lazy(gameRouteImports.fights);
@@ -50,6 +52,14 @@ export function WeeklyContractOutlet() {
 
 export function TreasureMapOutlet() {
   return <TreasureMapPage />;
+}
+
+export function TavernOutlet() {
+  return <TavernPage />;
+}
+
+export function CompanionOutlet() {
+  return <CompanionPage />;
 }
 
 export function StoreOutlet() {
