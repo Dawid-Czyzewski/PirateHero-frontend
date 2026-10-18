@@ -1,0 +1,20 @@
+# Freak Legends
+
+> Darmowa przeglądarkowa gra RPG w świecie freak fightów. Strona: https://freaklegends.pl
+
+Freak Legends pozwala stworzyć zawodnika, trenować go, walczyć z innymi graczami, budować popularność i zdobywać pasy. Gra działa w przeglądarce, bez instalacji. Cena: 0 PLN.
+
+## Strony
+
+- [Strona główna](https://freaklegends.pl/): opis gry i start
+- [O grze](https://freaklegends.pl/o-grze): zasady rozgrywki
+- [Aktualności](https://freaklegends.pl/aktualnosci): informacje o starcie
+- [Rankingi](https://freaklegends.pl/rankingi): rywalizacja zawodników
+- [Kontakt](https://freaklegends.pl/contact): kontakt z zespołem
+- [Polityka prywatności](https://freaklegends.pl/privacy)
+- [Regulamin](https://freaklegends.pl/terms)
+- [Cookies](https://freaklegends.pl/cookies)
+
+## Pomijane
+
+- /login i /register nie są publicznym produktem i nie powinny być indeksowane.
