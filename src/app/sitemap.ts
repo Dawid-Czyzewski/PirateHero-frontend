@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://freaklegends.pl";
 const defaultModified = new Date("2026-10-18");
-const privacyModified = new Date("2026-10-19");
+const legalModified = new Date("2026-10-19");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -15,10 +15,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "/privacy",
       priority: 0.5,
       changeFrequency: "yearly" as const,
-      lastModified: privacyModified,
+      lastModified: legalModified,
     },
-    { path: "/terms", priority: 0.4, changeFrequency: "yearly" as const },
-    { path: "/cookies", priority: 0.3, changeFrequency: "yearly" as const },
+    {
+      path: "/terms",
+      priority: 0.5,
+      changeFrequency: "yearly" as const,
+      lastModified: legalModified,
+    },
+    {
+      path: "/cookies",
+      priority: 0.4,
+      changeFrequency: "yearly" as const,
+      lastModified: legalModified,
+    },
   ];
 
   return routes.map((route) => ({
