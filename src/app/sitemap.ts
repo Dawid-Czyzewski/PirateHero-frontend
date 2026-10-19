@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://freaklegends.pl";
-const lastModified = new Date("2026-10-18");
+const defaultModified = new Date("2026-10-18");
+const privacyModified = new Date("2026-10-19");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -10,14 +11,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/aktualnosci", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/rankingi", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/contact", priority: 0.6, changeFrequency: "monthly" as const },
-    { path: "/privacy", priority: 0.4, changeFrequency: "yearly" as const },
+    {
+      path: "/privacy",
+      priority: 0.5,
+      changeFrequency: "yearly" as const,
+      lastModified: privacyModified,
+    },
     { path: "/terms", priority: 0.4, changeFrequency: "yearly" as const },
     { path: "/cookies", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
   return routes.map((route) => ({
     url: `${siteUrl}${route.path}`,
-    lastModified,
+    lastModified: route.lastModified ?? defaultModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
