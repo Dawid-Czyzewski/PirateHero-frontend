@@ -10,7 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/o-grze", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/aktualnosci", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/rankingi", priority: 0.7, changeFrequency: "weekly" as const },
-    { path: "/contact", priority: 0.6, changeFrequency: "monthly" as const },
+    {
+      path: "/contact",
+      priority: 0.6,
+      changeFrequency: "monthly" as const,
+      lastModified: legalModified,
+    },
     {
       path: "/privacy",
       priority: 0.5,
