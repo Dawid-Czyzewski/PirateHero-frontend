@@ -7,9 +7,7 @@ Freak Legends pozwala stworzyć zawodnika, trenować go, walczyć z innymi gracz
 ## Strony
 
 - [Strona główna](https://freaklegends.pl/): opis gry i start
-- [O grze](https://freaklegends.pl/o-grze): zasady rozgrywki
-- [Aktualności](https://freaklegends.pl/aktualnosci): informacje o starcie
-- [Rankingi](https://freaklegends.pl/rankingi): rywalizacja zawodników
+- [O grze](https://freaklegends.pl/o-grze): opis rozgrywki — trening, hype, walki PvP w oktagonie i pasy mistrzowskie
 - [Kontakt](https://freaklegends.pl/contact): formularz, support, współpraca i Discord
 - [Polityka prywatności](https://freaklegends.pl/privacy): RODO, dane graczy, prawa użytkownika
 - [Regulamin](https://freaklegends.pl/terms): konto, fair play, własność intelektualna

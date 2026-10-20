@@ -1,113 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { SkewButton } from "@/components/landing/SkewButton";
-
-const TOPICS = [
-  { value: "konto", label: "Konto / logowanie" },
-  { value: "rubiny", label: "Problem z rubinami" },
-  { value: "platnosci", label: "Płatności" },
-  { value: "blad", label: "Zgłoszenie błędu" },
-  { value: "wspolpraca", label: "Współpraca / media" },
-  { value: "inne", label: "Inne" },
-] as const;
-
-const fieldClass =
-  "w-full border border-red-600/50 bg-[#0c0c0c] px-3.5 py-3 text-[0.9rem] uppercase tracking-[0.06em] text-white placeholder:text-zinc-500 outline-none transition focus:border-red-600 focus:ring-1 focus:ring-red-600/40 sm:py-3.5 sm:text-[0.95rem]";
-
-function TopicSelect({
-  value,
-  onChange,
-}: {
-  value: string;
-  onChange: (value: string) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-  const listId = useId();
-  const selected = TOPICS.find((item) => item.value === value);
-
-  useEffect(() => {
-    if (!open) return;
-
-    const onPointerDown = (event: MouseEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-
-    document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [open]);
-
-  return (
-    <div ref={rootRef} className="relative">
-      <input type="hidden" name="topic" value={value} required />
-      <button
-        type="button"
-        id="contact-topic"
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-controls={listId}
-        onClick={() => setOpen((prev) => !prev)}
-        className={`${fieldClass} flex items-center justify-between gap-3 text-left ${
-          selected ? "text-white" : "text-zinc-500"
-        }`}
-      >
-        <span className="truncate">
-          {selected ? selected.label : "Wybierz temat"}
-        </span>
-        <svg
-          viewBox="0 0 256 256"
-          className={`h-4 w-4 shrink-0 text-red-600 transition ${open ? "rotate-180" : ""}`}
-          fill="currentColor"
-          aria-hidden
-        >
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" />
-        </svg>
-      </button>
-
-      {open ? (
-        <ul
-          id={listId}
-          role="listbox"
-          aria-labelledby="contact-topic"
-          className="absolute left-0 right-0 z-30 mt-1 max-h-60 overflow-auto border border-red-600/50 bg-[#121212] py-1 shadow-[0_12px_32px_rgba(0,0,0,0.55)]"
-        >
-          {TOPICS.map((item) => {
-            const isActive = item.value === value;
-            return (
-              <li key={item.value} role="option" aria-selected={isActive}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onChange(item.value);
-                    setOpen(false);
-                  }}
-                  className={`flex w-full px-3.5 py-2.5 text-left text-[0.9rem] normal-case tracking-normal transition sm:text-[0.95rem] ${
-                    isActive
-                      ? "bg-red-600/20 font-semibold text-white"
-                      : "text-zinc-100 hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
-    </div>
-  );
-}
+import {
+  CONTACT_TOPICS,
+  contactFieldClass,
+} from "@/components/legal/contactFormConfig";
+import { TopicSelect } from "@/components/legal/TopicSelect";
 
 export function ContactForm() {
   const [nick, setNick] = useState("");
@@ -125,7 +25,7 @@ export function ContactForm() {
     }
 
     const topicLabel =
-      TOPICS.find((item) => item.value === topic)?.label ?? topic;
+      CONTACT_TOPICS.find((item) => item.value === topic)?.label ?? topic;
     const subject = encodeURIComponent(`[Freak Legends] ${topicLabel}`);
     const body = encodeURIComponent(
       `Nick: ${nick.trim()}\nE-mail: ${email.trim()}\nTemat: ${topicLabel}\n\n${message.trim()}`,
@@ -147,7 +47,7 @@ export function ContactForm() {
         placeholder="Nazwa gracza (nick)"
         value={nick}
         onChange={(e) => setNick(e.target.value)}
-        className={fieldClass}
+        className={contactFieldClass}
         required
       />
 
@@ -162,7 +62,7 @@ export function ContactForm() {
         placeholder="Adres e-mail"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className={fieldClass}
+        className={contactFieldClass}
         required
       />
 
@@ -181,7 +81,7 @@ export function ContactForm() {
         placeholder="Treść wiadomości"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        className={`${fieldClass} min-h-[10rem] resize-y normal-case tracking-normal`}
+        className={`${contactFieldClass} min-h-[10rem] resize-y normal-case tracking-normal`}
         required
       />
 

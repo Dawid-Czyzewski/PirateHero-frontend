@@ -113,7 +113,7 @@ export function LegalDocument({
 }) {
   return (
     <>
-      <div className="relative min-h-screen w-full overflow-x-clip bg-[#0a0a0a]">
+      <div className="relative min-h-screen w-full overflow-x-clip overflow-y-clip bg-[#0a0a0a]">
         <div className="absolute inset-0 z-0" aria-hidden>
           <Image
             src="/bg-octagon.jpg"

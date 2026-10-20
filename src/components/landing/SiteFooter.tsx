@@ -31,7 +31,7 @@ function YoutubeIcon() {
 
 export function SiteFooter() {
   return (
-    <footer className="relative z-30 w-full border-t border-white/20 bg-[#0a0a0a]">
+    <footer className="relative z-40 w-full overflow-hidden border-t border-white/20 bg-[#0a0a0a]">
       <PageFrame className="flex flex-col gap-4 py-5 lg:flex-row lg:items-center lg:justify-between lg:py-4">
         <p className="text-xs text-zinc-500">
           © 2026 Freak Legends. Wszelkie prawa zastrzeżone.
