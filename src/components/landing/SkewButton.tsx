@@ -41,7 +41,7 @@ export function SkewButton({
   type = "button",
 }: SkewButtonProps) {
   const classes =
-    `-skew-x-12 inline-flex items-center justify-center whitespace-nowrap font-bold uppercase text-white transition ${sizeClass[size]} ${variantClass[variant]} ${className}`.trim();
+    `-skew-x-12 inline-flex cursor-pointer items-center justify-center whitespace-nowrap font-bold uppercase text-white transition ${sizeClass[size]} ${variantClass[variant]} ${className}`.trim();
 
   if (href) {
     return (
