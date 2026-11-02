@@ -116,7 +116,7 @@ export function LegalDocument({
       <div className="relative min-h-screen w-full overflow-x-clip overflow-y-clip bg-[#0a0a0a]">
         <div className="absolute inset-0 z-0" aria-hidden>
           <Image
-            src="/bg-octagon.jpg"
+            src="/assets/site/bg-arena-d.webp"
             alt=""
             fill
             priority
@@ -132,7 +132,7 @@ export function LegalDocument({
           aria-hidden
         >
           <Image
-            src="/images/hero-fighter-v4.png"
+            src="/assets/site/hero-fighter-d.webp"
             alt=""
             width={605}
             height={676}

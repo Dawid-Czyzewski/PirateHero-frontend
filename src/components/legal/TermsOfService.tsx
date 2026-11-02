@@ -6,7 +6,7 @@ export function TermsOfService({ updatedAt }: { updatedAt: string }) {
   return (
     <LegalDocument
       title="Regulamin"
-      headlineSrc="/images/terms-headline.png"
+      headlineSrc="/assets/legal/t-regulamin-r.webp"
       headlineWidth={1219}
       headlineHeight={696}
       updatedAt={updatedAt}

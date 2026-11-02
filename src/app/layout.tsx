@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Inter, Rubik_Wet_Paint } from "next/font/google";
-import { CookieBanner } from "@/components/legal/CookieBanner";
+import { CookieBanner } from "@/components/site/CookieBanner";
 import "./globals.css";
+import "@/styles/cookies.css";
 
 const body = Inter({
   variable: "--font-body",
@@ -116,7 +117,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pl"
       className={`${body.variable} ${display.variable} ${marker.variable} h-full antialiased`}
     >
-      <body className="min-h-screen w-full bg-background text-foreground">
+      <body className="w-full">
         {children}
         <CookieBanner />
       </body>

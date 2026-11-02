@@ -16,6 +16,9 @@
 /playwright-report
 /blob-report
 
+# local extract leftovers
+/_auth-ref
+
 # next.js
 /.next/
 /out/

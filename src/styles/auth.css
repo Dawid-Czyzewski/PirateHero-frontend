@@ -1,0 +1,236 @@
+/* FREAK LEGENDS – logowanie / rejestracja
+   Układ odwzorowuje makiety 1:1: wszystkie wymiary są w „pikselach makiety” razy --k.
+   Telefon: makieta 720×1280, --k = min(100vw, 560px) / 720.
+   Desktop: makieta 1280×720, --k = min(100vw / 1280, (100vh − stopka) / 720).
+   Plik generowany: liczby dla 4 widoków są na dole (sekcja WIDOKI). */
+
+@font-face{font-family:'FL Barlow Condensed';src:url(/assets/auth/fonts/BarlowCondensed-Medium.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'FL Barlow Condensed';src:url(/assets/auth/fonts/BarlowCondensed-SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'FL Barlow Condensed';src:url(/assets/auth/fonts/BarlowCondensed-Bold.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'FL Barlow Semi Condensed';src:url(/assets/auth/fonts/BarlowSemiCondensed-Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'FL Barlow Semi Condensed';src:url(/assets/auth/fonts/BarlowSemiCondensed-Medium.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'FL Barlow Semi Condensed';src:url(/assets/auth/fonts/BarlowSemiCondensed-SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'FL Barlow Semi Condensed';src:url(/assets/auth/fonts/BarlowSemiCondensed-Bold.woff2) format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  color-scheme:dark;
+  --u:max(.5px, min(calc(100vw / 1280), calc((100vh - var(--foot-h)) / 720)));
+  --p:calc(min(100vw, 560px) / 720);
+  --gold:#f0c35a; --red:#e0342a; --err:#ff6b5e; --ok:#8fe08a;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:#050303;color:#f6f4f1}
+body{font-family:'FL Barlow Condensed','Arial Narrow',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;min-height:100vh;text-rendering:optimizeLegibility}
+img{display:block;max-width:none}
+a{color:inherit}
+:where(a,button,input):focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;margin:-1px;padding:0;border:0}
+
+/* ---------- scena ---------- */
+.auth{--k:var(--p);min-height:100vh;display:flex;flex-direction:column}
+.auth__scene{position:relative;flex:1 0 auto;overflow:clip;background:#060404}
+.auth__stage{position:relative;display:flow-root;width:calc(720 * var(--k));min-height:calc(1280 * var(--k));margin:0 auto}
+.auth__bg{position:absolute;z-index:0;pointer-events:none;left:calc(-180 * var(--k));top:0;width:calc(1080 * var(--k));height:calc(1900 * var(--k));
+  background:url(/assets/auth/bg-login-m.webp) 0 0/100% 100% no-repeat}
+.page-register .auth__bg{background-image:url(/assets/auth/bg-register-m.webp)}
+.auth__fighter{position:absolute;z-index:1;pointer-events:none}
+.auth__logo{position:absolute;z-index:2;display:block}
+.auth__fighter img,.auth__logo img,.auth__title img,.auth__reward img{width:100%;height:100%}
+.auth__logo-pic{display:block;width:100%;height:100%}
+
+/* ---------- panel z ramką (9-slice z makiety) ---------- */
+.auth__panel{position:relative;z-index:3;display:flex;flex-direction:column;align-items:flex-start}
+.auth__panel::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  border:calc(64 * var(--k)) solid transparent;
+  border-image:url(/assets/auth/frame-m.webp) 128 fill / calc(64 * var(--k)) stretch}
+.auth__title,.auth__reward{position:absolute;margin:0}
+.auth__title picture,.auth__reward picture{display:block;width:100%;height:100%}
+
+/* ---------- formularz ---------- */
+.auth__form{display:flex;flex-direction:column;flex:none}
+.field{display:block;position:relative}
+.field__label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.field__wrap{position:relative}
+.field__input{display:block;width:100%;margin:0;border:0;color:#f6f4f1;font-family:inherit;outline:none;appearance:none;-webkit-appearance:none;
+  box-shadow:inset 0 0 0 var(--in-b,1px) var(--in-bc,#333);transition:box-shadow .15s}
+.field__input::placeholder{opacity:1}
+.field__input:focus{--in-bc:#b98a35}
+.field__input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:inherit}
+.field.is-invalid .field__input{box-shadow:inset 0 0 0 max(1.5px, calc(2 * var(--k))) var(--red)}
+.field.is-valid .field__input{--in-bc:rgba(120,200,120,.55)}
+.field__input:-webkit-autofill{-webkit-text-fill-color:#f6f4f1;-webkit-box-shadow:inset 0 0 0 var(--in-b,1px) var(--in-bc,#333),inset 0 0 0 100px #151515;caret-color:#f6f4f1}
+.field__icon{display:none}
+.page-login .field__icon{display:block;position:absolute;left:calc(32 * var(--k));top:50%;width:calc(35 * var(--k));height:auto;transform:translateY(calc(-50% + 1.6 * var(--k)));color:#f1f0ef;pointer-events:none}
+.page-login .field__icon--lock{left:calc(35 * var(--k));width:calc(29 * var(--k));transform:translateY(-50%)}
+.eye{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:flex-end;background:none;border:0;margin:0;color:#c9c9cb;cursor:pointer;box-sizing:content-box}
+.eye svg{display:block;flex:none}
+.eye .eye-off{display:none}
+.eye[aria-pressed="true"] .eye-on{display:none}
+.eye[aria-pressed="true"] .eye-off{display:block}
+.eye:hover{color:#fff}
+.field__error{margin:0;color:var(--err);line-height:1.25;font-family:'FL Barlow Semi Condensed','Arial Narrow',sans-serif;font-weight:500;letter-spacing:.01em;display:flex;gap:.45em;align-items:flex-start;text-align:left}
+.field__error:empty{display:none}
+.field__error::before{content:'!';flex:none;width:1.15em;height:1.15em;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-size:.85em;display:grid;place-items:center;margin-top:.1em}
+
+.auth__row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;width:100%;color:#fbfbfb}
+.auth__row .field__error{flex-basis:100%;line-height:1.25}
+.check{display:inline-flex;align-items:center;cursor:pointer;position:relative;user-select:none}
+.check input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.check__box{flex:none;border-style:solid;border-color:#8f8f8f;background:rgba(0,0,0,.25);display:grid;place-items:center;transition:background .15s,border-color .15s}
+.check__box svg{width:72%;height:72%;opacity:0;color:#1b1206}
+.check input:checked + .check__box{background:var(--gold);border-color:var(--gold)}
+.check input:checked + .check__box svg{opacity:1}
+.check input:focus-visible + .check__box{outline:3px solid var(--gold);outline-offset:3px}
+.field.is-invalid .check__box{border-color:var(--red)}
+.small-link{text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:.075em}
+.small-link:hover{filter:brightness(1.15)}
+
+/* ---------- przyciski (wycinki z makiety, tekst renderowany fontem) ---------- */
+.auth__submit{display:flex;align-items:center;justify-content:center;border:0;margin-bottom:0;margin-right:0;padding-left:0;padding-right:0;padding-bottom:0;
+  background:transparent 0 0/100% 100% no-repeat;cursor:pointer;line-height:1;flex:none;transition:filter .15s, transform .08s;-webkit-tap-highlight-color:transparent}
+.btn-gold{background-image:url(/assets/auth/btn-gold-m.webp)}
+.btn-red{background-image:url(/assets/auth/btn-red-m.webp)}
+.auth__submit:hover{filter:brightness(1.08) saturate(1.05)}
+.auth__submit:active{filter:brightness(.94);transform:translateY(1px)}
+.auth__submit:disabled{cursor:progress;filter:saturate(.75) brightness(.92)}
+.auth__submit .spin{display:none;width:.55em;height:.55em;margin-right:.4em;border:.11em solid currentColor;border-right-color:transparent;border-radius:50%;animation:fl-spin .8s linear infinite}
+.auth__submit.is-loading .spin{display:inline-block}
+@keyframes fl-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.auth__submit .spin{animation-duration:2.4s}}
+.auth__status{margin:calc(10 * var(--k)) 0 0;width:100%;text-align:center;font-family:'FL Barlow Semi Condensed',sans-serif;font-weight:500;font-size:max(13px, calc(24 * var(--k)))}
+.auth__status:empty{display:none}
+.auth__status.is-err{color:var(--err)}
+.auth__status.is-ok{color:var(--ok)}
+.auth__divider{display:none;width:100%;height:1px;background:rgba(255,255,255,.13);flex:none}
+
+.auth__switch{width:100%;text-align:center;color:#f8f8f8;flex:none}
+.auth__switch p{margin:0;white-space:nowrap}
+.auth__switch a{text-underline-offset:.2em;text-decoration-thickness:.075em}
+.auth__switch a:hover{filter:brightness(1.18)}
+.auth__switch--d{display:none}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 900px) and (min-aspect-ratio: 1/1){
+  .auth{--k:var(--u)}
+  .auth__scene{min-height:calc(100vh - var(--foot-h));display:flex;align-items:flex-end;justify-content:center}
+  .auth__stage{width:calc(1280 * var(--k));min-height:calc(720 * var(--k));margin:0;flex:none;position:relative}
+  .auth__bg{display:block;left:calc(-320 * var(--k));top:auto;bottom:calc(-200 * var(--k));width:calc(1920 * var(--k));height:calc(2000 * var(--k));background:url(/assets/auth/bg-login-d.webp) center bottom calc(100 * var(--k)) / 100% calc(920 * var(--k)) no-repeat;-webkit-mask-image:linear-gradient(to bottom,transparent calc(980 * var(--k)),#000 calc(1080 * var(--k)));mask-image:linear-gradient(to bottom,transparent calc(980 * var(--k)),#000 calc(1080 * var(--k)))}
+  .page-register .auth__bg{background-image:url(/assets/auth/bg-register-d.webp)}
+  .auth__panel::before{border-width:calc(56 * var(--k));border-image:url(/assets/auth/frame-d.webp) 112 fill / calc(56 * var(--k)) stretch}
+  .field__label{position:static;width:auto;height:auto;overflow:visible;clip-path:none;display:block;color:#f6f6f6;white-space:nowrap}
+  .field__icon,.page-login .field__icon{display:none}
+  body .auth .field__input::placeholder{color:transparent}
+  .btn-gold{background-image:url(/assets/auth/btn-gold-d.webp)}
+  .btn-red{background-image:url(/assets/auth/btn-red-d.webp)}
+  .auth__switch--d{display:block}
+  /* błędy na desktopie nie przesuwają układu: komunikat w linii etykiety, po prawej */
+  .field__error{position:absolute;right:0;top:0;max-width:72%;margin:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;align-items:center;justify-content:flex-end;text-align:right}
+  .field__error::before{margin-top:0}
+  .auth__row .field__error{top:50%;transform:translateY(-50%);max-width:52%;white-space:normal;line-height:1.05;flex-basis:auto}
+  .auth__status{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;margin:0}
+  .auth__switch--m{display:none}
+}
+/* ================= WIDOKI (generowane z makiet) ================= */
+/* ---- login: telefon (makieta 720x1280) ---- */
+.page-login .auth__fighter{left:calc(175 * var(--k));top:calc(140 * var(--k));width:calc(351 * var(--k));height:calc(375 * var(--k))}
+.page-login .auth__logo{left:calc(200 * var(--k));top:calc(13 * var(--k));width:calc(309 * var(--k));height:calc(167 * var(--k))}
+.page-login .auth__panel{margin-left:calc(37 * var(--k));margin-top:calc(491 * var(--k));width:calc(646 * var(--k));min-height:calc(748 * var(--k));padding-top:calc(217 * var(--k));padding-bottom:calc(53.6 * var(--k));font-family:'FL Barlow Semi Condensed'}
+.page-login .auth__title{left:calc(113 * var(--k));top:calc(17 * var(--k));width:calc(425 * var(--k));height:calc(196 * var(--k))}
+.page-login .auth__form{margin-left:calc(53 * var(--k));width:calc(538 * var(--k))}
+.page-login .field + .field{margin-top:calc(20 * var(--k))}
+.page-login .field__input{height:calc(79 * var(--k));border-radius:calc(10 * var(--k));--in-b:calc(1 * var(--k));--in-bc:#363636;background-color:#0e0e0e;font-size:max(16px, calc(30 * var(--k)));padding-left:calc(103 * var(--k));padding-right:calc(103 * var(--k));padding-top:calc(0 * var(--k));padding-bottom:calc(0 * var(--k));font-weight:400;letter-spacing:0.032em}
+.page-login .field__input::placeholder{color:#bdbcbc}
+.page-login .eye{right:0;padding:0 calc(22.75 * var(--k)) 0 calc(25 * var(--k))} .page-login .eye svg{width:calc(40.5 * var(--k));height:calc(40.5 * var(--k));transform:translateY(calc(2.5 * var(--k)))} .page-login .field__input.has-eye{padding-right:calc(92 * var(--k))}
+.page-login .field__error{font-size:calc(24 * var(--k));margin-top:calc(6 * var(--k))} .page-login .field__error:empty{margin:0}
+.page-login .auth__form .auth__row{margin-top:calc(24.7 * var(--k));min-height:calc(36 * var(--k));font-size:calc(25.7 * var(--k));font-weight:400;letter-spacing:0.006em;line-height:calc(36 * var(--k))}
+.page-login .check{margin-left:calc(4 * var(--k))} .page-login .auth__row .small-link{margin-right:calc(12 * var(--k))}
+.page-login .check__box{width:calc(36 * var(--k));height:calc(36 * var(--k));border-radius:calc(5 * var(--k));border-width:calc(2.5 * var(--k));margin-right:calc(26 * var(--k))}
+.page-login .auth__row .small-link{color:#eec16e;font-weight:500;letter-spacing:-0.0020em}
+.page-login .auth__submit{margin-top:calc(28.3 * var(--k));margin-left:calc(-6 * var(--k));width:calc(552 * var(--k));height:calc(113 * var(--k));font-family:'FL Barlow Condensed';font-size:calc(61.4 * var(--k));font-weight:600;letter-spacing:-0.038em;color:#fff9f0;text-shadow:0 0 2px #3a2000, 0 2px 0 #3a2000, 0 3px 4px rgba(0,0,0,.6);padding-top:calc(4 * var(--k));padding-left:calc(0 * var(--k))}
+.page-login .auth__switch > p:nth-child(1){margin-top:calc(15.85 * var(--k));height:calc(38 * var(--k));line-height:calc(38 * var(--k));font-size:calc(32.9 * var(--k));font-weight:400;letter-spacing:0.044em;transform:translateX(calc(2 * var(--k)))}
+.page-login .auth__switch > p:nth-child(2){margin-top:calc(7.55 * var(--k));height:calc(36 * var(--k));line-height:calc(36 * var(--k));font-size:calc(31.4 * var(--k));font-weight:500;letter-spacing:0.02em;transform:translateX(calc(1.5 * var(--k)))}
+.page-login .auth__switch > p:nth-child(2) a{letter-spacing:0.02em;color:#c41e1c;text-decoration-line:underline}
+@media (min-width: 900px) and (min-aspect-ratio: 1/1) {
+/* ---- login: desktop (makieta 1280x720) ---- */
+.page-login .auth__fighter{left:calc(107 * var(--k));top:calc(21 * var(--k));width:calc(582 * var(--k));height:calc(699 * var(--k))}
+.page-login .auth__logo{left:calc(9 * var(--k));top:calc(4 * var(--k));width:calc(225 * var(--k));height:calc(128 * var(--k))}
+.page-login .auth__panel{margin-left:calc(678 * var(--k));margin-top:calc(108 * var(--k));width:calc(549 * var(--k));min-height:calc(541 * var(--k));padding-top:calc(91.25 * var(--k));padding-bottom:calc(45.3 * var(--k));font-family:'FL Barlow Condensed'}
+.page-login .auth__title{left:calc(38 * var(--k));top:calc(-10 * var(--k));width:calc(473 * var(--k));height:calc(77 * var(--k))}
+.page-login .auth__form{margin-left:calc(60 * var(--k));width:calc(427 * var(--k))}
+.page-login .field__label{height:calc(30 * var(--k));line-height:calc(30 * var(--k));font-size:calc(25 * var(--k));font-weight:600;letter-spacing:0.012em;margin-bottom:calc(4.5 * var(--k))}
+.page-login .field + .field{margin-top:calc(19 * var(--k))}
+.page-login .field__input{height:calc(47 * var(--k));border-radius:calc(5 * var(--k));--in-b:calc(2 * var(--k));--in-bc:#242527;background-color:#111214;font-size:max(16px, calc(22 * var(--k)));padding-left:calc(14 * var(--k));padding-right:calc(14 * var(--k));padding-top:calc(0 * var(--k));padding-bottom:calc(0 * var(--k));font-weight:500;letter-spacing:0em}
+.page-login .eye{right:0;padding:0 calc(13.66 * var(--k)) 0 calc(15 * var(--k))} .page-login .eye svg{width:calc(24.19 * var(--k));height:calc(24.19 * var(--k));transform:translateY(calc(0 * var(--k)))} .page-login .field__input.has-eye{padding-right:calc(57.5 * var(--k))}
+.page-login .field__error{font-size:calc(17 * var(--k));margin-top:calc(6 * var(--k))} .page-login .field__error:empty{margin:0}
+.page-login .field__error{height:calc(30 * var(--k));font-size:calc(17 * var(--k))} .page-login .auth__row .field__error{height:auto;font-size:calc(15.5 * var(--k))}
+.page-login .auth__form .auth__row{margin-top:calc(19.65 * var(--k));min-height:calc(26 * var(--k));font-size:calc(21.4 * var(--k));font-weight:500;letter-spacing:-0.016em;line-height:calc(26 * var(--k))}
+.page-login .check{margin-left:calc(0 * var(--k))} .page-login .auth__row .small-link{margin-right:calc(6 * var(--k))}
+.page-login .check__box{width:calc(23.5 * var(--k));height:calc(23.5 * var(--k));border-radius:calc(3 * var(--k));border-width:calc(2 * var(--k));margin-right:calc(12.5 * var(--k))}
+.page-login .auth__row .small-link{color:#f0c35a;font-weight:500;letter-spacing:-0.0100em}
+.page-login .auth__submit{margin-top:calc(24.6 * var(--k));margin-left:calc(-2 * var(--k));width:calc(429 * var(--k));height:calc(87 * var(--k));font-family:'FL Barlow Semi Condensed';font-size:calc(48.6 * var(--k));font-weight:700;letter-spacing:-0.009em;color:#1b1206;text-shadow:0 1px 0 rgba(255,220,140,.45);padding-top:calc(0.4 * var(--k));padding-left:calc(0 * var(--k))}
+.page-login .auth__divider{display:block;margin-top:calc(21 * var(--k))}
+.page-login .auth__switch > p:nth-child(1){margin-top:calc(13.7 * var(--k));height:calc(30 * var(--k));line-height:calc(30 * var(--k));font-size:calc(25.7 * var(--k));font-weight:500;letter-spacing:-0.006em;transform:translateX(calc(-4.5 * var(--k)))}
+.page-login .auth__switch > p:nth-child(1) .gap{margin-left:calc(28.4 * var(--k))}
+.page-login .auth__switch > p:nth-child(1) a{letter-spacing:0.013em;color:#cb2e29;text-decoration-line:underline}
+}
+/* ---- register: telefon (makieta 720x1280) ---- */
+.page-register .auth__fighter{left:calc(180 * var(--k));top:calc(109 * var(--k));width:calc(354 * var(--k));height:calc(338 * var(--k))}
+.page-register .auth__logo{left:calc(244 * var(--k));top:calc(10 * var(--k));width:calc(256 * var(--k));height:calc(140 * var(--k))}
+.page-register .auth__panel{margin-left:calc(35 * var(--k));margin-top:calc(422 * var(--k));width:calc(650 * var(--k));min-height:calc(802 * var(--k));padding-top:calc(208 * var(--k));padding-bottom:calc(41.6 * var(--k));font-family:'FL Barlow Condensed'}
+.page-register .auth__title{left:calc(45 * var(--k));top:calc(10 * var(--k));width:calc(560 * var(--k));height:calc(94 * var(--k))}
+.page-register .auth__reward{left:calc(23 * var(--k));top:calc(100 * var(--k));width:calc(604 * var(--k));height:calc(104 * var(--k))}
+.page-register .auth__form{margin-left:calc(52 * var(--k));width:calc(544 * var(--k))}
+.page-register .field + .field{margin-top:calc(20 * var(--k))}
+.page-register .field__input{height:calc(67 * var(--k));border-radius:calc(8 * var(--k));--in-b:calc(1.4 * var(--k));--in-bc:#262626;background-color:#101010;font-size:max(16px, calc(28.6 * var(--k)));padding-left:calc(23 * var(--k));padding-right:calc(23 * var(--k));padding-top:calc(0 * var(--k));padding-bottom:calc(4 * var(--k));font-weight:500;letter-spacing:0.022em}
+.page-register .field__input::placeholder{color:#c4c4c4}
+.page-register .eye{right:0;padding:0 calc(20.94 * var(--k)) 0 calc(23 * var(--k))} .page-register .eye svg{width:calc(37.12 * var(--k));height:calc(37.12 * var(--k));transform:translateY(calc(-0.5 * var(--k)))} .page-register .field__input.has-eye{padding-right:calc(85 * var(--k))}
+.page-register .field__error{font-size:calc(23 * var(--k));margin-top:calc(6 * var(--k))} .page-register .field__error:empty{margin:0}
+.page-register .auth__form .auth__row{margin-top:calc(20.1 * var(--k));min-height:calc(32 * var(--k));font-size:calc(28.6 * var(--k));font-weight:500;letter-spacing:0.017em;line-height:calc(32 * var(--k))}
+.page-register .check{margin-left:calc(2 * var(--k))} .page-register .auth__row .small-link{margin-right:calc(0 * var(--k))}
+.page-register .check__box{width:calc(32 * var(--k));height:calc(32 * var(--k));border-radius:calc(4 * var(--k));border-width:calc(2.5 * var(--k));margin-right:calc(24 * var(--k))}
+.page-register .auth__row .small-link{color:#eec881;font-weight:500;letter-spacing:0.0170em}
+.page-register .auth__submit{margin-top:calc(23.4 * var(--k));margin-left:calc(-3 * var(--k));width:calc(551 * var(--k));height:calc(99 * var(--k));font-family:'FL Barlow Semi Condensed';font-size:calc(47.1 * var(--k));font-weight:600;letter-spacing:-0.029em;color:#fff6f4;text-shadow:0 2px 2px rgba(40,0,0,.75);padding-top:calc(6 * var(--k));padding-left:calc(0 * var(--k))}
+.page-register .auth__switch > p:nth-child(1){margin-top:calc(14.4 * var(--k));height:calc(34 * var(--k));line-height:calc(34 * var(--k));font-size:calc(31.4 * var(--k));font-weight:500;letter-spacing:0.026em;transform:translateX(calc(1.5 * var(--k)))}
+.page-register .auth__switch > p:nth-child(1) .gap{margin-left:calc(18.5 * var(--k))}
+.page-register .auth__switch > p:nth-child(1) a{letter-spacing:0.016em;color:#eec881;text-decoration-line:none}
+@media (min-width: 900px) and (min-aspect-ratio: 1/1) {
+/* ---- register: desktop (makieta 1280x720) ---- */
+.page-register .auth__fighter{left:calc(102 * var(--k));top:calc(11 * var(--k));width:calc(541 * var(--k));height:calc(709 * var(--k))}
+.page-register .auth__logo{left:calc(9 * var(--k));top:calc(4 * var(--k));width:calc(215 * var(--k));height:calc(124 * var(--k))}
+.page-register .auth__panel{margin-left:calc(646 * var(--k));margin-top:calc(43 * var(--k));width:calc(563 * var(--k));min-height:calc(642 * var(--k));padding-top:calc(155.4 * var(--k));padding-bottom:calc(27.15 * var(--k));font-family:'FL Barlow Condensed'}
+.page-register .auth__title{left:calc(52 * var(--k));top:calc(-7 * var(--k));width:calc(464 * var(--k));height:calc(85 * var(--k))}
+.page-register .auth__reward{left:calc(76 * var(--k));top:calc(81 * var(--k));width:calc(396 * var(--k));height:calc(68 * var(--k))}
+.page-register .auth__form{margin-left:calc(75 * var(--k));width:calc(414 * var(--k))}
+.page-register .field__label{height:calc(26 * var(--k));line-height:calc(26 * var(--k));font-size:calc(21.4 * var(--k));font-weight:600;letter-spacing:0.027em;margin-bottom:calc(2.6 * var(--k))}
+.page-register .field + .field{margin-top:calc(8.4 * var(--k))}
+.page-register .field__input{height:calc(38 * var(--k));border-radius:calc(4 * var(--k));--in-b:calc(1 * var(--k));--in-bc:#2c2e2d;background-color:#0d0d0d;font-size:max(16px, calc(19 * var(--k)));padding-left:calc(12 * var(--k));padding-right:calc(12 * var(--k));padding-top:calc(0 * var(--k));padding-bottom:calc(0 * var(--k));font-weight:500;letter-spacing:0em}
+.page-register .eye{right:0;padding:0 calc(11.56 * var(--k)) 0 calc(13 * var(--k))} .page-register .eye svg{width:calc(25.88 * var(--k));height:calc(25.88 * var(--k));transform:translateY(calc(0 * var(--k)))} .page-register .field__input.has-eye{padding-right:calc(55 * var(--k))}
+.page-register .field__error{font-size:calc(16 * var(--k));margin-top:calc(6 * var(--k))} .page-register .field__error:empty{margin:0}
+.page-register .field__error{height:calc(26 * var(--k));font-size:calc(16 * var(--k))} .page-register .auth__row .field__error{height:auto;font-size:calc(14.5 * var(--k))}
+.page-register .auth__form .auth__row{margin-top:calc(7.95 * var(--k));min-height:calc(24 * var(--k));font-size:calc(22.9 * var(--k));font-weight:500;letter-spacing:0.0em;line-height:calc(24 * var(--k))}
+.page-register .check{margin-left:calc(-1 * var(--k))} .page-register .auth__row .small-link{margin-right:calc(0 * var(--k))}
+.page-register .check__box{width:calc(20 * var(--k));height:calc(20 * var(--k));border-radius:calc(3 * var(--k));border-width:calc(2 * var(--k));margin-right:calc(12 * var(--k))}
+.page-register .auth__row .small-link{color:#f0bf5e;font-weight:500;letter-spacing:0.0000em}
+.page-register .auth__submit{margin-top:calc(7.15 * var(--k));margin-left:calc(31 * var(--k));width:calc(344 * var(--k));height:calc(75 * var(--k));font-family:'FL Barlow Semi Condensed';font-size:calc(34.3 * var(--k));font-weight:600;letter-spacing:-0.022em;color:#fff6f4;text-shadow:0 2px 2px rgba(40,0,0,.7);padding-top:calc(0 * var(--k));padding-left:calc(16 * var(--k))}
+.page-register .auth__switch > p:nth-child(1){margin-top:calc(3.8 * var(--k));height:calc(27 * var(--k));line-height:calc(27 * var(--k));font-size:calc(24.3 * var(--k));font-weight:500;letter-spacing:0.028em;transform:translateX(calc(-3.5 * var(--k)))}
+.page-register .auth__switch > p:nth-child(2){margin-top:calc(-1.95 * var(--k));height:calc(24 * var(--k));line-height:calc(24 * var(--k));font-size:calc(22.9 * var(--k));font-weight:500;letter-spacing:0.04em;transform:translateX(calc(-4.5 * var(--k)))}
+.page-register .auth__switch > p:nth-child(2) a{letter-spacing:0.04em;color:#f0bf5e;text-decoration-line:none}
+}
+
+/* ================= DESKTOP: scena wypełnia całą wysokość okna =================
+   --k (szerokość) zostaje „contain” 1280×720, a nadmiar wysokości --E rozdzielamy:
+   logo zostaje przy górze, panel jest wyśrodkowany w pionie, zawodnik rośnie (--fh) i stoi na stopce,
+   tło areny skaluje się razem z zawodnikiem (sylwetka w tle zawsze pokrywa się z postacią). */
+@media (min-width: 900px) and (min-aspect-ratio: 1/1){
+  .auth__scene{align-items:stretch}
+  .auth__stage{--E:max(0px, calc(100vh - var(--foot-h) - 720 * var(--k)));min-height:calc(100vh - var(--foot-h))}
+  .page-login .auth__stage{--fh:min(calc(699 * var(--k) + var(--E)), calc(944 * var(--k)))}
+  .page-register .auth__stage{--fh:min(calc(709 * var(--k) + var(--E)), calc(957 * var(--k)))}
+  .auth__bg{-webkit-mask-image:none;mask-image:none;background-size:100% 100%;background-position:0 0;top:auto}
+  .page-login .auth__bg{left:calc(398 * var(--k) - var(--fh) * 718 / 699);bottom:calc(var(--fh) * -100 / 699);width:calc(var(--fh) * 1920 / 699);height:calc(var(--fh) * 920 / 699)}
+  .page-register .auth__bg{left:calc(372.5 * var(--k) - var(--fh) * 692.5 / 709);bottom:calc(var(--fh) * -100 / 709);width:calc(var(--fh) * 1920 / 709);height:calc(var(--fh) * 920 / 709)}
+  .page-login .auth__fighter{top:auto;bottom:0;height:var(--fh);width:calc(var(--fh) * 582 / 699);left:calc(398 * var(--k) - var(--fh) * 291 / 699)}
+  .page-register .auth__fighter{top:auto;bottom:0;height:var(--fh);width:calc(var(--fh) * 541 / 709);left:calc(372.5 * var(--k) - var(--fh) * 270.5 / 709)}
+  .page-login .auth__panel{margin-top:calc(108 * var(--k) + var(--E) / 2)}
+  .page-register .auth__panel{margin-top:calc(43 * var(--k) + var(--E) / 2)}
+}

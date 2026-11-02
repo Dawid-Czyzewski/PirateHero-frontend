@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const STORAGE_KEY = "fl-cookie-consent";
 
@@ -17,10 +17,17 @@ function readConsent(): Consent | null {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as Partial<Consent>;
-    if (typeof parsed.analytics !== "boolean" || typeof parsed.marketing !== "boolean") {
+    if (
+      typeof parsed.analytics !== "boolean" ||
+      typeof parsed.marketing !== "boolean"
+    ) {
       return null;
     }
-    return { necessary: true, analytics: parsed.analytics, marketing: parsed.marketing };
+    return {
+      necessary: true,
+      analytics: parsed.analytics,
+      marketing: parsed.marketing,
+    };
   } catch {
     return null;
   }
@@ -35,59 +42,82 @@ export function CookieBanner() {
   const [openSettings, setOpenSettings] = useState(false);
   const [analytics, setAnalytics] = useState(true);
   const [marketing, setMarketing] = useState(false);
+  const panelRef = useRef<HTMLElement>(null);
+  const firstBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    setVisible(readConsent() === null);
+    const show = readConsent() === null;
+    setVisible(show);
+    if (show) {
+      requestAnimationFrame(() => firstBtnRef.current?.focus());
+    }
   }, []);
+
+  useEffect(() => {
+    if (!visible) {
+      document.body.style.paddingBottom = "";
+      return;
+    }
+
+    const syncPad = () => {
+      const h = panelRef.current?.offsetHeight ?? 0;
+      document.body.style.paddingBottom = h ? `${h + 12}px` : "";
+    };
+
+    syncPad();
+    const ro = new ResizeObserver(syncPad);
+    if (panelRef.current) ro.observe(panelRef.current);
+    window.addEventListener("resize", syncPad);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", syncPad);
+      document.body.style.paddingBottom = "";
+    };
+  }, [visible, openSettings]);
 
   if (!visible) return null;
 
+  const hide = () => setVisible(false);
+
   const acceptAll = () => {
     saveConsent({ necessary: true, analytics: true, marketing: true });
-    setVisible(false);
+    hide();
   };
 
   const rejectOptional = () => {
     saveConsent({ necessary: true, analytics: false, marketing: false });
-    setVisible(false);
+    hide();
   };
 
   const saveCustom = () => {
     saveConsent({ necessary: true, analytics, marketing });
-    setVisible(false);
+    hide();
   };
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[80] p-3 sm:p-5">
+    <div className="fl-cookies">
       <aside
+        ref={panelRef}
+        className="fl-cookies__panel"
         role="dialog"
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-text"
-        className="pointer-events-auto mx-auto w-full max-w-[1100px] overflow-hidden rounded-md border border-white/12 bg-[#0c1018]/95 shadow-[0_20px_50px_rgba(0,0,0,0.55)] backdrop-blur-md"
       >
-        <div className="h-[3px] w-full bg-brand" />
-        <div className="flex flex-col gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:flex-row lg:items-start lg:gap-8">
-          <div className="min-w-0 flex-1">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-brand">
-              Ciasteczka
-            </p>
-            <h2
-              id="cookie-banner-title"
-              className="mt-1 font-[family-name:var(--font-marker)] text-2xl leading-none tracking-wide text-white sm:text-[1.7rem]"
-            >
+        <div className="fl-cookies__inner">
+          <div className="fl-cookies__copy">
+            <p className="fl-cookies__eyebrow">Ciasteczka</p>
+            <h2 id="cookie-banner-title" className="fl-cookies__title">
               Zanim wejdziesz do klatki
             </h2>
-            <p id="cookie-banner-text" className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300">
-              Używamy ciasteczek, żeby strona działała, liczyć ruch i (za Twoją zgodą)
-              lepiej dopasować reklamy. Niezbędne są zawsze włączone. Szczegóły znajdziesz w{" "}
-              <Link href="/cookies" className="font-semibold text-white underline decoration-brand underline-offset-4">
-                polityce cookies
-              </Link>
-              .
+            <p id="cookie-banner-text" className="fl-cookies__text">
+              Używamy ciasteczek, żeby strona działała, liczyć ruch i (za Twoją
+              zgodą) lepiej dopasować reklamy. Niezbędne są zawsze włączone.
+              Szczegóły znajdziesz w{" "}
+              <Link href="/cookies">polityce cookies</Link>.
             </p>
 
             {openSettings ? (
-              <div className="mt-4 grid gap-2 sm:grid-cols-3">
+              <div className="fl-cookies__toggles">
                 <CookieToggle
                   title="Niezbędne"
                   hint="Logowanie, bezpieczeństwo, sesja."
@@ -110,34 +140,35 @@ export function CookieBanner() {
             ) : null}
           </div>
 
-          <div className="flex shrink-0 flex-col gap-2 sm:flex-row lg:w-[17.5rem] lg:flex-col">
+          <div className="fl-cookies__actions">
             <button
+              ref={firstBtnRef}
               type="button"
+              className="fl-cookies__btn"
               onClick={acceptAll}
-              className="cursor-pointer rounded-sm bg-brand px-4 py-2.5 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-white transition hover:bg-[var(--brand-red-dark)]"
             >
               Akceptuję wszystkie
             </button>
             <button
               type="button"
+              className="fl-cookies__btn fl-cookies__btn--dark"
               onClick={rejectOptional}
-              className="cursor-pointer rounded-sm border border-white/25 bg-white/5 px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-white/10"
             >
               Tylko niezbędne
             </button>
             {openSettings ? (
               <button
                 type="button"
+                className="fl-cookies__btn fl-cookies__btn--ghost"
                 onClick={saveCustom}
-                className="cursor-pointer rounded-sm border border-brand/50 px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-brand transition hover:bg-brand/10"
               >
                 Zapisz wybór
               </button>
             ) : (
               <button
                 type="button"
+                className="fl-cookies__btn fl-cookies__btn--ghost"
                 onClick={() => setOpenSettings(true)}
-                className="cursor-pointer rounded-sm px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-zinc-400 transition hover:text-white"
               >
                 Ustawienia
               </button>
@@ -164,19 +195,14 @@ function CookieToggle({
 }) {
   return (
     <label
-      className={`flex items-start justify-between gap-3 rounded-sm border border-white/10 bg-black/25 px-3 py-3 ${
-        locked ? "opacity-80" : "cursor-pointer"
-      }`}
+      className={`fl-cookies__toggle${locked ? " is-locked" : ""}`}
     >
       <span>
-        <span className="block text-[0.7rem] font-bold uppercase tracking-[0.12em] text-white">
-          {title}
-        </span>
-        <span className="mt-1 block text-xs text-zinc-400">{hint}</span>
+        <span className="fl-cookies__toggle-title">{title}</span>
+        <span className="fl-cookies__toggle-hint">{hint}</span>
       </span>
       <input
         type="checkbox"
-        className="mt-0.5 h-4 w-4 accent-[var(--brand-red)]"
         checked={checked}
         disabled={locked}
         onChange={(e) => onChange?.(e.target.checked)}

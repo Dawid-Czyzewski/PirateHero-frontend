@@ -1,165 +1,189 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
-import { SkewButton } from "@/components/landing/SkewButton";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { Field } from "@/components/auth/Field";
+import { IconLock, IconMail } from "@/components/auth/fieldIcons";
+import {
+  validateLogin,
+  validateLoginField,
+  type FieldErrors,
+  type LoginFields,
+} from "@/lib/auth/validation";
 
-type LoginStatus = "idle" | "soon" | "error";
-
-function IconMail() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" aria-hidden>
-      <path d="M2 5h20v14H2z" fill="#fff" />
-      <path
-        d="m2 5 10 8 10-8"
-        fill="none"
-        stroke="#1a1b1f"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-}
-
-function IconLock() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" aria-hidden>
-      <rect x="4" y="10" width="16" height="12" rx="1.5" fill="#fff" />
-      <path
-        d="M8 10V7a4 4 0 0 1 8 0v3"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="2.4"
-      />
-    </svg>
-  );
-}
+type Status = { kind: "idle" } | { kind: "err" | "ok"; text: string };
 
 export function LoginForm() {
-  const [identifier, setIdentifier] = useState("");
-  const [password, setPassword] = useState("");
+  const [values, setValues] = useState<LoginFields>({
+    login: "",
+    password: "",
+  });
   const [remember, setRemember] = useState(false);
-  const [status, setStatus] = useState<LoginStatus>("idle");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState<FieldErrors<keyof LoginFields>>({});
+  const [touched, setTouched] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const focusRef = useRef<keyof LoginFields | null>(null);
+  const loginRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
-  const clearError = () => {
-    if (status === "error") {
-      setStatus("idle");
-      setError("");
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("fl_login");
+      if (saved) {
+        setValues((v) => ({ ...v, login: saved }));
+        setRemember(true);
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!focusRef.current) return;
+    const el =
+      focusRef.current === "login" ? loginRef.current : passwordRef.current;
+    el?.focus();
+    focusRef.current = null;
+  }, [errors]);
+
+  const setField = (name: keyof LoginFields, value: string) => {
+    const next = { ...values, [name]: value };
+    setValues(next);
+    if (touched || errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: validateLoginField(name, next) || undefined,
+      }));
     }
   };
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!identifier.trim()) {
-      setStatus("error");
-      setError("Podaj e-mail lub nick.");
+    setTouched(true);
+    setStatus({ kind: "idle" });
+    const result = validateLogin(values);
+    if (!result.ok) {
+      setErrors(result.errors);
+      focusRef.current = result.first;
+      setStatus({ kind: "err", text: "Popraw zaznaczone pola." });
       return;
     }
-    if (password.length < 6) {
-      setStatus("error");
-      setError("Hasło musi mieć min. 6 znaków.");
-      return;
+
+    setLoading(true);
+    await new Promise((r) => setTimeout(r, 1100));
+    try {
+      if (remember) localStorage.setItem("fl_login", values.login.trim());
+      else localStorage.removeItem("fl_login");
+    } catch {
+      /* ignore */
     }
-    setStatus("soon");
-    setError("");
+    setLoading(false);
+    setStatus({
+      kind: "ok",
+      text: "Logowanie uruchomimy wraz z otwarciem gry. Wróć wkrótce.",
+    });
   };
-
-  const fieldClass =
-    "flex h-12 items-center gap-3 rounded-md border border-[#33343a] bg-[#1c1d22] px-3.5 transition focus-within:border-[#e11d24] sm:h-[3.25rem]";
-
-  const inputClass =
-    "min-w-0 flex-1 border-0 bg-transparent text-[0.95rem] font-normal text-white outline-none placeholder:text-[#b4b5bb]";
 
   return (
-    <form
-      className="flex flex-col gap-3"
-      onSubmit={onSubmit}
-      noValidate
-      aria-label="Formularz logowania"
-    >
-      <label className={fieldClass} htmlFor="login-identifier">
-        <span className="sr-only">E-mail lub nick</span>
-        <IconMail />
-        <input
-          id="login-identifier"
-          name="login"
-          type="text"
-          autoComplete="username"
-          placeholder="E-mail lub nick"
-          value={identifier}
-          onChange={(e) => {
-            setIdentifier(e.target.value);
-            clearError();
-          }}
-          className={inputClass}
-          required
-        />
-      </label>
+    <form id="loginForm" className="auth__form" onSubmit={onSubmit} noValidate>
+      <Field
+        label="E-mail lub login"
+        name="login"
+        id="login"
+        icon={<IconMail />}
+        value={values.login}
+        onChange={(e) => setField("login", e.target.value)}
+        onBlur={() => {
+          if (values.login) {
+            setErrors((prev) => ({
+              ...prev,
+              login: validateLoginField("login", values) || undefined,
+            }));
+          }
+        }}
+        error={errors.login}
+        inputMode="email"
+        autoComplete="username"
+        autoCapitalize="none"
+        spellCheck={false}
+        placeholder="E-mail lub login"
+        required
+        ref={loginRef}
+      />
 
-      <label className={fieldClass} htmlFor="login-password">
-        <span className="sr-only">Hasło</span>
-        <IconLock />
-        <input
-          id="login-password"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          placeholder="Hasło"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            clearError();
-          }}
-          className={inputClass}
-          required
-        />
-      </label>
+      <Field
+        label="Hasło"
+        name="password"
+        id="password"
+        type="password"
+        showPasswordToggle
+        icon={<IconLock />}
+        value={values.password}
+        onChange={(e) => setField("password", e.target.value)}
+        onBlur={() => {
+          if (values.password) {
+            setErrors((prev) => ({
+              ...prev,
+              password: validateLoginField("password", values) || undefined,
+            }));
+          }
+        }}
+        error={errors.password}
+        autoComplete="current-password"
+        placeholder="Hasło"
+        required
+        minLength={8}
+        ref={passwordRef}
+      />
 
-      <div className="my-1 flex items-center justify-between text-[0.8rem] text-zinc-200 sm:text-[0.85rem]">
-        <label
-          htmlFor="login-remember"
-          className="flex cursor-pointer items-center gap-2.5"
-        >
+      <div className="auth__row">
+        <label className="check">
           <input
-            id="login-remember"
             type="checkbox"
+            id="remember"
             name="remember"
             checked={remember}
             onChange={(e) => setRemember(e.target.checked)}
-            className="peer sr-only"
           />
-          <span
-            className="block h-[1.15rem] w-[1.15rem] rounded border-2 border-[#8b8c92] peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[#e11d24] peer-checked:border-[#e11d24] peer-checked:bg-[#e11d24]"
-            aria-hidden
-          />
+          <span className="check__box" aria-hidden="true">
+            <svg viewBox="0 0 16 16">
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 8.5l3.2 3L13 4.5"
+              />
+            </svg>
+          </span>
           <span>Zapamiętaj mnie</span>
         </label>
-        <Link
-          href="/contact"
-          className="underline underline-offset-4 transition hover:text-white"
-        >
-          Zapomniałeś hasła?
+        <Link className="small-link" href="#reset">
+          Nie pamiętasz hasła?
         </Link>
       </div>
 
-      <SkewButton
+      <button
+        className={`auth__submit btn-gold${loading ? " is-loading" : ""}`}
         type="submit"
-        size="lg"
-        className="mt-1 h-12 w-full max-w-none text-[0.85rem] tracking-[0.08em] hover:bg-[#b91c1c] sm:h-14 sm:text-[0.95rem]"
+        disabled={loading}
+        aria-busy={loading}
+        data-loading="LOGOWANIE…"
       >
-        Wejdź do gry
-      </SkewButton>
+        <span className="spin" aria-hidden="true" />
+        <span className="label">{loading ? "LOGOWANIE…" : "ZALOGUJ"}</span>
+      </button>
 
-      {status === "error" && error ? (
-        <p className="min-h-[18px] text-[0.75rem] text-[#e10600]" role="alert">
-          {error}
-        </p>
-      ) : null}
-      {status === "soon" ? (
-        <p className="text-[0.75rem] text-zinc-300" role="status">
-          Logowanie uruchomimy wraz z otwarciem gry. Wróć wkrótce.
-        </p>
-      ) : null}
+      <p
+        className={`auth__status${status.kind === "ok" ? " is-ok" : ""}${status.kind === "err" ? " is-err" : ""}`}
+        role="status"
+        aria-live="polite"
+      >
+        {status.kind === "idle" ? "" : status.text}
+      </p>
+      <div className="auth__divider" aria-hidden="true" />
     </form>
   );
 }

@@ -12,7 +12,7 @@ describe("ABOUT_FEATURES", () => {
       expect(feature.number).toMatch(/^\d{2}$/);
       expect(feature.title.length).toBeGreaterThan(0);
       expect(feature.text.length).toBeGreaterThan(0);
-      expect(feature.image).toMatch(/^\/images\/about-card-.+\.jpg$/);
+      expect(feature.image).toMatch(/^\/assets\/site\/icons\/.+\.webp$/);
       expect(feature.imageAlt.length).toBeGreaterThan(0);
     }
   });

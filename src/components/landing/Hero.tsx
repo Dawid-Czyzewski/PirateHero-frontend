@@ -36,7 +36,7 @@ export function Hero() {
     <section className="relative z-0 w-full overflow-x-clip overflow-y-visible bg-[#0a0a0a]">
       <div className="absolute inset-0 z-0" aria-hidden>
         <Image
-          src="/bg-octagon.jpg"
+          src="/assets/site/bg-arena-d.webp"
           alt=""
           fill
           sizes="100vw"
@@ -48,7 +48,7 @@ export function Hero() {
 
       <div className={fighterFrame}>
         <Image
-          src="/images/hero-fighter-v4.png"
+          src="/assets/site/hero-fighter-d.webp"
           alt="Zawodnik Freak Legends w stroju MMA"
           width={605}
           height={676}
@@ -60,7 +60,7 @@ export function Hero() {
         <div className="flex w-full max-w-xl flex-col lg:col-span-5">
           <h1 className="sr-only">Zostań legendą świata freak fightów</h1>
           <Image
-            src="/images/hero-headline-v3.png"
+            src="/assets/site/head-index-d-hero.webp"
             alt="Zostań legendą świata freak fightów"
             width={1600}
             height={1078}

@@ -6,7 +6,7 @@ export function CookiePolicy({ updatedAt }: { updatedAt: string }) {
   return (
     <LegalDocument
       title="Polityka cookies"
-      headlineSrc="/images/cookies-headline.png"
+      headlineSrc="/assets/legal/t-cookies-r.webp"
       headlineWidth={1236}
       headlineHeight={692}
       updatedAt={updatedAt}

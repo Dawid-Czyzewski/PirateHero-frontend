@@ -6,7 +6,7 @@ export function PrivacyPolicy({ updatedAt }: { updatedAt: string }) {
   return (
     <LegalDocument
       title="Polityka prywatności"
-      headlineSrc="/images/privacy-headline.png"
+      headlineSrc="/assets/legal/t-prywatnosci-r.webp"
       headlineWidth={1182}
       headlineHeight={658}
       updatedAt={updatedAt}

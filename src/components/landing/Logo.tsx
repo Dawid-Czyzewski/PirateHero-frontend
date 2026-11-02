@@ -9,7 +9,7 @@ export function Logo() {
       aria-label="Freak Legends"
     >
       <Image
-        src="/images/logo-freak-legends-v2.png"
+        src="/assets/site/logo.webp"
         alt="Freak Legends"
         width={240}
         height={86}
