@@ -1,28 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { ConsentPanel } from "@/components/site/ConsentPanel";
 import {
   formatConsentStatus,
-  readConsent,
+  parseConsent,
+  readConsentRaw,
+  subscribeConsent,
   writeConsent,
-  type Consent,
 } from "@/lib/consent";
+import { useHydrated } from "@/lib/useHydrated";
 
 export function CookieBanner() {
-  const [ready, setReady] = useState(false);
-  const [banner, setBanner] = useState(false);
+  const ready = useHydrated();
+  const rawConsent = useSyncExternalStore(subscribeConsent, readConsentRaw, () => null);
+  const consent = useMemo(() => parseConsent(rawConsent), [rawConsent]);
+  const [dismissed, setDismissed] = useState(false);
   const [panelOpen, setPanelOpen] = useState(false);
-  const [consent, setConsent] = useState<Consent | null>(null);
   const bannerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const c = readConsent();
-    setConsent(c);
-    setBanner(c === null);
-    setReady(true);
-  }, []);
+  const banner = ready && consent === null && !dismissed;
 
   useEffect(() => {
     if (!ready) return;
@@ -69,9 +66,11 @@ export function CookieBanner() {
 
   if (!ready) return null;
 
-  const save = (c: Consent) => {
-    setConsent(c);
-    setBanner(false);
+  const dismiss = () => setDismissed(true);
+
+  const choose = (choice: { analytics: boolean; marketing: boolean }) => {
+    writeConsent(choice);
+    dismiss();
   };
 
   return (
@@ -105,18 +104,14 @@ export function CookieBanner() {
             <button
               type="button"
               className="ckb__btn"
-              onClick={() =>
-                save(writeConsent({ analytics: true, marketing: true }))
-              }
+              onClick={() => choose({ analytics: true, marketing: true })}
             >
               Akceptuję wszystkie
             </button>
             <button
               type="button"
               className="ckb__btn ckb__btn--dark"
-              onClick={() =>
-                save(writeConsent({ analytics: false, marketing: false }))
-              }
+              onClick={() => choose({ analytics: false, marketing: false })}
             >
               Tylko niezbędne
             </button>
@@ -128,7 +123,7 @@ export function CookieBanner() {
         open={panelOpen}
         initial={consent}
         onClose={() => setPanelOpen(false)}
-        onSaved={save}
+        onSaved={dismiss}
       />
     </>
   );

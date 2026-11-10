@@ -30,7 +30,7 @@ export function ArtPicture({
   return (
     <picture className={className}>
       <source media={DESK} srcSet={srcD} width={widthD} height={heightD} />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
+      { }
       <img
         src={srcM}
         width={widthM}

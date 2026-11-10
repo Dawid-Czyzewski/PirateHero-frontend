@@ -1,49 +1,90 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { LoginForm } from "@/components/auth/LoginForm";
+import { login } from "@/modules/auth/authService";
+
+const push = vi.fn();
+
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
+vi.mock("@/modules/auth/authService", () => ({ login: vi.fn() }));
+
+const loginMock = vi.mocked(login);
+
+async function fillAndSubmit(email: string, password: string) {
+  const user = userEvent.setup();
+  render(<LoginForm />);
+  await user.type(screen.getByLabelText(/^e-mail$/i), email);
+  await user.type(screen.getByLabelText(/^hasło$/i), password);
+  await user.click(screen.getByRole("button", { name: /zaloguj/i }));
+  return user;
+}
 
 describe("LoginForm", () => {
+  afterEach(() => {
+    loginMock.mockReset();
+    push.mockReset();
+    localStorage.clear();
+  });
+
   it("shows field errors and status when submit is invalid", async () => {
     const user = userEvent.setup();
     render(<LoginForm />);
 
     await user.click(screen.getByRole("button", { name: /zaloguj/i }));
 
-    expect(screen.getByText(/podaj e-mail lub login/i)).toBeInTheDocument();
-    expect(screen.getByRole("status")).toHaveTextContent(
-      /popraw zaznaczone pola/i,
-    );
+    expect(screen.getByText(/podaj adres e-mail/i)).toBeInTheDocument();
+    expect(screen.getByRole("status")).toHaveTextContent(/popraw zaznaczone pola/i);
+    expect(screen.getByLabelText(/^e-mail$/i)).toHaveFocus();
+    expect(loginMock).not.toHaveBeenCalled();
   });
 
   it("requires at least 8 password characters", async () => {
-    const user = userEvent.setup();
-    render(<LoginForm />);
+    await fillAndSubmit("gracz@example.com", "short");
 
-    await user.type(screen.getByLabelText(/e-mail lub login/i), "gracz");
-    await user.type(screen.getByLabelText(/^hasło$/i), "short");
-    await user.click(screen.getByRole("button", { name: /zaloguj/i }));
-
-    expect(
-      screen.getByText(/hasło musi mieć co najmniej 8 znaków/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/hasło musi mieć co najmniej 8 znaków/i)).toBeInTheDocument();
   });
 
-  it("shows soon message after valid submit", async () => {
+  it("logs in and redirects on success", async () => {
+    loginMock.mockResolvedValue({ kind: "success" });
+
+    await fillAndSubmit(" gracz@example.com ", "sekret12");
+
+    expect(loginMock).toHaveBeenCalledWith({ email: "gracz@example.com", password: "sekret12" });
+    await waitFor(() => expect(push).toHaveBeenCalledWith("/create-character"));
+  });
+
+  it("shows a Polish message for wrong credentials", async () => {
+    loginMock.mockResolvedValue({ kind: "failure", reason: "bad-credentials" });
+
+    await fillAndSubmit("gracz@example.com", "zlehaslo1");
+
+    await waitFor(() =>
+      expect(screen.getByRole("status")).toHaveTextContent(/nieprawidłowy e-mail lub hasło/i),
+    );
+    expect(screen.getByRole("button", { name: /zaloguj/i })).toBeEnabled();
+    expect(push).not.toHaveBeenCalled();
+  });
+
+  it("remembers the email only when asked", async () => {
+    loginMock.mockResolvedValue({ kind: "success" });
     const user = userEvent.setup();
     render(<LoginForm />);
 
-    await user.type(screen.getByLabelText(/e-mail lub login/i), "gracz");
+    await user.type(screen.getByLabelText(/^e-mail$/i), "gracz@example.com");
     await user.type(screen.getByLabelText(/^hasło$/i), "sekret12");
+    await user.click(screen.getByRole("checkbox", { name: /zapamiętaj mnie/i }));
     await user.click(screen.getByRole("button", { name: /zaloguj/i }));
 
-    expect(screen.getByRole("button", { name: /logowanie/i })).toBeDisabled();
-    await waitFor(
-      () => {
-        expect(screen.getByRole("status")).toHaveTextContent(/wróć wkrótce/i);
-      },
-      { timeout: 2500 },
-    );
+    await waitFor(() => expect(localStorage.getItem("fl_email")).toBe("gracz@example.com"));
+  });
+
+  it("prefills a remembered email", () => {
+    localStorage.setItem("fl_email", "zapamietany@example.com");
+
+    render(<LoginForm />);
+
+    expect(screen.getByLabelText(/^e-mail$/i)).toHaveValue("zapamietany@example.com");
+    expect(screen.getByRole("checkbox", { name: /zapamiętaj mnie/i })).toBeChecked();
   });
 });
-

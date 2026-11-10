@@ -74,7 +74,7 @@ export function HomePage() {
                   width={1164}
                   height={1398}
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                { }
                 <img
                   src="/assets/site/hero-fighter-m.webp"
                   srcSet="/assets/site/hero-fighter-m.webp 640w, /assets/site/hero-fighter-d.webp 1164w"
@@ -112,7 +112,7 @@ export function HomePage() {
                 width={858}
                 height={290}
               />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              { }
               <img
                 src="/assets/site/head-index-m-hero.webp"
                 width={1040}

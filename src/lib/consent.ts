@@ -10,11 +10,33 @@ export type Consent = {
   date: string;
 };
 
-export function readConsent(): Consent | null {
+const CONSENT_EVENT = "fl:consent";
+
+export function readConsentRaw(): string | null {
   if (typeof window === "undefined") return null;
   try {
-    const raw = window.localStorage.getItem(CONSENT_KEY);
-    if (!raw) return null;
+    return window.localStorage.getItem(CONSENT_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function subscribeConsent(onChange: () => void): () => void {
+  window.addEventListener("storage", onChange);
+  window.addEventListener(CONSENT_EVENT, onChange);
+  return () => {
+    window.removeEventListener("storage", onChange);
+    window.removeEventListener(CONSENT_EVENT, onChange);
+  };
+}
+
+export function readConsent(): Consent | null {
+  return parseConsent(readConsentRaw());
+}
+
+export function parseConsent(raw: string | null): Consent | null {
+  if (!raw) return null;
+  try {
     const c = JSON.parse(raw) as Partial<Consent>;
     if (c.v !== CONSENT_VERSION) return null;
     if (typeof c.analytics !== "boolean" || typeof c.marketing !== "boolean") {
@@ -51,7 +73,7 @@ export function writeConsent(partial: {
   } catch {
     /* ignore quota */
   }
-  window.dispatchEvent(new CustomEvent("fl:consent", { detail: val }));
+  window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: val }));
   return val;
 }
 

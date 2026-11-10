@@ -4,28 +4,24 @@ import {
   validateLoginField,
   validateRegister,
   validateRegisterField,
-} from "@/lib/auth/validation";
+} from "@/modules/auth/validation";
 
 describe("validateLogin", () => {
-  it("rejects empty login and short password", () => {
-    const result = validateLogin({ login: "", password: "123" });
+  it("rejects empty email and short password", () => {
+    const result = validateLogin({ email: "", password: "123" });
     expect(result.ok).toBe(false);
     if (result.ok) return;
-    expect(result.errors.login).toMatch(/e-mail lub login/i);
+    expect(result.errors.email).toMatch(/podaj adres e-mail/i);
     expect(result.errors.password).toMatch(/8 znaków/i);
-    expect(result.first).toBe("login");
+    expect(result.first).toBe("email");
+  });
+
+  it("rejects a nick in place of email", () => {
+    expect(validateLoginField("email", { email: "gracz", password: "sekret12" })).toMatch(/format e-maila/i);
   });
 
   it("accepts valid credentials", () => {
-    expect(
-      validateLogin({ login: "gracz", password: "sekret12" }).ok,
-    ).toBe(true);
-    expect(
-      validateLoginField("login", {
-        login: "dawid@cebula.pl",
-        password: "sekret12",
-      }),
-    ).toBe("");
+    expect(validateLogin({ email: "dawid@cebula.pl", password: "sekret12" }).ok).toBe(true);
   });
 });
 

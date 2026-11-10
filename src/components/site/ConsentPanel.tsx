@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useEffectEvent, useId, useRef } from "react";
 import { writeConsent, type Consent } from "@/lib/consent";
 
 type ConsentPanelProps = {
@@ -59,12 +59,21 @@ export function ConsentPanel({
     return () => document.documentElement.classList.remove("ckp-open");
   }, [open, initial]);
 
+  const close = () => {
+    onClose();
+    if (lastFocus.current && document.contains(lastFocus.current)) {
+      lastFocus.current.focus();
+    }
+  };
+
+  const closeOnEscape = useEffectEvent(close);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         e.preventDefault();
-        close();
+        closeOnEscape();
       }
       if (e.key === "Tab" && boxRef.current) {
         const nodes = boxRef.current.querySelectorAll<HTMLElement>(
@@ -84,13 +93,6 @@ export function ConsentPanel({
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
-
-  const close = () => {
-    onClose();
-    if (lastFocus.current && document.contains(lastFocus.current)) {
-      lastFocus.current.focus();
-    }
-  };
 
   if (!open) return null;
 
