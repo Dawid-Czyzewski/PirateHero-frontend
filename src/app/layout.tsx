@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Inter, Rubik_Wet_Paint } from "next/font/google";
+import { SessionExpiryListener } from "@/components/auth/SessionExpiryListener";
 import { CookieBanner } from "@/components/site/CookieBanner";
 import "./globals.css";
 import "@/styles/cookies.css";
@@ -120,6 +121,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="w-full">
         {children}
         <CookieBanner />
+        <SessionExpiryListener />
       </body>
     </html>
   );

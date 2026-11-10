@@ -1,4 +1,5 @@
 import { postJson, type ApiResult } from "@/lib/api/apiClient";
+import { HttpStatus, hasStatus, isSuccessful } from "@/lib/api/http";
 import type { FieldErrors } from "@/modules/auth/validation";
 import { fieldErrorsFrom, type AuthField } from "@/modules/auth/violations";
 
@@ -14,10 +15,7 @@ export type AuthResult<K extends string = AuthField> =
 
 const LOGIN_PATH = "/api/auth/login";
 const REGISTER_PATH = "/api/auth/register";
-
-const HTTP_UNAUTHORIZED = 401;
-const HTTP_UNPROCESSABLE = 422;
-const HTTP_TOO_MANY_REQUESTS = 429;
+const LOGOUT_PATH = "/api/auth/logout";
 
 const SUCCESS = { kind: "success" } as const;
 
@@ -25,19 +23,15 @@ function failure(reason: AuthFailure): AuthResult<never> {
   return { kind: "failure", reason };
 }
 
-function isSuccessful(status: number): boolean {
-  return status >= 200 && status < 300;
-}
-
 function failureOf(result: ApiResult): AuthResult<never> {
   if (result.kind === "network-error") return failure("network");
-  if (result.status === HTTP_UNAUTHORIZED) return failure("bad-credentials");
-  if (result.status === HTTP_TOO_MANY_REQUESTS) return failure("throttled");
+  if (result.status === HttpStatus.unauthorized) return failure("bad-credentials");
+  if (result.status === HttpStatus.tooManyRequests) return failure("throttled");
   return failure("unexpected");
 }
 
 function invalidOrFailure(result: ApiResult): AuthResult {
-  if (result.kind === "response" && result.status === HTTP_UNPROCESSABLE) {
+  if (hasStatus(result, HttpStatus.unprocessable)) {
     const errors = fieldErrorsFrom(result.body);
     if (Object.keys(errors).length > 0) return { kind: "invalid", errors };
   }
@@ -46,13 +40,17 @@ function invalidOrFailure(result: ApiResult): AuthResult {
 
 export async function login(credentials: Credentials): Promise<AuthResult<never>> {
   const result = await postJson(LOGIN_PATH, credentials);
-  return result.kind === "response" && isSuccessful(result.status) ? SUCCESS : failureOf(result);
+  return isSuccessful(result) ? SUCCESS : failureOf(result);
 }
 
 export async function registerAndLogin(registration: Registration): Promise<AuthResult> {
   const result = await postJson(REGISTER_PATH, registration);
-  if (result.kind === "response" && isSuccessful(result.status)) {
+  if (isSuccessful(result)) {
     return login({ email: registration.email, password: registration.password });
   }
   return invalidOrFailure(result);
+}
+
+export async function logout(): Promise<void> {
+  await postJson(LOGOUT_PATH, {});
 }

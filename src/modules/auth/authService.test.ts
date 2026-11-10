@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { postJson, type ApiResult } from "@/lib/api/apiClient";
-import { login, registerAndLogin } from "@/modules/auth/authService";
+import { login, logout, registerAndLogin } from "@/modules/auth/authService";
 
 vi.mock("@/lib/api/apiClient", () => ({ postJson: vi.fn() }));
 
@@ -72,5 +72,19 @@ describe("registerAndLogin", () => {
     postJsonMock.mockResolvedValue(respond(429));
 
     expect(await registerAndLogin(REGISTRATION)).toEqual({ kind: "failure", reason: "throttled" });
+  });
+});
+
+describe("logout", () => {
+  afterEach(() => {
+    postJsonMock.mockReset();
+  });
+
+  it("asks the API to end the session", async () => {
+    postJsonMock.mockResolvedValue(respond(204));
+
+    await logout();
+
+    expect(postJsonMock).toHaveBeenCalledWith("/api/auth/logout", {});
   });
 });
