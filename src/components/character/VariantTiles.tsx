@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { SKIN_TONES } from "@/components/character/skinTones";
+import { SKIN_TONES } from "@/components/character/preview/palette";
 import type { AppearancePart, PartDefinition } from "@/modules/character/appearance";
 
 type VariantTilesProps = {
@@ -18,7 +18,7 @@ function variantsOf(count: number): number[] {
 }
 
 function swatchStyle(part: AppearancePart, variant: number): CSSProperties | undefined {
-  return part === "skin" ? ({ "--swatch": SKIN_TONES[variant] } as CSSProperties) : undefined;
+  return part === "skin" ? ({ "--swatch": SKIN_TONES[variant]?.base } as CSSProperties) : undefined;
 }
 
 export function VariantTiles({ definition, selected, onChoose }: VariantTilesProps) {

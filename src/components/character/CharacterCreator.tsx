@@ -21,7 +21,7 @@ export function CharacterCreator({ nick }: { nick: string }) {
         </h1>
         <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(18rem,1fr)_minmax(16rem,1.1fr)_minmax(18rem,1fr)] lg:items-center lg:gap-8">
           <AppearancePanel nick={nick} appearance={editor.appearance} step={editor.step} />
-          <CharacterPreview />
+          <CharacterPreview appearance={editor.appearance} />
           <AppearanceTabs
             appearance={editor.appearance}
             activePart={editor.activePart}

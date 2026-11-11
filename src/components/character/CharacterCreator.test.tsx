@@ -46,4 +46,14 @@ describe("CharacterCreator", () => {
     expect(screen.getByRole("button", { name: /stwórz postać/i })).toBeDisabled();
     expect(screen.getByRole("button", { name: /losuj/i })).toBeEnabled();
   });
+
+  it("refreshes the preview right after a change", async () => {
+    const { user } = renderCreator();
+
+    await user.click(screen.getByRole("button", { name: "Zarost: następny wariant" }));
+    await user.click(screen.getByRole("tab", { name: "Włosy" }));
+    await user.click(screen.getByRole("radio", { name: "Włosy 3" }));
+
+    expect(screen.getByRole("img", { name: /zarost 2\/8/ })).toHaveAccessibleName(/włosy 3\/8/);
+  });
 });
