@@ -1,6 +1,5 @@
 "use client";
 
-import { AUTH_ROUTES } from "@/modules/auth/authRoutes";
 import { registerAndLogin } from "@/modules/auth/authService";
 import { useAuthForm } from "@/modules/auth/hooks/useAuthForm";
 import {
@@ -8,6 +7,7 @@ import {
   validateRegisterField,
   type RegisterFields,
 } from "@/modules/auth/validation";
+import { CHARACTER_ROUTES } from "@/modules/character/characterRoutes";
 
 const INITIAL_VALUES: RegisterFields = {
   nick: "",
@@ -16,6 +16,10 @@ const INITIAL_VALUES: RegisterFields = {
   password2: "",
   terms: false,
 };
+
+async function characterCreator(): Promise<string> {
+  return CHARACTER_ROUTES.create;
+}
 
 function submitRegistration(values: RegisterFields) {
   return registerAndLogin({
@@ -32,6 +36,6 @@ export function useRegisterForm() {
     validateField: validateRegisterField,
     dependentFields: { password: "password2" },
     submit: submitRegistration,
-    successRoute: AUTH_ROUTES.afterRegister,
+    nextRoute: characterCreator,
   });
 }

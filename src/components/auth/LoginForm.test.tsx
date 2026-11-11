@@ -3,13 +3,16 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { LoginForm } from "@/components/auth/LoginForm";
 import { login } from "@/modules/auth/authService";
+import { resolvePlayerHome } from "@/modules/character/playerHome";
 
 const push = vi.fn();
 
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
 vi.mock("@/modules/auth/authService", () => ({ login: vi.fn() }));
+vi.mock("@/modules/character/playerHome", () => ({ resolvePlayerHome: vi.fn() }));
 
 const loginMock = vi.mocked(login);
+const homeMock = vi.mocked(resolvePlayerHome);
 
 async function fillAndSubmit(email: string, password: string) {
   const user = userEvent.setup();
@@ -23,6 +26,7 @@ async function fillAndSubmit(email: string, password: string) {
 describe("LoginForm", () => {
   afterEach(() => {
     loginMock.mockReset();
+    homeMock.mockReset();
     push.mockReset();
     localStorage.clear();
   });
@@ -45,13 +49,23 @@ describe("LoginForm", () => {
     expect(screen.getByText(/hasło musi mieć co najmniej 8 znaków/i)).toBeInTheDocument();
   });
 
-  it("logs in and redirects on success", async () => {
+  it("logs in and sends a player without a character to the creator", async () => {
     loginMock.mockResolvedValue({ kind: "success" });
+    homeMock.mockResolvedValue("/create-character");
 
     await fillAndSubmit(" gracz@example.com ", "sekret12");
 
     expect(loginMock).toHaveBeenCalledWith({ email: "gracz@example.com", password: "sekret12" });
     await waitFor(() => expect(push).toHaveBeenCalledWith("/create-character"));
+  });
+
+  it("sends a player with a character to the profile", async () => {
+    loginMock.mockResolvedValue({ kind: "success" });
+    homeMock.mockResolvedValue("/postac");
+
+    await fillAndSubmit("gracz@example.com", "sekret12");
+
+    await waitFor(() => expect(push).toHaveBeenCalledWith("/postac"));
   });
 
   it("shows a Polish message for wrong credentials", async () => {
@@ -68,6 +82,7 @@ describe("LoginForm", () => {
 
   it("remembers the email only when asked", async () => {
     loginMock.mockResolvedValue({ kind: "success" });
+    homeMock.mockResolvedValue("/postac");
     const user = userEvent.setup();
     render(<LoginForm />);
 

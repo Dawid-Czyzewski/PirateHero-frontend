@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AUTH_FORM, AUTH_ROW, AUTH_SMALL_LINK, AUTH_VIEW } from "@/components/auth/authStyles";
 import { Checkbox } from "@/components/auth/Checkbox";
 import { Field } from "@/components/auth/Field";
 import { IconLock, IconMail } from "@/components/auth/fieldIcons";
@@ -9,6 +10,8 @@ import { SubmitButton } from "@/components/auth/SubmitButton";
 import { useLoginForm } from "@/modules/auth/hooks/useLoginForm";
 import { useRememberedEmail } from "@/modules/auth/rememberedEmail";
 import { PASSWORD_MIN_LENGTH } from "@/modules/auth/validation";
+
+const VIEW = AUTH_VIEW.login;
 
 export function LoginForm() {
   const rememberedEmail = useRememberedEmail();
@@ -19,9 +22,10 @@ function LoginFormView({ rememberedEmail }: { rememberedEmail: string | null }) 
   const form = useLoginForm(rememberedEmail);
 
   return (
-    <form id="loginForm" className="auth__form" onSubmit={form.onSubmit} noValidate>
+    <form id="loginForm" className={`${AUTH_FORM} ${VIEW.form}`} onSubmit={form.onSubmit} noValidate>
       <Field
         {...form.textField("email")}
+        view="login"
         label="E-mail"
         type="email"
         icon={<IconMail />}
@@ -35,6 +39,8 @@ function LoginFormView({ rememberedEmail }: { rememberedEmail: string | null }) 
 
       <Field
         {...form.textField("password")}
+        view="login"
+        className={VIEW.fieldGap}
         label="Hasło"
         type="password"
         showPasswordToggle
@@ -45,8 +51,9 @@ function LoginFormView({ rememberedEmail }: { rememberedEmail: string | null }) 
         minLength={PASSWORD_MIN_LENGTH}
       />
 
-      <div className="auth__row">
+      <div className={`${AUTH_ROW} ${VIEW.row}`}>
         <Checkbox
+          view="login"
           id="remember"
           name="remember"
           checked={form.remember}
@@ -54,14 +61,14 @@ function LoginFormView({ rememberedEmail }: { rememberedEmail: string | null }) 
         >
           Zapamiętaj mnie
         </Checkbox>
-        <Link className="small-link" href="#reset">
+        <Link className={`${AUTH_SMALL_LINK} ${VIEW.smallLink}`} href="#reset">
           Nie pamiętasz hasła?
         </Link>
       </div>
 
-      <SubmitButton variant="btn-gold" loading={form.loading} label="ZALOGUJ" loadingLabel="LOGOWANIE…" />
+      <SubmitButton view="login" skin="gold" loading={form.loading} label="ZALOGUJ" loadingLabel="LOGOWANIE…" />
       <FormStatusLine status={form.status} />
-      <div className="auth__divider" aria-hidden="true" />
+      <div className="hidden h-px w-full flex-none bg-white/13 desk:mt-21 desk:block" aria-hidden="true" />
     </form>
   );
 }

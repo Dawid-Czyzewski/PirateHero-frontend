@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AUTH_FORM, AUTH_ROW, AUTH_ROW_ERROR, AUTH_VIEW } from "@/components/auth/authStyles";
 import { Checkbox } from "@/components/auth/Checkbox";
 import { Field } from "@/components/auth/Field";
 import { FormStatusLine } from "@/components/auth/FormStatusLine";
@@ -8,14 +9,17 @@ import { SubmitButton } from "@/components/auth/SubmitButton";
 import { useRegisterForm } from "@/modules/auth/hooks/useRegisterForm";
 import { NICK_MAX_LENGTH, PASSWORD_MIN_LENGTH } from "@/modules/auth/validation";
 
+const VIEW = AUTH_VIEW.register;
+
 export function RegisterForm() {
   const form = useRegisterForm();
   const termsError = form.errors.terms;
 
   return (
-    <form id="registerForm" className="auth__form" onSubmit={form.onSubmit} noValidate>
+    <form id="registerForm" className={`${AUTH_FORM} ${VIEW.form}`} onSubmit={form.onSubmit} noValidate>
       <Field
         {...form.textField("nick")}
+        view="register"
         label="Nick zawodnika"
         autoComplete="username"
         placeholder="Nick zawodnika"
@@ -25,6 +29,8 @@ export function RegisterForm() {
 
       <Field
         {...form.textField("email")}
+        view="register"
+        className={VIEW.fieldGap}
         label="E-mail"
         type="email"
         inputMode="email"
@@ -37,6 +43,8 @@ export function RegisterForm() {
 
       <Field
         {...form.textField("password")}
+        view="register"
+        className={VIEW.fieldGap}
         label="Hasło"
         type="password"
         showPasswordToggle
@@ -48,6 +56,8 @@ export function RegisterForm() {
 
       <Field
         {...form.textField("password2")}
+        view="register"
+        className={VIEW.fieldGap}
         label="Powtórz hasło"
         type="password"
         showPasswordToggle
@@ -57,8 +67,10 @@ export function RegisterForm() {
         minLength={PASSWORD_MIN_LENGTH}
       />
 
-      <div className={`auth__row field${termsError ? " is-invalid" : ""}`} data-field="terms">
+      <div className={`relative ${AUTH_ROW} ${VIEW.row}`} data-field="terms">
         <Checkbox
+          view="register"
+          invalid={Boolean(termsError)}
           ref={form.fieldRef("terms")}
           id="terms"
           name="terms"
@@ -73,12 +85,12 @@ export function RegisterForm() {
             regulamin
           </Link>
         </Checkbox>
-        <p className="field__error" id="terms-err" aria-live="polite">
+        <p className={`${AUTH_ROW_ERROR} ${VIEW.rowError}`} id="terms-err" aria-live="polite">
           {termsError ?? ""}
         </p>
       </div>
 
-      <SubmitButton variant="btn-red" loading={form.loading} label="ZAŁÓŻ KONTO" loadingLabel="TWORZENIE…" />
+      <SubmitButton view="register" skin="red" loading={form.loading} label="ZAŁÓŻ KONTO" loadingLabel="TWORZENIE…" />
       <FormStatusLine status={form.status} />
     </form>
   );

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { AUTH_ROUTES } from "@/modules/auth/authRoutes";
 import { login } from "@/modules/auth/authService";
 import { useAuthForm } from "@/modules/auth/hooks/useAuthForm";
 import { rememberEmail } from "@/modules/auth/rememberedEmail";
 import { LOGIN_FIELDS, validateLoginField, type LoginFields } from "@/modules/auth/validation";
+import { resolvePlayerHome } from "@/modules/character/playerHome";
 
 function submitLogin(values: LoginFields) {
   return login({ email: values.email.trim(), password: values.password });
@@ -18,7 +18,7 @@ export function useLoginForm(rememberedEmail: string | null) {
     fields: LOGIN_FIELDS,
     validateField: validateLoginField,
     submit: submitLogin,
-    successRoute: AUTH_ROUTES.afterLogin,
+    nextRoute: resolvePlayerHome,
     onSuccess: (values) => rememberEmail(remember ? values.email.trim() : null),
   });
 

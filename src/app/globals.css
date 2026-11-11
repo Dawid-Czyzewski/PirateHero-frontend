@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@custom-variant desk (@media (min-width: 900px) and (min-aspect-ratio: 1/1));
+@custom-variant phone (@media not all and (min-width: 900px) and (min-aspect-ratio: 1/1));
+@custom-variant desk-compact {
+  @media (min-width: 900px) and (min-aspect-ratio: 1/1) and (max-width: 1366px) {
+    @slot;
+  }
+  @media (min-width: 900px) and (min-aspect-ratio: 1/1) and (max-height: 900px) {
+    @slot;
+  }
+}
+@custom-variant desk-mid (@media (min-width: 900px) and (min-aspect-ratio: 1/1) and (max-width: 1279px));
+@custom-variant desk-xl (@media (min-width: 1800px) and (min-height: 1000px) and (min-aspect-ratio: 1/1));
+
 :root {
   --background: #07080d;
   --foreground: #f4f1ea;
@@ -15,39 +28,264 @@
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
   --font-marker: var(--font-marker);
+  --color-arena: #0b0b0f;
+  --color-blood: #e1192d;
+  --color-blood-deep: #6d0a14;
+  --color-panel: rgb(13 13 18 / 0.86);
+  --color-ash: #a6a3ad;
+  --font-cond: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-semi: var(--font-barlow-semi), "Arial Narrow", sans-serif;
+  --color-gold: #f0c35a;
+  --color-gold-light: #ffd77a;
+  --color-bronze: #b8862f;
+  --color-fire: #e0342a;
+  --color-parchment: #efe4d2;
+  --color-dust: #a79d92;
+  --color-coal: #140c0b;
+  --color-ok: #8fe08a;
 }
 
-* {
-  box-sizing: border-box;
+@theme {
+  --animate-twinkle: twinkle var(--tw, 5s) ease-in-out infinite;
+  --animate-rise: rise var(--dur) linear infinite;
+  --animate-rise-late: rise var(--dur) linear -5s infinite;
+  --animate-beam: beam 7s ease-in-out infinite;
+  --animate-beam-late: beam 7s ease-in-out -3.5s infinite;
+  --animate-aura-pulse: auraPulse 3.4s ease-in-out infinite;
+  --animate-aura-fx: auraFx 2.8s ease-in-out infinite;
+  --animate-slash-glow: slashGlow 2.6s ease-in-out infinite;
+  --animate-slash-glow-late: slashGlow 2.6s ease-in-out -1.3s infinite;
+  --animate-chev: chev 1.8s ease-in-out infinite;
+  --animate-hero-in: heroIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-fade-up-1: fadeUp 0.7s 0.25s ease-out both;
+  --animate-fade-up-2: fadeUp 0.7s 0.4s ease-out both;
+  --animate-fade-up-3: fadeUp 0.7s 0.55s ease-out both;
+  --animate-shine: shine 4s ease-in-out 1.2s infinite;
+
+  @keyframes twinkle {
+    0%, 100% { opacity: var(--o1, 0.8); }
+    50% { opacity: 1; }
+  }
+  @keyframes rise {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(0, calc(-1 * var(--t)), 0); }
+  }
+  @keyframes beam {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+  @keyframes auraPulse {
+    0%, 100% { opacity: 0.75; transform: translate(-50%, -50%) scale(0.95); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+  }
+  @keyframes auraFx {
+    0%, 100% { opacity: 0.82; transform: scale(1); }
+    50% { opacity: 1; transform: translateY(-3px) scale(1.012); }
+  }
+  @keyframes slashGlow {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+  @keyframes chev {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(22px) scale(0.94); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes shine {
+    0%, 60% { transform: translateX(-120%); }
+    100% { transform: translateX(260%); }
+  }
 }
 
-html {
-  min-height: 100%;
-  overflow-x: clip;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+@utility bg-arena {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 52%, rgb(225 25 45 / 0.42), transparent 70%),
+    repeating-linear-gradient(45deg, transparent 0 38px, rgb(255 255 255 / 0.035) 38px 39px),
+    repeating-linear-gradient(-45deg, transparent 0 38px, rgb(255 255 255 / 0.035) 38px 39px),
+    var(--color-arena);
 }
 
-body {
-  margin: 0;
-  min-height: 100%;
-  min-width: 0;
-  overflow-x: clip;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body), system-ui, sans-serif;
+@utility clip-octagon {
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
 }
 
-svg {
-  max-width: 100%;
+@layer components {
+  .fl-art {
+    position: absolute;
+    display: block;
+    & img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .fl-lead {
+    font-weight: 500;
+    color: #eeeae5;
+    text-shadow: 0 2px 6px rgb(0 0 0 / 0.85);
+  }
+
+  .fl-panel {
+    position: relative;
+    isolation: isolate;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      border-style: solid;
+      border-width: calc(50 * var(--k));
+      border-image: url(/assets/auth/frame-m.webp) 128 fill / calc(50 * var(--k)) stretch;
+    }
+    @variant desk {
+      &::before {
+        border-width: calc(46 * var(--k));
+        border-image: url(/assets/auth/frame-d.webp) 112 fill / calc(46 * var(--k)) stretch;
+      }
+    }
+  }
+
+  .fl-plate {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-style: solid;
+    border-width: calc(18 * var(--k));
+    border-image: url(/assets/fl/frames/plate@2x.png) 40 fill / calc(18 * var(--k)) stretch;
+    font: 700 calc(var(--fs, 40) * var(--k)) / 1 var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+    color: #f3eadb;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 0.6);
+    @variant desk {
+      --fs: 30;
+      top: calc(-6 * var(--k));
+      width: auto;
+      height: calc(52 * var(--k));
+      padding: 0 calc(34 * var(--k));
+      border-width: calc(14 * var(--k));
+      border-image-width: calc(14 * var(--k));
+      letter-spacing: 0.04em;
+    }
+  }
+
+  .fl-card {
+    position: relative;
+    border-style: solid;
+    border-width: calc(12 * var(--k));
+    border-image: url(/assets/fl/frames/slot@2x.png) 36 fill / calc(12 * var(--k)) stretch;
+    @variant desk {
+      border-width: calc(10 * var(--k));
+      border-image-width: calc(10 * var(--k));
+    }
+  }
+
+  .fl-btn {
+    --bw: calc(22 * var(--k));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    border-style: solid;
+    border-width: var(--bw);
+    border-image: var(--btn-img, url(/assets/fl/frames/btn-gold@2x.png)) 40 fill / var(--bw) stretch;
+    font: 700 calc(var(--fs, 36) * var(--k)) / 1 var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.012em;
+    color: var(--btn-color, #1d1206);
+    text-shadow: var(--btn-shadow, 0 1px 0 rgb(255 230 160 / 0.35));
+    transition: filter 0.15s, transform 0.1s;
+    & > span {
+      pointer-events: none;
+    }
+    &::after {
+      --hit: max(0px, calc(22px - calc(28 * var(--k))));
+      content: "";
+      position: absolute;
+      left: calc(-1 * var(--bw));
+      right: calc(-1 * var(--bw));
+      top: calc(-1 * var(--bw) - var(--hit));
+      bottom: calc(-1 * var(--bw) - var(--hit));
+    }
+    &:hover {
+      filter: brightness(1.1);
+      border-image-source: var(--btn-img-hover, url(/assets/fl/frames/btn-gold-hover@2x.png));
+    }
+    &:active {
+      transform: translateY(1px);
+    }
+    @variant desk {
+      --bw: calc(17 * var(--k));
+      &::after {
+        --hit: 0px;
+      }
+    }
+  }
+
+  .fl-btn-red {
+    --btn-img: url(/assets/fl/frames/btn-red@2x.png);
+    --btn-img-hover: url(/assets/fl/frames/btn-red-hover@2x.png);
+    --btn-color: #fff;
+    --btn-shadow: 0 2px 0 rgb(0 0 0 / 0.45);
+  }
+
+  .fl-btn-dark {
+    --btn-img: url(/assets/fl/frames/nav@2x.png);
+    --btn-img-hover: url(/assets/fl/frames/nav@2x.png);
+    --btn-color: #f4efe8;
+    --btn-shadow: 0 2px 0 rgb(0 0 0 / 0.6);
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
+  html {
+    min-height: 100%;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+    min-width: 0;
+    overflow-x: clip;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  svg {
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
 }

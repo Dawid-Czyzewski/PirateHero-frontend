@@ -1,18 +1,23 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from "react";
+import { AUTH_CHECK, AUTH_CHECK_BOX, AUTH_VIEW, type AuthView } from "@/components/auth/authStyles";
 
 type CheckboxProps = {
+  view: AuthView;
+  invalid?: boolean;
   children: ReactNode;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "children">;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "children" | "className">;
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-  { children, ...inputProps },
+  { view, invalid = false, children, ...inputProps },
   ref,
 ) {
+  const styles = AUTH_VIEW[view];
+
   return (
-    <label className="check">
-      <input {...inputProps} ref={ref} type="checkbox" />
-      <span className="check__box" aria-hidden="true">
-        <svg viewBox="0 0 16 16">
+    <label className={`${AUTH_CHECK} ${styles.check}`}>
+      <input {...inputProps} ref={ref} type="checkbox" className="peer absolute m-0 h-px w-px opacity-0" />
+      <span className={`${AUTH_CHECK_BOX} ${styles.checkBox}${invalid ? " border-fire" : ""}`} aria-hidden="true">
+        <svg className="h-[72%] w-[72%] text-[#1b1206] opacity-0" viewBox="0 0 16 16">
           <path
             fill="none"
             stroke="currentColor"

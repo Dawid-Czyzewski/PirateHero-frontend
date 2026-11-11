@@ -32,7 +32,7 @@ type UseAuthFormOptions<V extends Record<K, FieldValue>, K extends keyof V & str
   validateField: FieldValidator<V, K>;
   dependentFields?: Partial<Record<K, K>>;
   submit: (values: V) => Promise<AuthResult<K>>;
-  successRoute: string;
+  nextRoute: () => Promise<string>;
   onSuccess?: (values: V) => void;
 };
 
@@ -60,7 +60,7 @@ export function useAuthForm<V extends Record<K, FieldValue>, K extends keyof V &
   validateField,
   dependentFields = {},
   submit,
-  successRoute,
+  nextRoute,
   onSuccess,
 }: UseAuthFormOptions<V, K>): AuthForm<V, K> {
   const router = useRouter();
@@ -116,11 +116,11 @@ export function useAuthForm<V extends Record<K, FieldValue>, K extends keyof V &
     ref: fieldRef(name),
   });
 
-  const applyResult = (result: AuthResult<K>) => {
+  const applyResult = async (result: AuthResult<K>) => {
     if (result.kind === "success") {
       onSuccess?.(values);
       setStatus({ kind: "ok", text: SUCCESS_MESSAGE });
-      router.push(successRoute);
+      router.push(await nextRoute());
       return;
     }
     setLoading(false);
@@ -138,7 +138,7 @@ export function useAuthForm<V extends Record<K, FieldValue>, K extends keyof V &
       return;
     }
     setLoading(true);
-    applyResult(await submit(values));
+    await applyResult(await submit(values));
   };
 
   return { values, errors, loading, status, setValue, validateOnBlur, fieldRef, textField, onSubmit };

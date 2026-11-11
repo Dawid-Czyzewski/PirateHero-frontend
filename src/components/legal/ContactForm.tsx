@@ -1,6 +1,24 @@
 "use client";
 
 import { useRef, useState, type FormEvent } from "react";
+import {
+  CHECK,
+  CHECK_BOX,
+  CONSENT_ERROR,
+  DONE,
+  ERROR,
+  FIELD_GAP,
+  INPUT,
+  LABEL,
+  SELECT,
+  SELECT_PREFIX,
+  SELECT_WRAP,
+  SPINNER,
+  STATUS,
+  SUBMIT,
+  TEXTAREA,
+  TOPIC_LABEL,
+} from "@/components/legal/contactFormStyles";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -103,20 +121,14 @@ export function ContactForm() {
   };
 
   return (
-    <form
-      ref={formRef}
-      className={`cform${sent ? " is-sent" : ""}`}
-      id="contactForm"
-      onSubmit={onSubmit}
-      noValidate
-    >
-      <div className="cform__fields">
-        <div
-          className={`field${errors.name ? " is-invalid" : ""}`}
-          data-field="name"
-        >
-          <label htmlFor="name">Imię lub nick</label>
+    <form ref={formRef} id="contactForm" onSubmit={onSubmit} noValidate>
+      <div className={sent ? "hidden" : undefined}>
+        <div className="relative" data-field="name">
+          <label className={LABEL} htmlFor="name">
+            Imię lub nick
+          </label>
           <input
+            className={INPUT}
             id="name"
             name="name"
             type="text"
@@ -128,16 +140,16 @@ export function ContactForm() {
             onBlur={(e) => touchField("name", e.target.value)}
             onInput={(e) => touchField("name", e.currentTarget.value)}
           />
-          <p className="field__error" id="name-err" aria-live="polite">
+          <p className={ERROR} id="name-err" aria-live="polite">
             {errors.name ?? ""}
           </p>
         </div>
-        <div
-          className={`field${errors.email ? " is-invalid" : ""}`}
-          data-field="email"
-        >
-          <label htmlFor="email">E-mail</label>
+        <div className={`relative ${FIELD_GAP}`} data-field="email">
+          <label className={LABEL} htmlFor="email">
+            E-mail
+          </label>
           <input
+            className={INPUT}
             id="email"
             name="email"
             type="email"
@@ -151,20 +163,20 @@ export function ContactForm() {
             onBlur={(e) => touchField("email", e.target.value)}
             onInput={(e) => touchField("email", e.currentTarget.value)}
           />
-          <p className="field__error" id="email-err" aria-live="polite">
+          <p className={ERROR} id="email-err" aria-live="polite">
             {errors.email ?? ""}
           </p>
         </div>
-        <div
-          className={`field field--topic${errors.topic ? " is-invalid" : ""}`}
-          data-field="topic"
-        >
-          <label htmlFor="topic">Temat</label>
-          <div className="sel">
-            <span className="sel__pre" aria-hidden="true">
+        <div className={`relative ${FIELD_GAP}`} data-field="topic">
+          <label className={TOPIC_LABEL} htmlFor="topic">
+            Temat
+          </label>
+          <div className={SELECT_WRAP}>
+            <span className={SELECT_PREFIX} aria-hidden="true">
               Temat:
             </span>
             <select
+              className={SELECT}
               id="topic"
               name="topic"
               required
@@ -180,16 +192,16 @@ export function ContactForm() {
               <option value="inne">Inne</option>
             </select>
           </div>
-          <p className="field__error" id="topic-err" aria-live="polite">
+          <p className={ERROR} id="topic-err" aria-live="polite">
             {errors.topic ?? ""}
           </p>
         </div>
-        <div
-          className={`field${errors.message ? " is-invalid" : ""}`}
-          data-field="message"
-        >
-          <label htmlFor="message">Wiadomość</label>
+        <div className={`relative ${FIELD_GAP}`} data-field="message">
+          <label className={LABEL} htmlFor="message">
+            Wiadomość
+          </label>
           <textarea
+            className={TEXTAREA}
             id="message"
             name="message"
             rows={4}
@@ -200,16 +212,14 @@ export function ContactForm() {
             onBlur={(e) => touchField("message", e.target.value)}
             onInput={(e) => touchField("message", e.currentTarget.value)}
           />
-          <p className="field__error" id="message-err" aria-live="polite">
+          <p className={ERROR} id="message-err" aria-live="polite">
             {errors.message ?? ""}
           </p>
         </div>
-        <div
-          className={`field field--consent${errors.consent ? " is-invalid" : ""}`}
-          data-field="consent"
-        >
-          <label className="check">
+        <div className={`relative ${FIELD_GAP} desk:mt-20`} data-field="consent">
+          <label className={CHECK}>
             <input
+              className="peer absolute h-px w-px opacity-0"
               type="checkbox"
               id="consent"
               name="consent"
@@ -218,8 +228,8 @@ export function ContactForm() {
               aria-invalid={errors.consent ? true : undefined}
               onChange={() => onChangeField("consent")}
             />
-            <span className="check__box" aria-hidden="true">
-              <svg viewBox="0 0 16 16">
+            <span className={CHECK_BOX} aria-hidden="true">
+              <svg className="size-4/5 opacity-0" viewBox="0 0 16 16">
                 <path
                   fill="none"
                   stroke="currentColor"
@@ -230,42 +240,33 @@ export function ContactForm() {
                 />
               </svg>
             </span>
-            <span>
-              Wyrażam zgodę na przetwarzanie danych w&nbsp;celu odpowiedzi
-              (RODO).
-            </span>
+            <span>Wyrażam zgodę na przetwarzanie danych w&nbsp;celu odpowiedzi (RODO).</span>
           </label>
-          <p className="field__error" id="consent-err" aria-live="polite">
+          <p className={CONSENT_ERROR} id="consent-err" aria-live="polite">
             {errors.consent ?? ""}
           </p>
         </div>
         <button
-          className={`btn btn--red submit${loading ? " is-loading" : ""}`}
+          className={`${SUBMIT}${loading ? " pointer-events-none saturate-[.7]" : ""}`}
           type="submit"
           disabled={loading}
           aria-busy={loading}
-          data-loading="WYSYŁANIE…"
         >
-          <span className="spin" aria-hidden="true" />
-          <span className="label">
-            {loading ? "WYSYŁANIE…" : "Wyślij wiadomość"}
-          </span>
+          {loading ? <span className={SPINNER} aria-hidden="true" /> : null}
+          <span>{loading ? "WYSYŁANIE…" : "Wyślij wiadomość"}</span>
         </button>
-        <p
-          className={`cform__status${status && !sent ? " is-err" : ""}${sent ? " is-ok" : ""}`}
-          role="status"
-          aria-live="polite"
-        >
+        <p className={`${STATUS} text-[#ff6b5e]`} role="status" aria-live="polite">
           {sent ? "" : status}
         </p>
       </div>
-      <div className="cform__done" tabIndex={-1} ref={doneRef}>
-        <h2>Wiadomość wysłana!</h2>
-        <p>
-          Dzięki! Odpiszemy na podany adres e-mail zwykle w&nbsp;1–2 dni
-          robocze.
+      <div className={sent ? DONE : "hidden"} tabIndex={-1} ref={doneRef}>
+        <h2 className="font-cond text-[calc(40*var(--k))] leading-[1.05] font-bold text-ok uppercase">
+          Wiadomość wysłana!
+        </h2>
+        <p className="mt-14 text-[calc(22*var(--k))] leading-[1.35]">
+          Dzięki! Odpiszemy na podany adres e-mail zwykle w&nbsp;1–2 dni robocze.
         </p>
-        <button className="btn btn--gold" type="button" onClick={resetForm}>
+        <button className="fl-btn mx-auto mt-24 h-60 w-320 [--fs:28]" type="button" onClick={resetForm}>
           <span>Napisz kolejną</span>
         </button>
       </div>

@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Inter, Rubik_Wet_Paint } from "next/font/google";
+import localFont from "next/font/local";
 import { SessionExpiryListener } from "@/components/auth/SessionExpiryListener";
 import { CookieBanner } from "@/components/site/CookieBanner";
 import "./globals.css";
-import "@/styles/cookies.css";
 
 const body = Inter({
   variable: "--font-body",
@@ -20,6 +20,27 @@ const marker = Rubik_Wet_Paint({
   variable: "--font-marker",
   weight: "400",
   subsets: ["latin", "latin-ext"],
+});
+
+const barlowCondensed = localFont({
+  variable: "--font-barlow-condensed",
+  display: "swap",
+  src: [
+    { path: "../../public/assets/auth/fonts/BarlowCondensed-Medium.woff2", weight: "500" },
+    { path: "../../public/assets/auth/fonts/BarlowCondensed-SemiBold.woff2", weight: "600" },
+    { path: "../../public/assets/auth/fonts/BarlowCondensed-Bold.woff2", weight: "700" },
+  ],
+});
+
+const barlowSemiCondensed = localFont({
+  variable: "--font-barlow-semi",
+  display: "swap",
+  src: [
+    { path: "../../public/assets/auth/fonts/BarlowSemiCondensed-Regular.woff2", weight: "400" },
+    { path: "../../public/assets/auth/fonts/BarlowSemiCondensed-Medium.woff2", weight: "500" },
+    { path: "../../public/assets/auth/fonts/BarlowSemiCondensed-SemiBold.woff2", weight: "600" },
+    { path: "../../public/assets/auth/fonts/BarlowSemiCondensed-Bold.woff2", weight: "700" },
+  ],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://freaklegends.pl";
@@ -116,7 +137,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pl"
-      className={`${body.variable} ${display.variable} ${marker.variable} h-full antialiased`}
+      className={`${body.variable} ${display.variable} ${marker.variable} ${barlowCondensed.variable} ${barlowSemiCondensed.variable} h-full antialiased [--foot-h:54px] desk-mid:[--foot-h:96px] desk-xl:[--foot-h:64px]`}
     >
       <body className="w-full">
         {children}

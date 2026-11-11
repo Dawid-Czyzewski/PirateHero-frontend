@@ -1,6 +1,8 @@
+const FIELD_ICON = "pointer-events-none absolute top-1/2 block h-auto text-[#f1f0ef] desk:hidden";
+
 export function IconMail() {
   return (
-    <svg className="field__icon" viewBox="0 0 34 26" aria-hidden="true">
+    <svg className={`${FIELD_ICON} left-32 w-35 [transform:translateY(calc(-50%+1.6*var(--k)))]`} viewBox="0 0 34 26" aria-hidden="true">
       <path
         fill="currentColor"
         d="M3 0h28a3 3 0 0 1 3 3v1.2L17 15.6 0 4.2V3a3 3 0 0 1 3-3zM0 7.6l17 11.3L34 7.6V23a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3z"
@@ -12,7 +14,7 @@ export function IconMail() {
 export function IconLock() {
   return (
     <svg
-      className="field__icon field__icon--lock"
+      className={`${FIELD_ICON} left-35 w-29 [transform:translateY(-50%)]`}
       viewBox="0 0 29 38"
       aria-hidden="true"
     >
@@ -26,7 +28,7 @@ export function IconLock() {
 
 export function EyeOn() {
   return (
-    <svg className="eye-on" viewBox="0 0 36 36" aria-hidden="true">
+    <svg viewBox="0 0 36 36" aria-hidden="true">
       <path
         fill="none"
         stroke="currentColor"
@@ -41,7 +43,7 @@ export function EyeOn() {
 
 export function EyeOff() {
   return (
-    <svg className="eye-off" viewBox="0 0 36 36" aria-hidden="true">
+    <svg viewBox="0 0 36 36" aria-hidden="true">
       <path
         fill="none"
         stroke="currentColor"

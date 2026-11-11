@@ -4,13 +4,28 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { ConsentPanel } from "@/components/site/ConsentPanel";
 import {
-  formatConsentStatus,
+  CONSENT_CARD,
+  CONSENT_LINK,
+  CONSENT_SURFACE,
+  DARK_FRAME_BUTTON,
+  GOLD_FRAME_BUTTON,
+} from "@/components/site/consentStyles";
+import {
   parseConsent,
   readConsentRaw,
   subscribeConsent,
   writeConsent,
 } from "@/lib/consent";
 import { useHydrated } from "@/lib/useHydrated";
+
+const BANNER = [
+  "fixed bottom-[calc(10px+env(safe-area-inset-bottom))] left-1/2 z-70 w-[calc(100vw-24px)] max-w-[560px] -translate-x-1/2",
+  "max-h-[30dvh] overflow-auto overscroll-contain px-4 pt-4 pb-3.5",
+  "shadow-[0_12px_40px_rgb(0_0_0/0.75),inset_0_0_0_1px_rgb(240_195_90/0.16)]",
+  "desk:bottom-4 desk:grid desk:max-w-[980px] desk:grid-cols-[1fr_auto] desk:items-center desk:gap-x-7 desk:px-[22px] desk:py-[18px]",
+].join(" ");
+
+const BANNER_BUTTON = "desk:min-w-[170px] desk:flex-none";
 
 export function CookieBanner() {
   const ready = useHydrated();
@@ -58,12 +73,6 @@ export function CookieBanner() {
     };
   }, [banner]);
 
-  useEffect(() => {
-    if (!ready) return;
-    const status = document.querySelector("[data-cookie-status]");
-    if (status) status.textContent = formatConsentStatus(consent);
-  }, [ready, consent, panelOpen]);
-
   if (!ready) return null;
 
   const dismiss = () => setDismissed(true);
@@ -78,39 +87,43 @@ export function CookieBanner() {
       {banner ? (
         <section
           ref={bannerRef}
-          className="ckb"
+          className={`${CONSENT_SURFACE} ${CONSENT_CARD} ${BANNER}`}
           role="dialog"
           aria-modal="false"
           aria-labelledby="ckb-h"
           aria-describedby="ckb-t"
         >
-          <h2 className="ckb__h" id="ckb-h">
+          <h2
+            className="m-0 truncate font-cond text-[22px] leading-[1.1] font-bold tracking-[0.02em] uppercase desk:col-start-1"
+            id="ckb-h"
+          >
             Zanim wejdziesz do klatki
           </h2>
-          <p className="ckb__t" id="ckb-t">
+          <p
+            className="mt-1.5 mb-3 text-[14px] leading-[1.4] text-dust desk:col-start-1 desk:mb-0 desk:text-[15px]"
+            id="ckb-t"
+          >
             Używamy niezbędnych plików cookies, żeby gra działała. Za Twoją
             zgodą także analitycznych i&nbsp;marketingowych.{" "}
-            <Link href="/cookies">Polityka cookies</Link>
+            <Link href="/cookies" className={CONSENT_LINK}>
+              Polityka cookies
+            </Link>
             {" · "}
-            <button
-              type="button"
-              className="ckb__link"
-              data-cookie-settings
-            >
+            <button type="button" className={CONSENT_LINK} data-cookie-settings>
               Ustawienia
             </button>
           </p>
-          <div className="ckb__btns">
+          <div className="flex gap-2.5 desk:col-start-2 desk:row-span-2 desk:row-start-1">
             <button
               type="button"
-              className="ckb__btn"
+              className={`${GOLD_FRAME_BUTTON} ${BANNER_BUTTON}`}
               onClick={() => choose({ analytics: true, marketing: true })}
             >
               Akceptuję wszystkie
             </button>
             <button
               type="button"
-              className="ckb__btn ckb__btn--dark"
+              className={`${DARK_FRAME_BUTTON} ${BANNER_BUTTON}`}
               onClick={() => choose({ analytics: false, marketing: false })}
             >
               Tylko niezbędne

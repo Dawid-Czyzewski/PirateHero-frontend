@@ -1,21 +1,23 @@
+import { AUTH_SPINNER, AUTH_SUBMIT, AUTH_SUBMIT_SKIN, AUTH_VIEW, type AuthView } from "@/components/auth/authStyles";
+
 type SubmitButtonProps = {
-  variant: "btn-gold" | "btn-red";
+  view: AuthView;
+  skin: keyof typeof AUTH_SUBMIT_SKIN;
   loading: boolean;
   label: string;
   loadingLabel: string;
 };
 
-export function SubmitButton({ variant, loading, label, loadingLabel }: SubmitButtonProps) {
+export function SubmitButton({ view, skin, loading, label, loadingLabel }: SubmitButtonProps) {
   return (
     <button
-      className={`auth__submit ${variant}${loading ? " is-loading" : ""}`}
+      className={`${AUTH_SUBMIT} ${AUTH_SUBMIT_SKIN[skin]} ${AUTH_VIEW[view].submit}`}
       type="submit"
       disabled={loading}
       aria-busy={loading}
-      data-loading={loadingLabel}
     >
-      <span className="spin" aria-hidden="true" />
-      <span className="label">{loading ? loadingLabel : label}</span>
+      {loading ? <span className={AUTH_SPINNER} aria-hidden="true" /> : null}
+      <span>{loading ? loadingLabel : label}</span>
     </button>
   );
 }
