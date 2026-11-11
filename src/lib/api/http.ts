@@ -9,6 +9,7 @@ export type ApiResult = ApiResponse | ApiNetworkError;
 export const HttpStatus = {
   unauthorized: 401,
   notFound: 404,
+  conflict: 409,
   unprocessable: 422,
   tooManyRequests: 429,
 } as const;

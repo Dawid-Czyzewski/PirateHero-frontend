@@ -1,16 +1,26 @@
 import type { ReactNode } from "react";
 
 type CreatorActionsProps = {
+  creating: boolean;
   onRandomize: () => void;
+  onCreate: () => void;
 };
 
 const SLANT =
   "min-h-14 -skew-x-12 border-2 px-4 font-display text-[clamp(1.35rem,6vw,1.9rem)] tracking-wider text-white transition lg:text-3xl";
 
-export function CreatorActions({ onRandomize }: CreatorActionsProps) {
+const SPINNER =
+  "size-[0.7em] animate-spin rounded-full border-3 border-white/40 border-t-white motion-reduce:animate-[spin_2.4s_linear_infinite]";
+
+export function CreatorActions({ creating, onRandomize, onCreate }: CreatorActionsProps) {
   return (
     <div className="mt-auto grid grid-cols-[2fr_3fr] gap-3.5 px-1.5 lg:mt-2 lg:grid-cols-[15rem_19rem] lg:justify-center lg:gap-6">
-      <button type="button" className={`${SLANT} border-white/55 bg-black/45 hover:bg-white/10`} onClick={onRandomize}>
+      <button
+        type="button"
+        className={`${SLANT} border-white/55 bg-black/45 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60`}
+        onClick={onRandomize}
+        disabled={creating}
+      >
         <SlantLabel>
           <DiceIcon />
           Losuj
@@ -18,15 +28,16 @@ export function CreatorActions({ onRandomize }: CreatorActionsProps) {
       </button>
       <button
         type="button"
-        className={`${SLANT} border-transparent bg-blood disabled:cursor-not-allowed disabled:brightness-75 disabled:grayscale-[0.35]`}
-        disabled
-        aria-describedby="create-soon"
+        className={`${SLANT} border-transparent bg-blood hover:brightness-110 disabled:cursor-progress disabled:brightness-90`}
+        onClick={onCreate}
+        disabled={creating}
+        aria-busy={creating}
       >
-        <SlantLabel>Stwórz postać</SlantLabel>
+        <SlantLabel>
+          {creating ? <span className={SPINNER} aria-hidden="true" /> : null}
+          {creating ? "Tworzenie…" : "Stwórz postać"}
+        </SlantLabel>
       </button>
-      <p className="sr-only" id="create-soon">
-        Zapis postaci włączymy wkrótce.
-      </p>
     </div>
   );
 }

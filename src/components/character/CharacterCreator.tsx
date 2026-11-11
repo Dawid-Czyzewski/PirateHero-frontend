@@ -3,12 +3,15 @@
 import { AppearancePanel } from "@/components/character/AppearancePanel";
 import { AppearanceTabs } from "@/components/character/AppearanceTabs";
 import { CharacterPreview } from "@/components/character/CharacterPreview";
+import { CreationStatusLine } from "@/components/character/CreationStatusLine";
 import { CreatorActions } from "@/components/character/CreatorActions";
 import { Logo } from "@/components/landing/Logo";
 import { useAppearance } from "@/modules/character/hooks/useAppearance";
+import { useCharacterCreation } from "@/modules/character/hooks/useCharacterCreation";
 
 export function CharacterCreator({ nick }: { nick: string }) {
   const editor = useAppearance();
+  const creation = useCharacterCreation();
 
   return (
     <div className="bg-arena flex min-h-dvh flex-col text-foreground [&_:focus-visible]:outline-3 [&_:focus-visible]:outline-offset-3 [&_:focus-visible]:outline-white">
@@ -20,16 +23,22 @@ export function CharacterCreator({ nick }: { nick: string }) {
           <span className="lg:block">Stwórz</span> <span className="text-blood lg:block">zawodnika</span>
         </h1>
         <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(18rem,1fr)_minmax(16rem,1.1fr)_minmax(18rem,1fr)] lg:items-center lg:gap-8">
-          <AppearancePanel nick={nick} appearance={editor.appearance} step={editor.step} />
+          <AppearancePanel nick={nick} appearance={editor.appearance} errors={creation.errors} step={editor.step} />
           <CharacterPreview appearance={editor.appearance} />
           <AppearanceTabs
             appearance={editor.appearance}
             activePart={editor.activePart}
             selectPart={editor.selectPart}
             choose={editor.choose}
+            errors={creation.errors}
           />
         </div>
-        <CreatorActions onRandomize={editor.randomize} />
+        <CreatorActions
+          creating={creation.submitting}
+          onRandomize={editor.randomize}
+          onCreate={() => void creation.submit(editor.appearance)}
+        />
+        <CreationStatusLine status={creation.status} />
       </main>
     </div>
   );

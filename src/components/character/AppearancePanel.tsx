@@ -1,12 +1,14 @@
 import { AppearanceStepper } from "@/components/character/AppearanceStepper";
 import { APPEARANCE_PARTS, variantPosition } from "@/modules/character/appearance";
+import type { AppearanceErrors } from "@/modules/character/createCharacter";
 import type { AppearanceEditor } from "@/modules/character/hooks/useAppearance";
 
 type AppearancePanelProps = Pick<AppearanceEditor, "appearance" | "step"> & {
   nick: string;
+  errors: AppearanceErrors;
 };
 
-export function AppearancePanel({ nick, appearance, step }: AppearancePanelProps) {
+export function AppearancePanel({ nick, appearance, errors, step }: AppearancePanelProps) {
   return (
     <section
       className="hidden rounded-md border border-white/20 bg-panel px-6 py-5 lg:block"
@@ -22,6 +24,7 @@ export function AppearancePanel({ nick, appearance, step }: AppearancePanelProps
             key={definition.part}
             definition={definition}
             position={variantPosition(appearance, definition.part)}
+            error={errors[definition.part]}
             onStep={step}
           />
         ))}
