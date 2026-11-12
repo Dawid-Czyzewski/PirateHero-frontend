@@ -21,7 +21,7 @@ export function CharacterPreview({ appearance }: { appearance: Appearance }) {
   const tone = skinToneOf(appearance);
 
   return (
-    <figure className="relative m-0 grid justify-items-center pb-6 lg:col-start-2">
+    <figure className="relative m-0 grid justify-items-center pb-6">
       <svg
         className="relative z-10 h-auto w-[min(64vw,16rem)] drop-shadow-[0_0_18px_rgb(225_25_45/0.45)] lg:w-72"
         viewBox="0 0 200 310"
