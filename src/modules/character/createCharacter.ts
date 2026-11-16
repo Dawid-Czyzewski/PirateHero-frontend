@@ -10,6 +10,7 @@ export type CreateCharacterFailure = "network" | "unexpected";
 export type CreateCharacterResult =
   | { kind: "created" }
   | { kind: "exists" }
+  | { kind: "unauthenticated" }
   | { kind: "invalid"; errors: AppearanceErrors }
   | { kind: "failure"; reason: CreateCharacterFailure };
 
@@ -42,6 +43,7 @@ export async function createCharacter(appearance: Appearance): Promise<CreateCha
   const result = await postJson(CHARACTERS_PATH, appearance);
   if (result.kind === "network-error") return { kind: "failure", reason: "network" };
   if (result.status === HttpStatus.conflict) return { kind: "exists" };
+  if (result.status === HttpStatus.unauthorized) return { kind: "unauthenticated" };
   if (result.status === HttpStatus.unprocessable) return invalidFrom(result.body);
   return isSuccessful(result) ? { kind: "created" } : UNEXPECTED;
 }

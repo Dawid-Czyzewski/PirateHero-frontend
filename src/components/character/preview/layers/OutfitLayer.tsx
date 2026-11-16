@@ -3,9 +3,9 @@ import { OUTLINE, PALETTE } from "@/components/character/preview/palette";
 export function OutfitLayer() {
   return (
     <g>
-      <path d="M66 110 Q100 122 134 110 L132 202 Q100 208 68 202 Z" fill={PALETTE.cloth} {...OUTLINE} />
+      <path d="M66 110 Q100 140 134 110 L132 202 Q100 208 68 202 Z" fill={PALETTE.cloth} {...OUTLINE} />
       <path d="M72 196 Q100 202 128 196" fill="none" stroke={PALETTE.blood} strokeWidth={3} />
-      <path d="M86 112 Q100 124 114 112" fill="none" stroke={PALETTE.clothShade} strokeWidth={3} />
+      <path d="M80 121 Q100 140 120 121" fill="none" stroke={PALETTE.clothShade} strokeWidth={3} />
       <path d="M64 198 L136 198 L140 246 L104 249 L100 228 L96 249 L60 246 Z" fill={PALETTE.blood} {...OUTLINE} />
       <path d="M65 199 L135 199 L136 208 L64 208 Z" fill={PALETTE.bloodDeep} />
       <path d="M68 214 L66 244 M132 214 L134 244" stroke={PALETTE.white} strokeWidth={3} strokeLinecap="round" />

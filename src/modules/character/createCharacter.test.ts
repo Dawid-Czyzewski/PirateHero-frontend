@@ -31,6 +31,12 @@ describe("createCharacter", () => {
     expect(await createCharacter(APPEARANCE)).toEqual({ kind: "exists" });
   });
 
+  it("reports an expired session on 401", async () => {
+    postJsonMock.mockResolvedValue(respond(401));
+
+    expect(await createCharacter(APPEARANCE)).toEqual({ kind: "unauthenticated" });
+  });
+
   it("maps 422 violations to Polish messages per part", async () => {
     postJsonMock.mockResolvedValue(
       respond(422, {
@@ -51,7 +57,6 @@ describe("createCharacter", () => {
   it.each([
     ["422 without known parts", respond(422, { violations: [] }), "unexpected"],
     ["server error", respond(500), "unexpected"],
-    ["expired session", respond(401), "unexpected"],
     ["network error", { kind: "network-error" } as const, "network"],
   ])("reports %s as a failure", async (_, result, reason) => {
     postJsonMock.mockResolvedValue(result);

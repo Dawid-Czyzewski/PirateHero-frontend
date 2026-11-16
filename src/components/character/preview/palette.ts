@@ -21,6 +21,8 @@ export const PALETTE = {
   ink: "#1d2233",
   scar: "#b5413e",
   mouth: "#4a0d12",
+  bruise: "#6b3f8a",
+  plaster: "#e8cfa0",
 } as const;
 
 export const OUTLINE = {

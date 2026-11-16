@@ -5,8 +5,10 @@ import { CharacterCreator } from "@/components/character/CharacterCreator";
 import { createCharacter, type CreateCharacterResult } from "@/modules/character/createCharacter";
 
 const push = vi.fn();
+const replace = vi.fn();
+const router = { push, replace };
 
-vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
+vi.mock("next/navigation", () => ({ useRouter: () => router }));
 vi.mock("@/modules/character/createCharacter", () => ({ createCharacter: vi.fn() }));
 
 const createMock = vi.mocked(createCharacter);
@@ -15,52 +17,116 @@ function renderCreator() {
   return { user: userEvent.setup(), ...render(<CharacterCreator nick="Cebulak" />) };
 }
 
+function tiles(part: string) {
+  return within(screen.getByRole("radiogroup", { name: `${part}: wybierz wariant` }));
+}
+
+function preview() {
+  return screen.getByRole("img", { name: /podgląd zawodnika/i });
+}
+
 describe("CharacterCreator", () => {
   afterEach(() => {
     createMock.mockReset();
     push.mockReset();
+    replace.mockReset();
+    vi.restoreAllMocks();
   });
 
-  it("shows the player nick and a counter for every part", () => {
+  it("shows the player nick on the stage and named face variants", () => {
     renderCreator();
 
     expect(screen.getByText("Cebulak")).toBeInTheDocument();
-    expect(screen.getByLabelText("Twarz: wariant 1/8")).toBeInTheDocument();
-    expect(screen.getByLabelText("Skóra: wariant 1/5")).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "Twarz" })).toHaveAttribute("aria-selected", "true");
+    expect(tiles("Twarz").getAllByRole("radio").map((tile) => tile.textContent)).toEqual([
+      "Zakapior",
+      "Luzak",
+      "Wściekły",
+      "Cwaniak",
+      "Zimny drań",
+      "Wesołek",
+      "Bandzior",
+      "Po przejściach",
+    ]);
+    expect(tiles("Twarz").getByRole("radio", { name: "Zakapior" })).toHaveAttribute("aria-checked", "true");
   });
 
-  it("changes variants with the arrows", async () => {
+  it("switches tabs and picks a variant from the tiles", async () => {
     const { user } = renderCreator();
 
-    await user.click(screen.getByRole("button", { name: "Włosy: następny wariant" }));
-    await user.click(screen.getByRole("button", { name: "Włosy: następny wariant" }));
-    await user.click(screen.getByRole("button", { name: "Tatuaż: poprzedni wariant" }));
+    await user.click(screen.getByRole("tab", { name: "Włosy" }));
+    await user.click(tiles("Włosy").getByRole("radio", { name: "Irokez" }));
 
-    expect(screen.getByLabelText("Włosy: wariant 3/8")).toBeInTheDocument();
-    expect(screen.getByLabelText("Tatuaż: wariant 8/8")).toBeInTheDocument();
+    expect(tiles("Włosy").getByRole("radio", { name: "Irokez" })).toHaveAttribute("aria-checked", "true");
+    expect(tiles("Włosy").getByRole("radio", { name: "Na łyso" })).toHaveAttribute("aria-checked", "false");
+    expect(preview()).toHaveAccessibleName(/włosy: Irokez/);
   });
 
-  it("switches tabs and picks a variant from tiles", async () => {
+  it("offers five skin tones", async () => {
     const { user } = renderCreator();
 
     await user.click(screen.getByRole("tab", { name: "Skóra" }));
-    const tiles = screen.getByRole("radiogroup", { name: "Skóra: wybierz wariant" });
-    await user.click(within(tiles).getByRole("radio", { name: "Skóra 4" }));
 
-    expect(screen.getByRole("tab", { name: "Skóra" })).toHaveAttribute("aria-selected", "true");
-    expect(within(tiles).getAllByRole("radio")).toHaveLength(5);
-    expect(within(tiles).getByRole("radio", { name: "Skóra 4" })).toHaveAttribute("aria-checked", "true");
-    expect(screen.getByLabelText("Skóra: wariant 4/5")).toBeInTheDocument();
+    expect(tiles("Skóra").getAllByRole("radio")).toHaveLength(5);
   });
 
-  it("creates the character with the chosen appearance and opens the profile", async () => {
+  it("moves the selection with arrow keys and wraps around", async () => {
+    const { user } = renderCreator();
+
+    await user.click(screen.getByRole("tab", { name: "Broda" }));
+    await user.click(tiles("Broda").getByRole("radio", { name: "Gładko" }));
+    await user.keyboard("{ArrowLeft}");
+
+    expect(tiles("Broda").getByRole("radio", { name: "Podkowa" })).toHaveAttribute("aria-checked", "true");
+    expect(tiles("Broda").getByRole("radio", { name: "Podkowa" })).toHaveFocus();
+    expect(preview()).toHaveAccessibleName(/broda: Podkowa/);
+  });
+
+  it("moves between tabs with arrow keys", async () => {
+    const { user } = renderCreator();
+
+    await user.click(screen.getByRole("tab", { name: "Twarz" }));
+    await user.keyboard("{ArrowLeft}");
+
+    expect(screen.getByRole("tab", { name: "Skóra" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("tab", { name: "Skóra" })).toHaveFocus();
+    expect(screen.getByRole("radiogroup", { name: "Skóra: wybierz wariant" })).toBeInTheDocument();
+  });
+
+  it("randomizes every part with the dice button", async () => {
+    vi.spyOn(Math, "random").mockReturnValue(0.99);
+    const { user } = renderCreator();
+
+    await user.click(screen.getByRole("button", { name: "Losuj wygląd" }));
+
+    expect(preview()).toHaveAccessibleName(
+      "Podgląd zawodnika: twarz: Po przejściach, włosy: Zaczes do tyłu, broda: Podkowa, tatuaż: Dwa iksy, skóra: Ciemna",
+    );
+  });
+
+  it("shows the starting stats", () => {
+    renderCreator();
+
+    const stats = within(screen.getByRole("region", { name: "Statystyki na start" }));
+    expect(stats.getAllByRole("listitem").map((item) => item.textContent)).toEqual([
+      "Siła 1",
+      "Kondycja 1",
+      "Technika 1",
+      "Charyzma 1",
+      "HP 15",
+    ]);
+  });
+
+  it("creates the character with the chosen indexes and opens the profile", async () => {
     createMock.mockResolvedValue({ kind: "created" });
     const { user } = renderCreator();
 
-    await user.click(screen.getByRole("button", { name: "Twarz: następny wariant" }));
+    await user.click(tiles("Twarz").getByRole("radio", { name: "Luzak" }));
+    await user.click(screen.getByRole("tab", { name: "Tatuaż" }));
+    await user.click(tiles("Tatuaż").getByRole("radio", { name: "Dwa iksy" }));
     await user.click(screen.getByRole("button", { name: /stwórz postać/i }));
 
-    expect(createMock).toHaveBeenCalledWith({ face: 1, hair: 0, beard: 0, skin: 0, tattoo: 0 });
+    expect(createMock).toHaveBeenCalledWith({ face: 1, hair: 0, beard: 0, skin: 0, tattoo: 7 });
     await waitFor(() => expect(push).toHaveBeenCalledWith("/postac"));
     expect(screen.getByText(/zawodnik gotowy/i)).toBeInTheDocument();
   });
@@ -79,45 +145,50 @@ describe("CharacterCreator", () => {
     expect(await screen.findByRole("button", { name: /stwórz postać/i })).toBeEnabled();
   });
 
-  it("sends a player who already has a character to the profile", async () => {
+  it("links to the profile when the player already has a character", async () => {
     createMock.mockResolvedValue({ kind: "exists" });
     const { user } = renderCreator();
 
     await user.click(screen.getByRole("button", { name: /stwórz postać/i }));
 
     expect(await screen.findByText(/masz już zawodnika/i)).toBeInTheDocument();
-    expect(push).toHaveBeenCalledWith("/postac");
+    expect(screen.getByRole("link", { name: "Przejdź do postaci" })).toHaveAttribute("href", "/postac");
+    expect(push).not.toHaveBeenCalled();
   });
 
-  it("shows validation errors next to the parts", async () => {
+  it("sends a player with an expired session to the login page", async () => {
+    createMock.mockResolvedValue({ kind: "unauthenticated" });
+    const { user } = renderCreator();
+
+    await user.click(screen.getByRole("button", { name: /stwórz postać/i }));
+
+    await waitFor(() => expect(replace).toHaveBeenCalledWith("/login"));
+    expect(screen.getByText(/sesja wygasła/i)).toBeInTheDocument();
+  });
+
+  it("marks the invalid part and shows its error under the tiles", async () => {
     createMock.mockResolvedValue({ kind: "invalid", errors: { skin: "Skóra: wybierz poprawny wariant." } });
     const { user } = renderCreator();
 
     await user.click(screen.getByRole("button", { name: /stwórz postać/i }));
 
-    expect(await screen.findAllByText("Skóra: wybierz poprawny wariant.")).not.toHaveLength(0);
-    expect(screen.getByRole("group", { name: "Skóra" })).toHaveAccessibleDescription("Skóra: wybierz poprawny wariant.");
-    expect(screen.getByText(/popraw zaznaczone/i)).toBeInTheDocument();
+    expect(await screen.findByText(/popraw zaznaczone/i)).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "Skóra" })).toHaveAttribute("data-invalid", "true");
+    await user.click(screen.getByRole("tab", { name: "Skóra" }));
+    expect(screen.getByRole("tabpanel")).toHaveAccessibleDescription("Skóra: wybierz poprawny wariant.");
     expect(push).not.toHaveBeenCalled();
   });
 
-  it("shows a general message for other errors", async () => {
-    createMock.mockResolvedValue({ kind: "failure", reason: "network" });
+  it("offers a retry after a network error", async () => {
+    createMock.mockResolvedValueOnce({ kind: "failure", reason: "network" });
+    createMock.mockResolvedValueOnce({ kind: "created" });
     const { user } = renderCreator();
 
     await user.click(screen.getByRole("button", { name: /stwórz postać/i }));
-
     expect(await screen.findByText(/brak połączenia z serwerem gry/i)).toBeInTheDocument();
-    expect(push).not.toHaveBeenCalled();
-  });
+    await user.click(screen.getByRole("button", { name: "Spróbuj ponownie" }));
 
-  it("refreshes the preview right after a change", async () => {
-    const { user } = renderCreator();
-
-    await user.click(screen.getByRole("button", { name: "Zarost: następny wariant" }));
-    await user.click(screen.getByRole("tab", { name: "Włosy" }));
-    await user.click(screen.getByRole("radio", { name: "Włosy 3" }));
-
-    expect(screen.getByRole("img", { name: /zarost 2\/8/ })).toHaveAccessibleName(/włosy 3\/8/);
+    expect(createMock).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(push).toHaveBeenCalledWith("/postac"));
   });
 });

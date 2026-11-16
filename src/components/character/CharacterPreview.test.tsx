@@ -24,7 +24,7 @@ describe("CharacterPreview", () => {
     render(<CharacterPreview appearance={withVariant(DEFAULT_APPEARANCE, "beard", 4)} />);
 
     expect(screen.getByRole("img")).toHaveAccessibleName(
-      "Podgląd zawodnika: twarz 1/8, włosy 1/8, zarost 5/8, skóra 1/5, tatuaż 1/8",
+      "Podgląd zawodnika: twarz: Zakapior, włosy: Na łyso, broda: Pełna broda, tatuaż: Czysta skóra, skóra: Blada",
     );
   });
 

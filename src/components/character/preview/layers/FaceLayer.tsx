@@ -5,7 +5,9 @@ type Brows = "flat" | "angry" | "raised";
 type Eyes = "dot" | "narrow" | "wide" | "happy";
 type Mouth = "smirk" | "grin" | "flat" | "frown" | "shout";
 
-type FaceShape = { brows: Brows; eyes: Eyes; mouth: Mouth; scar?: boolean };
+type Mark = "scar" | "battered";
+
+type FaceShape = { brows: Brows; eyes: Eyes; mouth: Mouth; mark?: Mark };
 
 const STROKE = { ...OUTLINE, fill: "none" } as const;
 
@@ -55,27 +57,46 @@ function MouthArt({ mouth }: { mouth: Mouth }) {
   }
 }
 
-function face({ brows, eyes, mouth, scar = false }: FaceShape): LayerArt {
+function Scar() {
+  return <path d="M113 52 L119 74 M114 60 L119 58 M116 67 L121 65" fill="none" stroke={PALETTE.scar} strokeWidth={2} />;
+}
+
+function Bruise() {
+  return <ellipse cx={88} cy={66} rx={9} ry={7} fill={PALETTE.bruise} opacity={0.6} />;
+}
+
+function Plaster() {
+  return (
+    <g transform="rotate(-20 104 62)">
+      <rect x={96} y={59} width={16} height={6} rx={2} fill={PALETTE.plaster} {...OUTLINE} strokeWidth={1.5} />
+      <path d="M102 60 L102 64 M106 60 L106 64" stroke={PALETTE.outline} strokeWidth={1} />
+    </g>
+  );
+}
+
+function face({ brows, eyes, mouth, mark }: FaceShape): LayerArt {
   return function FaceArt() {
     return (
       <g>
+        {mark === "battered" ? <Bruise /> : null}
         <path d={BROWS[brows]} {...STROKE} strokeWidth={3.5} />
         <EyesArt eyes={eyes} />
         <path d="M100 69 L97 78 L103 78" {...STROKE} strokeWidth={2} />
         <MouthArt mouth={mouth} />
-        {scar ? <path d="M113 52 L119 74 M114 60 L119 58 M116 67 L121 65" fill="none" stroke={PALETTE.scar} strokeWidth={2} /> : null}
+        {mark === "scar" ? <Scar /> : null}
+        {mark === "battered" ? <Plaster /> : null}
       </g>
     );
   };
 }
 
 export const FACE_VARIANTS: readonly LayerArt[] = [
-  face({ brows: "flat", eyes: "dot", mouth: "smirk" }),
-  face({ brows: "angry", eyes: "narrow", mouth: "flat" }),
-  face({ brows: "raised", eyes: "dot", mouth: "grin" }),
   face({ brows: "angry", eyes: "dot", mouth: "frown" }),
+  face({ brows: "flat", eyes: "dot", mouth: "smirk" }),
   face({ brows: "angry", eyes: "wide", mouth: "shout" }),
-  face({ brows: "flat", eyes: "narrow", mouth: "smirk", scar: true }),
+  face({ brows: "raised", eyes: "narrow", mouth: "smirk" }),
+  face({ brows: "flat", eyes: "narrow", mouth: "flat" }),
   face({ brows: "raised", eyes: "happy", mouth: "grin" }),
-  face({ brows: "flat", eyes: "narrow", mouth: "flat", scar: true }),
+  face({ brows: "angry", eyes: "dot", mouth: "flat", mark: "scar" }),
+  face({ brows: "flat", eyes: "narrow", mouth: "frown", mark: "battered" }),
 ];

@@ -3,7 +3,15 @@ import { OUTLINE, PALETTE } from "@/components/character/preview/palette";
 
 const CAP = "M71 62 Q69 30 100 30 Q131 30 129 62 Q124 45 100 43 Q76 45 71 62 Z";
 
-const Buzz: LayerArt = () => <path d={CAP} fill={PALETTE.hairDark} {...OUTLINE} />;
+const AFRO_PUFFS: readonly [number, number][] = [
+  [69, 54],
+  [72, 38],
+  [84, 25],
+  [100, 20],
+  [116, 25],
+  [128, 38],
+  [131, 54],
+];
 
 const Spiky: LayerArt = () => (
   <path
@@ -21,27 +29,32 @@ const Mohawk: LayerArt = () => (
   />
 );
 
-const SlickBack: LayerArt = () => (
-  <g>
-    <path d="M70 60 Q68 28 100 27 Q133 28 130 60 Q126 40 100 38 Q76 40 70 60 Z" fill={PALETTE.hairDark} {...OUTLINE} />
-    <path d="M84 34 Q100 30 118 36" fill="none" stroke={PALETTE.hairBrown} strokeWidth={3} strokeLinecap="round" />
+const SideFringe: LayerArt = () => (
+  <g fill={PALETTE.hairBrown} {...OUTLINE}>
+    <path d={CAP} />
+    <path d="M73 60 Q72 40 95 35 Q121 31 129 52 Q117 43 104 47 Q89 52 73 60 Z" />
   </g>
 );
 
-const Curly: LayerArt = () => (
-  <g fill={PALETTE.hairDark} {...OUTLINE}>
-    <circle cx={76} cy={46} r={10} />
-    <circle cx={88} cy={34} r={11} />
-    <circle cx={102} cy={30} r={11} />
-    <circle cx={116} cy={35} r={11} />
-    <circle cx={125} cy={47} r={10} />
+const TopKnot: LayerArt = () => (
+  <g>
+    <circle cx={100} cy={22} r={9} fill={PALETTE.hairDark} {...OUTLINE} />
+    <path d="M94 28 L106 28" stroke={PALETTE.blood} strokeWidth={3} strokeLinecap="round" />
+    <path d={CAP} fill={PALETTE.hairDark} {...OUTLINE} />
   </g>
 );
 
-const ManBun: LayerArt = () => (
-  <g>
-    <circle cx={100} cy={22} r={9} fill={PALETTE.hairBrown} {...OUTLINE} />
-    <path d={CAP} fill={PALETTE.hairBrown} {...OUTLINE} />
+const Afro: LayerArt = () => (
+  <g fill={PALETTE.hairDark}>
+    <g {...OUTLINE}>
+      {AFRO_PUFFS.map(([cx, cy]) => (
+        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={15} />
+      ))}
+    </g>
+    {AFRO_PUFFS.map(([cx, cy]) => (
+      <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={13.5} />
+    ))}
+    <path d="M70 58 Q70 32 100 32 Q130 32 130 58 Q124 45 100 43 Q76 45 70 58 Z" />
   </g>
 );
 
@@ -52,4 +65,11 @@ const Long: LayerArt = () => (
   </g>
 );
 
-export const HAIR_VARIANTS: readonly LayerArt[] = [EMPTY_LAYER, Buzz, Spiky, Mohawk, SlickBack, Curly, ManBun, Long];
+const SlickBack: LayerArt = () => (
+  <g>
+    <path d="M70 60 Q68 28 100 27 Q133 28 130 60 Q126 40 100 38 Q76 40 70 60 Z" fill={PALETTE.hairDark} {...OUTLINE} />
+    <path d="M84 34 Q100 30 118 36" fill="none" stroke={PALETTE.hairBrown} strokeWidth={3} strokeLinecap="round" />
+  </g>
+);
+
+export const HAIR_VARIANTS: readonly LayerArt[] = [EMPTY_LAYER, Spiky, Mohawk, SideFringe, TopKnot, Afro, Long, SlickBack];

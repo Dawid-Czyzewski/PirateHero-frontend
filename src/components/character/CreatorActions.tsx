@@ -7,28 +7,33 @@ type CreatorActionsProps = {
 };
 
 const SLANT =
-  "min-h-14 -skew-x-12 border-2 px-4 font-display text-[clamp(1.35rem,6vw,1.9rem)] tracking-wider text-white transition lg:text-3xl";
+  "min-h-14 -skew-x-12 border-2 px-2 font-cond text-[clamp(1rem,4.6vw,1.5rem)] font-bold tracking-[.04em] whitespace-nowrap text-white uppercase shadow-[4px_4px_0_#000] [text-shadow:0_2px_0_rgb(0_0_0/0.45)] transition duration-150 ease-out lg:text-[1.3rem] xl:text-[1.6rem] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white active:enabled:scale-[0.97]";
+
+const RANDOM_BTN = `${SLANT} border-blood/80 bg-black/70 hover:enabled:bg-blood/15 disabled:cursor-not-allowed disabled:opacity-60`;
+
+const CREATE_BTN = `${SLANT} border-transparent bg-blood hover:enabled:brightness-110 disabled:cursor-progress disabled:brightness-90`;
 
 const SPINNER =
   "size-[0.7em] animate-spin rounded-full border-3 border-white/40 border-t-white motion-reduce:animate-[spin_2.4s_linear_infinite]";
 
 export function CreatorActions({ creating, onRandomize, onCreate }: CreatorActionsProps) {
   return (
-    <div className="mt-auto grid grid-cols-[2fr_3fr] gap-3.5 px-1.5 lg:mt-2 lg:grid-cols-[15rem_19rem] lg:justify-center lg:gap-6">
+    <div className="sticky bottom-0 z-20 -mx-4 mt-auto grid grid-cols-2 gap-3 bg-[linear-gradient(to_top,var(--color-arena)_70%,transparent)] px-5 pt-5 pb-4 lg:static lg:mx-0 lg:mt-1 lg:bg-none lg:px-1.5 lg:py-0">
       <button
         type="button"
-        className={`${SLANT} border-white/55 bg-black/45 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60`}
+        className={RANDOM_BTN}
         onClick={onRandomize}
         disabled={creating}
+        aria-label="Losuj wygląd"
       >
         <SlantLabel>
           <DiceIcon />
-          Losuj
+          Losuj wygląd
         </SlantLabel>
       </button>
       <button
         type="button"
-        className={`${SLANT} border-transparent bg-blood hover:brightness-110 disabled:cursor-progress disabled:brightness-90`}
+        className={CREATE_BTN}
         onClick={onCreate}
         disabled={creating}
         aria-busy={creating}

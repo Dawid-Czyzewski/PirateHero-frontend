@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { AUTH_ROUTES } from "@/modules/auth/authRoutes";
 import type { Appearance } from "@/modules/character/appearance";
 import { CHARACTER_ROUTES } from "@/modules/character/characterRoutes";
 import {
@@ -11,7 +12,9 @@ import {
   type CreateCharacterResult,
 } from "@/modules/character/createCharacter";
 
-export type CreationStatus = { kind: "idle" } | { kind: "ok" | "err"; text: string };
+export type StatusAction = "open-profile" | "retry";
+
+export type CreationStatus = { kind: "idle" } | { kind: "ok" | "err"; text: string; action?: StatusAction };
 
 export type CharacterCreation = {
   submitting: boolean;
@@ -22,13 +25,14 @@ export type CharacterCreation = {
 
 const IDLE: CreationStatus = { kind: "idle" };
 
-const CREATED_MESSAGE = "Zawodnik gotowy! Wchodzisz do oktagonu…";
-const EXISTS_MESSAGE = "Masz już zawodnika. Przenosimy Cię do niego…";
-const INVALID_MESSAGE = "Popraw zaznaczone elementy wyglądu.";
+const CREATED: CreationStatus = { kind: "ok", text: "Zawodnik gotowy! Wchodzisz do oktagonu…" };
+const EXISTS: CreationStatus = { kind: "err", text: "Masz już zawodnika na tym koncie.", action: "open-profile" };
+const INVALID: CreationStatus = { kind: "err", text: "Popraw zaznaczone elementy wyglądu." };
+const SESSION_EXPIRED: CreationStatus = { kind: "err", text: "Sesja wygasła. Przenosimy Cię do logowania…" };
 
-const FAILURE_MESSAGES: Record<CreateCharacterFailure, string> = {
-  network: "Brak połączenia z serwerem gry. Sprawdź internet i spróbuj ponownie.",
-  unexpected: "Nie udało się stworzyć zawodnika. Spróbuj ponownie za chwilę.",
+const FAILURES: Record<CreateCharacterFailure, CreationStatus> = {
+  network: { kind: "err", text: "Brak połączenia z serwerem gry. Sprawdź internet.", action: "retry" },
+  unexpected: { kind: "err", text: "Nie udało się stworzyć zawodnika. Spróbuj za chwilę.", action: "retry" },
 };
 
 export function useCharacterCreation(): CharacterCreation {
@@ -38,28 +42,31 @@ export function useCharacterCreation(): CharacterCreation {
   const [errors, setErrors] = useState<AppearanceErrors>({});
   const [status, setStatus] = useState<CreationStatus>(IDLE);
 
-  const finishWith = (status: CreationStatus) => {
+  const finishWith = (next: CreationStatus) => {
     inFlight.current = false;
     setSubmitting(false);
-    setStatus(status);
+    setStatus(next);
   };
 
   const apply = (result: CreateCharacterResult) => {
     switch (result.kind) {
       case "created":
-        setStatus({ kind: "ok", text: CREATED_MESSAGE });
+        setStatus(CREATED);
         router.push(CHARACTER_ROUTES.profile);
         return;
+      case "unauthenticated":
+        setStatus(SESSION_EXPIRED);
+        router.replace(AUTH_ROUTES.login);
+        return;
       case "exists":
-        setStatus({ kind: "err", text: EXISTS_MESSAGE });
-        router.push(CHARACTER_ROUTES.profile);
+        finishWith(EXISTS);
         return;
       case "invalid":
         setErrors(result.errors);
-        finishWith({ kind: "err", text: INVALID_MESSAGE });
+        finishWith(INVALID);
         return;
       case "failure":
-        finishWith({ kind: "err", text: FAILURE_MESSAGES[result.reason] });
+        finishWith(FAILURES[result.reason]);
     }
   };
 

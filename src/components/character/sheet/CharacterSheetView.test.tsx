@@ -56,7 +56,7 @@ describe("CharacterSheetView", () => {
     render(<CharacterSheetView />);
 
     expect(await screen.findByRole("img", { name: /podgląd zawodnika/i })).toHaveAccessibleName(
-      "Podgląd zawodnika: twarz 4/8, włosy 2/8, zarost 8/8, skóra 5/5, tatuaż 1/8",
+      "Podgląd zawodnika: twarz: Cwaniak, włosy: Na jeża, broda: Podkowa, tatuaż: Czysta skóra, skóra: Ciemna",
     );
   });
 
