@@ -33,7 +33,7 @@ function StatusActionControl({ action, onRetry }: { action: StatusAction; onRetr
 export function CreationStatusLine({ status, onRetry }: CreationStatusLineProps) {
   return (
     <div
-      className={`m-0 flex min-h-6 flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center font-semi text-base font-medium ${STATUS_COLOR[status.kind]}`}
+      className={`m-0 flex flex-wrap empty:min-h-0 not-empty:min-h-6 items-center justify-center gap-x-3 gap-y-1 text-center font-semi text-base font-medium ${STATUS_COLOR[status.kind]}`}
       role="status"
       aria-live="polite"
     >

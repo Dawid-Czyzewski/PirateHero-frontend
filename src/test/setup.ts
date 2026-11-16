@@ -21,11 +21,7 @@ vi.mock("next/link", () => ({
 }));
 
 vi.mock("next/image", () => ({
-  default: ({
-    alt = "",
-    src,
-    ...props
-  }: {
+  default: (props: {
     alt?: string;
     src: string;
     width?: number;
@@ -34,10 +30,15 @@ vi.mock("next/image", () => ({
     priority?: boolean;
     fill?: boolean;
     sizes?: string;
-  }) =>
-    createElement("img", {
+  }) => {
+    const { alt = "", src, fill, priority, sizes, ...rest } = props;
+    void fill;
+    void priority;
+    void sizes;
+    return createElement("img", {
       alt,
       src: typeof src === "string" ? src : "",
-      ...props,
-    }),
+      ...rest,
+    });
+  },
 }));

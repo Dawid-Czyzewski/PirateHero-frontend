@@ -25,7 +25,7 @@ export function VariantTiles({ definition, appearance, onChoose }: VariantTilesP
 
   return (
     <div
-      className="grid grid-cols-4 gap-2 sm:gap-2.5"
+      className="mx-auto grid w-full grid-cols-4 gap-1.5 sm:gap-2.5 desk:max-w-[54dvh]"
       role="radiogroup"
       aria-label={`${label}: wybierz wariant`}
       onKeyDown={moveWithKeys}

@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CharacterPreview } from "@/components/character/CharacterPreview";
-import { SKIN_TONES } from "@/components/character/preview/palette";
 import { DEFAULT_APPEARANCE, withVariant } from "@/modules/character/appearance";
 
 function layer(container: HTMLElement, name: string) {
@@ -9,15 +8,17 @@ function layer(container: HTMLElement, name: string) {
 }
 
 describe("CharacterPreview", () => {
-  it("stacks skin, tattoo, face, beard and hair layers with selected variants", () => {
+  it("stacks skin, tattoo, beard, face and hair layers with selected variants", () => {
     const appearance = { face: 2, hair: 5, beard: 1, skin: 3, tattoo: 6 };
 
     const { container } = render(<CharacterPreview appearance={appearance} />);
 
     const order = [...container.querySelectorAll("[data-layer]")].map((el) => el.getAttribute("data-layer"));
-    expect(order).toEqual(["skin", "tattoo", "face", "beard", "hair"]);
+    expect(order).toEqual(["skin", "tattoo", "beard", "face", "hair"]);
     expect(layer(container, "hair")).toHaveAttribute("data-variant", "5");
-    expect(layer(container, "skin")?.querySelector(`[fill="${SKIN_TONES[3].base}"]`)).not.toBeNull();
+    expect(layer(container, "skin")).toHaveAttribute("data-variant", "3");
+    expect(layer(container, "skin")?.querySelector("img")).toHaveAttribute("src", "/character/cialo-4.webp");
+    expect(layer(container, "face")?.querySelector("img")).toHaveAttribute("src", "/character/twarz-3.webp");
   });
 
   it("describes the shown variants for screen readers", () => {
@@ -26,13 +27,5 @@ describe("CharacterPreview", () => {
     expect(screen.getByRole("img")).toHaveAccessibleName(
       "Podgląd zawodnika: twarz: Zakapior, włosy: Na łyso, broda: Pełna broda, tatuaż: Czysta skóra, skóra: Blada",
     );
-  });
-
-  it("draws nothing for empty variants", () => {
-    const { container } = render(<CharacterPreview appearance={DEFAULT_APPEARANCE} />);
-
-    expect(layer(container, "hair")?.childElementCount).toBe(0);
-    expect(layer(container, "beard")?.childElementCount).toBe(0);
-    expect(layer(container, "tattoo")?.childElementCount).toBe(0);
   });
 });

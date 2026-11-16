@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { CharacterFigure } from "@/components/character/preview/CharacterFigure";
 import { previewLabel } from "@/components/character/preview/previewLabel";
 import type { Appearance } from "@/modules/character/appearance";
+import { SCENE_BACKGROUND_SRC } from "@/modules/character/layerAssets";
 
 type CreatorStageProps = {
   nick: string;
@@ -10,46 +12,56 @@ type CreatorStageProps = {
 
 const ROLL = "origin-bottom animate-roll motion-reduce:animate-none";
 
-const OCTAGON = "75,6 225,6 285,22 285,38 225,54 75,54 15,38 15,22";
-const INNER_OCTAGON = "105,15 195,15 238,25 238,35 195,45 105,45 62,35 62,25";
+const GLOW = [
+  "pointer-events-none absolute top-[42%] left-1/2 z-1 aspect-square w-[min(115%,44rem)] rounded-full",
+  "[transform:translate(-50%,-50%)] animate-aura-pulse motion-reduce:animate-none",
+  "bg-[radial-gradient(closest-side,rgba(255,64,38,.5),rgba(205,26,14,.26)_45%,rgba(150,10,6,.08)_72%,rgba(150,10,6,0))]",
+].join(" ");
 
-function OctagonPlatform() {
-  return (
-    <svg className="relative -mt-[11%] w-full" viewBox="0 0 300 80" aria-hidden="true">
-      <polygon points={OCTAGON} transform="translate(0 16)" fill="#1d1d23" stroke="#0b0b0f" strokeWidth={3} />
-      <polygon points={OCTAGON} fill="#4d4d57" stroke="#0b0b0f" strokeWidth={3} />
-      <polygon points={INNER_OCTAGON} fill="none" stroke="#33333b" strokeWidth={3} />
-      <ellipse cx={150} cy={30} rx={70} ry={14} fill="#e1192d" opacity={0.28} />
-      <ellipse cx={150} cy={31} rx={42} ry={7} fill="#0b0b0f" opacity={0.55} />
-    </svg>
-  );
-}
+
+const FIGHTER =
+  "mx-auto h-full w-auto [filter:drop-shadow(0_0_10px_rgba(255,46,24,.55))_drop-shadow(0_0_32px_rgba(200,20,10,.35))_drop-shadow(0_14px_14px_rgba(0,0,0,.7))]";
+
+const NICK_PLATE = [
+  "absolute bottom-[3%] left-1/2 z-4 m-0 max-w-[90%] -translate-x-1/2 truncate",
+  "border-[12px] border-solid [border-image:url(/assets/fl/frames/plate@2x.png)_40_fill_/_12px_stretch]",
+  "px-4 font-cond text-[clamp(1.15rem,4.6vw,1.6rem)] leading-none font-bold tracking-[.06em] text-[#f3eadb] uppercase [text-shadow:0_2px_0_rgb(0_0_0/0.6)]",
+].join(" ");
 
 export function CreatorStage({ nick, appearance, rolls }: CreatorStageProps) {
   return (
-    <section className="clip-torn bg-parchment p-2 lg:p-2.5" aria-label="Scena zawodnika">
-      <div className="relative flex h-full flex-col items-center justify-center overflow-hidden [background:radial-gradient(ellipse_62%_58%_at_50%_42%,rgb(225_25_45/0.9),rgb(109_10_20/0.6)_55%,transparent_100%),#0b0b0f] px-4 pt-4 pb-4 lg:px-6 lg:pt-8 lg:pb-5">
+    <section className="fl-card relative isolate h-full min-h-0 overflow-hidden" aria-label="Scena zawodnika">
+      <div className="absolute inset-0 overflow-hidden rounded-[4px] bg-[#0b0606]">
+        <Image
+          src={SCENE_BACKGROUND_SRC}
+          alt=""
+          fill
+          priority
+          sizes="(max-width: 900px) 100vw, 50vw"
+          className="object-cover object-[50%_60%]"
+        />
+        <span className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_45%,rgba(7,4,4,0)_0%,rgba(7,4,4,.35)_65%,rgba(7,4,4,.85)_100%)]" aria-hidden="true" />
+        <span className={GLOW} aria-hidden="true" />
         <span
-          className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent_0_26px,rgb(0_0_0/0.18)_26px_27px)]"
+          className="absolute bottom-[6%] left-1/2 z-2 h-[9%] w-[70%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(0,0,0,.85),rgba(0,0,0,.4)_60%,rgba(0,0,0,0))]"
           aria-hidden="true"
         />
-        <div className="relative w-full max-w-[15rem] sm:max-w-[20rem] lg:max-w-[25rem]">
-          <div className="relative z-10 mx-auto w-[64%] animate-idle motion-reduce:animate-none">
-            <div key={rolls} className={rolls > 0 ? ROLL : undefined}>
-              <CharacterFigure
-                appearance={appearance}
-                label={previewLabel(appearance)}
-                animated
-                className="h-auto w-full drop-shadow-[0_6px_10px_rgb(0_0_0/0.55)]"
-              />
-            </div>
-          </div>
-          <OctagonPlatform />
-        </div>
-        <p className="relative m-0 -mt-1 -skew-x-12 border-2 border-black bg-coal px-5 py-1 font-cond text-xl font-bold tracking-[.04em] text-[#f3eadb] uppercase shadow-[3px_3px_0_#000] lg:text-2xl">
-          <span className="inline-block skew-x-12">{nick}</span>
-        </p>
       </div>
+
+      <div className="absolute inset-x-0 top-[3%] bottom-[7%] z-3 flex items-end justify-center">
+        <div key={rolls} className={`h-full ${rolls > 0 ? ROLL : ""}`}>
+          <CharacterFigure
+            appearance={appearance}
+            label={previewLabel(appearance)}
+            animated
+            preload
+            sizes="(max-width: 900px) 80vw, 520px"
+            className={FIGHTER}
+          />
+        </div>
+      </div>
+
+      <p className={NICK_PLATE}>{nick}</p>
     </section>
   );
 }

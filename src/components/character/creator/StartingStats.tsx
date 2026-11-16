@@ -11,19 +11,22 @@ const TILES: readonly StatTile[] = [
 
 export function StartingStats() {
   return (
-    <section aria-labelledby="starting-stats">
-      <h2 className="m-0 mb-1.5 font-cond text-sm font-bold tracking-[.12em] text-ash uppercase" id="starting-stats">
+    <section aria-labelledby="starting-stats" className="min-w-0">
+      <h2
+        className="m-0 mb-1.5 flex items-center gap-2 font-cond text-sm font-bold tracking-[.14em] text-gold uppercase after:h-px after:flex-1 after:bg-[linear-gradient(90deg,rgba(240,195,90,.6),transparent)]"
+        id="starting-stats"
+      >
         Statystyki na start
       </h2>
-      <ul className="m-0 grid list-none grid-cols-5 gap-1.5 p-0 sm:gap-2">
+      <ul className="m-0 grid list-none grid-cols-3 gap-1.5 p-0 min-[30rem]:grid-cols-5 sm:gap-2">
         {TILES.map(({ key, label, value }) => (
           <li
             key={key}
-            className="grid justify-items-center gap-1 rounded-md border border-white/15 bg-panel px-0.5 py-2 text-center"
+            className="flex min-w-0 items-center justify-center gap-1.5 rounded-[4px] border border-[#3a2a1a] bg-[linear-gradient(#1b1210,#0d0808)] px-1 py-1.5 text-center min-[30rem]:flex-col min-[30rem]:gap-0.5 shadow-[inset_0_1px_0_rgba(255,215,122,.12)]"
           >
             {STAT_ICONS[key]}
-            <span className="font-cond text-[0.78rem] leading-tight font-bold tracking-[.02em] uppercase sm:text-sm">
-              {label} {value}
+            <span className="min-w-0 font-cond text-[clamp(0.72rem,3.1vw,0.85rem)] leading-tight [overflow-wrap:anywhere] min-[30rem]:text-[clamp(0.62rem,1.9vw,0.85rem)] desk:text-[clamp(0.7rem,0.9vw,0.85rem)] font-bold tracking-[.02em] text-[#f3eadb] uppercase">
+              {label} <b className="text-gold-light">{value}</b>
             </span>
           </li>
         ))}

@@ -1,53 +1,91 @@
-import { layerArtOf, OVER_OUTFIT, skinToneOf, UNDER_OUTFIT, type ArtPart } from "@/components/character/preview/layerRegistry";
-import { BodyLayer } from "@/components/character/preview/layers/BodyLayer";
-import { OutfitLayer } from "@/components/character/preview/layers/OutfitLayer";
-import type { SkinTone } from "@/components/character/preview/palette";
-import type { Appearance } from "@/modules/character/appearance";
+"use client";
 
-export const FULL_BODY_VIEW = "0 0 200 310";
+import Image from "next/image";
+import {
+  LAYER_STACK,
+  appearanceLayerSrc,
+  type CharacterLayer,
+} from "@/modules/character/layerAssets";
+import type { Appearance, AppearancePart } from "@/modules/character/appearance";
 
 type CharacterFigureProps = {
   appearance: Appearance;
-  viewBox?: string;
   label?: string;
   animated?: boolean;
+  preload?: boolean;
   className?: string;
+  focusPart?: AppearancePart;
+  sizes?: string;
 };
 
-const POP = "origin-center animate-layer-pop [transform-box:fill-box] motion-reduce:animate-none";
+const POP = "animate-layer-pop motion-reduce:animate-none";
 
-type PartLayersProps = { parts: readonly ArtPart[]; appearance: Appearance; tone: SkinTone; animated: boolean };
+const FOCUS_FRAME: Record<AppearancePart, string> = {
+  face: "origin-[50%_12.5%] [transform:translateY(37.5%)_scale(3.1)]",
+  hair: "origin-[50%_10%] [transform:translateY(40%)_scale(2.5)]",
+  beard: "origin-[50%_15%] [transform:translateY(35%)_scale(2.8)]",
+  tattoo: "origin-[50%_27%] [transform:translateY(23%)_scale(1.55)]",
+  skin: "origin-[50%_24%] [transform:translateY(26%)_scale(1.6)]",
+};
 
-function PartLayers({ parts, appearance, tone, animated }: PartLayersProps) {
-  return parts.map((part) => (
-    <g
-      key={animated ? `${part}-${appearance[part]}` : part}
-      data-layer={part}
-      data-variant={appearance[part]}
-      className={animated ? POP : undefined}
+function LayerImage({
+  layer,
+  appearance,
+  animated,
+  priority,
+  sizes,
+}: {
+  layer: CharacterLayer;
+  appearance: Appearance;
+  animated: boolean;
+  priority: boolean;
+  sizes: string;
+}) {
+  const variant = layer === "skin" ? appearance.skin : appearance[layer];
+  return (
+    <span
+      data-layer={layer}
+      data-variant={String(variant)}
+      className={`absolute inset-0 ${animated ? POP : ""}`}
     >
-      {layerArtOf(appearance, part)({ tone })}
-    </g>
-  ));
+      <Image
+        src={appearanceLayerSrc(appearance, layer)}
+        alt=""
+        fill
+        sizes={sizes}
+        priority={priority}
+        className="object-contain object-bottom"
+      />
+    </span>
+  );
 }
 
-export function CharacterFigure({ appearance, viewBox = FULL_BODY_VIEW, label, animated = false, className }: CharacterFigureProps) {
-  const tone = skinToneOf(appearance);
-  const a11y = label ? { role: "img", "aria-label": label } : { "aria-hidden": true };
+export function CharacterFigure({
+  appearance,
+  label,
+  animated = false,
+  preload = false,
+  className,
+  focusPart,
+  sizes = "(max-width: 900px) 70vw, 480px",
+}: CharacterFigureProps) {
+  const a11y = label ? { role: "img" as const, "aria-label": label } : { "aria-hidden": true as const };
+  const focusClass = focusPart ? FOCUS_FRAME[focusPart] : "";
 
   return (
-    <svg className={className} viewBox={viewBox} {...a11y}>
-      <g
-        key={animated ? `skin-${appearance.skin}` : "skin"}
-        data-layer="skin"
-        data-variant={appearance.skin}
-        className={animated ? POP : undefined}
-      >
-        <BodyLayer tone={tone} />
-      </g>
-      <PartLayers parts={UNDER_OUTFIT} appearance={appearance} tone={tone} animated={animated} />
-      <OutfitLayer />
-      <PartLayers parts={OVER_OUTFIT} appearance={appearance} tone={tone} animated={animated} />
-    </svg>
+    <div className={`relative aspect-[2/3] overflow-hidden ${className ?? ""}`} {...a11y}>
+      <div className={`absolute inset-0 ${focusClass}`}>
+        {LAYER_STACK.map((layer, index) => (
+          <LayerImage
+            key={`${layer}-${layer === "skin" ? appearance.skin : appearance[layer]}`}
+            layer={layer}
+            appearance={appearance}
+            animated={animated}
+            priority={preload || index === 0}
+            sizes={sizes}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

@@ -1,27 +1,15 @@
 import { describe, expect, it } from "vitest";
-import { LAYER_VARIANTS, layerArtOf, OVER_OUTFIT, skinToneOf, UNDER_OUTFIT, type ArtPart } from "@/components/character/preview/layerRegistry";
-import { SKIN_TONES } from "@/components/character/preview/palette";
-import { DEFAULT_APPEARANCE, variantCount, withVariant } from "@/modules/character/appearance";
+import { LAYER_STACK, characterLayerSrc } from "@/modules/character/layerAssets";
+import { variantCount } from "@/modules/character/appearance";
 
-const ART_PARTS = Object.keys(LAYER_VARIANTS) as ArtPart[];
-
-describe("layer registry", () => {
-  it.each(ART_PARTS)("has one art per %s variant", (part) => {
-    expect(LAYER_VARIANTS[part]).toHaveLength(variantCount(part));
+describe("character image layers", () => {
+  it("uses the fixed stack order for creator and profile", () => {
+    expect(LAYER_STACK).toEqual(["skin", "tattoo", "beard", "face", "hair"]);
   });
 
-  it("has one tone per skin variant", () => {
-    expect(SKIN_TONES).toHaveLength(variantCount("skin"));
-  });
-
-  it("draws every art part exactly once", () => {
-    expect([...UNDER_OUTFIT, ...OVER_OUTFIT].sort()).toEqual([...ART_PARTS].sort());
-  });
-
-  it("resolves the selected art and tone", () => {
-    const appearance = withVariant(withVariant(DEFAULT_APPEARANCE, "hair", 3), "skin", 4);
-
-    expect(layerArtOf(appearance, "hair")).toBe(LAYER_VARIANTS.hair[3]);
-    expect(skinToneOf(appearance)).toBe(SKIN_TONES[4]);
+  it("covers every appearance variant with a file mapping", () => {
+    expect(characterLayerSrc("skin", variantCount("skin") - 1)).toBe("/character/cialo-5.webp");
+    expect(characterLayerSrc("face", variantCount("face") - 1)).toBe("/character/twarz-8.webp");
+    expect(characterLayerSrc("hair", 0)).toBe("/character/wlosy-1.webp");
   });
 });

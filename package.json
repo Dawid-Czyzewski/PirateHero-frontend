@@ -10,7 +10,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:e2e": "playwright test",
-    "check:responsive": "node scripts/check-responsive.mjs http://localhost:3000"
+    "check:responsive": "node scripts/check-responsive.mjs http://localhost:3000",
+    "assets:character": "node scripts/prepare-character-assets.mjs"
   },
   "dependencies": {
     "next": "16.4.2",
@@ -32,6 +33,7 @@
     "eslint-config-next": "16.4.2",
     "jsdom": "^29.1.1",
     "playwright": "^1.64.1",
+    "sharp": "^0.34.2",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^3.2.4"

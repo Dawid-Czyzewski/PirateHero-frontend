@@ -14,7 +14,6 @@ type ArtPictureProps = {
   fetchPriority?: "high" | "low" | "auto";
 };
 
-/** Desktop/mobile <picture> from mockup cuts (no next/image). */
 export function ArtPicture({
   srcD,
   srcM,

@@ -11,6 +11,14 @@ type AppearancePickerProps = Pick<AppearanceEditor, "appearance" | "activePart" 
 
 const PANEL_ID = "appearance-tiles";
 
+const TAB = [
+  "relative min-h-11 min-w-0 flex-[1_0_4.3rem] snap-start border-[9px] border-solid px-0 font-cond text-[clamp(0.85rem,3.4vw,1.05rem)] leading-none font-bold tracking-[.03em] uppercase",
+  "text-[#f4efe8] [text-shadow:0_2px_0_rgb(0_0_0/0.6)] [border-image:url(/assets/fl/frames/nav@2x.png)_40_fill_/_9px_stretch]",
+  "transition-[filter] duration-150 hover:brightness-125",
+  "aria-selected:text-[#1d1206] aria-selected:[text-shadow:0_1px_0_rgb(255_230_160/0.35)] aria-selected:[border-image:url(/assets/fl/frames/btn-gold@2x.png)_40_fill_/_9px_stretch]",
+  "data-invalid:not-aria-selected:text-[#ff6b5e] desk:min-h-12 desk:text-[clamp(0.9rem,1.15vw,1.15rem)]",
+].join(" ");
+
 export function AppearancePicker({ appearance, activePart, selectPart, choose, errors }: AppearancePickerProps) {
   const active = APPEARANCE_PARTS.find(({ part }) => part === activePart) ?? APPEARANCE_PARTS[0];
   const activeError = errors[active.part];
@@ -25,11 +33,8 @@ export function AppearancePicker({ appearance, activePart, selectPart, choose, e
   };
 
   return (
-    <section
-      className="grid grid-cols-[minmax(0,1fr)] gap-3 rounded-lg border-2 border-blood/45 bg-panel p-2.5 shadow-[0_0_24px_rgb(225_25_45/0.15)] sm:p-3.5"
-      aria-label="Wygląd zawodnika"
-    >
-      <div className="grid grid-cols-5 gap-1.5" role="tablist" aria-label="Części wyglądu" onKeyDown={moveWithKeys}>
+    <section className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-3" aria-label="Wygląd zawodnika">
+      <div className="-mx-1 flex snap-x gap-1 overflow-x-auto px-1 pb-0.5 [scrollbar-width:none] sm:gap-1.5 [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="Części wyglądu" onKeyDown={moveWithKeys}>
         {APPEARANCE_PARTS.map(({ part, label }) => (
           <button
             key={part}
@@ -40,17 +45,17 @@ export function AppearancePicker({ appearance, activePart, selectPart, choose, e
             tabIndex={part === activePart ? 0 : -1}
             aria-controls={PANEL_ID}
             data-invalid={errors[part] ? true : undefined}
-            className="min-h-10 -skew-x-12 border-2 border-blood/55 bg-black/40 px-0.5 font-cond text-[clamp(0.95rem,4vw,1.2rem)] font-bold text-[#f3eadb] uppercase italic transition hover:bg-blood/20 aria-selected:border-blood aria-selected:bg-blood aria-selected:text-white data-invalid:not-aria-selected:text-[#ff6b5e]"
+            className={TAB}
             onClick={() => selectPart(part)}
           >
-            <span className="inline-block skew-x-12">{label}</span>
+            {label}
           </button>
         ))}
       </div>
       <div id={PANEL_ID} role="tabpanel" aria-labelledby={`tab-${active.part}`} aria-describedby={activeError ? "tiles-error" : undefined}>
         <VariantTiles definition={active} appearance={appearance} onChoose={choose} />
         {activeError ? (
-          <p className="mt-2 mb-0 text-sm text-[#ff6b5e]" id="tiles-error">
+          <p className="mt-2 mb-0 font-semi text-sm text-[#ff6b5e]" id="tiles-error">
             {activeError}
           </p>
         ) : null}
