@@ -1,31 +1,35 @@
-import { CharacterPreview } from "@/components/character/CharacterPreview";
-import { EquipmentSlots } from "@/components/character/sheet/EquipmentSlots";
-import { FighterBadge } from "@/components/character/sheet/FighterBadge";
-import { StatList } from "@/components/character/sheet/StatList";
-import { WalletList } from "@/components/character/sheet/WalletList";
-import { Logo } from "@/components/landing/Logo";
-import type { CharacterSheet } from "@/modules/character/characterSheet";
+import { AvatarStage } from "@/components/character/avatar/AvatarStage";
+import { CurrencyCard } from "@/components/character/sheet/CurrencyCard";
+import { EquipmentCard } from "@/components/character/sheet/EquipmentCard";
+import { FighterCard } from "@/components/character/sheet/FighterCard";
+import { SheetTitle } from "@/components/character/sheet/SheetTitle";
+import { StatsCard } from "@/components/character/sheet/StatsCard";
+import { GameScreenShell } from "@/components/game/GameScreenShell";
+import { StageLayout } from "@/components/game/StageLayout";
+import { CURRENCY_GROUPS, type CharacterSheet } from "@/modules/character/characterSheet";
+import { SHEET_PANEL, WIDE_CARD } from "@/components/character/sheet/sheetLayout";
 
 export function CharacterSheetScreen({ character }: { character: CharacterSheet }) {
   return (
-    <div className="bg-arena flex min-h-dvh flex-col text-foreground">
-      <header className="px-4 pt-4 lg:px-8 lg:pt-5">
-        <Logo />
-      </header>
-      <main className="mx-auto flex w-full max-w-300 flex-1 flex-col gap-5 px-4 pt-2 pb-8 lg:px-8">
-        <h1 className="m-0 -rotate-3 text-center font-marker text-[clamp(2.6rem,11vw,3.4rem)] leading-[0.9] font-normal uppercase [text-shadow:0_4px_0_rgb(0_0_0/0.6)] lg:text-[clamp(3.5rem,6vw,5rem)]">
-          Twoja <span className="text-blood">postać</span>
-        </h1>
-        <div className="grid gap-4 lg:grid-cols-[minmax(17rem,1fr)_minmax(18rem,1.15fr)_minmax(17rem,1fr)] lg:grid-rows-[auto_1fr] lg:items-start lg:gap-8">
-          <FighterBadge nick={character.nick} level={character.level} maxHp={character.maxHp} />
-          <div className="grid gap-3 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-            <CharacterPreview appearance={character.appearance} />
-            <EquipmentSlots />
-          </div>
-          <StatList stats={character.stats} className="lg:col-start-1 lg:row-start-2" />
-          <WalletList wallet={character.wallet} className="lg:col-start-3 lg:row-span-2 lg:row-start-1" />
+    <GameScreenShell label="Postać">
+      <StageLayout
+        title={<SheetTitle />}
+        stage={<AvatarStage nick={character.nick} appearance={character.appearance} />}
+        panelClassName={SHEET_PANEL}
+      >
+        <div className={WIDE_CARD}>
+          <FighterCard level={character.level} maxHp={character.maxHp} />
         </div>
-      </main>
-    </div>
+        <StatsCard stats={character.stats} />
+        <div className="grid gap-3">
+          {CURRENCY_GROUPS.map((group) => (
+            <CurrencyCard key={group.id} group={group} wallet={character.wallet} />
+          ))}
+        </div>
+        <div className={WIDE_CARD}>
+          <EquipmentCard />
+        </div>
+      </StageLayout>
+    </GameScreenShell>
   );
 }

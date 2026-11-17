@@ -8,7 +8,7 @@ import {
 } from "@/modules/character/layerAssets";
 import type { Appearance, AppearancePart } from "@/modules/character/appearance";
 
-type CharacterFigureProps = {
+type CharacterAvatarProps = {
   appearance: Appearance;
   label?: string;
   animated?: boolean;
@@ -60,7 +60,7 @@ function LayerImage({
   );
 }
 
-export function CharacterFigure({
+export function CharacterAvatar({
   appearance,
   label,
   animated = false,
@@ -68,7 +68,7 @@ export function CharacterFigure({
   className,
   focusPart,
   sizes = "(max-width: 900px) 70vw, 480px",
-}: CharacterFigureProps) {
+}: CharacterAvatarProps) {
   const a11y = label ? { role: "img" as const, "aria-label": label } : { "aria-hidden": true as const };
   const focusClass = focusPart ? FOCUS_FRAME[focusPart] : "";
 

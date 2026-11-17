@@ -1,4 +1,4 @@
-import { CharacterFigure } from "@/components/character/preview/CharacterFigure";
+import { CharacterAvatar } from "@/components/character/avatar/CharacterAvatar";
 import type { Appearance, AppearancePart } from "@/modules/character/appearance";
 
 type VariantTileProps = {
@@ -19,7 +19,7 @@ export function VariantTile({ part, name, appearance, checked, onSelect }: Varia
   return (
     <button type="button" role="radio" aria-checked={checked} tabIndex={checked ? 0 : -1} className={TILE} onClick={onSelect}>
       <span className="relative block aspect-square overflow-hidden rounded-[3px] bg-[radial-gradient(circle_at_50%_38%,#5a1418,#1a0b0c_58%,#0b0606)] ring-0 ring-gold group-aria-checked:ring-2">
-        <CharacterFigure
+        <CharacterAvatar
           appearance={appearance}
           focusPart={part}
           sizes="(max-width: 900px) 70vw, 360px"

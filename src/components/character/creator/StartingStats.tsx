@@ -1,4 +1,5 @@
-import { STAT_ICONS, type StatIconKey } from "@/components/character/creator/statIcons";
+import { SectionHeading } from "@/components/character/SectionHeading";
+import { STAT_ICONS, type StatIconKey } from "@/components/character/icons/statIcons";
 import { STATS } from "@/modules/character/characterSheet";
 import { STARTING_MAX_HP, STARTING_STATS } from "@/modules/character/startingStats";
 
@@ -12,12 +13,7 @@ const TILES: readonly StatTile[] = [
 export function StartingStats() {
   return (
     <section aria-labelledby="starting-stats" className="min-w-0">
-      <h2
-        className="m-0 mb-1.5 flex items-center gap-2 font-cond text-sm font-bold tracking-[.14em] text-gold uppercase after:h-px after:flex-1 after:bg-[linear-gradient(90deg,rgba(240,195,90,.6),transparent)]"
-        id="starting-stats"
-      >
-        Statystyki na start
-      </h2>
+      <SectionHeading id="starting-stats">Statystyki na start</SectionHeading>
       <ul className="m-0 grid list-none grid-cols-3 gap-1.5 p-0 min-[30rem]:grid-cols-5 sm:gap-2">
         {TILES.map(({ key, label, value }) => (
           <li

@@ -39,16 +39,20 @@ describe("CharacterSheetView", () => {
 
     expect(await screen.findByText("Cebulak")).toBeInTheDocument();
     expect(screen.getByText("Poziom 3")).toBeInTheDocument();
-    expect(screen.getByText("45 HP")).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Poziom i zdrowie" })).toHaveTextContent("45 HP");
 
     const stats = screen.getByRole("region", { name: "Statystyki" });
     expect(termValue(stats, "Siła")).toBe("4");
     expect(termValue(stats, "Charyzma")).toBe("5");
 
-    const wallet = screen.getByRole("region", { name: "Waluty" });
+    const wallet = screen.getByRole("region", { name: "Portfel" });
     expect(termValue(wallet, "Cebuliony")).toMatch(/^12\s500$/);
     expect(termValue(wallet, "Złote Zęby")).toBe("10");
-    expect(termValue(wallet, "Medale")).toBe("2");
+
+    const resources = screen.getByRole("region", { name: "Zasoby" });
+    expect(termValue(resources, "Kondycha")).toBe("100");
+    expect(termValue(resources, "Zasięgi")).toBe("0");
+    expect(termValue(resources, "Medale")).toBe("2");
   });
 
   it("draws the saved appearance with the creator preview", async () => {
@@ -72,6 +76,14 @@ describe("CharacterSheetView", () => {
       "Buty: pusty slot",
       "Dodatek: pusty slot",
     ]);
+  });
+
+  it("shows a skeleton while loading", () => {
+    fetchMock.mockReturnValue(new Promise(() => undefined));
+    render(<CharacterSheetView />);
+
+    expect(screen.getByRole("status")).toHaveAttribute("aria-busy", "true");
+    expect(screen.getByRole("status")).toHaveTextContent("Wczytujemy zawodnika…");
   });
 
   it.each([

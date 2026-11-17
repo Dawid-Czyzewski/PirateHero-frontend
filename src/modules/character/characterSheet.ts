@@ -32,3 +32,14 @@ export const CURRENCIES: readonly { key: CurrencyKey; label: string }[] = [
   { key: "zasiegi", label: "Zasięgi" },
   { key: "medale", label: "Medale" },
 ];
+
+export type CurrencyGroup = { id: string; title: string; currencies: readonly CurrencyKey[] };
+
+export const CURRENCY_GROUPS: readonly CurrencyGroup[] = [
+  { id: "wallet", title: "Portfel", currencies: ["cebuliony", "zloteZeby"] },
+  { id: "resources", title: "Zasoby", currencies: ["kondycha", "zasiegi", "medale"] },
+];
+
+export function currencyLabel(key: CurrencyKey): string {
+  return CURRENCIES.find((currency) => currency.key === key)?.label ?? key;
+}

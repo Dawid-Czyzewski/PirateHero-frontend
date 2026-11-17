@@ -1,13 +1,14 @@
 import Image from "next/image";
-import { CharacterFigure } from "@/components/character/preview/CharacterFigure";
-import { previewLabel } from "@/components/character/preview/previewLabel";
+import { avatarLabel } from "@/components/character/avatar/avatarLabel";
+import { CharacterAvatar } from "@/components/character/avatar/CharacterAvatar";
 import type { Appearance } from "@/modules/character/appearance";
 import { SCENE_BACKGROUND_SRC } from "@/modules/character/layerAssets";
 
-type CreatorStageProps = {
+type AvatarStageProps = {
   nick: string;
   appearance: Appearance;
-  rolls: number;
+  rolls?: number;
+  animated?: boolean;
 };
 
 const ROLL = "origin-bottom animate-roll motion-reduce:animate-none";
@@ -18,7 +19,6 @@ const GLOW = [
   "bg-[radial-gradient(closest-side,rgba(255,64,38,.5),rgba(205,26,14,.26)_45%,rgba(150,10,6,.08)_72%,rgba(150,10,6,0))]",
 ].join(" ");
 
-
 const FIGHTER =
   "mx-auto h-full w-auto [filter:drop-shadow(0_0_10px_rgba(255,46,24,.55))_drop-shadow(0_0_32px_rgba(200,20,10,.35))_drop-shadow(0_14px_14px_rgba(0,0,0,.7))]";
 
@@ -28,39 +28,46 @@ const NICK_PLATE = [
   "px-4 font-cond text-[clamp(1.15rem,4.6vw,1.6rem)] leading-none font-bold tracking-[.06em] text-[#f3eadb] uppercase [text-shadow:0_2px_0_rgb(0_0_0/0.6)]",
 ].join(" ");
 
-export function CreatorStage({ nick, appearance, rolls }: CreatorStageProps) {
+function StageBackdrop() {
+  return (
+    <div className="absolute inset-0 overflow-hidden rounded-[4px] bg-[#0b0606]">
+      <Image
+        src={SCENE_BACKGROUND_SRC}
+        alt=""
+        fill
+        priority
+        sizes="(max-width: 900px) 100vw, 50vw"
+        className="object-cover object-[50%_60%]"
+      />
+      <span
+        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_45%,rgba(7,4,4,0)_0%,rgba(7,4,4,.35)_65%,rgba(7,4,4,.85)_100%)]"
+        aria-hidden="true"
+      />
+      <span className={GLOW} aria-hidden="true" />
+      <span
+        className="absolute bottom-[6%] left-1/2 z-2 h-[9%] w-[70%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(0,0,0,.85),rgba(0,0,0,.4)_60%,rgba(0,0,0,0))]"
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
+
+export function AvatarStage({ nick, appearance, rolls = 0, animated = false }: AvatarStageProps) {
   return (
     <section className="fl-card relative isolate h-full min-h-0 overflow-hidden" aria-label="Scena zawodnika">
-      <div className="absolute inset-0 overflow-hidden rounded-[4px] bg-[#0b0606]">
-        <Image
-          src={SCENE_BACKGROUND_SRC}
-          alt=""
-          fill
-          priority
-          sizes="(max-width: 900px) 100vw, 50vw"
-          className="object-cover object-[50%_60%]"
-        />
-        <span className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_45%,rgba(7,4,4,0)_0%,rgba(7,4,4,.35)_65%,rgba(7,4,4,.85)_100%)]" aria-hidden="true" />
-        <span className={GLOW} aria-hidden="true" />
-        <span
-          className="absolute bottom-[6%] left-1/2 z-2 h-[9%] w-[70%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(0,0,0,.85),rgba(0,0,0,.4)_60%,rgba(0,0,0,0))]"
-          aria-hidden="true"
-        />
-      </div>
-
+      <StageBackdrop />
       <div className="absolute inset-x-0 top-[3%] bottom-[7%] z-3 flex items-end justify-center">
         <div key={rolls} className={`h-full ${rolls > 0 ? ROLL : ""}`}>
-          <CharacterFigure
+          <CharacterAvatar
             appearance={appearance}
-            label={previewLabel(appearance)}
-            animated
+            label={avatarLabel(appearance)}
+            animated={animated}
             preload
             sizes="(max-width: 900px) 80vw, 520px"
             className={FIGHTER}
           />
         </div>
       </div>
-
       <p className={NICK_PLATE}>{nick}</p>
     </section>
   );

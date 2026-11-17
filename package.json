@@ -14,7 +14,7 @@
     "assets:character": "node scripts/prepare-character-assets.mjs"
   },
   "dependencies": {
-    "next": "16.4.2",
+    "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
@@ -30,12 +30,12 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^4.5.2",
     "eslint": "^9",
-    "eslint-config-next": "16.4.2",
+    "eslint-config-next": "16.4.6",
     "jsdom": "^29.1.1",
     "playwright": "^1.64.1",
-    "sharp": "^0.34.2",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^3.2.4"
+    "vitest": "^4.1.12"
   }
 }
