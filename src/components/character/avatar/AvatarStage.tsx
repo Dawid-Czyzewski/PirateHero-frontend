@@ -23,7 +23,7 @@ const FIGHTER =
   "mx-auto h-full w-auto [filter:drop-shadow(0_0_10px_rgba(255,46,24,.55))_drop-shadow(0_0_32px_rgba(200,20,10,.35))_drop-shadow(0_14px_14px_rgba(0,0,0,.7))]";
 
 const NICK_PLATE = [
-  "absolute bottom-[3%] left-1/2 z-4 m-0 max-w-[90%] -translate-x-1/2 truncate",
+  "absolute bottom-[3%] left-1/2 z-4 m-0 w-max max-w-[90%] -translate-x-1/2 text-center [overflow-wrap:anywhere]",
   "border-[12px] border-solid [border-image:url(/assets/fl/frames/plate@2x.png)_40_fill_/_12px_stretch]",
   "px-4 font-cond text-[clamp(1.15rem,4.6vw,1.6rem)] leading-none font-bold tracking-[.06em] text-[#f3eadb] uppercase [text-shadow:0_2px_0_rgb(0_0_0/0.6)]",
 ].join(" ");

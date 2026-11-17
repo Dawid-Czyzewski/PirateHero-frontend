@@ -12,7 +12,7 @@ export function EquipmentCard() {
             <span className="relative block aspect-square w-full max-w-24">
               <Image src={EQUIPMENT_SLOT_SRC} alt="" fill sizes="96px" className="object-contain opacity-80" />
             </span>
-            <span className="font-cond text-[clamp(0.7rem,3vw,0.9rem)] leading-tight font-bold tracking-[.03em] text-ash uppercase">
+            <span className="font-cond text-[0.85rem] leading-tight font-bold tracking-[.03em] [overflow-wrap:anywhere] text-[#c9c3bb] uppercase sm:text-sm">
               {label}
               <span className="sr-only">: pusty slot</span>
             </span>

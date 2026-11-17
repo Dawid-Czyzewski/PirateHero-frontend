@@ -37,6 +37,7 @@ export function CharacterCreator({ nick }: { nick: string }) {
       <StageLayout
         title={<CreatorTitle />}
         stage={<AvatarStage nick={nick} appearance={editor.appearance} rolls={editor.rolls} animated />}
+        reserveBottomBar
         panelClassName="fl-panel gap-3 p-[calc(26*var(--k))] desk:gap-[clamp(0.4rem,1.3vh,0.9rem)] desk:p-[calc(30*var(--k))]"
       >
         <AppearancePicker
