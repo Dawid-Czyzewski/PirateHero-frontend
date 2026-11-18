@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Logo } from "@/components/landing/Logo";
 
 type GameScreenShellProps = {
-  label: string;
+  label?: string;
   children: ReactNode;
 };
 
@@ -22,10 +22,12 @@ export function GameScreenShell({ label, children }: GameScreenShellProps) {
   return (
     <div className={ROOT}>
       <div className={BACKDROP} aria-hidden="true" />
-      <header className="relative z-2 mx-auto flex w-full max-w-[40rem] items-center justify-between gap-3 px-3 pt-3 pb-1 sm:px-4 desk:max-w-[min(100%-3rem,88rem)] desk:px-0 desk:pt-3 desk:pb-2">
-        <Logo />
-        <p className="m-0 font-cond text-xs font-bold tracking-[.18em] text-gold uppercase sm:text-sm">{label}</p>
-      </header>
+      {label ? (
+        <header className="relative z-2 mx-auto flex w-full max-w-[40rem] items-center justify-between gap-3 px-3 pt-3 pb-1 sm:px-4 desk:max-w-[min(100%-3rem,88rem)] desk:px-0 desk:pt-3 desk:pb-2">
+          <Logo />
+          <p className="m-0 font-cond text-xs font-bold tracking-[.18em] text-gold uppercase sm:text-sm">{label}</p>
+        </header>
+      ) : null}
       {children}
     </div>
   );

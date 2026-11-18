@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { avatarLabel } from "@/components/character/avatar/avatarLabel";
 import { CharacterAvatar } from "@/components/character/avatar/CharacterAvatar";
 import type { Appearance } from "@/modules/character/appearance";
@@ -9,9 +10,13 @@ type AvatarStageProps = {
   appearance: Appearance;
   rolls?: number;
   animated?: boolean;
+  overlay?: ReactNode;
+  openTop?: boolean;
 };
 
 const ROLL = "origin-bottom animate-roll motion-reduce:animate-none";
+
+const OPEN_TOP = "desk:border-t-0 desk:[&>div:first-child]:rounded-t-none";
 
 const GLOW = [
   "pointer-events-none absolute top-[42%] left-1/2 z-1 aspect-square w-[min(115%,44rem)] rounded-full",
@@ -52,9 +57,9 @@ function StageBackdrop() {
   );
 }
 
-export function AvatarStage({ nick, appearance, rolls = 0, animated = false }: AvatarStageProps) {
+export function AvatarStage({ nick, appearance, rolls = 0, animated = false, overlay, openTop = false }: AvatarStageProps) {
   return (
-    <section className="fl-card relative isolate h-full min-h-0 overflow-hidden" aria-label="Scena zawodnika">
+    <section className={`fl-card relative isolate h-full min-h-0 overflow-hidden ${openTop ? OPEN_TOP : ""}`} aria-label="Scena zawodnika">
       <StageBackdrop />
       <div className="absolute inset-x-0 top-[3%] bottom-[7%] z-3 flex items-end justify-center">
         <div key={rolls} className={`h-full ${rolls > 0 ? ROLL : ""}`}>
@@ -68,6 +73,7 @@ export function AvatarStage({ nick, appearance, rolls = 0, animated = false }: A
           />
         </div>
       </div>
+      {overlay}
       <p className={NICK_PLATE}>{nick}</p>
     </section>
   );
