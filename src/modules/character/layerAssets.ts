@@ -29,11 +29,11 @@ export const SCENE_BACKGROUND_SRC = "/character/tlo-sceny.webp";
 export const CREATOR_HEADER_SRC = "/character/naglowek.webp";
 
 export const CURRENCY_ICON_SRC = {
-  cebuliony: "/icons/ikona-cebuliony.png",
-  zloteZeby: "/icons/ikona-zlote-zeby.png",
-  kondycha: "/icons/ikona-kondycha.png",
-  zasiegi: "/icons/ikona-zasiegi.png",
-  medale: "/icons/ikona-medale.png",
+  onions: "/icons/ikona-cebuliony.png",
+  goldTeeth: "/icons/ikona-zlote-zeby.png",
+  energy: "/icons/ikona-kondycha.png",
+  reach: "/icons/ikona-zasiegi.png",
+  medals: "/icons/ikona-medale.png",
 } as const;
 
 export const EQUIPMENT_SLOT_SRC = "/icons/slot-ekwipunku.png";

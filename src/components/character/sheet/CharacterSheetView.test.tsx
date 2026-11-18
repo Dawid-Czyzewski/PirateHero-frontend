@@ -19,7 +19,7 @@ const CHARACTER: CharacterSheet = {
   level: 3,
   maxHp: 45,
   stats: { strength: 4, endurance: 2, technique: 1, charisma: 5 },
-  wallet: { cebuliony: 12500, zloteZeby: 10, kondycha: 100, zasiegi: 0, medale: 2 },
+  wallet: { onions: 12500, goldTeeth: 10, energy: 100, reach: 0, medals: 2 },
   appearance: { face: 3, hair: 1, beard: 7, skin: 4, tattoo: 0 },
 };
 

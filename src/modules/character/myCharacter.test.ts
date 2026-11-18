@@ -12,7 +12,7 @@ const CHARACTER = {
   level: 3,
   maxHp: 45,
   stats: { strength: 4, endurance: 2, technique: 1, charisma: 5 },
-  wallet: { cebuliony: 1250, zloteZeby: 10, kondycha: 100, zasiegi: 0, medale: 2 },
+  wallet: { onions: 1250, goldTeeth: 10, energy: 100, reach: 0, medals: 2 },
   appearance: { face: 3, hair: 1, beard: 7, skin: 4, tattoo: 0 },
 };
 
@@ -47,7 +47,7 @@ describe("fetchMyCharacter", () => {
     ["missing nick", { ...CHARACTER, nick: undefined }],
     ["text level", { ...CHARACTER, level: "3" }],
     ["missing stat", { ...CHARACTER, stats: { strength: 4, endurance: 2, technique: 1 } }],
-    ["negative amount", { ...CHARACTER, wallet: { ...CHARACTER.wallet, medale: -1 } }],
+    ["negative amount", { ...CHARACTER, wallet: { ...CHARACTER.wallet, medals: -1 } }],
     ["unknown variant", { ...CHARACTER, appearance: { ...CHARACTER.appearance, skin: 5 } }],
     ["empty body", null],
   ])("treats a response with %s as unavailable", async (_, body) => {
