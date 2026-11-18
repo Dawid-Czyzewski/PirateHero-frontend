@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { FighterCard } from "@/components/character/sheet/FighterCard";
 
 function renderCard() {
-  render(<FighterCard level={3} experience={{ current: 120, required: 300 }} maxHp={45} />);
+  render(<FighterCard level={3} experience={{ current: 120, required: 300 }} maxHp={45} aside={<p>Portfel</p>} />);
 }
 
 describe("FighterCard", () => {
@@ -11,6 +11,7 @@ describe("FighterCard", () => {
     renderCard();
 
     expect(screen.getByText("Poziom 3")).toBeInTheDocument();
+    expect(screen.getByText("Portfel")).toBeInTheDocument();
     expect(screen.getByText(/do poziomu 4/)).toHaveTextContent("Brakuje 180 XP do poziomu 4");
   });
 

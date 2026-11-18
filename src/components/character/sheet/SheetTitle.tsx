@@ -1,7 +1,8 @@
+import { ImageTitle } from "@/components/game/ImageTitle";
+import { SHEET_HEADER } from "@/modules/character/layerAssets";
+
+const SHEET_TITLE_SIZE = "w-[min(100%,11.5rem)] desk:w-[min(100%,16rem)]";
+
 export function SheetTitle() {
-  return (
-    <span className="block -rotate-2 text-center font-cond text-[clamp(2.4rem,11vw,3.6rem)] leading-[0.9] font-bold tracking-[.02em] text-[#f3eadb] uppercase italic [text-shadow:0_3px_0_#000,0_0_18px_rgb(0_0_0/0.8)] desk:text-[clamp(3rem,4.4vw,4.6rem)]">
-      Twoja <span className="text-blood">postać</span>
-    </span>
-  );
+  return <ImageTitle label="Twoja postać" art={SHEET_HEADER} className={SHEET_TITLE_SIZE} />;
 }

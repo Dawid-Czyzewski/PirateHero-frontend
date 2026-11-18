@@ -26,7 +26,8 @@ export function appearanceLayerSrc(appearance: Appearance, layer: CharacterLayer
 }
 
 export const SCENE_BACKGROUND_SRC = "/character/tlo-sceny.webp";
-export const CREATOR_HEADER_SRC = "/character/naglowek.webp";
+export const CREATOR_HEADER = { src: "/character/naglowek.webp", width: 1200, height: 490 } as const;
+export const SHEET_HEADER = { src: "/character/naglowek-postac.webp", width: 1460, height: 313 } as const;
 
 export const CURRENCY_ICON_SRC = {
   onions: "/icons/ikona-cebuliony.png",

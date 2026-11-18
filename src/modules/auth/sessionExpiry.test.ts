@@ -15,6 +15,7 @@ describe("endExpiredSession", () => {
     const order: string[] = [];
     logoutMock.mockImplementation(async () => {
       order.push("logout");
+      return true;
     });
     const replace = vi.fn(() => {
       order.push("redirect");

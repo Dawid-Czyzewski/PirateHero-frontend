@@ -51,6 +51,6 @@ export async function registerAndLogin(registration: Registration): Promise<Auth
   return invalidOrFailure(result);
 }
 
-export async function logout(): Promise<void> {
-  await postJson(LOGOUT_PATH, {});
+export async function logout(): Promise<boolean> {
+  return isSuccessful(await postJson(LOGOUT_PATH, {}));
 }

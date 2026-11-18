@@ -80,11 +80,19 @@ describe("logout", () => {
     postJsonMock.mockReset();
   });
 
-  it("asks the API to end the session", async () => {
+  it("asks the API to end the session and reports success", async () => {
     postJsonMock.mockResolvedValue(respond(204));
 
-    await logout();
-
+    expect(await logout()).toBe(true);
     expect(postJsonMock).toHaveBeenCalledWith("/api/auth/logout", {});
+  });
+
+  it.each([
+    ["server error", respond(500)],
+    ["network error", { kind: "network-error" } as const],
+  ])("reports a failed logout on %s", async (_, result) => {
+    postJsonMock.mockResolvedValue(result);
+
+    expect(await logout()).toBe(false);
   });
 });

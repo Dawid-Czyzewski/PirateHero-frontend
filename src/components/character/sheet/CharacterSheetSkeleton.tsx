@@ -8,7 +8,7 @@ const BLOCK = "fl-card animate-pulse bg-white/5 motion-reduce:animate-none";
 const PLACEHOLDERS = [
   { id: "fighter", size: `h-16 ${WIDE_CARD}` },
   { id: "stats", size: "h-52" },
-  { id: "wallet", size: "h-52" },
+  { id: "resources", size: "h-52" },
   { id: "equipment", size: `h-36 ${WIDE_CARD}` },
 ] as const;
 

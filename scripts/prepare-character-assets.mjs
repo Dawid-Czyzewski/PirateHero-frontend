@@ -11,6 +11,7 @@ const OUT_ICONS = path.join(ROOT, "public", "icons");
 
 const FRAME = { width: 1024, height: 1536 };
 const ICON = { width: 512, height: 512 };
+const BANNER = { width: 1536, height: 512 };
 const GREEN = { r: 0, g: 255, b: 0 };
 const GREEN_DISTANCE = 90;
 
@@ -25,22 +26,30 @@ const SHEETS = {
 const SINGLES = [
   { file: "06-naglowek.jpg", out: "naglowek", kind: "banner" },
   { file: "06-tlo-sceny.jpg", out: "tlo-sceny", kind: "scene" },
+  { file: "09-naglowek-postac.jpg", out: "naglowek-postac", kind: "banner", trim: true },
 ];
 
 const ICONS = [
-  { file: "07-ikona-cebuliony.jpg", out: "ikona-cebuliony.png" },
-  { file: "07-ikona-cebuliony.png", out: "ikona-cebuliony.png" },
-  { file: "07-ikona-zlote-zeby.jpg", out: "ikona-zlote-zeby.png" },
-  { file: "07-ikona-zlote-zeby.png", out: "ikona-zlote-zeby.png" },
-  { file: "07-ikona-kondycha.jpg", out: "ikona-kondycha.png" },
-  { file: "07-ikona-kondycha.png", out: "ikona-kondycha.png" },
-  { file: "07-ikona-zasiegi.jpg", out: "ikona-zasiegi.png" },
-  { file: "07-ikona-zasiegi.png", out: "ikona-zasiegi.png" },
-  { file: "07-ikona-medale.jpg", out: "ikona-medale.png" },
-  { file: "07-ikona-medale.png", out: "ikona-medale.png" },
-  { file: "07-slot-ekwipunku.jpg", out: "slot-ekwipunku.png" },
-  { file: "07-slot-ekwipunku.png", out: "slot-ekwipunku.png" },
+  { source: "07-ikona-cebuliony", out: "ikona-cebuliony.png" },
+  { source: "07-ikona-zlote-zeby", out: "ikona-zlote-zeby.png" },
+  { source: "07-ikona-kondycha", out: "ikona-kondycha.png" },
+  { source: "07-ikona-zasiegi", out: "ikona-zasiegi.png" },
+  { source: "07-ikona-medale", out: "ikona-medale.png" },
+  { source: "07-slot-ekwipunku", out: "slot-ekwipunku.png" },
+  { source: "08-menu-postac", out: "menu-character.png" },
+  { source: "08-menu-trening", out: "menu-training.png" },
+  { source: "08-menu-zlecenia", out: "menu-jobs.png" },
+  { source: "08-menu-oktagon", out: "menu-octagon.png" },
+  { source: "08-menu-ranking", out: "menu-ranking.png" },
+  { source: "08-menu-sklep", out: "menu-shop.png" },
 ];
+
+const ICON_SOURCE_EXTENSIONS = [".jpg", ".png"];
+
+const ARGS = process.argv.slice(2);
+const ONLY_PREFIX = "--only=";
+const ONLY = new Set(ARGS.filter((arg) => arg.startsWith(ONLY_PREFIX)).map((arg) => arg.slice(ONLY_PREFIX.length)));
+const STAGES = new Set(ARGS.filter((arg) => !arg.startsWith("--")));
 
 function isGreen(r, g, b, distance = GREEN_DISTANCE) {
   const dr = r - GREEN.r;
@@ -60,8 +69,9 @@ function cleanBannerRgba(rgba) {
     const g = data[i + 1];
     const b = data[i + 2];
 
-    if (g > r + 12 && g > b + 12) {
-      data[i + 1] = Math.max(r, b);
+    const despilled = Math.round((r + b) / 2);
+    if (g > despilled + 12) {
+      data[i + 1] = despilled;
     }
 
     const max = Math.max(r, g, b);
@@ -150,6 +160,13 @@ async function toFramePng(keyed, size) {
     .toBuffer();
 }
 
+async function toTrimmedPng(keyed) {
+  return sharp(keyed.data, { raw: { width: keyed.width, height: keyed.height, channels: 4 } })
+    .trim({ background: { r: 0, g: 0, b: 0, alpha: 0 }, threshold: 0 })
+    .png()
+    .toBuffer();
+}
+
 async function saveWebpAndPng(buffer, basePath) {
   await sharp(buffer).webp({ quality: 90 }).toFile(`${basePath}.webp`);
   await sharp(buffer).png().toFile(`${basePath}.png`);
@@ -230,13 +247,12 @@ async function processPartFolder(folderName, config, report) {
 }
 
 async function processSingles(report) {
-  for (const item of SINGLES) {
+  for (const item of SINGLES.filter(isSelected)) {
     const src = path.join(SOURCE, item.file);
     try {
       const rgba = await loadRgba(src);
       const keyed = item.kind === "banner" ? cleanBannerRgba(rgba) : chromaKey(rgba);
-      const size = item.kind === "banner" ? { width: 1536, height: 512 } : FRAME;
-      const png = await toFramePng(keyed, size);
+      const png = item.trim ? await toTrimmedPng(keyed) : await toFramePng(keyed, item.kind === "banner" ? BANNER : FRAME);
       const base = path.join(OUT_CHARACTER, item.out);
       await saveWebpAndPng(png, base);
       report.written.push(`${item.out}.webp`);
@@ -246,31 +262,36 @@ async function processSingles(report) {
   }
 }
 
-async function processIcons(report) {
-  const done = new Set();
-  for (const item of ICONS) {
-    if (done.has(item.out)) continue;
-    const src = path.join(SOURCE, item.file);
+async function loadFirstRgba(basePath, extensions) {
+  for (const extension of extensions) {
     try {
-      const keyed = chromaKey(await loadRgba(src));
-      const png = await toFramePng(keyed, ICON);
-      await sharp(png).png().toFile(path.join(OUT_ICONS, item.out));
-      report.written.push(`icons/${item.out}`);
-      done.add(item.out);
+      return await loadRgba(`${basePath}${extension}`);
     } catch {
       continue;
     }
   }
-  for (const name of [
-    "ikona-cebuliony.png",
-    "ikona-zlote-zeby.png",
-    "ikona-kondycha.png",
-    "ikona-zasiegi.png",
-    "ikona-medale.png",
-    "slot-ekwipunku.png",
-  ]) {
-    if (!done.has(name)) report.missing.push(`icons/${name}`);
+  return null;
+}
+
+async function processIcons(report) {
+  for (const item of ICONS.filter(isSelected)) {
+    const rgba = await loadFirstRgba(path.join(SOURCE, item.source), ICON_SOURCE_EXTENSIONS);
+    if (!rgba) {
+      report.missing.push(`icons/${item.out}`);
+      continue;
+    }
+    const png = await toFramePng(chromaKey(rgba), ICON);
+    await sharp(png).png().toFile(path.join(OUT_ICONS, item.out));
+    report.written.push(`icons/${item.out}`);
   }
+}
+
+function isSelected(item) {
+  return ONLY.size === 0 || ONLY.has(item.out);
+}
+
+function runs(stage) {
+  return STAGES.size === 0 || STAGES.has(stage);
 }
 
 function analyzeAlignment(report) {
@@ -303,26 +324,31 @@ async function main() {
 
   const report = { written: [], missing: [], warnings: [], bboxes: [], alignment: null };
 
-  for (const [folder, config] of Object.entries(SHEETS)) {
-    await processPartFolder(folder, config, report);
+  if (runs("parts")) {
+    for (const [folder, config] of Object.entries(SHEETS)) {
+      await processPartFolder(folder, config, report);
+    }
+    analyzeAlignment(report);
   }
-  await processSingles(report);
-  await processIcons(report);
-  analyzeAlignment(report);
+  if (runs("singles")) await processSingles(report);
+  if (runs("icons")) await processIcons(report);
 
-  const reportPath = path.join(OUT_CHARACTER, "asset-report.json");
-  await writeFile(reportPath, JSON.stringify(report, null, 2));
+  if (runs("parts")) {
+    const reportPath = path.join(OUT_CHARACTER, "asset-report.json");
+    await writeFile(reportPath, JSON.stringify(report, null, 2));
+    console.log(`Raport: ${reportPath}`);
+  }
   console.log(`Zapisano ${report.written.length} plików.`);
   if (report.warnings.length) console.log("Ostrzeżenia:\n- " + report.warnings.join("\n- "));
   if (report.missing.length) console.log("Braki:\n- " + report.missing.join("\n- "));
-  if (report.alignment?.drifted?.length) {
+  if (!report.alignment) return;
+  if (report.alignment.drifted.length) {
     console.log("Dryf kadru względem ciała:");
     for (const d of report.alignment.drifted) console.log(`- ${d.id}: Δx=${d.dMinX} Δy=${d.dMinY}`);
   } else {
     console.log("Kadr względem ciała: OK (bez istotnego przesunięcia).");
   }
-  console.log(report.alignment?.note ?? "");
-  console.log(`Raport: ${reportPath}`);
+  console.log(report.alignment.note);
 }
 
 main().catch((err) => {

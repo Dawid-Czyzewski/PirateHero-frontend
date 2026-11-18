@@ -6,10 +6,10 @@ export function CurrencyIcon({ currency }: { currency: CurrencyIconKey }) {
     <Image
       src={CURRENCY_ICON_SRC[currency]}
       alt=""
-      width={40}
-      height={40}
-      sizes="40px"
-      className="size-9 shrink-0 object-contain drop-shadow-[0_2px_3px_rgb(0_0_0/0.7)] desk:size-10"
+      width={36}
+      height={36}
+      sizes="36px"
+      className="size-9 shrink-0 object-contain drop-shadow-[0_2px_3px_rgb(0_0_0/0.7)]"
     />
   );
 }
