@@ -1,5 +1,5 @@
 import { APPEARANCE_PARTS, isValidVariant, type Appearance } from "@/modules/character/appearance";
-import { CURRENCIES, STATS, type CharacterSheet } from "@/modules/character/characterSheet";
+import { CURRENCIES, STATS, type CharacterSheet, type Experience } from "@/modules/character/characterSheet";
 
 type JsonObject = Record<string, unknown>;
 
@@ -22,6 +22,12 @@ function appearanceOf(value: unknown): Appearance | null {
   return APPEARANCE_PARTS.every(({ part }) => isValidVariant(part, appearance[part])) ? appearance : null;
 }
 
+function experienceOf(value: unknown): Experience | null {
+  const experience = countsOf(value, ["current", "required"] as const);
+  if (!experience) return null;
+  return experience.required > 0 && experience.current < experience.required ? experience : null;
+}
+
 export function parseCharacterSheet(body: unknown): CharacterSheet | null {
   if (!isObject(body)) return null;
   const { id, nick, level, maxHp } = body;
@@ -30,7 +36,8 @@ export function parseCharacterSheet(body: unknown): CharacterSheet | null {
   const stats = countsOf(body.stats, STATS.map(({ key }) => key));
   const wallet = countsOf(body.wallet, CURRENCIES.map(({ key }) => key));
   const appearance = appearanceOf(body.appearance);
-  if (!stats || !wallet || !appearance) return null;
+  const experience = experienceOf(body.experience);
+  if (!stats || !wallet || !appearance || !experience) return null;
 
-  return { id, nick, level, maxHp, stats, wallet, appearance };
+  return { id, nick, level, maxHp, experience, stats, wallet, appearance };
 }

@@ -18,7 +18,7 @@ export function CharacterSheetScreen({ character }: { character: CharacterSheet 
         panelClassName={SHEET_PANEL}
       >
         <div className={WIDE_CARD}>
-          <FighterCard level={character.level} maxHp={character.maxHp} />
+          <FighterCard level={character.level} experience={character.experience} maxHp={character.maxHp} />
         </div>
         <StatsCard stats={character.stats} />
         <div className="grid gap-3">

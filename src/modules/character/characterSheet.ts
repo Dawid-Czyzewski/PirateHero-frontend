@@ -8,11 +8,14 @@ export type CharacterStats = Record<StatKey, number>;
 
 export type Wallet = Record<CurrencyKey, number>;
 
+export type Experience = { current: number; required: number };
+
 export type CharacterSheet = {
   id: string;
   nick: string;
   level: number;
   maxHp: number;
+  experience: Experience;
   stats: CharacterStats;
   wallet: Wallet;
   appearance: Appearance;

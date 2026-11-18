@@ -18,6 +18,7 @@ const CHARACTER: CharacterSheet = {
   nick: "Cebulak",
   level: 3,
   maxHp: 45,
+  experience: { current: 120, required: 300 },
   stats: { strength: 4, endurance: 2, technique: 1, charisma: 5 },
   wallet: { onions: 12500, goldTeeth: 10, energy: 100, reach: 0, medals: 2 },
   appearance: { face: 3, hair: 1, beard: 7, skin: 4, tattoo: 0 },

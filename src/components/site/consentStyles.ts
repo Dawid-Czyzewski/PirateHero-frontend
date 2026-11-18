@@ -15,7 +15,7 @@ export const CONSENT_LINK = [
 ].join(" ");
 
 const FRAME_BUTTON = [
-  "flex min-h-11 flex-[1_1_0] cursor-pointer items-center justify-center whitespace-nowrap px-1",
+  "flex min-h-11 flex-[1_1_auto] cursor-pointer items-center justify-center whitespace-nowrap px-1",
   "border-[14px] border-solid bg-transparent font-cond text-[16px] leading-none font-bold tracking-[0.04em] uppercase",
   "hover:brightness-110",
 ].join(" ");

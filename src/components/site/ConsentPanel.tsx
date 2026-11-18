@@ -192,7 +192,7 @@ export function ConsentPanel({
             )}
           </div>
         ))}
-        <div className="mt-3.5 flex gap-2.5">
+        <div className="mt-3.5 flex flex-wrap gap-2.5">
           <button
             type="button"
             className={GOLD_FRAME_BUTTON}

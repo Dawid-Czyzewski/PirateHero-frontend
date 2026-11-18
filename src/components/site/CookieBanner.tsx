@@ -20,7 +20,7 @@ import { useHydrated } from "@/lib/useHydrated";
 
 const BANNER = [
   "fixed bottom-[calc(10px+env(safe-area-inset-bottom))] left-1/2 z-70 w-[calc(100vw-24px)] max-w-[560px] -translate-x-1/2",
-  "max-h-[30dvh] overflow-auto overscroll-contain px-4 pt-4 pb-3.5",
+  "max-h-[45dvh] overflow-auto overscroll-contain px-4 pt-4 pb-3.5",
   "shadow-[0_12px_40px_rgb(0_0_0/0.75),inset_0_0_0_1px_rgb(240_195_90/0.16)]",
   "desk:bottom-4 desk:grid desk:max-w-[980px] desk:grid-cols-[1fr_auto] desk:items-center desk:gap-x-7 desk:px-[22px] desk:py-[18px]",
 ].join(" ");
@@ -113,7 +113,7 @@ export function CookieBanner() {
               Ustawienia
             </button>
           </p>
-          <div className="flex gap-2.5 desk:col-start-2 desk:row-span-2 desk:row-start-1">
+          <div className="flex flex-wrap gap-2.5 desk:col-start-2 desk:row-span-2 desk:row-start-1">
             <button
               type="button"
               className={`${GOLD_FRAME_BUTTON} ${BANNER_BUTTON}`}
