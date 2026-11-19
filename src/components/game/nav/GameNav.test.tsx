@@ -40,8 +40,8 @@ describe("SideMenu", () => {
   it("shows screens that do not exist yet as inactive with a coming soon label", () => {
     render(<SideMenu pathname="/postac" />);
 
-    expect(nav().getAllByRole("link")).toHaveLength(1);
-    for (const label of ["Trening", "Zlecenia", "Oktagon", "Ranking", "Sklep"]) {
+    expect(nav().getAllByRole("link").map((link) => link.getAttribute("href"))).toEqual(["/postac", "/trening"]);
+    for (const label of ["Zlecenia", "Oktagon", "Ranking", "Sklep"]) {
       const entry = nav().getByText(label).parentElement;
       expect(entry).toHaveTextContent(`${label}Wkrótce`);
       expect(entry?.closest("a")).toBeNull();

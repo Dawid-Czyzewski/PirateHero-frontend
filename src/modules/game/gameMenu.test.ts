@@ -3,12 +3,13 @@ import { GAME_MENU, isCurrentPage, PRIMARY_MENU, SECONDARY_MENU } from "@/module
 
 const character = GAME_MENU.find((item) => item.id === "character")!;
 const training = GAME_MENU.find((item) => item.id === "training")!;
+const jobs = GAME_MENU.find((item) => item.id === "jobs")!;
 
 describe("game menu", () => {
-  it("lists the screens in Hero Zero order with only the profile available", () => {
+  it("lists the screens in Hero Zero order with the profile and training available", () => {
     expect(GAME_MENU.map((item) => [item.label, item.available])).toEqual([
       ["Postać", true],
-      ["Trening", false],
+      ["Trening", true],
       ["Zlecenia", false],
       ["Oktagon", false],
       ["Ranking", false],
@@ -25,9 +26,10 @@ describe("game menu", () => {
     expect(isCurrentPage(character, "/postac")).toBe(true);
     expect(isCurrentPage(character, "/postac/ekwipunek")).toBe(true);
     expect(isCurrentPage(character, "/postacie")).toBe(false);
+    expect(isCurrentPage(training, "/trening")).toBe(true);
   });
 
   it("never marks a screen that is not available yet", () => {
-    expect(isCurrentPage(training, "/postac")).toBe(false);
+    expect(isCurrentPage(jobs, "/postac")).toBe(false);
   });
 });

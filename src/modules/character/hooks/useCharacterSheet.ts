@@ -15,9 +15,13 @@ export type CharacterSheetState =
 export type CharacterSheetSession = {
   state: CharacterSheetState;
   retry: () => void;
+  refresh: () => void;
+  replaceCharacter: (character: CharacterSheet) => void;
 };
 
 const LOADING: CharacterSheetState = { kind: "loading" };
+
+const UNAVAILABLE: CharacterSheetState = { kind: "unavailable" };
 
 const REDIRECTS: Partial<Record<MyCharacterResult["kind"], string>> = {
   missing: CHARACTER_ROUTES.create,
@@ -29,26 +33,41 @@ export function useCharacterSheet(): CharacterSheetSession {
   const [state, setState] = useState<CharacterSheetState>(LOADING);
   const [attempt, setAttempt] = useState(0);
 
-  useEffect(() => {
-    let active = true;
-    fetchMyCharacter().then((result) => {
-      if (!active) return;
+  const apply = useCallback(
+    (result: MyCharacterResult, keepOnFailure: boolean) => {
       const redirect = REDIRECTS[result.kind];
       if (redirect) {
         router.replace(redirect);
         return;
       }
-      setState(result.kind === "loaded" ? result : { kind: "unavailable" });
+      if (result.kind === "loaded") setState(result);
+      else if (!keepOnFailure) setState(UNAVAILABLE);
+    },
+    [router],
+  );
+
+  useEffect(() => {
+    let active = true;
+    fetchMyCharacter().then((result) => {
+      if (active) apply(result, false);
     });
     return () => {
       active = false;
     };
-  }, [attempt, router]);
+  }, [attempt, apply]);
 
   const retry = useCallback(() => {
     setState(LOADING);
     setAttempt((value) => value + 1);
   }, []);
 
-  return { state, retry };
+  const refresh = useCallback(() => {
+    fetchMyCharacter().then((result) => apply(result, true));
+  }, [apply]);
+
+  const replaceCharacter = useCallback((character: CharacterSheet) => {
+    setState({ kind: "loaded", character });
+  }, []);
+
+  return { state, retry, refresh, replaceCharacter };
 }
