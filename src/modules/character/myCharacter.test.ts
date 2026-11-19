@@ -13,7 +13,8 @@ const CHARACTER = {
   maxHp: 45,
   experience: { current: 120, required: 300 },
   stats: { strength: 4, endurance: 2, technique: 1, charisma: 5 },
-  wallet: { onions: 1250, goldTeeth: 10, energy: 100, reach: 0, medals: 2 },
+  stamina: { current: 90, max: 100, nextPointInSeconds: 120 },
+  wallet: { onions: 1250, goldTeeth: 10, reach: 0, medals: 2 },
   appearance: { face: 3, hair: 1, beard: 7, skin: 4, tattoo: 0 },
 };
 
@@ -33,6 +34,13 @@ describe("fetchMyCharacter", () => {
     expect(getJsonMock).toHaveBeenCalledWith("/api/me/character");
   });
 
+  it("accepts full stamina without a regeneration timer", async () => {
+    const full = { ...CHARACTER, stamina: { current: 100, max: 100, nextPointInSeconds: null } };
+    getJsonMock.mockResolvedValue(respond(200, full));
+
+    expect(await fetchMyCharacter()).toEqual({ kind: "loaded", character: full });
+  });
+
   it.each([
     ["no character", respond(404), "missing"],
     ["expired session", respond(401), "unauthenticated"],
@@ -49,6 +57,10 @@ describe("fetchMyCharacter", () => {
     ["text level", { ...CHARACTER, level: "3" }],
     ["missing stat", { ...CHARACTER, stats: { strength: 4, endurance: 2, technique: 1 } }],
     ["missing experience", { ...CHARACTER, experience: undefined }],
+    ["missing stamina", { ...CHARACTER, stamina: undefined }],
+    ["stamina above max", { ...CHARACTER, stamina: { current: 101, max: 100, nextPointInSeconds: null } }],
+    ["text regeneration time", { ...CHARACTER, stamina: { current: 90, max: 100, nextPointInSeconds: "120" } }],
+    ["missing regeneration time", { ...CHARACTER, stamina: { current: 90, max: 100 } }],
     ["text experience", { ...CHARACTER, experience: { current: "120", required: 300 } }],
     ["negative experience", { ...CHARACTER, experience: { current: -1, required: 300 } }],
     ["experience above threshold", { ...CHARACTER, experience: { current: 300, required: 300 } }],
