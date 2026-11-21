@@ -1,4 +1,4 @@
-import type { Stamina } from "@/modules/character/characterSheet";
+import type { CharacterSheet, Stamina, StatKey } from "@/modules/character/characterSheet";
 import type { TrainingFailure } from "@/modules/character/trainStat";
 
 export const TRAINING_COST = 10;
@@ -35,4 +35,29 @@ export function trainingWaitHint(stamina: Stamina): string | null {
   const seconds = secondsUntilStamina(stamina, TRAINING_COST);
   if (seconds === null || seconds <= 0) return null;
   return `Wystarczy Kondychy za ${formatCountdown(seconds)}`;
+}
+
+export const TRAINING_GAIN = 1;
+
+function shiftTraining(character: CharacterSheet, stat: StatKey, direction: 1 | -1): CharacterSheet {
+  const { stamina } = character;
+  const current = stamina.current - direction * TRAINING_COST;
+  const regenerating = current < stamina.max;
+  return {
+    ...character,
+    stats: { ...character.stats, [stat]: character.stats[stat] + direction * TRAINING_GAIN },
+    stamina: {
+      ...stamina,
+      current,
+      nextPointInSeconds: regenerating ? (stamina.nextPointInSeconds ?? STAMINA_SECONDS_PER_POINT) : null,
+    },
+  };
+}
+
+export function applyTraining(character: CharacterSheet, stat: StatKey): CharacterSheet {
+  return shiftTraining(character, stat, 1);
+}
+
+export function revertTraining(character: CharacterSheet, stat: StatKey): CharacterSheet {
+  return shiftTraining(character, stat, -1);
 }

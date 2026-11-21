@@ -16,8 +16,10 @@ export type CharacterSheetSession = {
   state: CharacterSheetState;
   retry: () => void;
   refresh: () => void;
-  replaceCharacter: (character: CharacterSheet) => void;
+  updateCharacter: (update: CharacterUpdate) => void;
 };
+
+export type CharacterUpdate = (character: CharacterSheet) => CharacterSheet;
 
 const LOADING: CharacterSheetState = { kind: "loading" };
 
@@ -65,9 +67,9 @@ export function useCharacterSheet(): CharacterSheetSession {
     fetchMyCharacter().then((result) => apply(result, true));
   }, [apply]);
 
-  const replaceCharacter = useCallback((character: CharacterSheet) => {
-    setState({ kind: "loaded", character });
+  const updateCharacter = useCallback((update: CharacterUpdate) => {
+    setState((previous) => (previous.kind === "loaded" ? { kind: "loaded", character: update(previous.character) } : previous));
   }, []);
 
-  return { state, retry, refresh, replaceCharacter };
+  return { state, retry, refresh, updateCharacter };
 }

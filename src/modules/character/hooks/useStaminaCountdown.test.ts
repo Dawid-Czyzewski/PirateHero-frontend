@@ -57,6 +57,33 @@ describe("useStaminaCountdown", () => {
     expect(result.current.nextPointInSeconds).toBe(180);
   });
 
+  it("keeps ticking when only the amount changes locally", () => {
+    const { result, rerender } = renderCountdown({ current: 70, max: 100, nextPointInSeconds: 100 });
+
+    act(() => {
+      vi.advanceTimersByTime(5000);
+    });
+    rerender({ value: { current: 60, max: 100, nextPointInSeconds: 100 } });
+
+    expect(result.current).toEqual({ current: 60, max: 100, nextPointInSeconds: 95 });
+  });
+
+  it("starts again after refreshing even when the server sends the same timer", () => {
+    const { result, rerender, onElapsed } = renderCountdown({ current: 70, max: 100, nextPointInSeconds: 2 });
+
+    act(() => {
+      vi.advanceTimersByTime(2000);
+    });
+    expect(onElapsed).toHaveBeenCalledTimes(1);
+    rerender({ value: { current: 71, max: 100, nextPointInSeconds: 2 } });
+
+    expect(result.current.nextPointInSeconds).toBe(2);
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    expect(result.current.nextPointInSeconds).toBe(1);
+  });
+
   it("stays idle when stamina is full", () => {
     const { result, onElapsed } = renderCountdown({ current: 100, max: 100, nextPointInSeconds: null });
 

@@ -1,6 +1,7 @@
 import { SectionHeading } from "@/components/character/SectionHeading";
-import { STAT_ICONS, type StatIconKey } from "@/components/character/icons/statIcons";
+import { GameIcon } from "@/components/game/GameIcon";
 import { STATS } from "@/modules/character/characterSheet";
+import { STAT_ICON_SRC, type StatIconKey } from "@/modules/character/layerAssets";
 import { STARTING_MAX_HP, STARTING_STATS } from "@/modules/character/startingStats";
 
 type StatTile = { key: StatIconKey; label: string; value: number };
@@ -20,7 +21,7 @@ export function StartingStats() {
             key={key}
             className="flex min-w-0 items-center justify-center gap-1.5 rounded-[4px] border border-[#3a2a1a] bg-[linear-gradient(#1b1210,#0d0808)] px-1 py-1.5 text-center min-[30rem]:flex-col min-[30rem]:gap-0.5 shadow-[inset_0_1px_0_rgba(255,215,122,.12)]"
           >
-            {STAT_ICONS[key]}
+            <GameIcon src={STAT_ICON_SRC[key]} size={28} />
             <span className="min-w-0 font-cond text-[clamp(0.72rem,3.1vw,0.85rem)] leading-tight [overflow-wrap:anywhere] min-[30rem]:text-[clamp(0.62rem,1.9vw,0.85rem)] desk:text-[clamp(0.7rem,0.9vw,0.85rem)] font-bold tracking-[.02em] text-[#f3eadb] uppercase">
               {label} <b className="text-gold-light">{value}</b>
             </span>

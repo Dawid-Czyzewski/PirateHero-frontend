@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  applyTraining,
+  revertTraining,
   canAffordTraining,
   formatCountdown,
   secondsUntilStamina,
@@ -38,5 +40,34 @@ describe("training rules", () => {
   it("hints when training becomes possible", () => {
     expect(trainingWaitHint(stamina(8, 14))).toBe("Wystarczy Kondychy za 3:14");
     expect(trainingWaitHint(stamina(40, 14))).toBeNull();
+  });
+});
+
+describe("optimistic training", () => {
+  const character = {
+    id: "c1",
+    nick: "Cebulak",
+    level: 1,
+    maxHp: 20,
+    experience: { current: 0, required: 100 },
+    stats: { strength: 1, endurance: 1, technique: 1, charisma: 1 },
+    stamina: stamina(100, null),
+    wallet: { onions: 0, goldTeeth: 0, reach: 0, medals: 0 },
+    appearance: { face: 0, hair: 0, beard: 0, skin: 0, tattoo: 0 },
+  };
+
+  it("raises the stat, spends stamina and starts regeneration from full", () => {
+    const trained = applyTraining(character, "technique");
+
+    expect(trained.stats.technique).toBe(2);
+    expect(trained.stamina).toEqual(stamina(90, 180));
+  });
+
+  it("keeps the running regeneration timer", () => {
+    expect(applyTraining({ ...character, stamina: stamina(50, 42) }, "strength").stamina).toEqual(stamina(40, 42));
+  });
+
+  it("undoes exactly one training", () => {
+    expect(revertTraining(applyTraining(character, "charisma"), "charisma")).toEqual(character);
   });
 });

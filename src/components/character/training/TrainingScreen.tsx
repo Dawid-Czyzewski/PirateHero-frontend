@@ -3,10 +3,12 @@
 import { StaminaPanel } from "@/components/character/training/StaminaPanel";
 import { StatTrainingCard } from "@/components/character/training/StatTrainingCard";
 import { GameScreenShell } from "@/components/game/GameScreenShell";
+import { ImageTitle } from "@/components/game/ImageTitle";
 import { STATS, type CharacterSheet, type CharacterStats } from "@/modules/character/characterSheet";
 import { useCharacterSheetSession } from "@/modules/character/hooks/CharacterSheetContext";
 import { useStaminaCountdown } from "@/modules/character/hooks/useStaminaCountdown";
 import { useTraining, type TrainingGain } from "@/modules/character/hooks/useTraining";
+import { TRAINING_HEADER } from "@/modules/character/layerAssets";
 import { canAffordTraining, TRAINING_COST, trainingWaitHint } from "@/modules/character/training";
 
 const MAIN = [
@@ -14,8 +16,7 @@ const MAIN = [
   "desk:max-w-[min(100%-3rem,72rem)] desk:gap-4 desk:px-0 desk:pt-4",
 ].join(" ");
 
-const TITLE =
-  "m-0 text-center font-marker text-[clamp(2.75rem,13vw,4.5rem)] leading-none text-blood [text-shadow:0_3px_0_#000,0_0_22px_rgb(225_25_45/0.35)]";
+const TITLE_SIZE = "w-[min(100%,15rem)] desk:w-[min(100%,20rem)]";
 
 function gainAnnouncement(gain: TrainingGain | null, stats: CharacterStats): string {
   if (!gain) return "";
@@ -26,14 +27,16 @@ function gainAnnouncement(gain: TrainingGain | null, stats: CharacterStats): str
 export function TrainingScreen({ character }: { character: CharacterSheet }) {
   const { refresh } = useCharacterSheetSession();
   const stamina = useStaminaCountdown(character.stamina, refresh);
-  const { pendingStat, lastGain, error, train } = useTraining();
+  const { lastGain, error, train } = useTraining();
   const affordable = canAffordTraining(stamina);
   const hint = affordable ? null : trainingWaitHint(stamina);
 
   return (
     <GameScreenShell>
       <main className={MAIN}>
-        <h1 className={TITLE}>Trening</h1>
+        <h1 className="m-0">
+          <ImageTitle label="Trening" art={TRAINING_HEADER} className={TITLE_SIZE} />
+        </h1>
         <p className="m-0 text-center font-cond text-base font-semibold text-white/75">
           Każdy trening kosztuje {TRAINING_COST} Kondychy i podnosi cechę o 1.
         </p>
@@ -50,8 +53,7 @@ export function TrainingScreen({ character }: { character: CharacterSheet }) {
               stat={key}
               label={label}
               value={character.stats[key]}
-              pending={pendingStat === key}
-              disabled={pendingStat !== null || !affordable}
+              disabled={!affordable}
               hint={hint}
               gainId={lastGain?.stat === key ? lastGain.id : null}
               onTrain={train}

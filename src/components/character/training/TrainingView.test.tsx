@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { act, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { TrainingView } from "@/components/character/training/TrainingView";
@@ -63,22 +63,24 @@ describe("TrainingView", () => {
     expect((await statCard("Charyzma")).getByText("5")).toBeInTheDocument();
   });
 
-  it("trains a stat and updates the value and stamina without reloading", async () => {
+  it("trains at once without waiting for the server, then keeps the confirmed state", async () => {
     let answer: (result: TrainStatResult) => void = () => undefined;
     trainMock.mockReturnValue(new Promise((resolve) => (answer = resolve)));
     renderTraining();
     const strength = await statCard("Siła");
 
     await userEvent.click(strength.getByRole("button", { name: "Trenuj (-10 Kondychy)" }));
-    expect(strength.getByRole("button", { name: "Trenuję…" })).toBeDisabled();
-    expect(trainMock).toHaveBeenCalledWith("strength");
 
-    answer({ kind: "trained", character: TRAINED });
-
-    expect(await strength.findByText("+1")).toBeInTheDocument();
+    expect(strength.getByText("+1")).toBeInTheDocument();
     expect(strength.getByText("5")).toBeInTheDocument();
     expect(screen.getByRole("progressbar", { name: "Kondycha: 60 z 100" })).toBeInTheDocument();
     expect(screen.getByRole("status")).toHaveTextContent("Siła: wzrost do 5");
+    expect(strength.getByRole("button", { name: "Trenuj (-10 Kondychy)" })).toBeEnabled();
+    expect(trainMock).toHaveBeenCalledWith("strength");
+
+    await act(async () => answer({ kind: "trained", character: TRAINED }));
+
+    expect(strength.getByText("5")).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
@@ -91,7 +93,7 @@ describe("TrainingView", () => {
     expect(button).toHaveAccessibleDescription("Wystarczy Kondychy za 3:14");
   });
 
-  it("shows a Polish message instead of crashing when the API fails", async () => {
+  it("rolls back and shows a Polish message instead of crashing when the API fails", async () => {
     trainMock.mockResolvedValue({ kind: "failure", reason: "unexpected" });
     renderTraining();
     const endurance = await statCard("Kondycja");
