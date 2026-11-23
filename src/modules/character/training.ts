@@ -31,10 +31,14 @@ export function formatCountdown(totalSeconds: number): string {
   return `${minutes}:${String(seconds % 60).padStart(2, "0")}`;
 }
 
-export function trainingWaitHint(stamina: Stamina): string | null {
-  const seconds = secondsUntilStamina(stamina, TRAINING_COST);
+export function staminaWaitHint(stamina: Stamina, required: number): string | null {
+  const seconds = secondsUntilStamina(stamina, required);
   if (seconds === null || seconds <= 0) return null;
   return `Wystarczy Kondychy za ${formatCountdown(seconds)}`;
+}
+
+export function trainingWaitHint(stamina: Stamina): string | null {
+  return staminaWaitHint(stamina, TRAINING_COST);
 }
 
 export const TRAINING_GAIN = 1;

@@ -14,6 +14,10 @@ const ICON = { width: 512, height: 512 };
 const BANNER = { width: 1536, height: 512 };
 const GREEN = { r: 0, g: 255, b: 0 };
 const GREEN_DISTANCE = 90;
+const SPILL_OPAQUE = 30;
+const SPILL_CLEAR = 100;
+const ALPHA_FLOOR = 16;
+const INK_MARGIN = 120;
 
 const SHEETS = {
   "01-cialo-skora": { prefix: "cialo", count: 5, grid: null },
@@ -27,6 +31,8 @@ const SINGLES = [
   { file: "06-naglowek.jpg", out: "naglowek", kind: "banner" },
   { file: "06-tlo-sceny.jpg", out: "tlo-sceny", kind: "scene" },
   { file: "09-naglowek-postac.jpg", out: "naglowek-postac", kind: "banner", trim: true },
+  { file: "09-naglowek-trening.png", out: "naglowek-trening", kind: "title", trim: true },
+  { file: "10-tlo-oktagonu.png", out: "tlo-oktagonu", kind: "scene" },
 ];
 
 const ICONS = [
@@ -42,6 +48,15 @@ const ICONS = [
   { source: "08-menu-oktagon", out: "menu-octagon.png" },
   { source: "08-menu-ranking", out: "menu-ranking.png" },
   { source: "08-menu-sklep", out: "menu-shop.png" },
+  { source: "09-ikona-sila", out: "ikona-sila.png", trim: true },
+  { source: "09-ikona-kondycja", out: "ikona-kondycja.png", trim: true },
+  { source: "09-ikona-technika", out: "ikona-technika.png", trim: true },
+  { source: "09-ikona-charyzma", out: "ikona-charyzma.png", trim: true },
+  { source: "09-ikona-hp", out: "ikona-hp.png", trim: true },
+  { source: "10-ikona-cios", out: "ikona-cios.png", trim: true },
+  { source: "10-ikona-obrona", out: "ikona-obrona.png", trim: true },
+  { source: "10-ikona-nokaut", out: "ikona-nokaut.png", trim: true },
+  { source: "10-ikona-gong", out: "ikona-gong.png", trim: true },
 ];
 
 const ICON_SOURCE_EXTENSIONS = [".jpg", ".png"];
@@ -153,6 +168,67 @@ function chromaKey(rgba, distance = GREEN_DISTANCE) {
   };
 }
 
+function softKey(rgba) {
+  const { data } = rgba;
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    const spill = g - Math.max(r, b);
+    const coverage = Math.min(1, Math.max(0, (SPILL_CLEAR - spill) / (SPILL_CLEAR - SPILL_OPAQUE)));
+    const alpha = Math.round(coverage * 255);
+    data[i + 3] = alpha < ALPHA_FLOOR ? 0 : alpha;
+  }
+  return despill(rgba);
+}
+
+function inkColor(data) {
+  const sum = [0, 0, 0];
+  let count = 0;
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 1] - Math.max(data[i], data[i + 2]) > -INK_MARGIN) continue;
+    sum[0] += data[i];
+    sum[1] += data[i + 1];
+    sum[2] += data[i + 2];
+    count += 1;
+  }
+  return count === 0 ? null : sum.map((value) => Math.round(value / count));
+}
+
+function unmixFlatTitle(rgba) {
+  const { data } = rgba;
+  const ink = inkColor(data) ?? [0, 0, 0];
+  const axis = [ink[0] - GREEN.r, ink[1] - GREEN.g, ink[2] - GREEN.b];
+  const length = axis[0] * axis[0] + axis[1] * axis[1] + axis[2] * axis[2];
+  for (let i = 0; i < data.length; i += 4) {
+    const offset = (data[i] - GREEN.r) * axis[0] + (data[i + 1] - GREEN.g) * axis[1] + (data[i + 2] - GREEN.b) * axis[2];
+    const alpha = Math.round(Math.min(1, Math.max(0, offset / length)) * 255);
+    data[i] = ink[0];
+    data[i + 1] = ink[1];
+    data[i + 2] = ink[2];
+    data[i + 3] = alpha < ALPHA_FLOOR ? 0 : alpha;
+  }
+  return rgba;
+}
+
+function despill(rgba) {
+  const { data } = rgba;
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 1] > Math.max(data[i], data[i + 2])) data[i + 1] = Math.round((data[i] + data[i + 2]) / 2);
+  }
+  return rgba;
+}
+
+async function toTrimmedIconPng(keyed, size) {
+  const trimmed = await toTrimmedPng(keyed);
+  const { data, info } = await sharp(trimmed)
+    .resize(size.width, size.height, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const clean = despill({ data: Buffer.from(data), width: info.width, height: info.height });
+  return sharp(clean.data, { raw: { width: clean.width, height: clean.height, channels: 4 } }).png().toBuffer();
+}
+
 async function toFramePng(keyed, size) {
   return sharp(keyed.data, { raw: { width: keyed.width, height: keyed.height, channels: 4 } })
     .resize(size.width, size.height, { fit: "fill" })
@@ -246,13 +322,19 @@ async function processPartFolder(folderName, config, report) {
   }
 }
 
+function keyFor(kind, rgba) {
+  if (kind === "banner") return cleanBannerRgba(rgba);
+  if (kind === "title") return unmixFlatTitle(rgba);
+  return chromaKey(rgba);
+}
+
 async function processSingles(report) {
   for (const item of SINGLES.filter(isSelected)) {
     const src = path.join(SOURCE, item.file);
     try {
       const rgba = await loadRgba(src);
-      const keyed = item.kind === "banner" ? cleanBannerRgba(rgba) : chromaKey(rgba);
-      const png = item.trim ? await toTrimmedPng(keyed) : await toFramePng(keyed, item.kind === "banner" ? BANNER : FRAME);
+      const keyed = keyFor(item.kind, rgba);
+      const png = item.trim ? await toTrimmedPng(keyed) : await toFramePng(keyed, item.kind === "scene" ? FRAME : BANNER);
       const base = path.join(OUT_CHARACTER, item.out);
       await saveWebpAndPng(png, base);
       report.written.push(`${item.out}.webp`);
@@ -280,7 +362,7 @@ async function processIcons(report) {
       report.missing.push(`icons/${item.out}`);
       continue;
     }
-    const png = await toFramePng(chromaKey(rgba), ICON);
+    const png = item.trim ? await toTrimmedIconPng(softKey(rgba), ICON) : await toFramePng(chromaKey(rgba), ICON);
     await sharp(png).png().toFile(path.join(OUT_ICONS, item.out));
     report.written.push(`icons/${item.out}`);
   }

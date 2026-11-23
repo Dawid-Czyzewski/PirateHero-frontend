@@ -1,4 +1,5 @@
 import { CHARACTER_ROUTES } from "@/modules/character/characterRoutes";
+import { COMBAT_ROUTES } from "@/modules/combat/combatRoutes";
 
 export type GameMenuId = "character" | "training" | "jobs" | "octagon" | "ranking" | "shop";
 
@@ -19,7 +20,7 @@ export const GAME_MENU: readonly GameMenuItem[] = [
   { id: "character", label: "Postać", icon: "/icons/menu-character.png", primary: true, available: true, href: CHARACTER_ROUTES.profile },
   { id: "training", label: "Trening", icon: "/icons/menu-training.png", primary: true, available: true, href: CHARACTER_ROUTES.training },
   { id: "jobs", label: "Zlecenia", icon: "/icons/menu-jobs.png", primary: true, available: false },
-  { id: "octagon", label: "Oktagon", icon: "/icons/menu-octagon.png", primary: true, available: false },
+  { id: "octagon", label: "Oktagon", icon: "/icons/menu-octagon.png", primary: true, available: true, href: COMBAT_ROUTES.octagon },
   { id: "ranking", label: "Ranking", icon: "/icons/menu-ranking.png", primary: false, available: false },
   { id: "shop", label: "Sklep", icon: "/icons/menu-shop.png", primary: false, available: false },
 ];

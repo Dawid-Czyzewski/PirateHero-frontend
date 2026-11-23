@@ -6,12 +6,12 @@ const training = GAME_MENU.find((item) => item.id === "training")!;
 const jobs = GAME_MENU.find((item) => item.id === "jobs")!;
 
 describe("game menu", () => {
-  it("lists the screens in Hero Zero order with the profile and training available", () => {
+  it("lists the screens in Hero Zero order with the profile, training and octagon available", () => {
     expect(GAME_MENU.map((item) => [item.label, item.available])).toEqual([
       ["Postać", true],
       ["Trening", true],
       ["Zlecenia", false],
-      ["Oktagon", false],
+      ["Oktagon", true],
       ["Ranking", false],
       ["Sklep", false],
     ]);
