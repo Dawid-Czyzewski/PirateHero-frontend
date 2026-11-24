@@ -1,4 +1,5 @@
 import type { Appearance } from "@/modules/character/appearance";
+import type { RegenPool } from "@/modules/character/regenPool";
 
 export type StatKey = "strength" | "endurance" | "technique" | "charisma";
 
@@ -10,7 +11,6 @@ export type Wallet = Record<CurrencyKey, number>;
 
 export type Experience = { current: number; required: number };
 
-export type Stamina = { current: number; max: number; nextPointInSeconds: number | null };
 
 export type CharacterSheet = {
   id: string;
@@ -18,7 +18,8 @@ export type CharacterSheet = {
   level: number;
   maxHp: number;
   experience: Experience;
-  stamina: Stamina;
+  stamina: RegenPool;
+  fightPoints: RegenPool;
   stats: CharacterStats;
   wallet: Wallet;
   appearance: Appearance;
@@ -45,6 +46,8 @@ export const WALLET_GROUP: CurrencyGroup = { id: "wallet", title: "Portfel", cur
 export const RESOURCES_GROUP: CurrencyGroup = { id: "resources", title: "Zasoby", currencies: ["reach", "medals"] };
 
 export const STAMINA_LABEL = "Kondycha";
+
+export const FIGHT_POINTS_LABEL = "Punkty walki";
 
 export function currencyLabel(key: CurrencyKey): string {
   return CURRENCIES.find((currency) => currency.key === key)?.label ?? key;

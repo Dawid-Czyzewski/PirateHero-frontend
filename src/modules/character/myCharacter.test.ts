@@ -14,6 +14,7 @@ const CHARACTER = {
   experience: { current: 120, required: 300 },
   stats: { strength: 4, endurance: 2, technique: 1, charisma: 5 },
   stamina: { current: 90, max: 100, nextPointInSeconds: 120 },
+  fightPoints: { current: 10, max: 10, nextPointInSeconds: null },
   wallet: { onions: 1250, goldTeeth: 10, reach: 0, medals: 2 },
   appearance: { face: 3, hair: 1, beard: 7, skin: 4, tattoo: 0 },
 };
@@ -61,6 +62,8 @@ describe("fetchMyCharacter", () => {
     ["stamina above max", { ...CHARACTER, stamina: { current: 101, max: 100, nextPointInSeconds: null } }],
     ["text regeneration time", { ...CHARACTER, stamina: { current: 90, max: 100, nextPointInSeconds: "120" } }],
     ["missing regeneration time", { ...CHARACTER, stamina: { current: 90, max: 100 } }],
+    ["missing fight points", { ...CHARACTER, fightPoints: undefined }],
+    ["fight points above max", { ...CHARACTER, fightPoints: { current: 11, max: 10, nextPointInSeconds: null } }],
     ["text experience", { ...CHARACTER, experience: { current: "120", required: 300 } }],
     ["negative experience", { ...CHARACTER, experience: { current: -1, required: 300 } }],
     ["experience above threshold", { ...CHARACTER, experience: { current: 300, required: 300 } }],

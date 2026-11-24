@@ -1,5 +1,6 @@
 import { CharacterAvatar } from "@/components/character/avatar/CharacterAvatar";
 import { NpcStats } from "@/components/combat/NpcStats";
+import { FIGHT_ACTION_LABEL, FIGHT_COST_LABEL } from "@/modules/combat/fight";
 import type { Npc } from "@/modules/combat/npc";
 
 type NpcCardProps = {
@@ -37,12 +38,15 @@ export function NpcCard({ npc, hard, blockedHint, onFight }: NpcCardProps) {
         <button
           type="button"
           className={`${FIGHT_BUTTON} mt-auto`}
-          aria-label={`Walcz: ${npc.nick}`}
+          aria-label={`${FIGHT_ACTION_LABEL}: ${npc.nick}`}
           aria-describedby={blockedHint ? hintId : undefined}
           disabled={blockedHint !== null}
           onClick={() => onFight(npc)}
         >
-          <span className="inline-block skew-x-12">Walcz</span>
+          <span className="flex skew-x-12 flex-col items-center leading-none">
+            <span>Walcz</span>
+            <span className="mt-0.5 font-cond text-xs font-bold tracking-[.06em] normal-case opacity-90">{FIGHT_COST_LABEL}</span>
+          </span>
         </button>
         {blockedHint ? (
           <p id={hintId} className="m-0 text-center font-cond text-sm font-semibold text-white/70">

@@ -14,6 +14,7 @@ const CHARACTER = {
   experience: { current: 120, required: 300 },
   stats: { strength: 5, endurance: 2, technique: 1, charisma: 5 },
   stamina: { current: 60, max: 100, nextPointInSeconds: 180 },
+  fightPoints: { current: 10, max: 10, nextPointInSeconds: null },
   wallet: { onions: 1250, goldTeeth: 10, reach: 0, medals: 2 },
   appearance: { face: 3, hair: 1, beard: 7, skin: 4, tattoo: 0 },
 };

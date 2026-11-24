@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { FighterCorner, type Blow } from "@/components/combat/fight/FighterCorner";
+import { FightLog } from "@/components/combat/fight/FightLog";
 import { FightResultPanel } from "@/components/combat/fight/FightResultPanel";
 import { RoundBanner } from "@/components/combat/fight/RoundBanner";
 import type { Appearance } from "@/modules/character/appearance";
@@ -41,7 +42,7 @@ function useSettleOnce(finished: boolean, onSettled: () => void) {
 }
 
 export function FightArena({ fight, playerLook, onSettled, onRematch, onBack }: FightArenaProps) {
-  const { round, playerHp, npcHp, finished, skip } = useFightPlayback(fight);
+  const { round, revealed, playerHp, npcHp, finished, skip } = useFightPlayback(fight);
   useSettleOnce(finished, onSettled);
 
   return (
@@ -73,7 +74,8 @@ export function FightArena({ fight, playerLook, onSettled, onRematch, onBack }: 
           </button>
         )}
       </section>
-      {finished ? <FightResultPanel fight={fight} onRematch={onRematch} onBack={onBack} /> : null}
+      <FightLog fight={fight} rounds={revealed} />
+      <div aria-live="polite">{finished ? <FightResultPanel fight={fight} onRematch={onRematch} onBack={onBack} /> : null}</div>
     </div>
   );
 }

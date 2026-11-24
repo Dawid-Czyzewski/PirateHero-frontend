@@ -25,6 +25,7 @@ const CHARACTER: CharacterSheet = {
   experience: { current: 40, required: 200 },
   stats: { strength: 4, endurance: 2, technique: 1, charisma: 5 },
   stamina: { current: 70, max: 100, nextPointInSeconds: 134 },
+  fightPoints: { current: 10, max: 10, nextPointInSeconds: null },
   wallet: { onions: 0, goldTeeth: 0, reach: 0, medals: 0 },
   appearance: { face: 3, hair: 1, beard: 7, skin: 4, tattoo: 0 },
 };
@@ -33,6 +34,7 @@ const TRAINED: CharacterSheet = {
   ...CHARACTER,
   stats: { ...CHARACTER.stats, strength: 5 },
   stamina: { current: 60, max: 100, nextPointInSeconds: 180 },
+  fightPoints: { current: 10, max: 10, nextPointInSeconds: null },
 };
 
 function renderTraining(character: CharacterSheet = CHARACTER) {

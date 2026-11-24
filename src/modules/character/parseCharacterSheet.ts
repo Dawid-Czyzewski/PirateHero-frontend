@@ -6,8 +6,8 @@ import {
   type CharacterSheet,
   type CharacterStats,
   type Experience,
-  type Stamina,
 } from "@/modules/character/characterSheet";
+import type { RegenPool } from "@/modules/character/regenPool";
 
 export function parseAppearance(value: unknown): Appearance | null {
   const appearance = countsOf(value, APPEARANCE_PARTS.map(({ part }) => part));
@@ -25,12 +25,12 @@ function experienceOf(value: unknown): Experience | null {
   return experience.required > 0 && experience.current < experience.required ? experience : null;
 }
 
-function staminaOf(value: unknown): Stamina | null {
-  const stamina = countsOf(value, ["current", "max"] as const);
-  if (!stamina || !isObject(value) || stamina.max === 0 || stamina.current > stamina.max) return null;
+function poolOf(value: unknown): RegenPool | null {
+  const pool = countsOf(value, ["current", "max"] as const);
+  if (!pool || !isObject(value) || pool.max === 0 || pool.current > pool.max) return null;
   const { nextPointInSeconds } = value;
   if (nextPointInSeconds !== null && !(isCount(nextPointInSeconds) && nextPointInSeconds > 0)) return null;
-  return { ...stamina, nextPointInSeconds };
+  return { ...pool, nextPointInSeconds };
 }
 
 export function parseCharacterSheet(body: unknown): CharacterSheet | null {
@@ -42,8 +42,9 @@ export function parseCharacterSheet(body: unknown): CharacterSheet | null {
   const wallet = countsOf(body.wallet, CURRENCIES.map(({ key }) => key));
   const appearance = parseAppearance(body.appearance);
   const experience = experienceOf(body.experience);
-  const stamina = staminaOf(body.stamina);
-  if (!stats || !wallet || !appearance || !experience || !stamina) return null;
+  const stamina = poolOf(body.stamina);
+  const fightPoints = poolOf(body.fightPoints);
+  if (!stats || !wallet || !appearance || !experience || !stamina || !fightPoints) return null;
 
-  return { id, nick, level, maxHp, experience, stamina, stats, wallet, appearance };
+  return { id, nick, level, maxHp, experience, stamina, fightPoints, stats, wallet, appearance };
 }

@@ -2,7 +2,16 @@ import { describe, expect, it } from "vitest";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { STATS } from "@/modules/character/characterSheet";
-import { CURRENCY_ICON_SRC, LAYER_STACK, STAT_ICON_SRC, characterLayerSrc } from "@/modules/character/layerAssets";
+import {
+  CURRENCY_ICON_SRC,
+  DEFEAT_TITLE,
+  LAYER_STACK,
+  OCTAGON_HEADER,
+  STAT_ICON_SRC,
+  TRAINING_HEADER,
+  VICTORY_TITLE,
+  characterLayerSrc,
+} from "@/modules/character/layerAssets";
 import { variantCount } from "@/modules/character/appearance";
 
 describe("character image layers", () => {
@@ -24,6 +33,12 @@ describe("game icons", () => {
     expect(Object.keys(STAT_ICON_SRC).sort()).toEqual([...STATS.map(({ key }) => key), "hp"].sort());
     expect(new Set(Object.values(STAT_ICON_SRC)).size).toBe(Object.keys(STAT_ICON_SRC).length);
     expect(STAT_ICON_SRC.strength).toBe("/icons/ikona-sila.png");
+  });
+
+  it("points screen titles at files that exist", () => {
+    for (const { src } of [TRAINING_HEADER, OCTAGON_HEADER, VICTORY_TITLE, DEFEAT_TITLE]) {
+      expect(existsSync(publicFile(src)), src).toBe(true);
+    }
   });
 
   it("points stat and currency icons at files that exist", () => {

@@ -32,12 +32,13 @@ const PLAYER: CharacterSheet = {
   experience: { current: 10, required: 200 },
   stats: { strength: 1, endurance: 1, technique: 1, charisma: 1 },
   stamina: { current: 100, max: 100, nextPointInSeconds: null },
+  fightPoints: { current: 10, max: 10, nextPointInSeconds: null },
   wallet: { onions: 100, goldTeeth: 10, reach: 0, medals: 0 },
   appearance: { face: 0, hair: 0, beard: 0, skin: 0, tattoo: 0 },
 };
 
-function renderOctagon() {
-  characterMock.mockResolvedValue({ kind: "loaded", character: PLAYER });
+function renderOctagon(character: CharacterSheet = PLAYER) {
+  characterMock.mockResolvedValue({ kind: "loaded", character });
   return render(
     <CharacterSheetProvider>
       <OctagonView />
@@ -61,7 +62,7 @@ describe("OctagonView", () => {
     const kosa = within(cards[0]);
     expect(kosa.getByText("Poziom 1")).toBeInTheDocument();
     expect(kosa.getByText("Siła").nextElementSibling).toHaveTextContent("1");
-    expect(kosa.getByRole("button", { name: "Walcz: Kosa" })).toBeInTheDocument();
+    expect(kosa.getByRole("button", { name: "Walcz (-1 pkt walki): Kosa" })).toBeInTheDocument();
   });
 
   it("marks only much stronger opponents as hard", async () => {
@@ -80,7 +81,7 @@ describe("OctagonView", () => {
     fightMock.mockResolvedValue({ kind: "fought", fight: FIGHT_AGAINST_KOSA });
     renderOctagon();
 
-    await userEvent.click(await screen.findByRole("button", { name: "Walcz: Kosa" }));
+    await userEvent.click(await screen.findByRole("button", { name: "Walcz (-1 pkt walki): Kosa" }));
 
     expect(fightMock).toHaveBeenCalledWith("kosa");
     expect(await screen.findByRole("region", { name: "Walka: Cebulak kontra Kosa" })).toBeInTheDocument();
@@ -96,7 +97,7 @@ describe("OctagonView", () => {
     npcsMock.mockResolvedValue({ kind: "loaded", npcs: [KOSA, REKIN] });
     fightMock.mockResolvedValue({ kind: "fought", fight: FIGHT_AGAINST_KOSA });
     renderOctagon();
-    await userEvent.click(await screen.findByRole("button", { name: "Walcz: Kosa" }));
+    await userEvent.click(await screen.findByRole("button", { name: "Walcz (-1 pkt walki): Kosa" }));
     await userEvent.click(await screen.findByRole("button", { name: "Pomiń" }));
 
     await userEvent.click(screen.getByRole("button", { name: "Walcz ponownie" }));
@@ -112,10 +113,41 @@ describe("OctagonView", () => {
     fightMock.mockResolvedValue({ kind: "failure", reason: "unexpected" });
     renderOctagon();
 
-    await userEvent.click(await screen.findByRole("button", { name: "Walcz: Kosa" }));
+    await userEvent.click(await screen.findByRole("button", { name: "Walcz (-1 pkt walki): Kosa" }));
 
     expect(await screen.findByRole("alert")).toHaveTextContent("Serwer ma chwilowy problem. Spróbuj ponownie za moment.");
-    expect(screen.getByRole("button", { name: "Walcz: Kosa" })).toBeEnabled();
+    expect(screen.getByRole("button", { name: "Walcz (-1 pkt walki): Kosa" })).toBeEnabled();
+  });
+
+  it("shows the fight points bar above the opponents", async () => {
+    npcsMock.mockResolvedValue({ kind: "loaded", npcs: [KOSA] });
+    renderOctagon({ ...PLAYER, fightPoints: { current: 7, max: 10, nextPointInSeconds: 600 } });
+
+    const panel = within(await screen.findByRole("region", { name: "Punkty walki" }));
+    expect(panel.getByRole("progressbar", { name: "Punkty walki: 7 z 10" })).toBeInTheDocument();
+    expect(panel.getByRole("timer")).toHaveTextContent("Następny punkt za 10:00");
+    expect(await screen.findByRole("button", { name: "Walcz (-1 pkt walki): Kosa" })).toBeEnabled();
+  });
+
+  it("locks fights without fight points and says when the next one is possible", async () => {
+    npcsMock.mockResolvedValue({ kind: "loaded", npcs: [KOSA, REKIN] });
+    renderOctagon({ ...PLAYER, fightPoints: { current: 0, max: 10, nextPointInSeconds: 840 } });
+
+    const button = await screen.findByRole("button", { name: "Walcz (-1 pkt walki): Kosa" });
+    expect(button).toBeDisabled();
+    expect(button).toHaveAccessibleDescription("Następna walka za 14:00");
+    expect(screen.getByRole("button", { name: "Walcz (-1 pkt walki): Rekin" })).toBeDisabled();
+  });
+
+  it("explains a refused fight in Polish and refreshes the fight points", async () => {
+    npcsMock.mockResolvedValue({ kind: "loaded", npcs: [KOSA] });
+    fightMock.mockResolvedValue({ kind: "failure", reason: "no-fight-points" });
+    renderOctagon();
+
+    await userEvent.click(await screen.findByRole("button", { name: "Walcz (-1 pkt walki): Kosa" }));
+
+    expect(await screen.findByRole("alert")).toHaveTextContent("Za mało punktów walki. Poczekaj, aż wróci następny punkt.");
+    await vi.waitFor(() => expect(characterMock).toHaveBeenCalledTimes(2));
   });
 
   it("shows a skeleton while opponents load", async () => {
@@ -132,7 +164,7 @@ describe("OctagonView", () => {
     expect(await screen.findByRole("alert")).toHaveTextContent("Nie udało się wczytać przeciwników.");
     await userEvent.click(screen.getByRole("button", { name: "Spróbuj ponownie" }));
 
-    expect(await screen.findByRole("button", { name: "Walcz: Kosa" })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "Walcz (-1 pkt walki): Kosa" })).toBeInTheDocument();
     expect(npcsMock).toHaveBeenCalledTimes(2);
   });
 

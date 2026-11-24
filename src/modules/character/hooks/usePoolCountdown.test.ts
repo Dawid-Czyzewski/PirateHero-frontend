@@ -1,14 +1,14 @@
 import { act, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { Stamina } from "@/modules/character/characterSheet";
-import { useStaminaCountdown } from "@/modules/character/hooks/useStaminaCountdown";
+import type { RegenPool } from "@/modules/character/regenPool";
+import { usePoolCountdown } from "@/modules/character/hooks/usePoolCountdown";
 
-function renderCountdown(stamina: Stamina, onElapsed = vi.fn()) {
-  const view = renderHook(({ value }) => useStaminaCountdown(value, onElapsed), { initialProps: { value: stamina } });
+function renderCountdown(pool: RegenPool, onElapsed = vi.fn()) {
+  const view = renderHook(({ value }) => usePoolCountdown(value, onElapsed), { initialProps: { value: pool } });
   return { ...view, onElapsed };
 }
 
-describe("useStaminaCountdown", () => {
+describe("usePoolCountdown", () => {
   beforeEach(() => {
     vi.useFakeTimers();
   });

@@ -9,7 +9,7 @@ describe("NpcCard", () => {
     const onFight = vi.fn();
     render(<NpcCard npc={KOSA} hard={false} blockedHint={null} onFight={onFight} />);
 
-    await userEvent.click(screen.getByRole("button", { name: "Walcz: Kosa" }));
+    await userEvent.click(screen.getByRole("button", { name: "Walcz (-1 pkt walki): Kosa" }));
 
     expect(onFight).toHaveBeenCalledWith(KOSA);
   });
@@ -17,7 +17,7 @@ describe("NpcCard", () => {
   it("locks the fight without enough stamina and says when it will be possible", () => {
     render(<NpcCard npc={KOSA} hard={false} blockedHint="Wystarczy Kondychy za 2:14" onFight={vi.fn()} />);
 
-    const button = screen.getByRole("button", { name: "Walcz: Kosa" });
+    const button = screen.getByRole("button", { name: "Walcz (-1 pkt walki): Kosa" });
     expect(button).toBeDisabled();
     expect(button).toHaveAccessibleDescription("Wystarczy Kondychy za 2:14");
   });

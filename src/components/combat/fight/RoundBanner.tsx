@@ -9,7 +9,7 @@ type RoundBannerProps = {
 export function RoundBanner({ round, knockout }: RoundBannerProps) {
   if (knockout) {
     return (
-      <p className="m-0 flex items-center justify-center gap-2 font-display text-4xl leading-none text-blood [text-shadow:0_2px_0_#000]" role="status">
+      <p className="m-0 flex items-center justify-center gap-2 font-display text-4xl leading-none text-blood [text-shadow:0_2px_0_#000]">
         <GameIcon src={FIGHT_ICON_SRC.knockout} size={48} />
         K.O.!
       </p>
@@ -17,7 +17,7 @@ export function RoundBanner({ round, knockout }: RoundBannerProps) {
   }
 
   return (
-    <p className="m-0 flex items-center justify-center gap-2 font-cond text-xl font-bold tracking-[.12em] text-gold uppercase" role="status">
+    <p className="m-0 flex items-center justify-center gap-2 font-cond text-xl font-bold tracking-[.12em] text-gold uppercase">
       <GameIcon src={FIGHT_ICON_SRC.round} size={32} />
       {round === null ? "Gong!" : `Runda ${round}`}
     </p>

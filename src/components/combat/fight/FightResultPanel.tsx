@@ -1,5 +1,8 @@
 import { GameIcon } from "@/components/game/GameIcon";
-import { CURRENCY_ICON_SRC } from "@/modules/character/layerAssets";
+import { ImageTitle } from "@/components/game/ImageTitle";
+import { CURRENCY_ICON_SRC, DEFEAT_TITLE, VICTORY_TITLE } from "@/modules/character/layerAssets";
+
+const RESULT_TITLE_SIZE = "w-[min(100%,12rem)] desk:w-[min(100%,15rem)]";
 import { leveledUp, playerWon, type Fight } from "@/modules/combat/fight";
 
 type FightResultPanelProps = {
@@ -18,8 +21,8 @@ export function FightResultPanel({ fight, onRematch, onBack }: FightResultPanelP
 
   return (
     <section className="fl-card flex flex-col gap-3 px-4 py-4 text-center" aria-labelledby="fight-result">
-      <h2 id="fight-result" className={`m-0 font-marker text-5xl leading-none ${won ? "text-gold-light" : "text-blood"} [text-shadow:0_3px_0_#000]`}>
-        {won ? "Wygrana" : "Przegrana"}
+      <h2 id="fight-result" className="m-0">
+        <ImageTitle label={won ? "Wygrana" : "Przegrana"} art={won ? VICTORY_TITLE : DEFEAT_TITLE} className={RESULT_TITLE_SIZE} />
       </h2>
       <dl className="m-0 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-cond text-xl font-bold text-white">
         <div className="flex items-center gap-2">

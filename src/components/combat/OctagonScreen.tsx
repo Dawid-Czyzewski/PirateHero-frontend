@@ -1,23 +1,27 @@
 "use client";
 
+import { useEffect } from "react";
+import { PoolPanel } from "@/components/character/PoolPanel";
 import { FightArena } from "@/components/combat/fight/FightArena";
 import { FightPending } from "@/components/combat/fight/FightPending";
 import { NpcRoster } from "@/components/combat/NpcRoster";
 import { GameScreenShell } from "@/components/game/GameScreenShell";
 import { ScreenAlert } from "@/components/game/ScreenAlert";
 import { ScreenMain } from "@/components/game/ScreenMain";
-import type { CharacterSheet } from "@/modules/character/characterSheet";
+import { ScreenTitle } from "@/components/game/ScreenTitle";
+import { FIGHT_POINTS_LABEL, type CharacterSheet } from "@/modules/character/characterSheet";
 import { useCharacterSheetSession } from "@/modules/character/hooks/CharacterSheetContext";
-import { staminaWaitHint } from "@/modules/character/training";
-import { FIGHT_STAMINA_COST } from "@/modules/combat/fight";
+import { usePoolCountdown } from "@/modules/character/hooks/usePoolCountdown";
+import { OCTAGON_HEADER } from "@/modules/character/layerAssets";
+import { FIGHT_POINT_SECONDS_PER_POINT, waitHint, type RegenPool } from "@/modules/character/regenPool";
+import { FIGHT_ICON_SRC } from "@/modules/combat/combatAssets";
+import { FIGHT_POINT_COST } from "@/modules/combat/fight";
 import { useFight, type FightSession } from "@/modules/combat/hooks/useFight";
 import { useNpcs, type NpcsSession, type NpcsState } from "@/modules/combat/hooks/useNpcs";
 
-const TITLE =
-  "m-0 text-center font-marker text-[clamp(2.75rem,13vw,4.5rem)] leading-none text-blood uppercase [text-shadow:0_3px_0_#000,0_0_22px_rgb(225_25_45/0.35)]";
-
 type OctagonContentProps = {
   character: CharacterSheet;
+  fightPoints: RegenPool;
   npcs: NpcsSession;
   fight: FightSession;
   onSettled: () => void;
@@ -27,12 +31,12 @@ function nickOf(state: NpcsState, npcId: string): string | null {
   return state.kind === "loaded" ? (state.npcs.find(({ id }) => id === npcId)?.nick ?? null) : null;
 }
 
-function fightBlockedHint(character: CharacterSheet): string | null {
-  if (character.stamina.current >= FIGHT_STAMINA_COST) return null;
-  return staminaWaitHint(character.stamina, FIGHT_STAMINA_COST) ?? "Za mało Kondychy na walkę";
+function fightBlockedHint(fightPoints: RegenPool): string | null {
+  if (fightPoints.current >= FIGHT_POINT_COST) return null;
+  return waitHint(fightPoints, FIGHT_POINT_COST, FIGHT_POINT_SECONDS_PER_POINT, "Następna walka za") ?? "Brak punktów walki";
 }
 
-function OctagonContent({ character, npcs, fight, onSettled }: OctagonContentProps) {
+function OctagonContent({ character, fightPoints, npcs, fight, onSettled }: OctagonContentProps) {
   const { state } = fight;
 
   if (state.kind === "done") {
@@ -51,11 +55,12 @@ function OctagonContent({ character, npcs, fight, onSettled }: OctagonContentPro
 
   return (
     <>
+      <PoolPanel label={FIGHT_POINTS_LABEL} iconSrc={FIGHT_ICON_SRC.hit} pool={fightPoints} fullText="Punkty walki pełne" />
       {state.kind === "failed" ? <ScreenAlert>{state.message}</ScreenAlert> : null}
       <NpcRoster
         state={npcs.state}
         playerLevel={character.level}
-        blockedHint={fightBlockedHint(character)}
+        blockedHint={fightBlockedHint(fightPoints)}
         onRetry={npcs.retry}
         onFight={(npc) => fight.start(npc.id)}
       />
@@ -65,14 +70,20 @@ function OctagonContent({ character, npcs, fight, onSettled }: OctagonContentPro
 
 export function OctagonScreen({ character }: { character: CharacterSheet }) {
   const { refresh } = useCharacterSheetSession();
+  const fightPoints = usePoolCountdown(character.fightPoints, refresh);
   const npcs = useNpcs();
   const fight = useFight();
+  const rejectedForPoints = fight.state.kind === "failed" && fight.state.reason === "no-fight-points";
+
+  useEffect(() => {
+    if (rejectedForPoints) refresh();
+  }, [rejectedForPoints, refresh]);
 
   return (
     <GameScreenShell>
       <ScreenMain>
-        <h1 className={TITLE}>Oktagon</h1>
-        <OctagonContent character={character} npcs={npcs} fight={fight} onSettled={refresh} />
+        <ScreenTitle label="Oktagon" art={OCTAGON_HEADER} />
+        <OctagonContent character={character} fightPoints={fightPoints} npcs={npcs} fight={fight} onSettled={refresh} />
       </ScreenMain>
     </GameScreenShell>
   );

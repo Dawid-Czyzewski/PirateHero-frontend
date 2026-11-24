@@ -48,9 +48,9 @@ describe("useFight", () => {
   });
 
   it("shows a Polish message when the fight fails", async () => {
-    const result = await fightWith({ kind: "failure", reason: "no-stamina" });
+    const result = await fightWith({ kind: "failure", reason: "no-fight-points" });
 
-    expect(result.current.state).toEqual({ kind: "failed", message: expect.stringMatching(/Za mało Kondychy/) });
+    expect(result.current.state).toEqual({ kind: "failed", reason: "no-fight-points", message: expect.stringMatching(/Za mało punktów walki/) });
   });
 
   it("sends an expired session to the login page", async () => {

@@ -33,7 +33,7 @@ export function CharacterSheetScreen({ character }: { character: CharacterSheet 
           <HealthCard maxHp={character.maxHp} />
         </div>
         <StatsCard stats={character.stats} />
-        <ResourcesCard stamina={character.stamina} wallet={character.wallet} />
+        <ResourcesCard stamina={character.stamina} fightPoints={character.fightPoints} wallet={character.wallet} />
         <div className={WIDE_CARD}>
           <BackpackCard backpack={EMPTY_BACKPACK} />
         </div>

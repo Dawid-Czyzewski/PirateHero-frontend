@@ -34,7 +34,7 @@ function npcOf(value: unknown): Fight["npc"] | null {
 }
 
 export function parseFight(body: unknown): Fight | null {
-  if (!isObject(body) || !isSide(body.winner) || typeof body.knockout !== "boolean" || !isCount(body.staminaCost)) return null;
+  if (!isObject(body) || !isSide(body.winner) || typeof body.knockout !== "boolean" || !isCount(body.fightPointCost)) return null;
 
   const player = fighterOf(body.player);
   const npc = npcOf(body.npc);
@@ -43,5 +43,5 @@ export function parseFight(body: unknown): Fight | null {
   const level = countsOf(body.level, ["before", "after"] as const);
   if (!player || !npc || !rounds || !reward || !level) return null;
 
-  return { player, npc, winner: body.winner, knockout: body.knockout, rounds, reward, level, staminaCost: body.staminaCost };
+  return { player, npc, winner: body.winner, knockout: body.knockout, rounds, reward, level, fightPointCost: body.fightPointCost };
 }

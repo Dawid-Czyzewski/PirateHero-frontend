@@ -1,9 +1,10 @@
-import type { CharacterSheet, Stamina, StatKey } from "@/modules/character/characterSheet";
+import type { CharacterSheet, StatKey } from "@/modules/character/characterSheet";
+import { STAMINA_SECONDS_PER_POINT, waitHint, type RegenPool } from "@/modules/character/regenPool";
 import type { TrainingFailure } from "@/modules/character/trainStat";
 
 export const TRAINING_COST = 10;
 
-export const STAMINA_SECONDS_PER_POINT = 180;
+export const TRAINING_GAIN = 1;
 
 export const TRAINING_ACTION_LABEL = `Trenuj (-${TRAINING_COST} Kondychy)`;
 
@@ -14,34 +15,13 @@ export const TRAINING_ERRORS: Record<TrainingFailure, string> = {
   unexpected: "Serwer ma chwilowy problem. Spróbuj ponownie za moment.",
 };
 
-export function canAffordTraining(stamina: Stamina): boolean {
+export function canAffordTraining(stamina: RegenPool): boolean {
   return stamina.current >= TRAINING_COST;
 }
 
-export function secondsUntilStamina(stamina: Stamina, required: number): number | null {
-  const missing = required - stamina.current;
-  if (missing <= 0) return 0;
-  if (stamina.nextPointInSeconds === null) return null;
-  return stamina.nextPointInSeconds + (missing - 1) * STAMINA_SECONDS_PER_POINT;
+export function trainingWaitHint(stamina: RegenPool): string | null {
+  return waitHint(stamina, TRAINING_COST, STAMINA_SECONDS_PER_POINT, "Wystarczy Kondychy za");
 }
-
-export function formatCountdown(totalSeconds: number): string {
-  const seconds = Math.max(0, Math.ceil(totalSeconds));
-  const minutes = Math.floor(seconds / 60);
-  return `${minutes}:${String(seconds % 60).padStart(2, "0")}`;
-}
-
-export function staminaWaitHint(stamina: Stamina, required: number): string | null {
-  const seconds = secondsUntilStamina(stamina, required);
-  if (seconds === null || seconds <= 0) return null;
-  return `Wystarczy Kondychy za ${formatCountdown(seconds)}`;
-}
-
-export function trainingWaitHint(stamina: Stamina): string | null {
-  return staminaWaitHint(stamina, TRAINING_COST);
-}
-
-export const TRAINING_GAIN = 1;
 
 function shiftTraining(character: CharacterSheet, stat: StatKey, direction: 1 | -1): CharacterSheet {
   const { stamina } = character;

@@ -17,7 +17,7 @@ const GREEN_DISTANCE = 90;
 const SPILL_OPAQUE = 30;
 const SPILL_CLEAR = 100;
 const ALPHA_FLOOR = 16;
-const INK_MARGIN = 120;
+const INK_DISTANCE = 200;
 
 const SHEETS = {
   "01-cialo-skora": { prefix: "cialo", count: 5, grid: null },
@@ -33,6 +33,9 @@ const SINGLES = [
   { file: "09-naglowek-postac.jpg", out: "naglowek-postac", kind: "banner", trim: true },
   { file: "09-naglowek-trening.png", out: "naglowek-trening", kind: "title", trim: true },
   { file: "10-tlo-oktagonu.png", out: "tlo-oktagonu", kind: "scene" },
+  { file: "10-naglowek-oktagon.png", out: "naglowek-oktagon", kind: "title", trim: true },
+  { file: "10-napis-wygrana.png", out: "napis-wygrana", kind: "title", trim: true },
+  { file: "10-napis-przegrana.png", out: "napis-przegrana", kind: "title", trim: true },
 ];
 
 const ICONS = [
@@ -186,7 +189,7 @@ function inkColor(data) {
   const sum = [0, 0, 0];
   let count = 0;
   for (let i = 0; i < data.length; i += 4) {
-    if (data[i + 1] - Math.max(data[i], data[i + 2]) > -INK_MARGIN) continue;
+    if (isGreen(data[i], data[i + 1], data[i + 2], INK_DISTANCE)) continue;
     sum[0] += data[i];
     sum[1] += data[i + 1];
     sum[2] += data[i + 2];

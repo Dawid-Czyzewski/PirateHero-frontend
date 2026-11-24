@@ -7,6 +7,7 @@ export const ROUND_MS = 800;
 
 export type FightPlayback = {
   round: FightRound | null;
+  revealed: FightRound[];
   playerHp: number;
   npcHp: number;
   finished: boolean;
@@ -29,6 +30,7 @@ export function useFightPlayback(fight: Fight, stepMs: number = ROUND_MS): Fight
 
   return {
     round,
+    revealed: fight.rounds.slice(0, shown),
     playerHp: round?.playerHp ?? fight.player.maxHp,
     npcHp: round?.npcHp ?? fight.npc.fighter.maxHp,
     finished,

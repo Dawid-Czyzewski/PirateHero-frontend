@@ -36,6 +36,7 @@ describe("useFightPlayback", () => {
       vi.advanceTimersByTime(1);
     });
     expect(result.current).toMatchObject({ round: FIGHT_AGAINST_KOSA.rounds[0], playerHp: 15, npcHp: 12 });
+    expect(result.current.revealed).toEqual([FIGHT_AGAINST_KOSA.rounds[0]]);
 
     advanceRound();
     expect(result.current).toMatchObject({ round: FIGHT_AGAINST_KOSA.rounds[1], playerHp: 12, npcHp: 12, finished: true });
@@ -58,6 +59,7 @@ describe("useFightPlayback", () => {
     act(() => result.current.skip());
 
     expect(result.current).toMatchObject({ round: FIGHT_AGAINST_KOSA.rounds[1], finished: true, playerHp: 12, npcHp: 12 });
+    expect(result.current.revealed).toEqual(FIGHT_AGAINST_KOSA.rounds);
     expect(vi.getTimerCount()).toBe(0);
   });
 });

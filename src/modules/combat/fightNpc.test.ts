@@ -26,7 +26,7 @@ describe("fightNpc", () => {
 
   it.each<[string, ApiResult, FightNpcResult]>([
     ["unknown opponent", respond(404), { kind: "failure", reason: "not-found" }],
-    ["missing stamina", respond(409), { kind: "failure", reason: "no-stamina" }],
+    ["missing stamina", respond(409), { kind: "failure", reason: "no-fight-points" }],
     ["rejected id", respond(422), { kind: "failure", reason: "invalid" }],
     ["server error", respond(500), { kind: "failure", reason: "unexpected" }],
     ["fight without rounds", respond(200, { ...FIGHT_AGAINST_KOSA, rounds: [] }), { kind: "failure", reason: "unexpected" }],
@@ -41,7 +41,7 @@ describe("fightNpc", () => {
 
   it("explains every failure in Polish", () => {
     expect(Object.values(FIGHT_ERRORS).every((message) => message.length > 0)).toBe(true);
-    expect(FIGHT_ERRORS["no-stamina"]).toMatch(/Kondychy/);
+    expect(FIGHT_ERRORS["no-fight-points"]).toMatch(/punktów walki/);
   });
 
   it("tells who won and whether the player levelled up", () => {

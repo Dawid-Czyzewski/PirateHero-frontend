@@ -55,6 +55,33 @@ describe("FightArena", () => {
     expect(screen.queryByRole("heading", { name: "Wygrana" })).not.toBeInTheDocument();
   });
 
+  it("grows the fight log with each revealed blow, newest first", () => {
+    renderArena();
+    expect(screen.queryByRole("list")).not.toBeInTheDocument();
+
+    nextRound();
+    const log = within(screen.getByRole("region", { name: "Historia walki" }));
+    expect(log.getAllByRole("listitem").map((item) => item.textContent)).toEqual(["Runda 1: Cebulak → Kosa: -3. HP: Cebulak 15, Kosa 12"]);
+
+    nextRound();
+    expect(log.getAllByRole("listitem").map((item) => item.textContent)).toEqual([
+      "Runda 2: Kosa → Cebulak: -3. HP: Cebulak 12, Kosa 12K.O.!",
+      "Runda 1: Cebulak → Kosa: -3. HP: Cebulak 15, Kosa 12",
+    ]);
+  });
+
+  it("shows the whole fight log when skipped and keeps the round banner quiet", () => {
+    renderArena();
+
+    act(() => screen.getByRole("button", { name: "Pomiń" }).click());
+
+    const log = within(screen.getByRole("region", { name: "Historia walki" }));
+    expect(log.getByRole("list").tagName).toBe("OL");
+    expect(log.getAllByRole("listitem")).toHaveLength(2);
+    expect(log.getByText("K.O.!")).toBeInTheDocument();
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+  });
+
   it("keeps exactly one avatar per fighter while rounds play", () => {
     const { container } = renderArena();
 
@@ -70,8 +97,8 @@ describe("FightArena", () => {
     nextRound();
     nextRound();
 
-    expect(screen.getByText("K.O.!")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Wygrana" })).toBeInTheDocument();
+    expect(screen.getByText("K.O.!", { selector: "p" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Wygrana" }).querySelector("img")?.getAttribute("src")).toContain("napis-wygrana");
     expect(screen.getByText("+25")).toBeInTheDocument();
     expect(screen.getByText("+15")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Pomiń" })).not.toBeInTheDocument();
@@ -83,7 +110,7 @@ describe("FightArena", () => {
 
     act(() => screen.getByRole("button", { name: "Pomiń" }).click());
 
-    expect(screen.getByRole("heading", { name: "Przegrana" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Przegrana" }).querySelector("img")?.getAttribute("src")).toContain("napis-przegrana");
     expect(screen.getByText("Awans! Poziom 2")).toBeInTheDocument();
     expect(screen.queryByText("K.O.!")).not.toBeInTheDocument();
     expect(onSettled).toHaveBeenCalledTimes(1);

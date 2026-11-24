@@ -25,6 +25,7 @@ const CHARACTER: CharacterSheet = {
   experience: { current: 0, required: 100 },
   stats: { strength: 1, endurance: 1, technique: 1, charisma: 1 },
   stamina: { current: 100, max: 100, nextPointInSeconds: null },
+  fightPoints: { current: 10, max: 10, nextPointInSeconds: null },
   wallet: { onions: 0, goldTeeth: 0, reach: 0, medals: 0 },
   appearance: { face: 0, hair: 0, beard: 0, skin: 0, tattoo: 0 },
 };
@@ -34,6 +35,7 @@ const SERVER_AFTER_ENDURANCE: CharacterSheet = {
   maxHp: 25,
   stats: { ...CHARACTER.stats, endurance: 2 },
   stamina: { current: 90, max: 100, nextPointInSeconds: 178 },
+  fightPoints: { current: 10, max: 10, nextPointInSeconds: null },
 };
 
 function wrapper({ children }: { children: ReactNode }) {

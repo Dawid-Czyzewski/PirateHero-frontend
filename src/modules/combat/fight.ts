@@ -23,10 +23,14 @@ export type Fight = {
   rounds: FightRound[];
   reward: FightReward;
   level: { before: number; after: number };
-  staminaCost: number;
+  fightPointCost: number;
 };
 
-export const FIGHT_STAMINA_COST = 0;
+export const FIGHT_POINT_COST = 1;
+
+export const FIGHT_COST_LABEL = `-${FIGHT_POINT_COST} pkt walki`;
+
+export const FIGHT_ACTION_LABEL = `Walcz (${FIGHT_COST_LABEL})`;
 
 export function playerWon(fight: Fight): boolean {
   return fight.winner === "player";

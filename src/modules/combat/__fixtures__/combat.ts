@@ -39,5 +39,5 @@ export const FIGHT_AGAINST_KOSA: Fight = {
   ],
   reward: { experience: 25, onions: 15 },
   level: { before: 1, after: 1 },
-  staminaCost: 0,
+  fightPointCost: 1,
 };
